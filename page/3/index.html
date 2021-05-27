@@ -1,0 +1,956 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="fanlumaster">
+  <meta name="keywords" content="">
+  
+  <title>Fanlumaster&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":90,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fanlumaster's Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/78316639_p02.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="我欲穿花寻路，直入白云深处，浩气展虹霓。">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/04/27/%E6%B1%82%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E7%9A%84-Strassen-%E7%AE%97%E6%B3%95/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png" srcset="/img/loading.gif" lazyload alt="求矩阵乘法的 Strassen 算法之 Python 实现（《算法导论》）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/27/%E6%B1%82%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E7%9A%84-Strassen-%E7%AE%97%E6%B3%95/" target="_self">
+          求矩阵乘法的 Strassen 算法之 Python 实现（《算法导论》）
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/27/%E6%B1%82%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95%E7%9A%84-Strassen-%E7%AE%97%E6%B3%95/" target="_self">
+          
+          
+            
+          
+          算法设计与分析实验二
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-27 21:36" pubdate>
+              2021-04-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/">《算法导论》</a>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/04/26/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91-%E5%BA%8F%E5%88%97%E6%A3%80%E6%B5%8B%E5%99%A8%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png" srcset="/img/loading.gif" lazyload alt="数字逻辑--序列检测器相关问题整理">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/26/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91-%E5%BA%8F%E5%88%97%E6%A3%80%E6%B5%8B%E5%99%A8%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/" target="_self">
+          数字逻辑--序列检测器相关问题整理
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/26/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91-%E5%BA%8F%E5%88%97%E6%A3%80%E6%B5%8B%E5%99%A8%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/" target="_self">
+          
+          
+            
+          
+           
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-26 22:09" pubdate>
+              2021-04-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/">数字逻辑</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/">数字逻辑</a>
+            
+              <a href="/tags/%E5%BE%85-refactor/">待 refactor</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/04/26/%E5%B8%B8%E7%94%A8%E9%97%A8%E7%94%B5%E8%B7%AF%E7%AC%A6%E5%8F%B7%E5%8F%8A%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png" srcset="/img/loading.gif" lazyload alt="常用门电路符号及表达式">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/26/%E5%B8%B8%E7%94%A8%E9%97%A8%E7%94%B5%E8%B7%AF%E7%AC%A6%E5%8F%B7%E5%8F%8A%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_self">
+          常用门电路符号及表达式
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/26/%E5%B8%B8%E7%94%A8%E9%97%A8%E7%94%B5%E8%B7%AF%E7%AC%A6%E5%8F%B7%E5%8F%8A%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_self">
+          
+          
+            
+          
+           
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-26 21:52" pubdate>
+              2021-04-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/">数字逻辑</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/">数字逻辑</a>
+            
+              <a href="/tags/%E5%BE%85-refactor/">待 refactor</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/04/26/Python-%E5%AE%9E%E7%8E%B0%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%88%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B%EF%BC%89/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png" srcset="/img/loading.gif" lazyload alt="Python 实现经典排序算法（《算法导论》）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/26/Python-%E5%AE%9E%E7%8E%B0%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%88%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B%EF%BC%89/" target="_self">
+          Python 实现经典排序算法（《算法导论》）
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/26/Python-%E5%AE%9E%E7%8E%B0%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%88%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B%EF%BC%89/" target="_self">
+          
+          
+            
+          
+          算法设计与分析实验一
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-26 13:14" pubdate>
+              2021-04-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/">《算法导论》</a>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90%E5%AE%9E%E9%AA%8C%E4%B8%80/">算法设计与分析实验一</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/04/25/%E8%A7%A3%E5%86%B3-Windows-%E5%91%BD%E4%BB%A4%E8%A1%8C%EF%BC%9A-cl-%E4%B8%8D%E6%98%AF%E5%86%85%E9%83%A8%E6%88%96%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png" srcset="/img/loading.gif" lazyload alt="解决 Windows 命令行：&#39;cl&#39; 不是内部或外部命令">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/25/%E8%A7%A3%E5%86%B3-Windows-%E5%91%BD%E4%BB%A4%E8%A1%8C%EF%BC%9A-cl-%E4%B8%8D%E6%98%AF%E5%86%85%E9%83%A8%E6%88%96%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4/" target="_self">
+          解决 Windows 命令行：&#39;cl&#39; 不是内部或外部命令
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/25/%E8%A7%A3%E5%86%B3-Windows-%E5%91%BD%E4%BB%A4%E8%A1%8C%EF%BC%9A-cl-%E4%B8%8D%E6%98%AF%E5%86%85%E9%83%A8%E6%88%96%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4/" target="_self">
+          
+          
+            
+          
+           
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-25 14:29" pubdate>
+              2021-04-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Bugs/">Bugs</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Bugs/">Bugs</a>
+            
+              <a href="/tags/C-%E8%AF%AD%E8%A8%80/">C 语言</a>
+            
+              <a href="/tags/Windows/">Windows</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/04/25/Linux-%E4%B8%AD%E7%9A%84-pthread-h-%E5%A4%B4%E6%96%87%E4%BB%B6/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png" srcset="/img/loading.gif" lazyload alt="Linux 中的 pthread.h 头文件（附源码）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/25/Linux-%E4%B8%AD%E7%9A%84-pthread-h-%E5%A4%B4%E6%96%87%E4%BB%B6/" target="_self">
+          Linux 中的 pthread.h 头文件（附源码）
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/25/Linux-%E4%B8%AD%E7%9A%84-pthread-h-%E5%A4%B4%E6%96%87%E4%BB%B6/" target="_self">
+          
+          
+            
+          
+           
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-25 01:10" pubdate>
+              2021-04-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Linux/">Linux</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/C/">C</a>
+            
+              <a href="/tags/Linux/">Linux</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/04/25/%E6%A0%87%E5%87%86-C-%E8%AF%AD%E8%A8%80%E5%A4%B4%E6%96%87%E4%BB%B6/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527222502.png" srcset="/img/loading.gif" lazyload alt="标准 C 语言头文件">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/25/%E6%A0%87%E5%87%86-C-%E8%AF%AD%E8%A8%80%E5%A4%B4%E6%96%87%E4%BB%B6/" target="_self">
+          标准 C 语言头文件
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/25/%E6%A0%87%E5%87%86-C-%E8%AF%AD%E8%A8%80%E5%A4%B4%E6%96%87%E4%BB%B6/" target="_self">
+          
+          
+            
+          
+          ISO C 标准定义的头文件（24 项）
+&lt;assert.h&gt; 验证程序断言
+
+&lt;complex.h&gt; 支持复数算术运算
+
+&lt;ctype.h&gt; 字符类型
+
+&lt;errno.h&gt; 出错码
+
+&lt;fenv.h&gt; 浮点环境
+
+&lt;float.h&gt; 浮点常量
+
+&lt;inttypes.h&gt; 整型格式转换
+
+&lt;iso646.h&
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-25 00:36" pubdate>
+              2021-04-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/C-%E8%AF%AD%E8%A8%80/">C 语言</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">Linux</a>
+            
+              <a href="/tags/C-%E8%AF%AD%E8%A8%80/">C 语言</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/04/22/%E5%85%B3%E4%BA%8E%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7%E5%8F%8A%E5%85%B6%E5%AF%B9%E4%BA%8E%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F%E7%9A%84%E5%BD%B1%E5%93%8D/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png" srcset="/img/loading.gif" lazyload alt="关于计数排序的稳定性及其对于基数排序的影响">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/22/%E5%85%B3%E4%BA%8E%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7%E5%8F%8A%E5%85%B6%E5%AF%B9%E4%BA%8E%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F%E7%9A%84%E5%BD%B1%E5%93%8D/" target="_self">
+          关于计数排序的稳定性及其对于基数排序的影响
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/22/%E5%85%B3%E4%BA%8E%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7%E5%8F%8A%E5%85%B6%E5%AF%B9%E4%BA%8E%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F%E7%9A%84%E5%BD%B1%E5%93%8D/" target="_self">
+          
+          
+            
+          
+          计数排序的稳定性理解
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-22 16:32" pubdate>
+              2021-04-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/">算法导论</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/">算法导论</a>
+            
+              <a href="/tags/%E6%8E%92%E5%BA%8F/">排序</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/04/21/%E9%9A%90%E8%97%8F%EF%BC%88%E5%8E%BB%E6%8E%89%EF%BC%89Hexo-%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%A7%E8%A1%8C-hexo-d-%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84-warning-LF-will-be-replaced-by-CRLF-%E8%AD%A6%E5%91%8A%E4%BF%A1%E6%81%AF/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png" srcset="/img/loading.gif" lazyload alt="隐藏（去掉）Hexo 命令行执行 hexo d 时出现的 warning LF will be replaced by CRLF 警告信息">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/21/%E9%9A%90%E8%97%8F%EF%BC%88%E5%8E%BB%E6%8E%89%EF%BC%89Hexo-%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%A7%E8%A1%8C-hexo-d-%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84-warning-LF-will-be-replaced-by-CRLF-%E8%AD%A6%E5%91%8A%E4%BF%A1%E6%81%AF/" target="_self">
+          隐藏（去掉）Hexo 命令行执行 hexo d 时出现的 warning LF will be replaced by CRLF 警告信息
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/21/%E9%9A%90%E8%97%8F%EF%BC%88%E5%8E%BB%E6%8E%89%EF%BC%89Hexo-%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%A7%E8%A1%8C-hexo-d-%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84-warning-LF-will-be-replaced-by-CRLF-%E8%AD%A6%E5%91%8A%E4%BF%A1%E6%81%AF/" target="_self">
+          
+          
+            
+          
+           
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-21 22:14" pubdate>
+              2021-04-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Git/">Git</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Git/">Git</a>
+            
+              <a href="/tags/Hexo/">Hexo</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/04/14/%E6%9B%B4%E6%94%B9-VSCode-%E7%9A%84%E7%BC%A9%E8%BF%9B%E7%A9%BA%E6%A0%BC%E6%95%B0/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png" srcset="/img/loading.gif" lazyload alt="更改 VSCode 的缩进空格数">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/14/%E6%9B%B4%E6%94%B9-VSCode-%E7%9A%84%E7%BC%A9%E8%BF%9B%E7%A9%BA%E6%A0%BC%E6%95%B0/" target="_self">
+          更改 VSCode 的缩进空格数
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/14/%E6%9B%B4%E6%94%B9-VSCode-%E7%9A%84%E7%BC%A9%E8%BF%9B%E7%A9%BA%E6%A0%BC%E6%95%B0/" target="_self">
+          
+          
+            
+          
+           
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-14 13:35" pubdate>
+              2021-04-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Bugs/">Bugs</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Bugs/">Bugs</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#board">8</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
