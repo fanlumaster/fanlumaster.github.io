@@ -18,7 +18,7 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-  <title>操作系统之常用的页面淘汰算法(未竟) - Fan Lu&#39;s Blog</title>
+  <title>LaTex 数学公式花括号右侧数学公式每行保持左对齐 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -158,12 +158,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210531151202.png') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601002118.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="操作系统之常用的页面淘汰算法(未竟)">
+            <span class="h2" id="subtitle" title="LaTex 数学公式花括号右侧数学公式每行保持左对齐">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-31 14:48" pubdate>
-        2021年5月31日 下午
+      <time datetime="2021-06-01 00:23" pubdate>
+        2021年6月1日 凌晨
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      344 字
+      229 字
     </span>
   
 
@@ -233,28 +233,34 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">操作系统之常用的页面淘汰算法(未竟)</h1>
+            <h1 style="display: none">LaTex 数学公式花括号右侧数学公式每行保持左对齐</h1>
             
             <div class="markdown-body">
-              <h2 id="最佳算法-OPT-算法-Optimal"><a href="#最佳算法-OPT-算法-Optimal" class="headerlink" title="最佳算法(OPT 算法, Optimal)"></a>最佳算法(OPT 算法, Optimal)</h2><h3 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h3><ul>
-<li>淘汰不再需要或最远将来才会用到的页面.</li>
-</ul>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>分配 3 个页框. 页面序列: A, B, C, D, A, B, E, A, B, C, D, E. 分析其按照 OPT 算法淘汰页面的缺页情况.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210531145159.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>缺页次数 = 7　　　缺页率 = 7 / 12 = 58%</p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>理论上最佳, 实践中该算法无法实现.</p>
-<h2 id="先进先出淘汰算法-FIFO-算法"><a href="#先进先出淘汰算法-FIFO-算法" class="headerlink" title="先进先出淘汰算法(FIFO 算法)"></a>先进先出淘汰算法(FIFO 算法)</h2><h3 id="思想-1"><a href="#思想-1" class="headerlink" title="思想"></a>思想</h3><p>淘汰在内存中停留时间最长的页面</p>
-<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>分配 3 个页框. 页面序列: A, B, C, D, A, B, E, A, B, C, D, E. 分析其按照 FIFO 算法淘汰页面的缺页情况.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210531150119.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>缺页次数 = 9　　　缺页率 = 9 / 12 = 75%</p>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>实现简单: 页面按进入内存的时间顺序排序, 淘汰队头页面.</p>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>进程只有按顺序访问地址空间时页面命中率才最理想.</p>
-<h3 id="异常现象"><a href="#异常现象" class="headerlink" title="异常现象"></a>异常现象</h3><p>对于一些特定的访问序列, 分配页框越多, 缺页率越高!</p>
-<h2 id="最久未使用淘汰算法-LRU-Least-Recently-Used"><a href="#最久未使用淘汰算法-LRU-Least-Recently-Used" class="headerlink" title="最久未使用淘汰算法(LRU, Least Recently Used)"></a>最久未使用淘汰算法(LRU, Least Recently Used)</h2><h3 id="思想-2"><a href="#思想-2" class="headerlink" title="思想"></a>思想</h3><p>淘汰最长时间未被使用的页面.</p>
-<h3 id="例子-2"><a href="#例子-2" class="headerlink" title="例子"></a>例子</h3><p>分配 3 个页框. 页面序列: A, B, C, D, A, B, E, A, B, C, D, E. 分析其按照 LRU 算法淘汰页面的缺页情况.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210531150753.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>缺页次数 = 10　　　缺页率 = 10 / 12 = 83%</p>
-<h3 id="LRU-的实现方法-硬件方法"><a href="#LRU-的实现方法-硬件方法" class="headerlink" title="LRU 的实现方法(硬件方法)"></a>LRU 的实现方法(硬件方法)</h3>
+              <h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$<br>m[i, j] = <br>\left\&#123;<br>\begin&#123;matrix&#125;<br>\begin&#123;align&#125;<br>&amp; 0 &amp; if \quad i = j \\<br>&amp; min\&#123;m[i, k] + m[k + 1, j] + p_&#123;i - 1&#125; p_k p_j\&#125; &amp; if \quad i &lt; j \\<br>\end&#123;align&#125;<br>\end&#123;matrix&#125;<br>\right.<br>$$<br></code></pre></div></td></tr></table></figure>
+<p>效果</p>
+<script type="math/tex; mode=display">
+m[i, j] = 
+\left\{
+\begin{matrix}
+\begin{align}
+& 0 & if \quad i = j \\
+& min\{m[i, k] + m[k + 1, j] + p_{i - 1} p_k p_j\} & if \quad i < j \\
+\end{align}
+\end{matrix}
+\right.</script><figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$<br>\left\&#123;<br>\begin&#123;matrix&#125;<br>\begin&#123;align&#125;<br>&amp; l_0(x_0) = 1, l_0(x_1) = 0, ..., l_0(x_n) = 0, \\<br>&amp; l_1(x_0) = 0, l_1(x_1) = 1, ..., l_1(x_n) = 0, \\<br>&amp; \cdots \cdots \\<br>&amp; l_n(x_0) = 0, l_n(x_1) = 0, ..., l_n(x_n) = 1. \\<br>\end&#123;align&#125;<br>\end&#123;matrix&#125;<br>\right. \qquad (6)<br>$$<br></code></pre></div></td></tr></table></figure>
+<p>效果</p>
+<script type="math/tex; mode=display">
+\left\{
+\begin{matrix}
+\begin{align}
+& l_0(x_0) = 1, l_0(x_1) = 0, ..., l_0(x_n) = 0, \\
+& l_1(x_0) = 0, l_1(x_1) = 1, ..., l_1(x_n) = 0, \\
+& \cdots \cdots \\
+& l_n(x_0) = 0, l_n(x_1) = 0, ..., l_n(x_n) = 1. \\
+\end{align}
+\end{matrix}
+\right. \qquad (6)</script><p>这里的关键是要把需要对齐的行包裹在 <code>\begin&#123;align&#125;</code> 和 <code>\end&#123;align&#125;</code> 内，然后使用对齐符号 <code>&amp;</code>。</p>
+
             </div>
             <hr>
             <div>
@@ -263,7 +269,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+                      <a class="hover-with-bg" href="/categories/LaTex/">LaTex</a>
                     
                   </div>
                 
@@ -271,9 +277,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%9C%AA%E7%AB%9F/">未竟</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+                      <a class="hover-with-bg" href="/tags/LaTex/">LaTex</a>
                     
                   </div>
                 
@@ -290,18 +294,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/06/01/LaTex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%B0%86%E4%B8%8B%E6%A0%87%E6%94%BE%E5%9C%A8%E6%AD%A3%E4%B8%8B%E6%96%B9%EF%BC%88%E4%B8%8A%E6%A0%87%E6%94%BE%E5%9C%A8%E6%AD%A3%E4%B8%8A%E6%96%B9%EF%BC%89/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LaTex 数学公式将下标放在正下方（上标放在正上方）</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/30/%E4%B8%BB%E5%AE%9A%E7%90%86%E4%B8%8E%E4%B8%BB%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/">
-                        <span class="hidden-mobile">主定理与主方法的使用</span>
+                      <a href="/2021/06/01/LaTex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%B0%86%E4%B8%8B%E6%A0%87%E6%94%BE%E5%9C%A8%E6%AD%A3%E4%B8%8B%E6%96%B9%EF%BC%88%E4%B8%8A%E6%A0%87%E6%94%BE%E5%9C%A8%E6%AD%A3%E4%B8%8A%E6%96%B9%EF%BC%89/">
+                        <span class="hidden-mobile">LaTex 数学公式将下标放在正下方（上标放在正上方）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
