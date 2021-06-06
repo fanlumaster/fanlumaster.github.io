@@ -30,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-dark.min.css" />
     
   
 
@@ -240,23 +240,23 @@
 <p>这里假设我们所有的准备工作都已经做好了，比如 npm 的安装、hexo 的安装等等。</p>
 </blockquote>
 <h2 id="基本部署"><a href="#基本部署" class="headerlink" title="基本部署"></a>基本部署</h2><p>执行下面的命令进行初始化。</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">hexo init<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo init<br></code></pre></td></tr></table></figure>
 <span id="more"></span>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210321221904.png" srcset="/img/loading.gif" lazyload alt="20210321221904"></p>
 <p>然后执行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">hexo g<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo g<br></code></pre></td></tr></table></figure>
 <p>生成静态文件，命令执行后文件夹如下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210321222053.png" srcset="/img/loading.gif" lazyload alt="20210321222053"></p>
 <p>然后，执行 <code>hexo s</code> 命令，在本地浏览器预览一下</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210321222858.png" srcset="/img/loading.gif" lazyload alt="20210321222858"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210321222821.png" srcset="/img/loading.gif" lazyload alt="20210321222821"></p>
 <p>之后，配置根目录下的 <code>_config.yml</code> 文件</p>
-<figure class="highlight yml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repository:</span> <span class="hljs-string">git@github.com:fanlumaster/fanlumaster.github.io.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repository:</span> <span class="hljs-string">git@github.com:fanlumaster/fanlumaster.github.io.git</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210321222711.png" srcset="/img/loading.gif" lazyload alt="20210321222711"></p>
 <h3 id="安装插件和部署到-Github"><a href="#安装插件和部署到-Github" class="headerlink" title="安装插件和部署到 Github"></a>安装插件和部署到 Github</h3><p>安装插件命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">npm install hexo-deployer-git --save<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure>
 <p>部署命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">hexo d<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo d<br></code></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210321224721.png" srcset="/img/loading.gif" lazyload alt="20210321224721"></p>
 <p>可以访问 <a target="_blank" rel="noopener" href="https://fanlumaster.github.io">https://fanlumaster.github.io</a> 来检验是否部署成功，下面是部署成功的页面</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210321224948.png" srcset="/img/loading.gif" lazyload alt="20210321224948"></p>
@@ -264,7 +264,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210322002245.png" srcset="/img/loading.gif" lazyload alt="20210322002245"></p>
 <p>发现多了好多文件，到这里，基本的部署就完成了，接下来就是要学习如何美化博客了。</p>
 <h2 id="美化博客"><a href="#美化博客" class="headerlink" title="美化博客"></a>美化博客</h2><p>首先，我们选择的是 <code>NextT</code> 主题，第一步，先将其代码克隆到根目录下的 themes 文件夹下</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next<br></code></pre></td></tr></table></figure>
 <p>这里要注意，这个仓库名是最新的，以前有些博客搭建教程上的已经过期。</p>
 <p>这里我们使用 git 的好处是之后的更新可以使用 <code>git pull</code> 来快速更新。</p>
 <p>然后，启用主题。打开根目录下站点配置文件 <code>_config.yml</code>，找到 <code>theme</code> 字段，并将其值更改为 <code>next</code>，如下</p>
@@ -278,7 +278,7 @@
 <p>注意，这里有一个<strong>坑</strong>，修改主题的 <code>_config.yml</code> 配置时，这里是更换 <code>scheme</code>，没有将原来的 <code>scheme</code> 给注释掉，导致会出现 <code>ERROR Theme config load failed.</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210321232200.png" srcset="/img/loading.gif" lazyload alt="20210321232200"></p>
 <p>解决完坑之后，我们重新执行那三条指令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">hexo clean<br>hexo g <span class="hljs-comment"># 生成静态文件</span><br>hexo s <span class="hljs-comment"># 生成本地预览</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br>hexo g <span class="hljs-comment"># 生成静态文件</span><br>hexo s <span class="hljs-comment"># 生成本地预览</span><br></code></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210321233034.png" srcset="/img/loading.gif" lazyload alt="20210321233034"></p>
 <p>到这里，主题就更换成功了。</p>
 <h4 id="配置站点信息"><a href="#配置站点信息" class="headerlink" title="配置站点信息"></a>配置站点信息</h4><p>打开站点根目录下的 <code>_config.yml</code>，设置如下内容</p>
@@ -295,7 +295,7 @@
 </ul>
 <p>其中，language 一定要设置为主题能够识别的语言（不然中文可能出现乱码），在 <code>\themes\next\languages\</code> 中可以找到，中文有两种格式，<code>zh-CN</code>、<code>zh-hk</code>、<code>zh-tw</code> 可选。</p>
 <h2 id="高级配置"><a href="#高级配置" class="headerlink" title="高级配置"></a>高级配置</h2><h4 id="创建一篇博文"><a href="#创建一篇博文" class="headerlink" title="创建一篇博文"></a>创建一篇博文</h4><p>执行如下命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">hexo new <span class="hljs-string">&#x27;blog_name&#x27;</span> <span class="hljs-comment"># blog_name 填入文章名称</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new <span class="hljs-string">&#x27;blog_name&#x27;</span> <span class="hljs-comment"># blog_name 填入文章名称</span><br></code></pre></td></tr></table></figure>
 <p>Hexo 会帮我们在 <code>..\source\_posts</code> 下生成相关 <code>md</code> 文件</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210321234534.png" srcset="/img/loading.gif" lazyload alt="20210321234534"></p>
 <h4 id="config-yml-文件"><a href="#config-yml-文件" class="headerlink" title="_config.yml 文件"></a>_config.yml 文件</h4><p>网站配置信息，也就是本文所称的<strong>站点配置文件</strong>，可以在此配置大部分的参数。我们之前也在这个文件里面配置了一些基本的配置。</p>

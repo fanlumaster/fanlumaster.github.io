@@ -30,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-dark.min.css" />
     
   
 
@@ -238,8 +238,8 @@
             <div class="markdown-body">
               <p>因为要在 Windows 上做操作系统原理的 C 语言实验，同时不愿意开一个笨重的 VS2019 来写一个简单的程序，遂决定在像 Linux 一样，在命令编译运行 C 语言程序，无奈根据微软官方文档的指示，命令行敲入 <code>cl</code> 后出现了 “‘cl’ 不是内部或外部命令” 的信息，不过这种情况的解决方案一般就是找到相关的 <code>exe</code> 文件所在的文件路径，然后将其添加到系统高级环境变量的 PATH 中即可。</p>
 <p>下面是我的 <code>cl.exe</code> 文件所在的路径，根据你安装 VS2019 时选择的路径，路径会稍微不同，不过大同小异就是了</p>
-<div class="hljs code-wrapper"><pre><code>D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx64\x64
-</code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210425143545.png" srcset="/img/loading.gif" lazyload alt="20210425143545"></p>
+<pre><code>D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx64\x64
+</code></pre><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210425143545.png" srcset="/img/loading.gif" lazyload alt="20210425143545"></p>
 <p>将这个路径添加到系统高级环境变量中的 Path 中之后，再次在命令行敲入 <code>cl</code>，成功输出正常的提示信息</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210425143751.png" srcset="/img/loading.gif" lazyload alt="20210425143751"></p>
 
