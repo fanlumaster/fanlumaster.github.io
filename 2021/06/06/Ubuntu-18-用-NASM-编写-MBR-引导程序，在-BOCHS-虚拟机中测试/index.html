@@ -30,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-dark.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
     
   
 
@@ -52,6 +52,10 @@
 <link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
 
 
   <script id="fluid-configs">
@@ -245,27 +249,27 @@
 <li>Bochs-2.6.11</li>
 </ul>
 <h2 id="安装-Bochs"><a href="#安装-Bochs" class="headerlink" title="安装 Bochs"></a>安装 Bochs</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>为了运行 Bochs，首先，我们需要安装一些必要的依赖，所有的安装命令如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo apt-get install build-essential <br>$ sudo apt-get install xorg-dev <br>$ sudo apt-get install bison <br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo apt-get install build-essential <br>$ sudo apt-get install xorg-dev <br>$ sudo apt-get install bison <br></code></pre></div></td></tr></table></figure>
 <h3 id="下载并解压安装包，并安装"><a href="#下载并解压安装包，并安装" class="headerlink" title="下载并解压安装包，并安装"></a>下载并解压安装包，并安装</h3><p>这里没有直接使用 <code>sudo apt-get install bochs</code> 的原因是我们还需要安装 Bochs 的调试功能。</p>
 <p>1、首先，下载 Bochs-2.6.11.tar.gz(<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/bochs/files/bochs/2.6.11/">下载链接</a>)</p>
 <p>2、然后，我们在压缩包放置的目录中进行解压操作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ tar zxvf bochs-2.6.11.tar.gz<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ tar zxvf bochs-2.6.11.tar.gz<br></code></pre></div></td></tr></table></figure>
 <p>3、进入解压后的目录，然后执行命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ ./configure --enable-debugger --enable-disasm<br>$ make<br>$ sudo make install<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ ./configure --enable-debugger --enable-disasm<br>$ make<br>$ sudo make install<br></code></pre></div></td></tr></table></figure>
 <p>直到这里，我是没有遇到问题的。</p>
 <h3 id="错误解决"><a href="#错误解决" class="headerlink" title="错误解决"></a>错误解决</h3><p>然后，我们测试是否安装成功，我们在终端输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ bochs<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ bochs<br></code></pre></div></td></tr></table></figure>
 <p>这里我是遇到了两个错误，如下</p>
 <p>1、<code>cpu directive malformed</code> 问题</p>
 <p>解决办法：</p>
-<pre><code>1. bochs -help cpu
+<div class="hljs code-wrapper"><pre><code>1. bochs -help cpu
 这个命令将显示出所有支持的 CPU 类型
 2. 修改 .bochsrc 文件中的 cpu:model=core2+penryn+t9600 为 cup:model=上一条查到的所支持的 CPU 类型之一
-</code></pre><p>2、<code>.bochsrc:926: Bochs is not compiled with lowlevel sound support.</code></p>
+</code></pre></div><p>2、<code>.bochsrc:926: Bochs is not compiled with lowlevel sound support.</code></p>
 <p>解决办法：</p>
-<pre><code>在 .bochsrc 文件中删除 sound 配置即可
-</code></pre><p>解决了问题之后，再重新输入 <code>bochs</code> 命令，发现已经安装成功了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210419134701.png" srcset="/img/loading.gif" lazyload alt="20210419134701"></p>
+<div class="hljs code-wrapper"><pre><code>在 .bochsrc 文件中删除 sound 配置即可
+</code></pre></div><p>解决了问题之后，再重新输入 <code>bochs</code> 命令，发现已经安装成功了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210419134701.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <h2 id="制作最简单的操作系统"><a href="#制作最简单的操作系统" class="headerlink" title="制作最简单的操作系统"></a>制作最简单的操作系统</h2><p>首先，我们</p>
 
             </div>

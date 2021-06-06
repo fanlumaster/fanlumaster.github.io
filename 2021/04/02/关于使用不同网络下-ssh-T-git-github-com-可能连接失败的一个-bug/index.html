@@ -30,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-dark.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
     
   
 
@@ -52,6 +52,10 @@
 <link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
 
 
   <script id="fluid-configs">
@@ -238,7 +242,7 @@
             <div class="markdown-body">
               <p>今天遇到一个奇怪的错误。</p>
 <p>今天在同学租的房子里，使用房东的 WiFi，然后在执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -T git@github.com<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">ssh -T git@github.com<br></code></pre></div></td></tr></table></figure>
 <p>时出现连接超时的情况。真是日了狗了。</p>
 <p>因为这个错误，我无法使用 <code>hexo d</code> 命令，导致我以为是今天使用 WebStorm 打开博客根目录然后 WebStorm 给文件根目录加了一个 <code>.idea</code> 文件的缘故，然后我又重新配置了 GitHub 的 SSH 相关内容，因为我在同一台电脑上搭建了两个 Hexo 博客，工作量可想而知，真是日了狗了！！！</p>
 <p>然后重新配置好了 SSH 之后，测试刚刚那个命令结果还是超时，我日，然后，我将网络换成手机的热点，日了狗了，好了，可以连上了！干你娘！竟然是网络的问题，亏我还给 Git 配置了代理。哔了狗了。</p>

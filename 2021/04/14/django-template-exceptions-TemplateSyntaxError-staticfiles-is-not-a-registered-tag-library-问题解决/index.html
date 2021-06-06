@@ -30,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-dark.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
     
   
 
@@ -52,6 +52,10 @@
 <link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
 
 
   <script id="fluid-configs">
@@ -237,12 +241,12 @@
             
             <div class="markdown-body">
               <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>Django 在加载静态文件时报了一个错误</p>
-<pre><code>django.template.exceptions.TemplateSyntaxError: staticfiles is not a registered tag library.
-</code></pre><p>导致加载不出来 html 页面</p>
+<div class="hljs code-wrapper"><pre><code>django.template.exceptions.TemplateSyntaxError: staticfiles is not a registered tag library.
+</code></pre></div><p>导致加载不出来 html 页面</p>
 <h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>把模板文件（即 html 文件）中的</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;% load staticfiles %&#125;<br>&#123;% load static from staticfiles %&#125;<br>&#123;% load admin_static %&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html">&#123;% load staticfiles %&#125;<br>&#123;% load static from staticfiles %&#125;<br>&#123;% load admin_static %&#125;<br></code></pre></div></td></tr></table></figure>
 <p>改成</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;% load static %&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html">&#123;% load static %&#125;<br></code></pre></div></td></tr></table></figure>
 <p>按：出现这样原因其实是版本的问题，现在用的是 Django 3.0 版本，而之前则是 Django 2.0。</p>
 
             </div>

@@ -30,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-dark.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
     
   
 
@@ -52,6 +52,10 @@
 <link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
 
 
   <script id="fluid-configs">
@@ -240,7 +244,7 @@
 <p>部分 Unicode 码如下</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210331004349.png" srcset="/img/loading.gif" lazyload alt="20210331004349"></p>
 <p>下面是 Java 中打印通过 Unicode 码赋值的 char 类型变量</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>    <span class="hljs-keyword">char</span> a = <span class="hljs-string">&#x27;\u0000&#x27;</span>;<br>    <span class="hljs-keyword">char</span> b = <span class="hljs-string">&#x27;\u0040&#x27;</span>;<br>    <span class="hljs-keyword">char</span> c = <span class="hljs-string">&#x27;\u0041&#x27;</span>;<br>    System.out.println(a);<br>    System.out.println(b);<br>    System.out.println(c);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>    <span class="hljs-keyword">char</span> a = <span class="hljs-string">&#x27;\u0000&#x27;</span>;<br>    <span class="hljs-keyword">char</span> b = <span class="hljs-string">&#x27;\u0040&#x27;</span>;<br>    <span class="hljs-keyword">char</span> c = <span class="hljs-string">&#x27;\u0041&#x27;</span>;<br>    System.out.println(a);<br>    System.out.println(b);<br>    System.out.println(c);<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <p>输出为</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210331005101.png" srcset="/img/loading.gif" lazyload alt="20210331005101"></p>
 

@@ -30,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-dark.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
     
   
 
@@ -52,6 +52,10 @@
 <link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
 
 
   <script id="fluid-configs">
@@ -241,13 +245,13 @@
 <p>首先查看我们使用的 “相关” 软件的端口设置：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210223012913.png" srcset="/img/loading.gif" lazyload alt="20210223012913"></p>
 <p>然后在 Git Bash 中敲入设置全局代理的命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global http.proxy <span class="hljs-string">&#x27;socks5://127.0.0.1:4781&#x27;</span><br>git config --global https.proxy <span class="hljs-string">&#x27;socks5://127.0.0.1:4781&#x27;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git config --global http.proxy <span class="hljs-string">&#x27;socks5://127.0.0.1:4781&#x27;</span><br>git config --global https.proxy <span class="hljs-string">&#x27;socks5://127.0.0.1:4781&#x27;</span><br></code></pre></div></td></tr></table></figure>
 <p>上面的命令，一个是设置 http，另一个是设置 https。</p>
 <p>设置完之后 git clone 一个仓库进行测试，发现速度飙到了 5.5 mb/s，而原来的速度是只有十几 kb/s 的。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210223012957.png" srcset="/img/loading.gif" lazyload alt="20210223012957"></p>
 <p>记录遇到的坑：</p>
 <p>一开始我是使用的命令是：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global http.proxy <span class="hljs-string">&#x27;http://127.0.0.1:4780&#x27;</span><br>git config --global https.proxy <span class="hljs-string">&#x27;https://127.0.0.1:4780&#x27;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git config --global http.proxy <span class="hljs-string">&#x27;http://127.0.0.1:4780&#x27;</span><br>git config --global https.proxy <span class="hljs-string">&#x27;https://127.0.0.1:4780&#x27;</span><br></code></pre></div></td></tr></table></figure>
 <p>这里的端口就对应上面的 http(s) 端口，然而，几经测试，发现都是没有效果，最后换成了 socks5，问题才得到解决。</p>
 
             </div>

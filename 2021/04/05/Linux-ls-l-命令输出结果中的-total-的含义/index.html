@@ -30,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/github-dark.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
     
   
 
@@ -52,6 +52,10 @@
 <link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
 
 
   <script id="fluid-configs">
@@ -245,7 +249,7 @@
 <p>这是因为，Linux 中有一个概念，叫做 <code>Block</code>，我们可以把这个 <code>Block</code> 想象成一个容器，这个容器的容量是固定的，假设是 <code>unit_size</code>，那么，<code>total</code> 的算法是这样的，它会对每一个文件进行计算，根据文件的大小计算其需要多少个这样的容器，对于不满 <code>unit_size</code> 的我们要向上取整。注意，这里是每一个文件计算一次。</p>
 <p>下面，举一个具体的例子。</p>
 <p>我们首先执行一个命令，查看当前系统的 <code>Block Size</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">stat</span> -<span class="hljs-built_in">fc</span> %s .<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">stat</span> -<span class="hljs-built_in">fc</span> %s .<br></code></pre></div></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405225101.png" srcset="/img/loading.gif" lazyload alt="20210405225101"></p>
 <p>这里发现我的系统的 <code>Block Size</code> 为 4096，单位是字节，转换成 <code>KB</code> 也就是 <code>4KB</code>，那么，我们分别来计算上面列出来的文件各自需要多少个这样的 <code>Block Size</code>。</p>
 <ul>
