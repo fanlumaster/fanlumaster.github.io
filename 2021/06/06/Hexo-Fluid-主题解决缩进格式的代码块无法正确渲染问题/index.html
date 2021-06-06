@@ -18,7 +18,7 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-  <title>Ubuntu 18 用 NASM 编写 MBR 引导程序，在 BOCHS 虚拟机中测试 - Fan Lu&#39;s Blog</title>
+  <title>Hexo Fluid 主题解决缩进格式的代码块无法正确渲染问题 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,12 +162,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210606232013.png') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210606232105.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Ubuntu 18 用 NASM 编写 MBR 引导程序，在 BOCHS 虚拟机中测试">
+            <span class="h2" id="subtitle" title="Hexo Fluid 主题解决缩进格式的代码块无法正确渲染问题">
               
             </span>
 
@@ -177,7 +177,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-06-06 21:58" pubdate>
+      <time datetime="2021-06-06 23:10" pubdate>
         2021年6月6日 晚上
       </time>
     </span>
@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      449 字
+      410 字
     </span>
   
 
@@ -237,40 +237,19 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Ubuntu 18 用 NASM 编写 MBR 引导程序，在 BOCHS 虚拟机中测试</h1>
+            <h1 style="display: none">Hexo Fluid 主题解决缩进格式的代码块无法正确渲染问题</h1>
             
             <div class="markdown-body">
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这是一次 OS 实验的记录。</p>
-<p>实验的要求是，编写 MBR 引导程序，在屏幕显示 “Hello OS”，然后原地停下。</p>
-<p>由于实验的过程稍微有些曲折，这个任务难度不大，就是过程中的坑比较多。遂记录这一次实验过程，供个人以后复习及后来人参考。</p>
-<p>本次实验的环境是</p>
-<ul>
-<li>Ubuntu 18.04</li>
-<li>Bochs-2.6.11</li>
-</ul>
-<h2 id="安装-Bochs"><a href="#安装-Bochs" class="headerlink" title="安装 Bochs"></a>安装 Bochs</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>为了运行 Bochs，首先，我们需要安装一些必要的依赖，所有的安装命令如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo apt-get install build-essential <br>$ sudo apt-get install xorg-dev <br>$ sudo apt-get install bison <br></code></pre></div></td></tr></table></figure>
-<h3 id="下载并解压安装包，并安装"><a href="#下载并解压安装包，并安装" class="headerlink" title="下载并解压安装包，并安装"></a>下载并解压安装包，并安装</h3><p>这里没有直接使用 <code>sudo apt-get install bochs</code> 的原因是我们还需要安装 Bochs 的调试功能。</p>
-<p>1、首先，下载 Bochs-2.6.11.tar.gz(<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/bochs/files/bochs/2.6.11/">下载链接</a>)</p>
-<p>2、然后，我们在压缩包放置的目录中进行解压操作</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ tar zxvf bochs-2.6.11.tar.gz<br></code></pre></div></td></tr></table></figure>
-<p>3、进入解压后的目录，然后执行命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ ./configure --enable-debugger --enable-disasm<br>$ make<br>$ sudo make install<br></code></pre></div></td></tr></table></figure>
-<p>直到这里，我是没有遇到问题的。</p>
-<h3 id="错误解决"><a href="#错误解决" class="headerlink" title="错误解决"></a>错误解决</h3><p>然后，我们测试是否安装成功，我们在终端输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ bochs<br></code></pre></div></td></tr></table></figure>
-<p>这里我是遇到了两个错误，如下</p>
-<p>1、<code>cpu directive malformed</code> 问题</p>
-<p>解决办法：</p>
-<div class="hljs code-wrapper"><pre><code>1. bochs -help cpu
-这个命令将显示出所有支持的 CPU 类型
-2. 修改 .bochsrc 文件中的 cpu:model=core2+penryn+t9600 为 cup:model=上一条查到的所支持的 CPU 类型之一
-</code></pre></div><p>2、<code>.bochsrc:926: Bochs is not compiled with lowlevel sound support.</code></p>
-<p>解决办法：</p>
-<div class="hljs code-wrapper"><pre><code>在 .bochsrc 文件中删除 sound 配置即可
-</code></pre></div><p>解决了问题之后，再重新输入 <code>bochs</code> 命令，发现已经安装成功了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210419134701.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<h2 id="制作最简单的操作系统"><a href="#制作最简单的操作系统" class="headerlink" title="制作最简单的操作系统"></a>制作最简单的操作系统</h2><p>首先，我们</p>
+              <h2 id="Bug-描述"><a href="#Bug-描述" class="headerlink" title="Bug 描述"></a>Bug 描述</h2><p>我的问题是在代码高亮配置为 highlightjs 的 Atom One Dark 的情况下，关于采用 TAB 键缩进的代码无法正常渲染，效果如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210606220528.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>主题配置文件中的相关配置如下</p>
+<figure class="highlight yml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yml"><span class="hljs-comment"># 代码高亮</span><br><span class="hljs-comment"># Code highlight</span><br><span class="hljs-attr">highlight:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br><br><span class="hljs-comment"># 代码块是否显示行号</span><br><span class="hljs-comment"># If true, the code block display line numbers</span><br><span class="hljs-attr">line_number:</span> <span class="hljs-literal">true</span><br><br><span class="hljs-comment"># 实现高亮的库，对应下面的设置</span><br><span class="hljs-comment"># Highlight library</span><br><span class="hljs-comment"># Options: highlightjs | prismjs</span><br><span class="hljs-attr">lib:</span> <span class="hljs-string">&quot;highlightjs&quot;</span><br><br><span class="hljs-attr">highlightjs:</span><br>  <span class="hljs-comment"># 在链接中挑选 style 填入</span><br>  <span class="hljs-comment"># Select a style in the link</span><br>  <span class="hljs-comment"># See: https://highlightjs.org/static/demo/</span><br>  <span class="hljs-attr">style:</span> <span class="hljs-string">&quot;Atom One Dark&quot;</span><br><br>  <span class="hljs-comment"># 是否根据 style 改变代码背景色（如果 style 是深色背景别忘了开启此项）</span><br>  <span class="hljs-comment"># If true, the code background will change color based on the style (If style has a dark background, don&#x27;t forget to true)</span><br>  <span class="hljs-attr">bg_color:</span> <span class="hljs-literal">true</span><br><br><span class="hljs-attr">prismjs:</span><br>  <span class="hljs-comment"># 在下方链接页面右侧的圆形按钮挑选 style 填入，也可以直接填入 css 链接</span><br>  <span class="hljs-comment"># Select the style button on the right side of the link page, you can also set the CSS link</span><br>  <span class="hljs-comment"># See: https://prismjs.com/</span><br>  <span class="hljs-attr">style:</span> <span class="hljs-string">&quot;default&quot;</span><br><br>  <span class="hljs-comment"># 设为 true 高亮将本地静态生成（并只支持部分 prismjs 插件），设为 false 高亮将在浏览器通过 js 生成</span><br>  <span class="hljs-comment"># If true, it will be generated locally (but some prismjs plugins are not supported). If false, it will be generated via JS in the browser</span><br>  <span class="hljs-attr">preprocess:</span> <span class="hljs-literal">true</span><br></code></pre></div></td></tr></table></figure>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>根据官方文档(<a target="_blank" rel="noopener" href="https://fluid-dev.github.io/hexo-fluid-docs/guide/#%E8%87%AA%E5%AE%9A%E4%B9%89-js-css-html">https://fluid-dev.github.io/hexo-fluid-docs/guide/#%E8%87%AA%E5%AE%9A%E4%B9%89-js-css-html</a>)给出的自定义 css 的方法，在 source 目录下新建一个 css 目录，然后在 css 目录下新建一个 <code>custom.css</code> 文件，内容如下</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">pre <span class="hljs-selector-tag">code</span> &#123;<br>    <span class="hljs-attribute">color</span>: <span class="hljs-number">#abb2bf</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>即通过修改代码颜色来解决问题。</p>
+<p>验证一下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210606231703.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>发现成功解决。</p>
 
             </div>
             <hr>
@@ -280,7 +259,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+                      <a class="hover-with-bg" href="/categories/Hexo/">Hexo</a>
                     
                   </div>
                 
@@ -288,11 +267,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
+                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
-                    
-                      <a class="hover-with-bg" href="/tags/bochs/">bochs</a>
+                      <a class="hover-with-bg" href="/tags/Fluid/">Fluid</a>
                     
                   </div>
                 
@@ -309,18 +286,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/06/06/Hexo-Fluid-%E4%B8%BB%E9%A2%98%E8%A7%A3%E5%86%B3%E7%BC%A9%E8%BF%9B%E6%A0%BC%E5%BC%8F%E7%9A%84%E4%BB%A3%E7%A0%81%E5%9D%97%E6%97%A0%E6%B3%95%E6%AD%A3%E7%A1%AE%E6%B8%B2%E6%9F%93%E9%97%AE%E9%A2%98/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Hexo Fluid 主题解决缩进格式的代码块无法正确渲染问题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/06/01/%E8%A7%A3%E5%86%B3%E5%85%A8%E7%A8%8B%E5%AF%B9%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98%E7%9A%84-Floyd-Warshall-%E7%AE%97%E6%B3%95/">
-                        <span class="hidden-mobile">解决全程对最短路径问题的 Floyd-Warshall 算法(未竟)</span>
+                      <a href="/2021/06/06/Ubuntu-18-%E7%94%A8-NASM-%E7%BC%96%E5%86%99-MBR-%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F%EF%BC%8C%E5%9C%A8-BOCHS-%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E6%B5%8B%E8%AF%95/">
+                        <span class="hidden-mobile">Ubuntu 18 用 NASM 编写 MBR 引导程序，在 BOCHS 虚拟机中测试</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
