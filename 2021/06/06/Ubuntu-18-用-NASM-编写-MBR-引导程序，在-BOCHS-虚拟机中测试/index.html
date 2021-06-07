@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      535 字
+      1.1k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      14
        分钟
     </span>
   
@@ -255,7 +255,8 @@
 <p>2、然后，我们在压缩包放置的目录中进行解压操作</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ tar zxvf bochs-2.6.11.tar.gz<br></code></pre></div></td></tr></table></figure>
 <p>3、进入解压后的目录，然后执行命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ ./configure --enable-debugger --enable-disasm<br>$ make<br>$ sudo make install<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> bochs-2.6.11<br>$ ./configure --enable-debugger --enable-disasm<br>$ make<br>$ sudo make install<br></code></pre></div></td></tr></table></figure>
+<p>注意，”./coufigure” 之后的参数便是打开调试功能的开关。</p>
 <p>直到这里，我是没有遇到问题的。</p>
 <h3 id="错误解决"><a href="#错误解决" class="headerlink" title="错误解决"></a>错误解决</h3><p>然后，我们测试是否安装成功，我们在终端输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ bochs<br></code></pre></div></td></tr></table></figure>
@@ -277,6 +278,31 @@ bochsrc.txt
 bochsrc.bxrc(仅对 Windows 有效)
 </code></pre></div><p>我们可以通过 <code>ls -a</code> 命令来看一下 bochs 安装目录下的所有文件：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607000942.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>在这里，我们选择在自己的目录下新建一个 bochsrc 配置文件，如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> FirstOS<br>$ touch bochsrc<br>$ gedit bochsrc<br></code></pre></div></td></tr></table></figure>
+<p>bochsrc 中的文件内容如下</p>
+<figure class="highlight clean"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs clean">#################################################################<br># Configuration file for Bochs<br>#################################################################<br><br># how much memory the emulated machine will have<br>megs: <span class="hljs-number">32</span><br><br># filenameof ROM images<br>romimage:file=/usr/local/share/bochs/BIOS-bochs-latest<br>vgaromimage:file=/usr/local/share/bochs/VGABIOS-lgpl-latest<br><br># which disk image will be used 这个是启动软盘，我们虚拟出来的那个a.img<br>floppya:<span class="hljs-number">1</span>_44=a.img, status=inserted<br><br># choose the boot disk 确定启动方式<br>boot: floppy<br><br># <span class="hljs-keyword">where</span> do we send log messages?<br>log: bochsout.txt<br><br># disable the mouse<br>mouse: enabled=<span class="hljs-number">0</span><br><br># enable key mapping ,using US layout <span class="hljs-keyword">as</span> default<br>keyboard:keymap=/usr/local/share/bochs/keymaps/x11-pc-us.map<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607183851.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h2 id="编写-MBR-引导程序，在-bochs-虚拟机中测试"><a href="#编写-MBR-引导程序，在-bochs-虚拟机中测试" class="headerlink" title="编写 MBR 引导程序，在 bochs 虚拟机中测试"></a>编写 MBR 引导程序，在 bochs 虚拟机中测试</h2><h3 id="编写-MBR-引导程序"><a href="#编写-MBR-引导程序" class="headerlink" title="编写 MBR 引导程序"></a>编写 MBR 引导程序</h3><p>1、编写汇编代码 boot.asm</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs nasm">    org    07c00h<br>    mov    ax, cs<br>    mov    ds, ax<br>    mov    es, ax<br>    call   DispStr<br>    jmp    $<br>DispStr:<br>    mov    ax, BootMessage<br>    mov    bp, ax<br>    mov    cx, 16<br>    mov    ax, 01301h<br>    mov    bx, 000ch<br>    mov    dl, 0<br>    int    10h<br>    ret<br>BootMessage:    db    &quot;Hello, OS world!&quot;<br>times    510-($-$$)    db    0<br>dw       0xaa55<br></code></pre></div></td></tr></table></figure>
+<p>2、使用 nasm 编译这段代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ nasm boot.asm -o boot.bin<br></code></pre></div></td></tr></table></figure>
+<p>然后在相应的目录下我们可以看到多了一个 512 字节的 boot.bin 文件，如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607184811.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>这个文件就要被我们写入到软盘里面。这里当然可以写入到一个真实的空白软盘上，但是我们这里选择使用 bochs 来虚拟出我们所需要的软盘。</p>
+<h3 id="使用-bochs-制作软盘"><a href="#使用-bochs-制作软盘" class="headerlink" title="使用 bochs 制作软盘"></a>使用 bochs 制作软盘</h3><p>执行如下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ bximage<br></code></pre></div></td></tr></table></figure>
+<p>然后在问到要创建 hd(硬盘) 还是 fd(软盘) 时，输入 fd，之后一直默认回车即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607185713.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="将引导扇区写入软盘"><a href="#将引导扇区写入软盘" class="headerlink" title="将引导扇区写入软盘"></a>将引导扇区写入软盘</h3><p>执行如下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ dd <span class="hljs-keyword">if</span>=boot.bin of=a.img bs=512 count=1 conv=notrunc<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607190246.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="启动-bochs"><a href="#启动-bochs" class="headerlink" title="启动 bochs"></a>启动 bochs</h3><p>进入 boot.bin 所在目录，然后输入如下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ bochs -f bochsrc<br></code></pre></div></td></tr></table></figure>
+<p>注意，如果这里输入命令后出现的是一个什么都没有的一片黑色的界面的话，那是因为我们这里是带调试模式的 bochs，那么，还需要再 bochs 提示符之后输入 “c”，然后回车，即可看到我们想要的效果了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607190703.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607190628.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>注：关于这个 <code>-f</code> 后面的这个 bochsrc 配置文件，因为这里我是把它与 boot.bin 一起放在同一个目录下，所以这里直接就输入了 bochsrc，如果是放在其他目录下，则需要使用 bochsrc 的绝对路径。</p>
 
             </div>
             <hr>
