@@ -9,5 +9,5 @@ pre code {
 
 /* 解决图片在刚展示时可能会在圆角出出现白色边框的问题 */
 .markdown-body img {
-    background-color: #000;
+    background-color: transparent; /* 原来是 #fff */
 }
