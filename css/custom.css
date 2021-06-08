@@ -1,3 +1,7 @@
 pre code {
     color: #abb2bf;
 }
+
+.markdown-body p > img, .markdown-body p > a > img {
+    border-radius: 3px;
+}
