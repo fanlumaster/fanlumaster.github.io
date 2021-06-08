@@ -2,6 +2,12 @@ pre code {
     color: #abb2bf;
 }
 
+/* 调节圆角 */
 .markdown-body p > img, .markdown-body p > a > img {
     border-radius: 3px;
+}
+
+/* 解决图片在刚展示时可能会在圆角出出现白色边框的问题 */
+.markdown-body img {
+    background-color: #000;
 }
