@@ -14,7 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="Python 进制转换知识点整理">
+  <meta name="description" content="Python 进制转换知识点整理。">
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
@@ -162,7 +162,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210612160852.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      406 字
+      407 字
     </span>
   
 
@@ -264,8 +264,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">&gt;&gt;&gt;bin(12)<br><span class="hljs-string">&#x27;0b1100&#x27;</span><br></code></pre></div></td></tr></table></figure>
 <h4 id="十进制转八进制"><a href="#十进制转八进制" class="headerlink" title="十进制转八进制"></a>十进制转八进制</h4><p>使用 <code>oct()</code> 函数</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">&gt;&gt;&gt;oct(12)<br><span class="hljs-string">&#x27;0o14&#x27;</span><br></code></pre></div></td></tr></table></figure>
-<h3 id="十进制转二进制-1"><a href="#十进制转二进制-1" class="headerlink" title="十进制转二进制"></a>十进制转二进制</h3><p>使用 <code>bin()</code> 函数</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">&gt;&gt;&gt;bin(12)<br><span class="hljs-string">&#x27;0b1100&#x27;</span><br></code></pre></div></td></tr></table></figure>
+<h4 id="十进制转十六进制"><a href="#十进制转十六进制" class="headerlink" title="十进制转十六进制"></a>十进制转十六进制</h4><p>使用 <code>hex()</code> 函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">&gt;&gt;&gt; hex(12)<br><span class="hljs-string">&#x27;0xc&#x27;</span><br></code></pre></div></td></tr></table></figure>
 <h3 id="其他非十进制之间的互转"><a href="#其他非十进制之间的互转" class="headerlink" title="其他非十进制之间的互转"></a>其他非十进制之间的互转</h3><p>一个简单的方法是，可以利用十进制作中转。</p>
 <p>另一个方法是，我们给相应进制的数加上代表它们的前缀，然后使用诸如 <code>hex()</code> 函数即可。</p>
 <p>例如，我们将十六进制 <code>0x12</code> 数转成八进制数</p>
