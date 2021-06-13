@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      1.9k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20
+      23
        分钟
     </span>
   
@@ -301,12 +301,23 @@ bochsrc.bxrc(仅对 Windows 有效)
 <h3 id="将引导扇区写入软盘"><a href="#将引导扇区写入软盘" class="headerlink" title="将引导扇区写入软盘"></a>将引导扇区写入软盘</h3><p>执行如下命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ dd <span class="hljs-keyword">if</span>=boot.bin of=a.img bs=512 count=1 conv=notrunc<br></code></pre></div></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607190246.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>这里简单介绍一下 dd 命令。</p>
+<p>Linux dd 命令用于读取、转换并输出数据。</p>
+<p>dd 可从标准输入或文件中读取数据，根据指定的格式来转换数据，再输出到文件、设备或者标准输出。这里使用 dd 命令来进行绝对扇区读写操作。</p>
+<p>参数说明：</p>
+<ul>
+<li>if=文件名：输入文件名，默认为标准输入。即指定源文件。</li>
+<li>of=文件名：输出文件名，默认为标准输出。即指定目的文件。</li>
+<li>bs=bytes：同时设置读入/输出的块大小为 bytes 个字节。</li>
+<li>count=blocks：仅拷贝 blocks 个块，块大小等于 bs 指定的字节数。</li>
+<li>conv=&lt;关键字&gt;：这里的关键字是 notrunc，表示不截断输出文件。</li>
+</ul>
 <h3 id="启动-bochs"><a href="#启动-bochs" class="headerlink" title="启动 bochs"></a>启动 bochs</h3><p>进入 boot.bin 所在目录，然后输入如下命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ bochs -f bochsrc<br></code></pre></div></td></tr></table></figure>
 <p>注意，如果这里输入命令后出现的是一个什么都没有的一片黑色的界面的话，那是因为我们这里是带调试模式的 bochs，那么，还需要再 bochs 提示符之后输入 “c”，然后回车，即可看到我们想要的效果了。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607190703.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607190628.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>注：关于这个 <code>-f</code> 后面的这个 bochsrc 配置文件，因为这里我是把它与 boot.bin 一起放在同一个目录下，所以这里直接就输入了 bochsrc，如果是放在其他目录下，则需要使用 bochsrc 的绝对路径。</p>
+<p>注：关于这个 <code>-f</code> 后面的这个 bochsrc 配置文件，因为这里我是把它与 boot.bin 一起放在同一个目录下，所以这里直接就输入了 bochsrc，如果是放在其他目录下，则需要使用 bochsrc 的绝对路径。而且，前面也说了，其实我们这里不需要 <code>-f</code> 及后面的内容，因为我们在执行 <code>bochs</code> 命令时它会自己找到当前目录下的配置文件。</p>
 <h3 id="退出-bochs"><a href="#退出-bochs" class="headerlink" title="退出 bochs"></a>退出 bochs</h3><p>在上面的基础上输入 <code>Ctrl + C</code>，然后输入 <code>exit</code>，回车，即可退出 bochs 虚拟机。</p>
 <hr>
 <p>参考：</p>
