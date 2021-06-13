@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Markdown 链接括号问题</title>
+    <link href="/2021/06/13/Markdown-%E9%93%BE%E6%8E%A5%E6%8B%AC%E5%8F%B7%E9%97%AE%E9%A2%98/"/>
+    <url>/2021/06/13/Markdown-%E9%93%BE%E6%8E%A5%E6%8B%AC%E5%8F%B7%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p>关于 Markdown，它的链接格式是这样的</p><figure class="highlight md"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs md">[<span class="hljs-string">title</span>](<span class="hljs-link">link</span>)<br></code></pre></div></td></tr></table></figure><p>其中，方括号中的填写的是链接的名称，而括弧里面的内容是链接的 url。</p><p>但是，今天遇到了一个问题，就是如果 url 中含有括号，就像下面这样</p><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">https:<span class="hljs-regexp">//</span>en.wikipedia.org<span class="hljs-regexp">/wiki/</span>P6_(microarchitecture)<br></code></pre></div></td></tr></table></figure><p>那么，渲染成 html 页面之后可能出现下面的问题，比如书写的 Markdown 是这样的</p><figure class="highlight md"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs md">[<span class="hljs-string">维基百科</span>](<span class="hljs-link">https://en.wikipedia.org/wiki/P6_(microarchitecture</span>))<br></code></pre></div></td></tr></table></figure><p>那么渲染之后可能是这样的</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210613202844.png" alt="图中多了一个右括弧"></p><p><strong>解决方法</strong></p><p>使用 <code>%28</code> 代替 url 中的 <code>(</code>，使用 <code>%29</code> 代替 <code>)</code>。</p><p>这样做的原理是使用 url 符号码取代替 ascii 的符号。</p><hr><p>参考：<a href="http://gohom.win/2015/12/24/MD-bracket/">http://gohom.win/2015/12/24/MD-bracket/</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Markdown</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Markdown</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>bochs 利用 freedos 搭建保护模式的运行环境</title>
     <link href="/2021/06/13/bochs-%E5%88%A9%E7%94%A8-freedos-%E6%90%AD%E5%BB%BA%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/"/>
     <url>/2021/06/13/bochs-%E5%88%A9%E7%94%A8-freedos-%E6%90%AD%E5%BB%BA%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/</url>
@@ -37,7 +62,7 @@
     <link href="/2021/06/08/%E5%85%B3%E4%BA%8E%E5%AF%B9-x86-%E7%9A%84%E7%90%86%E8%A7%A3/"/>
     <url>/2021/06/08/%E5%85%B3%E4%BA%8E%E5%AF%B9-x86-%E7%9A%84%E7%90%86%E8%A7%A3/</url>
     
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在阅读《Linux C 一站式编程》中这个 x86 汇编程序基础，突然意识到，自己对于 x86 这个概念似乎是十分模糊。然后查看了维基百科和知乎，在这里记录一下。</p><h2 id="x86"><a href="#x86" class="headerlink" title="x86"></a>x86</h2><p><strong>x86</strong> 泛指一系列基于 Intel 8086 且向后兼容的中央处理器指令集架构。最早的 8086 处理器于 1978 年由 Intel 推出，为 16 位微处理器。</p><p>该系列较早期的处理器名称是以数字来表示 80x86。由于以“86”作为结尾，包括 Intel 8086、80186、80286、80386 以及 80486，因此其架构被称为“x86”。由于数字并不能作为注册商标，因此 Intel 及其竞争者均在新一代处理器使用可注册的名称，如 Pentium，来描述 <strong>x86</strong> 架构下的处理器产品。现时英特尔将其称为 <strong>IA-32</strong>，全名为“Intel Architecture, 32-bit”，一般情形下指代 32 位的架构。</p><h2 id="x86-64"><a href="#x86-64" class="headerlink" title="x86-64"></a>x86-64</h2><p><strong>x86-64</strong>（又称 <strong>x64</strong>，即英文词 64-bit extended，64 位拓展的简写）是一个处理器的指令集架构，基于 x86 架构的 64 位拓展，向后兼容于 16 位及 32 位的 x86 架构。x64 于 1999 年由 AMD 设计，AMD 首次公开 64 位集以扩展给 x86，称为“AMD64”。其后也为英特尔所采用，现时英特尔称之为“Intel 64”，在之前曾使用过“Clackamas Technology” (CT)、“IA-32e”及“EM64T”。</p><p>苹果公司和 RPM 包管理员以“x86-64”或“x86_64”称呼此 64 位架构。甲骨文公司及 Microsoft 称之为“x64”。BSD 家族及其他 Linux 发行版则使用“amd64”，32 位版本则称为“i386”（或 i486/586/686），Arch Linux 用 x86_64 称呼此 64 位架构。</p><h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="i686"><a href="#i686" class="headerlink" title="i686"></a>i686</h3><p>在装 MinGW-w64 的过程中，遇到了一个 i686 架构，关于这个 i686 架构，简单来讲，就是 32 位的架构。更多相关的可以参见 <a href="https://en.wikipedia.org/wiki/P6_(microarchitecture">维基百科</a>) 和 <a href="https://askubuntu.com/questions/444394/what-is-the-meaning-of-i686-in-ubuntu">askubuntu</a>。</p><hr><p>参考：</p><p>1、<a href="https://zh.wikipedia.org/wiki/X86">https://zh.wikipedia.org/wiki/X86</a><br>2、<a href="https://zh.wikipedia.org/wiki/X86-64">https://zh.wikipedia.org/wiki/X86-64</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天在阅读《Linux C 一站式编程》中这个 x86 汇编程序基础，突然意识到，自己对于 x86 这个概念似乎是十分模糊。然后查看了维基百科和知乎，在这里记录一下。</p><h2 id="x86"><a href="#x86" class="headerlink" title="x86"></a>x86</h2><p><strong>x86</strong> 泛指一系列基于 Intel 8086 且向后兼容的中央处理器指令集架构。最早的 8086 处理器于 1978 年由 Intel 推出，为 16 位微处理器。</p><p>该系列较早期的处理器名称是以数字来表示 80x86。由于以“86”作为结尾，包括 Intel 8086、80186、80286、80386 以及 80486，因此其架构被称为“x86”。由于数字并不能作为注册商标，因此 Intel 及其竞争者均在新一代处理器使用可注册的名称，如 Pentium，来描述 <strong>x86</strong> 架构下的处理器产品。现时英特尔将其称为 <strong>IA-32</strong>，全名为“Intel Architecture, 32-bit”，一般情形下指代 32 位的架构。</p><h2 id="x86-64"><a href="#x86-64" class="headerlink" title="x86-64"></a>x86-64</h2><p><strong>x86-64</strong>（又称 <strong>x64</strong>，即英文词 64-bit extended，64 位拓展的简写）是一个处理器的指令集架构，基于 x86 架构的 64 位拓展，向后兼容于 16 位及 32 位的 x86 架构。x64 于 1999 年由 AMD 设计，AMD 首次公开 64 位集以扩展给 x86，称为“AMD64”。其后也为英特尔所采用，现时英特尔称之为“Intel 64”，在之前曾使用过“Clackamas Technology” (CT)、“IA-32e”及“EM64T”。</p><p>苹果公司和 RPM 包管理员以“x86-64”或“x86_64”称呼此 64 位架构。甲骨文公司及 Microsoft 称之为“x64”。BSD 家族及其他 Linux 发行版则使用“amd64”，32 位版本则称为“i386”（或 i486/586/686），Arch Linux 用 x86_64 称呼此 64 位架构。</p><h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="i686"><a href="#i686" class="headerlink" title="i686"></a>i686</h3><p>在装 MinGW-w64 的过程中，遇到了一个 i686 架构，关于这个 i686 架构，简单来讲，就是 32 位的架构。更多相关的可以参见 <a href="https://en.wikipedia.org/wiki/P6_%28microarchitecture%29">维基百科</a> 和 <a href="https://askubuntu.com/questions/444394/what-is-the-meaning-of-i686-in-ubuntu">askubuntu</a>。</p><hr><p>参考：</p><p>1、<a href="https://zh.wikipedia.org/wiki/X86">https://zh.wikipedia.org/wiki/X86</a><br>2、<a href="https://zh.wikipedia.org/wiki/X86-64">https://zh.wikipedia.org/wiki/X86-64</a></p>]]></content>
     
     
     <categories>
