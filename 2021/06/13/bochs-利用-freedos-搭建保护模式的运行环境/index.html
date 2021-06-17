@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      403 字
+      421 字
     </span>
   
 
@@ -233,7 +233,7 @@
             
             <div class="markdown-body">
               <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这里是对《一个操作系统的实现》第 3 章的“保护模式的运行环境”这一节的实操的记录。因为有一点点小的注意点，所以在这里记录一下。</p>
-<h2 id="下载-freedos-软盘镜像文件"><a href="#下载-freedos-软盘镜像文件" class="headerlink" title="下载 freedos 软盘镜像文件"></a>下载 freedos 软盘镜像文件</h2><p>1、下载</p>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><p>1、下载</p>
 <p>第一种方法，直接在命令行获取文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> wget http://bochs.sourceforge.net/guestos/freedos-img.tar.gz</span><br></code></pre></div></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210613172921.png" srcset="/img/loading.gif" lazyload alt=""></p>
@@ -254,7 +254,10 @@
 <p>6、然后将代码 3.1(见原书) 的第 8 行中的 07c00h 改为 0100h，并重新编译：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> nasm pmtest1.asm -o pmtest1.com</span><br></code></pre></div></td></tr></table></figure>
 <p>7、将 pmtest1.com 复制到虚拟软盘 pm.img 上：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> sudo mkdir /mnt/floppy</span><br><span class="hljs-meta">$</span><span class="bash"> sudo mount -o loop pm.img /mnt/floppy</span><br><span class="hljs-meta">$</span><span class="bash"> sudo cp pmtest1.com /mnt/floppy/</span><br><span class="hljs-meta">$</span><span class="bash"> sudo umount /mnt/floppy</span><br></code></pre></div></td></tr></table></figure>
+<p>如果是首次复制，则先要创建一个目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> sudo mkdir /mnt/floppy</span><br></code></pre></div></td></tr></table></figure>
+<p>执行以下命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> sudo mount -o loop pm.img /mnt/floppy</span><br><span class="hljs-meta">$</span><span class="bash"> sudo cp pmtest1.com /mnt/floppy/</span><br><span class="hljs-meta">$</span><span class="bash"> sudo umount /mnt/floppy</span><br></code></pre></div></td></tr></table></figure>
 <p>书上省略了 <code>mkdir /mnt/floppy</code> 这一步，要注意。</p>
 <p>8、到 FreeDos 中执行如下命令</p>
 <figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">B</span>:\pmtest<span class="hljs-number">1</span>.com<br></code></pre></div></td></tr></table></figure>
