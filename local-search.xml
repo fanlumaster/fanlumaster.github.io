@@ -4,6 +4,60 @@
   
   
   <entry>
+    <title>使用 Python 提取 epub 中的文本</title>
+    <link href="/2021/07/08/%E4%BD%BF%E7%94%A8-Python-%E6%8F%90%E5%8F%96-epub-%E4%B8%AD%E7%9A%84%E6%96%87%E6%9C%AC/"/>
+    <url>/2021/07/08/%E4%BD%BF%E7%94%A8-Python-%E6%8F%90%E5%8F%96-epub-%E4%B8%AD%E7%9A%84%E6%96%87%E6%9C%AC/</url>
+    
+    <content type="html"><![CDATA[<p>先测试一下新环境能不能正常上传。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Python</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Python</tag>
+      
+      <tag>bs4</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>使用 UltraISO 安装 Windows10 系统</title>
+    <link href="/2021/07/04/%E4%BD%BF%E7%94%A8-UltraISO-%E5%AE%89%E8%A3%85-Windows10-%E7%B3%BB%E7%BB%9F/"/>
+    <url>/2021/07/04/%E4%BD%BF%E7%94%A8-UltraISO-%E5%AE%89%E8%A3%85-Windows10-%E7%B3%BB%E7%BB%9F/</url>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>首先，到网上下载一个 Windows10 镜像，我这里因为学校网站有资源，就直接在学校的网站下载了。</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210704161831.png" alt=""></p><p>然后，在到网上下载 UltraISO 软件，这个软件我们可以一直试用，挺好的。</p><p>打开我们刚刚下载好的镜像文件</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210704162227.png" alt=""></p><p>然后写入硬盘映像</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210704162326.png" alt=""></p><p>选择写入方式为 USB-HDD+，然后点击写入，之后等待写入完成即可</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210704161608.png" alt=""></p><p>确定写入成功之后，我们关闭窗口即可</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210704162123.png" alt=""></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>电脑</category>
+      
+      <category>操作系统</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>电脑</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Markdown 链接括号问题</title>
     <link href="/2021/06/13/Markdown-%E9%93%BE%E6%8E%A5%E6%8B%AC%E5%8F%B7%E9%97%AE%E9%A2%98/"/>
     <url>/2021/06/13/Markdown-%E9%93%BE%E6%8E%A5%E6%8B%AC%E5%8F%B7%E9%97%AE%E9%A2%98/</url>
