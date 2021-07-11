@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>LeetCode 4 Median of Two Sorted Arrays</title>
+    <link href="/2021/07/11/LeetCode-4-Median-of-Two-Sorted-Arrays/"/>
+    <url>/2021/07/11/LeetCode-4-Median-of-Two-Sorted-Arrays/</url>
+    
+    <content type="html"><![CDATA[<h2 id="一、题目链接"><a href="#一、题目链接" class="headerlink" title="一、题目链接"></a>一、题目链接</h2><p><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/">https://leetcode.com/problems/median-of-two-sorted-arrays/</a></p><h2 id="二、解答"><a href="#二、解答" class="headerlink" title="二、解答"></a>二、解答</h2><p>由于这题要求时间复杂度为 <script type="math/tex">O(log(m + n))</script>，所以，根据经验，这题就用对半查找来解决。</p><figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">findMedianSortedArrays</span>(<span class="hljs-params">self, nums1: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], nums2: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">float</span>:</span><br>        <span class="hljs-comment"># 寻找两个数组中的第 k 个元素</span><br>        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find_kth</span>(<span class="hljs-params">nums1:<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], i:<span class="hljs-built_in">int</span>, nums2:<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], j:<span class="hljs-built_in">int</span>, k:<span class="hljs-built_in">int</span></span>):</span><br>            <span class="hljs-keyword">if</span> i &gt;= <span class="hljs-built_in">len</span>(nums1): <span class="hljs-comment"># 这里更严格的写法是 i == len(nums1)，因为在此递归的父递归中，有 i - 1 + k // 2 &lt; len(nums1) 的约束，下同</span><br>                <span class="hljs-keyword">return</span> nums2[j + k - <span class="hljs-number">1</span>]<br>            <span class="hljs-keyword">if</span> j &gt;= <span class="hljs-built_in">len</span>(nums2):<br>                <span class="hljs-keyword">return</span> nums1[i + k - <span class="hljs-number">1</span>]<br>            <span class="hljs-keyword">if</span> k == <span class="hljs-number">1</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-built_in">min</span>(nums1[i], nums2[j])<br>            mid_val1 = nums1[i - <span class="hljs-number">1</span> + k // <span class="hljs-number">2</span>] <span class="hljs-keyword">if</span> i - <span class="hljs-number">1</span> + k // <span class="hljs-number">2</span> &lt; <span class="hljs-built_in">len</span>(nums1) <span class="hljs-keyword">else</span> <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>) <span class="hljs-comment"># ①</span><br>            mid_val2 = nums2[j - <span class="hljs-number">1</span> + k // <span class="hljs-number">2</span>] <span class="hljs-keyword">if</span> j - <span class="hljs-number">1</span> + k // <span class="hljs-number">2</span> &lt; <span class="hljs-built_in">len</span>(nums2) <span class="hljs-keyword">else</span> <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>)<br>            <span class="hljs-keyword">if</span> mid_val1 &lt; mid_val2:<br>                <span class="hljs-keyword">return</span> find_kth(nums1, i + k // <span class="hljs-number">2</span>, nums2, j, k - k // <span class="hljs-number">2</span>) <span class="hljs-comment"># ②</span><br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">return</span> find_kth(nums1, i, nums2, j + k // <span class="hljs-number">2</span>, k - k // <span class="hljs-number">2</span>)<br><br>        m = <span class="hljs-built_in">len</span>(nums1)<br>        n = <span class="hljs-built_in">len</span>(nums2)<br>        left = (m + n + <span class="hljs-number">1</span>) // <span class="hljs-number">2</span> <span class="hljs-comment"># ③</span><br>        right = (m + n + <span class="hljs-number">2</span>) // <span class="hljs-number">2</span><br>        <span class="hljs-keyword">return</span> (find_kth(nums1, <span class="hljs-number">0</span>, nums2, <span class="hljs-number">0</span>, left) + find_kth(nums1, <span class="hljs-number">0</span>, nums2, <span class="hljs-number">0</span>, right)) / <span class="hljs-number">2</span><br></code></pre></div></td></tr></table></figure><p>① 这里注意 <code>nums1[i - 1 + k // 2]</code> 的写法，我们先将 i 退一格，然后再向后加上 <code>k // 2</code> 个位置，这样看比较清晰。<br>② 这里的 <code>i + k // 2</code> 也很有讲究，这个写法保证了递归的合理性。<br>③ 这里要分两种情况，</p><ul><li>第一种，m + n 为奇数，那么，left 和 right 是相等的，都等于正中间那个索引（这里索引从 1 开始）；</li><li>第二种，m + n 为偶数，那么，right = left + 1，left 和 right 正好是中间的两个数的索引。</li></ul><p>这题的核心思想是利用 find_kth() 函数，即寻找出两个有序数组合并之后的正序数组中第 k 个元素（k 从 1 开始）。然后，关于 find_kth() 函数，其实现利用了递归和折半查找的思想。每一次递归都排除掉 <code>k // 2</code> 个元素，然后，递归下去。</p><p>时间复杂度：<script type="math/tex">O(log(m + n))</script>。<br>空间复杂度：<script type="math/tex">O(log(m + n))</script>，这个结果可由计算递归栈的数量所得。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Python</tag>
+      
+      <tag>LeetCode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>使用 Python 提取 epub 中的文本</title>
     <link href="/2021/07/08/%E4%BD%BF%E7%94%A8-Python-%E6%8F%90%E5%8F%96-epub-%E4%B8%AD%E7%9A%84%E6%96%87%E6%9C%AC/"/>
     <url>/2021/07/08/%E4%BD%BF%E7%94%A8-Python-%E6%8F%90%E5%8F%96-epub-%E4%B8%AD%E7%9A%84%E6%96%87%E6%9C%AC/</url>
