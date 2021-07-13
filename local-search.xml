@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>VMware 在 Ubuntu18 环境下升级 VMware Tools</title>
+    <link href="/2021/07/13/VMware-%E5%9C%A8-Ubuntu18-%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%8D%87%E7%BA%A7-VMware-Tools/"/>
+    <url>/2021/07/13/VMware-%E5%9C%A8-Ubuntu18-%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%8D%87%E7%BA%A7-VMware-Tools/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713155303.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713155344.png" alt=""></p><p>同时，我们发现下面有一个指引，</p><blockquote><p>在客户机中装载虚拟机 CD 驱动器，启动终端，使用 tar 解压缩安装程序，然后执行 vmware-install.pl 安装 VMware Tools。</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713155543.png" alt=""></p><p>在当前目录下打开终端，</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713155629.png" alt=""></p><p>执行命令</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ cp VMwareTools-10.3.23-17030940.tar.gz ~/Downloads/<br></code></pre></div></td></tr></table></figure><p>然后进入 <code>~/Downloads/</code> 目录下，执行解压命令</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ tar -xvf VMwareTools-10.3.23-17030940.tar.gz<br></code></pre></div></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713155905.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713160146.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713160443.png" alt=""></p><p>进入解压后的文件夹目录，</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> ./vmware-tools-distrib/<br>$ ls<br>$ sudo ./vmware-install.pl<br></code></pre></div></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713160904.png" alt=""></p><p>然后在安装的过程中，我们一路 yes、回车即可，安装好的界面如下</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713161127.png" alt=""></p><p>到此，就安装完成了。</p><p>最后，我们可以点击下面的按钮，把挂载的 VMware Tool 映像给去掉</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713161247.png" alt=""></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>VMware</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>VMware</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>VMware16 安装及破解（学习用）</title>
+    <link href="/2021/07/13/VMware16-%E5%AE%89%E8%A3%85%E5%8F%8A%E7%A0%B4%E8%A7%A3%EF%BC%88%E5%AD%A6%E4%B9%A0%E7%94%A8%EF%BC%89/"/>
+    <url>/2021/07/13/VMware16-%E5%AE%89%E8%A3%85%E5%8F%8A%E7%A0%B4%E8%A7%A3%EF%BC%88%E5%AD%A6%E4%B9%A0%E7%94%A8%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<p>从官网下载安装软件，然后一般按照默认情况进行下一步即可，注意一下几点，</p><ul><li>下面两个选项建议勾选，</li></ul><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713150907.png" alt=""></p><ul><li>下面两个选项不建议勾选，</li></ul><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713150937.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713151125.png" alt=""></p><p>输入许可证，我这里输入的是</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">ZF3R0</span>-FHED<span class="hljs-number">2</span>-M<span class="hljs-number">80</span>TY-<span class="hljs-number">8</span>QYGC-NPKYF<br></code></pre></div></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713151154.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713151221.png" alt=""></p><p>这里我准备打开之前的 Ubuntu OS，但是失败了，</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713151657.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713151542.png" alt=""></p><p>解决方案如下，进入 BIOS 设置，打开虚拟化开关</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/bios.jpg" alt=""></p><p>然后重新打开虚拟机，发现运行正常</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713153352.png" alt=""></p><p>到这里，安装就完成了。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>VMware</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>VMware</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>开始一个基本的 SpringBoot 项目</title>
     <link href="/2021/07/13/%E5%BC%80%E5%A7%8B%E4%B8%80%E4%B8%AA%E5%9F%BA%E6%9C%AC%E7%9A%84-SpringBoot-%E9%A1%B9%E7%9B%AE/"/>
     <url>/2021/07/13/%E5%BC%80%E5%A7%8B%E4%B8%80%E4%B8%AA%E5%9F%BA%E6%9C%AC%E7%9A%84-SpringBoot-%E9%A1%B9%E7%9B%AE/</url>
