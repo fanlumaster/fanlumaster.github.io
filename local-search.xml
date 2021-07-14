@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>IDEA 新配置一个 Thymeleaf Template 文件</title>
+    <link href="/2021/07/14/IDEA-%E6%96%B0%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AA-Thymeleaf-Template-%E6%96%87%E4%BB%B6/"/>
+    <url>/2021/07/14/IDEA-%E6%96%B0%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AA-Thymeleaf-Template-%E6%96%87%E4%BB%B6/</url>
+    
+    <content type="html"><![CDATA[<p>找到 Editor-&gt;File and Code Templates，</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210714143217.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210714143515.png" alt=""></p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210714143928.png" alt=""></p><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span> <span class="hljs-attr">xmlns:th:</span>&quot;<span class="hljs-attr">https:</span>//<span class="hljs-attr">www.thymeleaf.org</span>&quot;&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>#[[$Title$]]#<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>#[[$END$]]#<br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></div></td></tr></table></figure><p>添加完成后，我们来检查一下，发现添加成功</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210714144043.png" alt=""></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>IDEA</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>IDEA</tag>
+      
+      <tag>Spring</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 9 and 10</title>
     <link href="/2021/07/13/LeetCode-9-and-10/"/>
     <url>/2021/07/13/LeetCode-9-and-10/</url>
