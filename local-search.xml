@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>\@Autowired 注解作用于 Constructor</title>
+    <link href="/2021/08/09/Autowired-%E6%B3%A8%E8%A7%A3%E4%BD%9C%E7%94%A8%E4%BA%8E-Constructor/"/>
+    <url>/2021/08/09/Autowired-%E6%B3%A8%E8%A7%A3%E4%BD%9C%E7%94%A8%E4%BA%8E-Constructor/</url>
+    
+    <content type="html"><![CDATA[<p>对于 @Autowired 注解，一般情况下的使用是用其来注解一个变量，比如</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">private</span> UserDao userDao;<br></code></pre></div></td></tr></table></figure><p>但是，这个用法有时候会导致问题，比如，下面的代码</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">private</span> User user;<br><br><span class="hljs-keyword">private</span> String school;<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UserAccountServiceImpl</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">this</span>.school = user.getSchool();<br>&#125;<br></code></pre></div></td></tr></table></figure><p>这里在执行时，程序的执行顺序是先执行构造方法，然后再对加了 @Autowired 注解的 user 变量进行自动装配（即注入），所以，这段代码在执行时是会报错的。</p><p>所以，官方建议不要使用这种变量注入的方法，在 IDEA 中，给变量加 @Autowired 注解会产生一个警告。官方建议使用的方法是<strong>构造器(Constructor)注入</strong>，代码如下</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> User user;<br><span class="hljs-keyword">private</span> String school;<br><br><span class="hljs-meta">@Autowired</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UserAccountServiceImpl</span><span class="hljs-params">(User user)</span> </span>&#123;<br>    <span class="hljs-keyword">this</span>.user = user;<br>    <span class="hljs-keyword">this</span>.school = user.getSchool();<br>&#125;<br></code></pre></div></td></tr></table></figure><p>这样一来，程序在执行构造器方法时，就会自动注入 user。</p><hr><p>参考：</p><p>1、<a href="https://www.cnblogs.com/acm-bingzi/p/springAutowired.html">https://www.cnblogs.com/acm-bingzi/p/springAutowired.html</a><br>2、<a href="https://www.ramostear.com/blog/2020/03/23/9guzql5w.html">https://www.ramostear.com/blog/2020/03/23/9guzql5w.html</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>Spring</tag>
+      
+      <tag>Spring Boot</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>IDEA 新配置一个 Thymeleaf Template 文件</title>
     <link href="/2021/07/14/IDEA-%E6%96%B0%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AA-Thymeleaf-Template-%E6%96%87%E4%BB%B6/"/>
     <url>/2021/07/14/IDEA-%E6%96%B0%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AA-Thymeleaf-Template-%E6%96%87%E4%BB%B6/</url>
