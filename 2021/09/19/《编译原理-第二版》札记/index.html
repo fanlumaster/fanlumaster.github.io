@@ -18,7 +18,7 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-  <title>LaTex 数学公式对齐样例整理 - Fan Lu&#39;s Blog</title>
+  <title>《编译原理 第二版》札记 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,12 +162,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210916125012.png') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="LaTex 数学公式对齐样例整理">
+            <span class="h2" id="subtitle" title="《编译原理 第二版》札记">
               
             </span>
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-09-15 18:38" pubdate>
-        2021年9月15日 晚上
+      <time datetime="2021-09-19 18:51" pubdate>
+        2021年9月19日 晚上
       </time>
     </span>
   
@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      342 字
+      754 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      8
        分钟
     </span>
   
@@ -229,66 +229,55 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">LaTex 数学公式对齐样例整理</h1>
+            <h1 style="display: none">《编译原理 第二版》札记</h1>
             
             <div class="markdown-body">
-              <h3 id="样例一"><a href="#样例一" class="headerlink" title="样例一"></a>样例一</h3><p>让花括号中第二列中第一行的小于等于号和下一行的小于号对齐。</p>
-<p>代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$<br>[X]_&#123;原&#125; = <br>\left\&#123;<br>    \begin&#123;matrix&#125;<br>    \begin&#123;align*&#125;<br>&amp;X &amp; 0 &amp; \leqslant X &lt; 2^n \\ <br>&amp;2^n - X &amp; -2^n &amp; &lt; X \leqslant 0<br>    \end&#123;align*&#125;<br>    \end&#123;matrix&#125;<br>\right.<br>$$<br></code></pre></div></td></tr></table></figure>
-<p>效果</p>
-<script type="math/tex; mode=display">
-[X]_{原} = 
-\left\{
-    \begin{matrix}
-    \begin{align*}
-&X & 0 & \leqslant X < 2^n \\ 
-&2^n - X & -2^n & < X \leqslant 0
-    \end{align*}
-    \end{matrix}
-\right.</script><p>参考：<a target="_blank" rel="noopener" href="https://tex.stackexchange.com/questions/145657/align-equation-left">stackexchange</a>，这里主要是参考了回答中的 <code>\begin&#123;align*&#125;</code> 的用法。</p>
-<h3 id="样例二"><a href="#样例二" class="headerlink" title="样例二"></a>样例二</h3><p>写两行等式，然后让这两行等式保持左对齐。</p>
-<p>代码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$<br>\begin&#123;aligned&#125;<br>&amp; [X_1]_&#123;原&#125; = 0.1011 \\<br>&amp; [X_2]_&#123;原&#125; = 1 - （-0.1011） = 1.1011<br>\end&#123;aligned&#125;<br>$$<br></code></pre></div></td></tr></table></figure>
-<p>效果</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-& [X_1]_{原} = 0.1011 \\
-& [X_2]_{原} = 1 - （-0.1011） = 1.1011
-\end{aligned}</script><p>注：如果不加 <code>\begin&#123;aligned&#125; \end&#123;aligned&#125;</code>，那么默认的公式是保持居中显示。</p>
-<hr>
-<p>参考：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/11296415/how-to-left-align-mathjax-elements">stackoverflow</a>，这里主要是参考了 <code>\begin&#123;aligned&#125;</code> 的用法。</p>
-<h3 id="样例三"><a href="#样例三" class="headerlink" title="样例三"></a>样例三</h3><p>代码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$<br>\begin&#123;equation&#125;<br>\begin&#123;split&#125;<br>[X_1]_&#123;原&#125; &amp;= 01011\\<br>[X_2]_&#123;原&#125; &amp;=2^4 - (-1011) \\<br>&amp;=10000 + 1101 \\<br>&amp;=11101<br>\end&#123;split&#125;<br>\end&#123;equation&#125;<br>$$<br></code></pre></div></td></tr></table></figure>
-<p>效果</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-\begin{split}
-[X_1]_{原} &= 01011\\
-[X_2]_{原} &=2^4 - (-1011) \\
-&=10000 + 1101 \\
-&=11101
-\end{split}
-\end{equation}</script><p>完整这个效果需要脑袋转一个弯，在这里只需要将等号全部对齐就行了。</p>
+              <p>这本编译原理的版本是机械工业出版社翻译的“龙书”第二版。</p>
+<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><blockquote>
+<p>一个程序可以运行之前，它首先需要被翻译成一种能够被计算机执行的形式。<br>完成这项翻译工作的软件系统称为编译器（Compiler）。</p>
+<p>研究编译器的编写将涉及程序设计语言、计算机体系架构、形式语言理论、算法和软件工程。</p>
+<p>Java 语言处理器结合了编译和解释过程。一个 Java 程序首先被编译成一个称为字节码（bytecode）的中间表示形式，然后由一个虚拟机对得到的字节码加以解释执行。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210919192248.png" srcset="/img/loading.gif" lazyload alt="一个编译器的各个步骤"></p>
+<h3 id="1、词法分析"><a href="#1、词法分析" class="headerlink" title="1、词法分析"></a>1、词法分析</h3><p>专业术语：</p>
+<ul>
+<li>符号表：symbol table</li>
+<li>词法分析：lexical analysis</li>
+<li>词素：lexeme</li>
+<li>词法单元：token。</li>
+</ul>
+<p>词法单元的形式为 <code>&lt;token-name, attribute-value&gt;</code>。第一个分量 token-name 是一个由语法分析步骤使用的抽象符号，而第二个分量 attribute-value 指向符号表中关于这个词法单元的条目。</p>
+<p>针对词法分析进行举例说明：</p>
+<p>假设一个源程序包含如下的赋值语句</p>
+<figure class="highlight ini"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ini"><span class="hljs-attr">position</span> = initial + rate * <span class="hljs-number">60</span><br></code></pre></div></td></tr></table></figure>
+<p>1） position 是一个词素，被映射成词法单元 <code>&lt;id, 1&gt;</code>，其中 id 是标识符（identifier）的抽象符号，而 1 指向符号表中 position 对应的条目。一个标识符对应的符号表条目存放该标识符有关的信息，比如它的名字和类型。</p>
+<p>2）赋值符号 = 是一个词素，被映射成词法单元 <code>&lt;=&gt;</code>。</p>
+<p>3）initial 是一个词素，被映射成词法单元 <code>&lt;id, 2&gt;</code>。</p>
+<p>4）+ 是一个词素，被映射成词法单元 <code>&lt;+&gt;</code>。</p>
+<p>5）rate 是一个词素，被映射成词法单元 <code>&lt;id, 3&gt;</code>。</p>
+<p>6）<em> 是一个词素，被映射成词法单元 `&lt;</em>&gt;`。</p>
+<p>7）60 是一个词素，被映射成词法单元 <code>&lt;60&gt;</code>。</p>
+<p>最后，上面的赋值语句被表示成如下的词法单元序列：</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-section">&lt;id, 1&gt;</span> <span class="hljs-section">&lt;=&gt;</span> <span class="hljs-section">&lt;id, 2&gt;</span> <span class="hljs-section">&lt;+&gt;</span> <span class="hljs-section">&lt;id, 3&gt;</span> <span class="hljs-section">&lt;*&gt;</span> <span class="hljs-section">&lt;60&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210919214057.png" srcset="/img/loading.gif" lazyload alt="符号表"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210920120546.png" srcset="/img/loading.gif" lazyload alt="一个赋值语句的翻译"></p>
+<p>上面这个赋值语句的翻译，用举例的方式很好地解释了编译器编译语句的过程，让人可以对编译过程有一个初步的把握。</p>
+<h3 id="2、语法分析"><a href="#2、语法分析" class="headerlink" title="2、语法分析"></a>2、语法分析</h3><p>专业术语：</p>
+<ul>
+<li>语法分析：syntax analysis</li>
+</ul>
+<blockquote>
+<p>语法分析器使用由词法分析器生成的各个词法单元的第一个分量来创建树形的中间表示。</p>
+<p>一个常用的语法是语法树。</p>
+<p>符号表数据结构为每个变量名字创建了一个记录条目。记录的字段就是名字的各个属性。这个数据结构应该允许编译器迅速查找到每个名字的记录，并向记录中快速存放和获取记录中的数据。（P6）</p>
+<p>在一个特定的实现中，多个步骤的活动可以被组合成一趟（pass）。（P6）</p>
+</blockquote>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/LaTex/">LaTex</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/LaTex/">LaTex</a>
-                    
-                  </div>
                 
               </div>
               
@@ -303,18 +292,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/09/19/%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-%E7%AC%AC%E4%BA%8C%E7%89%88%E3%80%8B%E6%9C%AD%E8%AE%B0/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《编译原理 第二版》札记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/09/15/LaTex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%B7%A6%E5%AF%B9%E9%BD%90%E5%86%99%E6%B3%95/">
-                        <span class="hidden-mobile">LaTex 数学公式左对齐写法</span>
+                      <a href="/2021/09/15/LaTex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%AF%B9%E9%BD%90%E6%A0%B7%E4%BE%8B%E6%95%B4%E7%90%86/">
+                        <span class="hidden-mobile">LaTex 数学公式对齐样例整理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
