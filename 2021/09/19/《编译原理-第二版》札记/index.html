@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      754 字
+      757 字
     </span>
   
 
@@ -239,7 +239,7 @@
 <p>Java 语言处理器结合了编译和解释过程。一个 Java 程序首先被编译成一个称为字节码（bytecode）的中间表示形式，然后由一个虚拟机对得到的字节码加以解释执行。</p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210919192248.png" srcset="/img/loading.gif" lazyload alt="一个编译器的各个步骤"></p>
-<h3 id="1、词法分析"><a href="#1、词法分析" class="headerlink" title="1、词法分析"></a>1、词法分析</h3><p>专业术语：</p>
+<h2 id="1、词法分析"><a href="#1、词法分析" class="headerlink" title="1、词法分析"></a>1、词法分析</h2><p>专业术语：</p>
 <ul>
 <li>符号表：symbol table</li>
 <li>词法分析：lexical analysis</li>
@@ -255,20 +255,22 @@
 <p>3）initial 是一个词素，被映射成词法单元 <code>&lt;id, 2&gt;</code>。</p>
 <p>4）+ 是一个词素，被映射成词法单元 <code>&lt;+&gt;</code>。</p>
 <p>5）rate 是一个词素，被映射成词法单元 <code>&lt;id, 3&gt;</code>。</p>
-<p>6）<em> 是一个词素，被映射成词法单元 `&lt;</em>&gt;`。</p>
+<p>6）* 是一个词素，被映射成词法单元 <code>&lt;*&gt;</code>。</p>
 <p>7）60 是一个词素，被映射成词法单元 <code>&lt;60&gt;</code>。</p>
 <p>最后，上面的赋值语句被表示成如下的词法单元序列：</p>
 <figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-section">&lt;id, 1&gt;</span> <span class="hljs-section">&lt;=&gt;</span> <span class="hljs-section">&lt;id, 2&gt;</span> <span class="hljs-section">&lt;+&gt;</span> <span class="hljs-section">&lt;id, 3&gt;</span> <span class="hljs-section">&lt;*&gt;</span> <span class="hljs-section">&lt;60&gt;</span><br></code></pre></div></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210919214057.png" srcset="/img/loading.gif" lazyload alt="符号表"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210920120546.png" srcset="/img/loading.gif" lazyload alt="一个赋值语句的翻译"></p>
 <p>上面这个赋值语句的翻译，用举例的方式很好地解释了编译器编译语句的过程，让人可以对编译过程有一个初步的把握。</p>
-<h3 id="2、语法分析"><a href="#2、语法分析" class="headerlink" title="2、语法分析"></a>2、语法分析</h3><p>专业术语：</p>
+<h2 id="2、语法分析"><a href="#2、语法分析" class="headerlink" title="2、语法分析"></a>2、语法分析</h2><p>专业术语：</p>
 <ul>
 <li>语法分析：syntax analysis</li>
 </ul>
 <blockquote>
 <p>语法分析器使用由词法分析器生成的各个词法单元的第一个分量来创建树形的中间表示。</p>
 <p>一个常用的语法是语法树。</p>
+</blockquote>
+<h2 id="3、杂记"><a href="#3、杂记" class="headerlink" title="3、杂记"></a>3、杂记</h2><blockquote>
 <p>符号表数据结构为每个变量名字创建了一个记录条目。记录的字段就是名字的各个属性。这个数据结构应该允许编译器迅速查找到每个名字的记录，并向记录中快速存放和获取记录中的数据。（P6）</p>
 <p>在一个特定的实现中，多个步骤的活动可以被组合成一趟（pass）。（P6）</p>
 </blockquote>
