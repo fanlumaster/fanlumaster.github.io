@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      999 字
+      997 字
     </span>
   
 
@@ -307,25 +307,23 @@ S_3 &= x(S_2 + a_1) \\
 S_4 &= S_3 + a_0
 \end{aligned}</script><p>当然，其中有一点差异，就是我们的式子中，比如说</p>
 <script type="math/tex; mode=display">
-[z_1]_{补} = 2^{-1} \{ [z_0]_{补} + (y_{n + 1} - y_n)[x]_{补} \}</script><script type="math/tex; mode=display">(y_{n + 1} - y_n)$$ 的后面还乘上了一个 $$[x]_{补}$$，这个我一开始也不理解，后来经同学点拨，我决定将推导过程中的前几个式子给展开看一下，结果发现每一个式子都可以把 $$[x]_{补}$$ 给提出来，那么，这个问题自然就解决了。
-
-
-
--------
-
-注释：
-
-1、小数的补码，按照定义应该是：
-
-设二进制小数 $$X = \pm 0.x_{-1}x_{-2}...x_{-m}$$，则其补码定义为</script><p>[X]_{补} =<br>\left{\begin{matrix}<br>\begin{aligned}<br>&amp;X &amp; 0 &amp; \leqslant X &lt; 1 \<br>&amp;2 + X &amp; -1 &amp; \leqslant X &lt; 0 \<br>\end{aligned}<br>\end{matrix}\right.</p>
+[z_1]_{补} = 2^{-1} \{ [z_0]_{补} + (y_{n + 1} - y_n)[x]_{补} \}</script><p>有一项 <script type="math/tex">(y_{n + 1} - y_n)</script> 的后面还乘上了一个 <script type="math/tex">[x]_{补}</script>，这个我一开始也不理解，后来经同学点拨，我决定将推导过程中的前几个式子给展开看一下，结果发现每一个式子都可以把 <script type="math/tex">[x]_{补}</script> 给提出来，那么，这个问题自然就解决了。</p>
+<h1 id="2、举例应用"><a href="#2、举例应用" class="headerlink" title="2、举例应用"></a>2、举例应用</h1><hr>
+<p>注释：</p>
+<p>1、小数的补码，按照定义应该是：</p>
+<p>设二进制小数 <script type="math/tex">X = \pm 0.x_{-1}x_{-2}...x_{-m}</script>，则其补码定义为</p>
 <script type="math/tex; mode=display">
-
-上面的式子可以归结成一个式子：</script><p>[X]_{补} = (2 + X) \; mod \; 2 \qquad -1 \leqslant X &lt; 1</p>
+[X]_{补} = 
+\left\{\begin{matrix}
+\begin{aligned}
+&X & 0 & \leqslant X < 1 \\
+&2 + X & -1 & \leqslant X < 0 \\
+\end{aligned}
+\end{matrix}\right.</script><p>上面的式子可以归结成一个式子：</p>
 <script type="math/tex; mode=display">
-
-2、在上面的推导过程中，隐含地用了下面的关系：
-
-设 $$ -1 < x, y < 1</script><script type="math/tex; mode=display">
+[X]_{补} = (2 + X) \; mod \; 2 \qquad -1 \leqslant X < 1</script><p>2、在上面的推导过程中，隐含地用了下面的关系：</p>
+<p>设 <script type="math/tex">-1 < x, y < 1</script></p>
+<script type="math/tex; mode=display">
 [(2^{n + 1} + x) \; mod \; 2] \times y = [(2^{n + 1} + x) \times y] \; mod \; 2</script>
             </div>
             <hr>
