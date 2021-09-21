@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      997 字
+      1.3k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      19
        分钟
     </span>
   
@@ -308,7 +308,41 @@ S_4 &= S_3 + a_0
 \end{aligned}</script><p>当然，其中有一点差异，就是我们的式子中，比如说</p>
 <script type="math/tex; mode=display">
 [z_1]_{补} = 2^{-1} \{ [z_0]_{补} + (y_{n + 1} - y_n)[x]_{补} \}</script><p>有一项 <script type="math/tex">(y_{n + 1} - y_n)</script> 的后面还乘上了一个 <script type="math/tex">[x]_{补}</script>，这个我一开始也不理解，后来经同学点拨，我决定将推导过程中的前几个式子给展开看一下，结果发现每一个式子都可以把 <script type="math/tex">[x]_{补}</script> 给提出来，那么，这个问题自然就解决了。</p>
-<h1 id="2、举例应用"><a href="#2、举例应用" class="headerlink" title="2、举例应用"></a>2、举例应用</h1><hr>
+<p><strong>算法描述</strong></p>
+<ul>
+<li>在 $[y]<em>{补}$ 后添一个 $0$ 作为 $y</em>{n + 1}$，令部分积为 $0$</li>
+<li>如果 $y_{n + 1} = y_n$，部分积 $+ \; 0$，并将结果右移一位</li>
+<li>如果 $y<em>{n + 1} &lt; y_n$，部分积 $+ \; [-x]</em>{补}$，并将结果右移一位</li>
+<li>如果 $y<em>{n + 1} &gt; y_n$，部分积 $+ \; [x]</em>{补}$，并将结果右移一位</li>
+</ul>
+<h1 id="2、举例应用"><a href="#2、举例应用" class="headerlink" title="2、举例应用"></a>2、举例应用</h1><p>已知 $X = +0..1101$，$Y = +0.1011$，用补码一位乘法求 $X \times Y$.</p>
+<script type="math/tex; mode=display">
+解：[X]_{补} = 0.1101 \quad [Y]_{补} = 0.1011 \quad [-X]_{补} = 1.0011</script><script type="math/tex; mode=display">
+\begin{equation}
+\begin{split}
+&部分积 \qquad & 乘数 \qquad \quad & 说明 \\
+&00.0000 \qquad & 0.10110 & \\
+{+} \; &11.0011 \qquad &  & Y_{n + 1} < Y_n, 部分积 +[-X]_{补}  \\
+···& ········& & \\
+&11.0011 \qquad &  &  \\
+\rightarrow \; &11.1001 \qquad & 1001011 & 将结果右移一位 \\
+{+} \; &00.0000 \qquad &  & Y_{n + 1} = Y_n, 部分积 + 0 \\
+···& ········ & & \\
+&11.1001 \qquad &  &  \\
+\rightarrow \; &11.1100 \qquad & 11.0101 & 将结果右移一位 \\
+{+} \; &00.1101 \qquad &  & Y_{n + 1} > Y_n, 部分积 + [X]_{补} \\
+···& ········ & & \\
+&00.1001 \qquad &  &  \\
+\rightarrow \; &00.0100 \qquad & 111.010 & 将结果右移一位 \\
+{+} \; &11.0011 \qquad &  & Y_{n + 1} < Y_n, 部分积 + [X]_{补} \\
+···& ········ & & \\
+&11.0111 \qquad &  &  \\
+\rightarrow \; &11.1011 \qquad & 1111.01 & 将结果右移一位 \\
+{+} \; &00.1101 \qquad &  & \\
+···& ········ & & \\
+&00.1000 \qquad &  &
+\end{split}
+\end{equation}</script><hr>
 <p>注释：</p>
 <p>1、小数的补码，按照定义应该是：</p>
 <p>设二进制小数 <script type="math/tex">X = \pm 0.x_{-1}x_{-2}...x_{-m}</script>，则其补码定义为</p>
