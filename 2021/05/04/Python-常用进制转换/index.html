@@ -232,13 +232,14 @@
             <h1 style="display: none">Python 整数常用进制转换</h1>
             
             <div class="markdown-body">
-              <h3 id="其他进制转十进制"><a href="#其他进制转十进制" class="headerlink" title="其他进制转十进制"></a>其他进制转十进制</h3><p>这里使用 Python 内置的 <code>int()</code> 函数。</p>
+              <h3 id="其他进制转十进制">其他进制转十进制</h3>
+<p>这里使用 Python 内置的 <code>int()</code> 函数。</p>
 <p><strong>语法</strong></p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-built_in">int</span>(x, base=<span class="hljs-number">10</span>)<br></code></pre></div></td></tr></table></figure>
 <p><strong>参数</strong></p>
 <ul>
-<li>x — 字符串或数字</li>
-<li>base — 进制数，十进制</li>
+<li>x -- 字符串或数字</li>
+<li>base -- 进制数，十进制</li>
 </ul>
 <p><strong>返回值</strong></p>
 <p>返回 base 进制的的 x 值转换成十进制之后的值。</p>
@@ -251,18 +252,24 @@
 10
 10
 18
-18
-</code></pre></div><h3 id="十进制转其他进制"><a href="#十进制转其他进制" class="headerlink" title="十进制转其他进制"></a>十进制转其他进制</h3><h4 id="十进制转二进制"><a href="#十进制转二进制" class="headerlink" title="十进制转二进制"></a>十进制转二进制</h4><p>使用 <code>bin()</code> 函数</p>
+18</code></pre></div>
+<h3 id="十进制转其他进制">十进制转其他进制</h3>
+<h4 id="十进制转二进制">十进制转二进制</h4>
+<p>使用 <code>bin()</code> 函数</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">&gt;&gt;&gt;bin(12)<br><span class="hljs-string">&#x27;0b1100&#x27;</span><br></code></pre></div></td></tr></table></figure>
-<h4 id="十进制转八进制"><a href="#十进制转八进制" class="headerlink" title="十进制转八进制"></a>十进制转八进制</h4><p>使用 <code>oct()</code> 函数</p>
+<h4 id="十进制转八进制">十进制转八进制</h4>
+<p>使用 <code>oct()</code> 函数</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">&gt;&gt;&gt;oct(12)<br><span class="hljs-string">&#x27;0o14&#x27;</span><br></code></pre></div></td></tr></table></figure>
-<h4 id="十进制转十六进制"><a href="#十进制转十六进制" class="headerlink" title="十进制转十六进制"></a>十进制转十六进制</h4><p>使用 <code>hex()</code> 函数</p>
+<h4 id="十进制转十六进制">十进制转十六进制</h4>
+<p>使用 <code>hex()</code> 函数</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">&gt;&gt;&gt; hex(12)<br><span class="hljs-string">&#x27;0xc&#x27;</span><br></code></pre></div></td></tr></table></figure>
-<h3 id="其他非十进制之间的互转"><a href="#其他非十进制之间的互转" class="headerlink" title="其他非十进制之间的互转"></a>其他非十进制之间的互转</h3><p>一个简单的方法是，可以利用十进制作中转。</p>
+<h3 id="其他非十进制之间的互转">其他非十进制之间的互转</h3>
+<p>一个简单的方法是，可以利用十进制作中转。</p>
 <p>另一个方法是，我们给相应进制的数加上代表它们的前缀，然后使用诸如 <code>hex()</code> 函数即可。</p>
 <p>例如，我们将十六进制 <code>0x12</code> 数转成八进制数</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">&gt;&gt;&gt;oct(int(<span class="hljs-string">&#x27;0x12&#x27;</span>, 16))<br><span class="hljs-string">&#x27;0o22&#x27;</span><br>&gt;&gt;&gt;oct(0x12)<br><span class="hljs-string">&#x27;0o22&#x27;</span><br></code></pre></div></td></tr></table></figure>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>这里补充各个常用的进制的前缀和后缀。</p>
+<h3 id="补充">补充</h3>
+<p>这里补充各个常用的进制的前缀和后缀。</p>
 <ul>
 <li>二进制：前缀 <code>0b/0B</code>，后缀 <code>b/B</code></li>
 <li>八进制：前缀 <code>0o/0O</code>，后缀 <code>o/O</code>，有的资料说，八进制的前缀也可以使用单独一个数字 <code>0</code>，但是，这在 Python 中是行不通的</li>

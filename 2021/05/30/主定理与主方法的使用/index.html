@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      287 字
+      323 字
     </span>
   
 
@@ -232,17 +232,22 @@
             <h1 style="display: none">主定理与主方法的使用</h1>
             
             <div class="markdown-body">
-              <h2 id="主定理"><a href="#主定理" class="headerlink" title="主定理"></a>主定理</h2><p>令 <script type="math/tex">a \geqslant 1</script> 和 <script type="math/tex">b > 1</script> 是常数, <script type="math/tex">f(n)</script> 是一个函数, <script type="math/tex">T(n)</script> 是定义在非负整数上的递归式:</p>
-<script type="math/tex; mode=display">T(n) = aT(n/b) + f(n)</script><p>其中我们将 <script type="math/tex">n/b</script> 解释为 <script type="math/tex">\left \lfloor n/b \right \rfloor</script> 或 <script type="math/tex">\left \lceil n/b \right \rceil</script>. 那么 <script type="math/tex">T(n)</script> 有如下渐进界:</p>
-<ol>
-<li>若对某个常数 <script type="math/tex">\varepsilon > 0</script> 有 <script type="math/tex">f(n) = O(n^{log_{b}a - \varepsilon})</script>, 则 <script type="math/tex">T(n) = \Theta(n^{log_{b}a})</script>.</li>
-<li>若 <script type="math/tex">f(n) = \Theta(n^{log_{b}a})</script>, 则 <script type="math/tex">T(n) = O(n^{log_{b}a}lgn)</script>.</li>
-<li>若对某个常数 <script type="math/tex">\varepsilon > 0</script> 有 <script type="math/tex">f(n) = \Omega(n^{log_{b}a + \varepsilon})</script>, 且对某个常数 <script type="math/tex">c < 1</script> 和所有足够大的 <script type="math/tex">n</script> 有 <script type="math/tex">af(n/b) \leqslant cf(n)</script>, 则 <script type="math/tex">T(n) = \Theta(f(n))</script>.</li>
+              <h2 id="主定理">主定理</h2>
+<p>令 <code>$a \geqslant 1$</code> 和 <code>$b &gt; 1$</code> 是常数, <code>$f(n)$</code> 是一个函数, <code>$T(n)$</code> 是定义在非负整数上的递归式:</p>
+<p><span class="math display">\[T(n) = aT(n/b) + f(n)\]</span></p>
+<p>其中我们将 <code>$n/b$</code> 解释为 <code>$\left \lfloor n/b \right \rfloor$</code> 或 <code>$\left \lceil n/b \right \rceil$</code>. 那么 <code>$T(n)$</code> 有如下渐进界:</p>
+<ol type="1">
+<li>若对某个常数 <code>$\varepsilon &gt; 0$</code> 有 <code>$f(n) = O(n^&#123;log_&#123;b&#125;a - \varepsilon&#125;)$</code>, 则 <code>$T(n) = \Theta(n^&#123;log_&#123;b&#125;a&#125;)$</code>.</li>
+<li>若 <code>$f(n) = \Theta(n^&#123;log_&#123;b&#125;a&#125;)$</code>, 则 <code>$T(n) = O(n^&#123;log_&#123;b&#125;a&#125;lgn)$</code>.</li>
+<li>若对某个常数 <code>$\varepsilon &gt; 0$</code> 有 <code>$f(n) = \Omega(n^&#123;log_&#123;b&#125;a + \varepsilon&#125;)$</code>, 且对某个常数 <code>$c &lt; 1$</code> 和所有足够大的 <code>$n$</code> 有 <code>$af(n/b) \leqslant cf(n)$</code>, 则 <code>$T(n) = \Theta(f(n))$</code>.</li>
 </ol>
-<h2 id="使用主方法"><a href="#使用主方法" class="headerlink" title="使用主方法"></a>使用主方法</h2><p>使用主方法很简单, 我们只需确定主定理的哪种情况成立, 即可得到解.</p>
+<h2 id="使用主方法">使用主方法</h2>
+<p>使用主方法很简单, 我们只需确定主定理的哪种情况成立, 即可得到解.</p>
 <p>我们看下面的例子</p>
-<script type="math/tex; mode=display">T(n) = 9T(n/3) + n</script><p>对于这个递归式, 我们有 <script type="math/tex">a = 9</script>, <script type="math/tex">b = 3</script>, <script type="math/tex">f(n) = n</script>, 因此 <script type="math/tex">n^{log_{b}a} = n^{log_{3}9} = \Theta(n^2)</script>. 由于 <script type="math/tex">f(n) = O(n^{log_{3}9 - \varepsilon})</script>, 其中 <script type="math/tex">\varepsilon = 1</script>, 因此可以应用主定理的情况 1, 从而得到解 <script type="math/tex">T(n) = \Theta(n^2)</script>.</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>《算法导论》（中文版）</p>
+<p><span class="math display">\[T(n) = 9T(n/3) + n\]</span></p>
+<p>对于这个递归式, 我们有 <code>$a = 9$</code>, <code>$b = 3$</code>, <code>$f(n) = n$</code>, 因此 <code>$n^&#123;log_&#123;b&#125;a&#125; = n^&#123;log_&#123;3&#125;9&#125; = \Theta(n^2)$</code>. 由于 <code>$f(n) = O(n^&#123;log_&#123;3&#125;9 - \varepsilon&#125;)$</code>, 其中 <code>$\varepsilon = 1$</code>, 因此可以应用主定理的情况 1, 从而得到解 <code>$T(n) = \Theta(n^2)$</code>.</p>
+<h2 id="参考">参考</h2>
+<p>《算法导论》（中文版）</p>
 
             </div>
             <hr>

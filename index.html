@@ -204,10 +204,13 @@
             
           
           补码乘法由英国人布斯（Booth）于 1950 年发明，又称为布斯（Booth）算法。
-1、Booth 算法的推导设 [x]_{补} = x_0.x_1x_2...x_n，[y]_{补} = y_0.y_1y_2...y_n。下面分两种情况来推导 Booth 算法。
-(1) 设被乘数 $x$ 符号任意，乘数 $y$ 符号为正，则：
+1、Booth 算法的推导
+设 \([x]_{补} = x_0.x_1x_2...x_n\)，\([y]_{补} = y_0.y_1y_2...y_n\)。下面分两种情况来推导 Booth 算法。
 
-[x]_{补} = x_0.x_1x_2...x_n \quad
+设被乘数 \(x\) 符号任意，乘数 \(y\) 符号为正，则：
+
+\[
+[x]_{补} = x_
         </a>
       </p>
 
@@ -263,9 +266,10 @@
           
             
           
-          样例一让花括号中第二列中第一行的小于等于号和下一行的小于号对齐。
+          样例一
+让花括号中第二列中第一行的小于等于号和下一行的小于号对齐。
 代码：
-1234567891011$$[X]_&#123;原&#125; = \left\&#123;    \begin&#123;matrix&#125;    \begin&#123;align*&#125;&amp;X &amp; 0 &amp; \leqslant X &lt; 2^n \\ &amp;2^n - X &a
+1234567891011$$[X]_&#123;原&#125; = \left\&#123;    \begin&#123;matrix&#125;    \begin&#123;align*&#125;&amp;X &amp; 0 &amp; \leqslant X &lt; 2^n \\ &amp;2^n - 
         </a>
       </p>
 
@@ -321,12 +325,13 @@
           
             
           
-          需求描述写两行等式，然后让这两行等式保持左对齐。
-实现123456$$\begin&#123;aligned&#125;&amp; [X_1]_&#123;原&#125; = 0.1011 \\&amp; [X_2]_&#123;原&#125; = 1 - （-0.1011） = 1.1011\end&#123;aligned&#125;$$
+          需求描述
+写两行等式，然后让这两行等式保持左对齐。
+实现
+123456$$\begin&#123;aligned&#125;&amp; [X_1]_&#123;原&#125; = 0.1011 \\&amp; [X_2]_&#123;原&#125; = 1 - （-0.1011） = 1.1011\end&#123;aligned&#125;$$
 效果
-
-\begin{aligned}
-& [X_1]
+\[
+\begin{aligne
         </a>
       </p>
 
@@ -383,12 +388,10 @@
             
           
           时间长了，在上计算机组成原理时，发现这部分的知识又遗忘了。所以还是整理以下，方便以后可以即时回顾，就不用去翻书了。
-1、原码用原码表示带符号的二进制数时，符号位用 0 表示正，1 表示负；数值位保持不变。原码表示法又称为符号-数值表示法。
-1.1 小数原码的定义设二进制小数 X = \pm 0.x_{-1}x_{-2}...x_{-m}，则其原码定义为
-
-[X]_{原} = 
-\left\{
-  
+1、原码
+用原码表示带符号的二进制数时，符号位用 0 表示正，1 表示负；数值位保持不变。原码表示法又称为符号-数值表示法。
+1.1 小数原码的定义
+设二进制小数 $X = \pm 0.x_&#123;-1&#125;x_&#123;-2&#125;...x_&#123;-m
         </a>
       </p>
 
@@ -449,7 +452,7 @@
           对于 @Autowired 注解，一般情况下的使用是用其来注解一个变量，比如
 12@Autowiredprivate UserDao userDao;
 但是，这个用法有时候会导致问题，比如，下面的代码
-12345678@Autowiredprivate User user;private String school;public UserAccountServiceImpl() &#123;   
+12345678@Autowiredprivate User user;private String school;public UserAccountServiceImpl() &#123;
         </a>
       </p>
 
@@ -513,7 +516,7 @@
 
 
 
-12345678910&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot; xmlns:th=&quot;https://www.thymeleaf.org&quot;&gt;&lt;head&gt;  &lt;meta charset=&quot;UTF-8&quot
+12345678910&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot; xmlns:th=&quot;https://www.thymeleaf.org&quot;&gt;&lt;head&gt;  &lt;meta charset=&quot;UTF-8&
         </a>
       </p>
 
@@ -571,9 +574,12 @@
           
             
           
-          一、LeetCode 9 Palindrome Number1.1 题目链接https://leetcode.com/problems/palindrome-number/
-1.2 解答此题比较简单，直接放代码
-123456789class Solution:    def isPalindrome(self, x: int) -&gt; bool:        if x &lt; 0:    
+          一、LeetCode 9 Palindrome Number
+1.1 题目链接
+https://leetcode.com/problems/palindrome-number/
+1.2 解答
+此题比较简单，直接放代码
+123456789class Solution:    def isPalindrome(self, x: int) -&gt; bool:        if x &lt
         </a>
       </p>
 
@@ -638,7 +644,7 @@
 警告：升级之后 VMware Tools 似乎失效了。阅读此博客时还请慎重。
 
 
-同时，我们发现下面
+同时，我
         </a>
       </p>
 
@@ -713,9 +719,7 @@
 
 解决方案如下，进入 BIOS 设置，打开虚拟化开关
 
-然后重新打开虚拟机，发现运行正常
-
-到这里，安装就完成了
+然后重新打开虚拟机
         </a>
       </p>
 

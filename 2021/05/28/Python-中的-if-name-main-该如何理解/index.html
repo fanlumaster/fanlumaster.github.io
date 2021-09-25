@@ -232,8 +232,9 @@
             <h1 style="display: none">Python 中的 if __name == &#39;__main__&#39; 该如何理解</h1>
             
             <div class="markdown-body">
-              <p>本文转载自: <a target="_blank" rel="noopener" href="https://blog.konghy.cn/2017/04/24/python-entry-program/">https://blog.konghy.cn/2017/04/24/python-entry-program/</a></p>
-<h2 id="程序入口"><a href="#程序入口" class="headerlink" title="程序入口"></a>程序入口</h2><p>对于很多编程语言来说，程序都必须要有一个入口，比如 C，C++，以及完全面向对象的编程语言 Java，C# 等。如果你接触过这些语言，对于程序入口这个概念应该很好理解，C 和 C++ 都需要有一个 main 函数来作为程序的入口，也就是程序的运行会从 main 函数开始。同样，Java 和 C# 必须要有一个包含 Main 方法的主类来作为程序入口。</p>
+              <p>本文转载自: https://blog.konghy.cn/2017/04/24/python-entry-program/</p>
+<h2 id="程序入口">程序入口</h2>
+<p>对于很多编程语言来说，程序都必须要有一个入口，比如 C，C++，以及完全面向对象的编程语言 Java，C# 等。如果你接触过这些语言，对于程序入口这个概念应该很好理解，C 和 C++ 都需要有一个 main 函数来作为程序的入口，也就是程序的运行会从 main 函数开始。同样，Java 和 C# 必须要有一个包含 Main 方法的主类来作为程序入口。</p>
 <p>而 Python 则有不同，它属于脚本语言，不像编译型语言那样先将程序编译成二进制再运行，而是动态的逐行解释运行。也就是从脚本第一行开始运行，没有统一的入口。</p>
 <p>一个 Python 源码文件除了可以被直接运行外，还可以作为模块（也就是库）被导入。不管是导入还是直接运行，最顶层的代码都会被运行（Python 用缩进来区分代码层次）。而实际上在导入的时候，有一部分代码我们是不希望被运行的。</p>
 <p>举一个例子来说明一下，假设我们有一个 const.py 文件，内容如下：</p>
@@ -244,28 +245,30 @@
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">from</span> const <span class="hljs-keyword">import</span> PI<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calc_round_area</span>(<span class="hljs-params">radius</span>):</span><br>    <span class="hljs-keyword">return</span> PI * (radius ** <span class="hljs-number">2</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>():</span><br>    <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;round area: &quot;</span>, calc_round_area(<span class="hljs-number">2</span>)<br><br>main()<br></code></pre></div></td></tr></table></figure>
 <p>运行 area.py，输出结果：</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">PI: <span class="hljs-number">3.14</span><br><span class="hljs-built_in">round</span> area:  <span class="hljs-number">12.56</span><br></code></pre></div></td></tr></table></figure>
-<p>可以看到，const 中的 main 函数也被运行了，实际上我们是不希望它被运行，提供 main 也只是为了对常量定义进行下测试。这时，<code>if __name__ == &#39;__main__&#39;</code> 就派上了用场。把 const.py 改一下：</p>
+<p>可以看到，const 中的 main 函数也被运行了，实际上我们是不希望它被运行，提供 main 也只是为了对常量定义进行下测试。这时，<code>if __name__ == '__main__'</code> 就派上了用场。把 const.py 改一下：</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">PI = <span class="hljs-number">3.14</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>():</span><br>    <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;PI:&quot;</span>, PI<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    main()<br></code></pre></div></td></tr></table></figure>
 <p>然后再运行 area.py，输出如下：</p>
 <figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">round</span> area:  <span class="hljs-number">12</span>.<span class="hljs-number">56</span><br></code></pre></div></td></tr></table></figure>
 <p>再运行下 const.py，输出如下：</p>
 <figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">PI</span>: <span class="hljs-number">3</span>.<span class="hljs-number">14</span><br></code></pre></div></td></tr></table></figure>
 <p>这才是我们想要的效果。</p>
-<p><code>if __name__ == &#39;__main__&#39;</code> 就相当于是 Python 模拟的程序入口。Python 本身并没有规定这么写，这只是一种编码习惯。由于模块之间相互引用，不同模块可能都有这样的定义，而入口程序只能有一个。到底哪个入口程序被选中，这取决于 <code>__name__</code> 的值。</p>
-<h2 id="name"><a href="#name" class="headerlink" title="name"></a><strong>name</strong></h2><p><code>__name__</code> 是内置变量，用于表示当前模块的名字，同时还能反映一个包的结构。来举个例子，假设有如下一个包：</p>
+<p><code>if __name__ == '__main__'</code> 就相当于是 Python 模拟的程序入口。Python 本身并没有规定这么写，这只是一种编码习惯。由于模块之间相互引用，不同模块可能都有这样的定义，而入口程序只能有一个。到底哪个入口程序被选中，这取决于 <code>__name__</code> 的值。</p>
+<h2 id="name"><strong>name</strong></h2>
+<p><code>__name__</code> 是内置变量，用于表示当前模块的名字，同时还能反映一个包的结构。来举个例子，假设有如下一个包：</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs reasonml">a<br>├── b<br>│   ├── c.py<br>│   └── <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">__init__</span>.</span></span>py<br>└── <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">__init__</span>.</span></span>py<br></code></pre></div></td></tr></table></figure>
 <p>目录中所有 py 文件的内容都为：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros"><span class="hljs-builtin-name">print</span> __name__<br></code></pre></div></td></tr></table></figure>
-<p>我们执行 <code>python -c &quot;import a.b.c&quot;</code>，输出结果：</p>
+<p>我们执行 <code>python -c "import a.b.c"</code>，输出结果：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus"><span class="hljs-selector-tag">a</span><br><span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.b</span><br><span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.b</span>.c<br></code></pre></div></td></tr></table></figure>
 <p>由此可见，<code>__name__</code> 可以清晰的反映一个模块在包中的层次。其实，所谓模块名就是 import 时需要用到的名字，例如：</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">import</span> tornado<br><span class="hljs-keyword">import</span> tornado.web<br></code></pre></div></td></tr></table></figure>
 <p>这里的 tornado 和 tornado.web 就被称为模块的模块名。</p>
 <p>如果一个模块被直接运行，则其没有包结构，其 <code>__name__</code> 值为 <code>__main__</code>。例如在上例中，我们直接运行 c.py 文件（python a/b/c.py），输出结果如下：</p>
 <figure class="highlight asciidoc"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs asciidoc"><span class="hljs-emphasis">__main__</span><br></code></pre></div></td></tr></table></figure>
-<p>所以，<code>if __name__ == &#39;__main__&#39;</code> 我们简单的理解就是：<strong>如果模块是被直接运行的，则代码块被运行，如果模块是被导入的，则代码块不被运行</strong>。</p>
+<p>所以，<code>if __name__ == '__main__'</code> 我们简单的理解就是：<strong>如果模块是被直接运行的，则代码块被运行，如果模块是被导入的，则代码块不被运行</strong>。</p>
 <p>实际上，这个问题还可以衍生出其他的一些知识点，例如<code>__main__.py</code> 文件与 Python 的 <code>-m</code> 参数。</p>
-<h2 id="main-py-文件与-python-m"><a href="#main-py-文件与-python-m" class="headerlink" title="main.py 文件与 python -m"></a><strong>main</strong>.py 文件与 python -m</h2><p>Python 的 <code>-m</code> 参数用于将一个模块或者包作为一个脚本运行，而 <code>__main__.py</code> 文件则相当于是一个包的“入口程序”。</p>
+<h2 id="main.py-文件与-python--m"><strong>main</strong>.py 文件与 python -m</h2>
+<p>Python 的 <code>-m</code> 参数用于将一个模块或者包作为一个脚本运行，而 <code>__main__.py</code> 文件则相当于是一个包的“入口程序”。</p>
 <p>首先我们需要来看看 <code>python xxx.py</code> 与 <code>python -m xxx.py</code> 的区别。两种运行 Python 程序的方式的不同点在于，一种是直接运行，一种是当做模块来运行。</p>
 <p>先来看一个简单的例子，假设有一个 Python 文件 run.py，其内容如下：</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">import</span> sys<br><span class="hljs-built_in">print</span> sys.path<br></code></pre></div></td></tr></table></figure>
@@ -295,9 +298,10 @@
 <li>2、 <strong>加上 -m 参数时 Python 会先将模块或者包导入，然后再执行。</strong></li>
 <li>3、 <strong><code>__main__.py</code> 文件是一个包或者目录的入口程序。</strong>不管是用 <code>python package</code> 还是用 <code>python -m package</code> 运行时，<code>__main__.py</code> 文件总是被执行。</li>
 </ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a target="_blank" rel="noopener" href="http://www.tuicool.com/articles/jMzqYzF">http://www.tuicool.com/articles/jMzqYzF</a></li>
-<li><a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/4042905/what-is-main-py">http://stackoverflow.com/questions/4042905/what-is-main-py</a></li>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.tuicool.com/articles/jMzqYzF" class="uri">http://www.tuicool.com/articles/jMzqYzF</a></li>
+<li><a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/4042905/what-is-main-py" class="uri">http://stackoverflow.com/questions/4042905/what-is-main-py</a></li>
 </ul>
 
             </div>

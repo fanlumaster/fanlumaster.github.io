@@ -232,22 +232,24 @@
             <h1 style="display: none">bochs 利用 freedos 搭建保护模式的运行环境</h1>
             
             <div class="markdown-body">
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这里是对《一个操作系统的实现》第 3 章的“保护模式的运行环境”这一节的实操的记录。因为有一点点小的注意点，所以在这里记录一下。</p>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><p>1、下载</p>
+              <h2 id="前言">前言</h2>
+<p>这里是对《一个操作系统的实现》第 3 章的“保护模式的运行环境”这一节的实操的记录。因为有一点点小的注意点，所以在这里记录一下。</p>
+<h2 id="操作步骤">操作步骤</h2>
+<p>1、下载</p>
 <p>第一种方法，直接在命令行获取文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> wget http://bochs.sourceforge.net/guestos/freedos-img.tar.gz</span><br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210613172921.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210613172921.png" srcset="/img/loading.gif" lazyload /></p>
 <p>也可以到 bochs 官网下载 freedos 软盘映像文件，这里不作赘述。</p>
 <p>2、然后把这个文件移动到别的文件夹里面进行解压，我这里是移动到了 <code>~/Downloads/freedos/</code> 下面，然后解压</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> tar -xzf freedos-img.tar.gz</span><br></code></pre></div></td></tr></table></figure>
 <p>解压之后是一个文件夹</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210613173424.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210613173424.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后我们把 a.img 改成 freedos.img 并复制到我们的工作目录中。</p>
 <p>3、然后使用 bximage 生成一个软盘映像，起名为 pm.img。</p>
 <p>4、修改我们的 bochsrc，确保其中有以下三行：</p>
 <figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros">floppya:<span class="hljs-attribute">1_44</span>=freedos.img, <span class="hljs-attribute">status</span>=inserted<br>floppyb:<span class="hljs-attribute">1_44</span>=pm.img, <span class="hljs-attribute">status</span>=inserted<br>boot: a<br></code></pre></div></td></tr></table></figure>
 <p>5、启动 Bochs，待 FreeDos 启动完毕后格式化 B: 盘，如下图所示</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210613174335.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210613174335.png" srcset="/img/loading.gif" lazyload /></p>
 <p>注意，这里用的命令如下</p>
 <figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus">format<span class="hljs-selector-class">.exe</span> <span class="hljs-selector-tag">b</span>:<br></code></pre></div></td></tr></table></figure>
 <p>书上的没有 .exe 后缀，那是不对的。</p>
@@ -262,8 +264,8 @@
 <p>8、到 FreeDos 中执行如下命令</p>
 <figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">B</span>:\pmtest<span class="hljs-number">1</span>.com<br></code></pre></div></td></tr></table></figure>
 <p>这样 pmtest1.com 就运行起来了，如下图所示</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210613175153.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<hr>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210613175153.png" srcset="/img/loading.gif" lazyload /></p>
+<hr />
 <p>参考：《一个操作系统的实现》</p>
 
             </div>

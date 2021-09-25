@@ -239,12 +239,12 @@
 <blockquote>
 <p>process 递归函数最多占用二叉树高度为 h 的栈空间，所以额外空间复杂度为 O(h)。</p>
 </blockquote>
-<p>这里的 $O(h)$ 即 $O(logN)$，其中，$N$ 为二叉树的节点个数。</p>
-<p>一开始我并不理解为什么空间复杂度是 $O(logN)$，后来几经周折，终于想通。遂记录之。</p>
-<p>我们可以这样理解，一个函数调用栈就是一个 “空间单位”，然后我们这个递归函数即使是调用到二叉树的最下面的一层，所耗费的函数调用栈的个数也不会超过 $logN$，因此，这个递归调用的空间复杂度是 $O(logN)$。</p>
+<p>这里的 <span class="math inline">\(O(h)\)</span> 即 <span class="math inline">\(O(logN)\)</span>，其中，<span class="math inline">\(N\)</span> 为二叉树的节点个数。</p>
+<p>一开始我并不理解为什么空间复杂度是 <span class="math inline">\(O(logN)\)</span>，后来几经周折，终于想通。遂记录之。</p>
+<p>我们可以这样理解，一个函数调用栈就是一个 “空间单位”，然后我们这个递归函数即使是调用到二叉树的最下面的一层，所耗费的函数调用栈的个数也不会超过 <span class="math inline">\(logN\)</span>，因此，这个递归调用的空间复杂度是 <span class="math inline">\(O(logN)\)</span>。</p>
 <p>这里要注意一个<strong>误区</strong>，就是不要在计算函数调用栈的时候把函数执行过程中从头到尾的所有调用栈的数量认为是所耗费的空间数量。事实上，我们只需要函数执行到当前这一步时，程序所耗费的调用栈。我们可以把函数调用栈等价成一个 <code>int</code> 变量来理解，<code>int</code> 变量在程序执行的过程中可能会被重新赋值，但是，一个单个的 <code>int</code> 变量，无论它在程序执行的过程中被重新赋值多少次，它所占的空间始终是只有一个固定的数量，而不应该在每一次这个 <code>int</code> 值变化的时候都把它所占的空间再加一遍。</p>
 <p>我们借助 IDEA 的调试工具看一下函数调用栈来加深理解</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210326192112.png" srcset="/img/loading.gif" lazyload alt="20210326192112"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210326192112.png" srcset="/img/loading.gif" lazyload alt="20210326192112" /></p>
 <p>上图是一个二叉树的递归先序遍历，同时遍历到达最后一层时的递归调用栈。</p>
 
             </div>

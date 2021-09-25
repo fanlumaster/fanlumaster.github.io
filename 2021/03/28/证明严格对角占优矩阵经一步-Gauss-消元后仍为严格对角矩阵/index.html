@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      387 字
+      396 字
     </span>
   
 
@@ -232,24 +232,33 @@
             <h1 style="display: none">证明严格对角占优矩阵经一步 Gauss 消元后仍为严格对角矩阵</h1>
             
             <div class="markdown-body">
-              <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>设矩阵 $\mathbf{A} = (a<em>{ij}) \in \mathbf{R}^{n \times n}$ 满足 $a</em>{11} \neq 0$，且其经一步 Gauss 消元后成为</p>
-<script type="math/tex; mode=display">
+              <h3 id="问题">问题</h3>
+<p>设矩阵 <span class="math inline">\(\mathbf{A} = (a_{ij}) \in \mathbf{R}^{n \times n}\)</span> 满足 <span class="math inline">\(a_{11} \neq 0\)</span>，且其经一步 Gauss 消元后成为</p>
+<p><span class="math display">\[
 \begin{pmatrix}
-a_{11} & \pmb{a}_{1}^{T} \\
-\pmb{0} & \pmb{A}_2 \\
-\end{pmatrix}</script><p>证明：若 $\pmb{A}$ 为严格对角占优矩阵，则经一次 Gauss 消元之后的 $\pmb{A}^{(1)}$ 也是严格对角矩阵.</p>
-<h3 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h3><p>注意到矩阵 $\pmb{A}^{(1)}$ 的 $i$ 行 $j$ 列元素为</p>
-<script type="math/tex; mode=display">a_{ij}^{(1)} = a_{ij} - a_{i1} \frac{a_{1j}}{a_{11}}, \quad i, j = 2, 3, ..., n.</script><p>要证严格对角占优矩阵 $\mathbf{A}$ 经过一步 Gauss 消元后的矩阵 $\mathbf{A}^{(1)}$ 仍是严格对角占优矩阵，即证</p>
-<script type="math/tex; mode=display">\left| a_{ii} - a_{i1} \frac{a_{1i}}{a_{11}} \right| > \sum_{j = 2, \\ j \neq i}^{n} \left| a_{ij} - a_{i1} \frac{a_{1j}}{a_{11}} \right|</script><p>然后，对不等式进行放缩，把左边缩小为</p>
-<script type="math/tex; mode=display">\left| a_{ii} \right| - \left| a_{ii} \right| \frac{\left| a_{1i} \right|}{\left| a_{11} \right|}</script><p>右边放大为</p>
-<script type="math/tex; mode=display">\sum_{j = 2, \\ j \neq i}^{n} \left( \left| a_{ij} \right| + \frac{\left| a_{1j} \right|}{\left| a_{11} \right|} \left| a_{i1} \right| \right)</script><p>放缩后的左边减去右边得</p>
-<script type="math/tex; mode=display">
+a_{11} &amp; \pmb{a}_{1}^{T} \\
+\pmb{0} &amp; \pmb{A}_2 \\
+\end{pmatrix}
+\]</span></p>
+<p>证明：若 <span class="math inline">\(\pmb{A}\)</span> 为严格对角占优矩阵，则经一次 Gauss 消元之后的 <span class="math inline">\(\pmb{A}^{(1)}\)</span> 也是严格对角矩阵.</p>
+<h3 id="解答">解答</h3>
+<p>注意到矩阵 <span class="math inline">\(\pmb{A}^{(1)}\)</span> 的 <span class="math inline">\(i\)</span> 行 <span class="math inline">\(j\)</span> 列元素为</p>
+<p><span class="math display">\[a_{ij}^{(1)} = a_{ij} - a_{i1} \frac{a_{1j}}{a_{11}}, \quad i, j = 2, 3, ..., n.\]</span></p>
+<p>要证严格对角占优矩阵 <span class="math inline">\(\mathbf{A}\)</span> 经过一步 Gauss 消元后的矩阵 <span class="math inline">\(\mathbf{A}^{(1)}\)</span> 仍是严格对角占优矩阵，即证</p>
+<p><span class="math display">\[\left| a_{ii} - a_{i1} \frac{a_{1i}}{a_{11}} \right| &gt; \sum_{j = 2, \\ j \neq i}^{n} \left| a_{ij} - a_{i1} \frac{a_{1j}}{a_{11}} \right|\]</span></p>
+<p>然后，对不等式进行放缩，把左边缩小为</p>
+<p><span class="math display">\[\left| a_{ii} \right| - \left| a_{ii} \right| \frac{\left| a_{1i} \right|}{\left| a_{11} \right|}\]</span></p>
+<p>右边放大为</p>
+<p><span class="math display">\[\sum_{j = 2, \\ j \neq i}^{n} \left( \left| a_{ij} \right| + \frac{\left| a_{1j} \right|}{\left| a_{11} \right|} \left| a_{i1} \right| \right)\]</span></p>
+<p>放缩后的左边减去右边得</p>
+<p><span class="math display">\[
 \begin{equation}\begin{split}
-& \left| a_{ii} \right| - \left| a_{ii} \right| \frac{\left| a_{1i} \right|}{\left| a_{11} \right|} - \sum_{j = 2, \\ j \neq i}^{n} \left| a_{ij} \right| - \sum_{j = 2, \\ j \neq i}^{n} \frac{\left| a_{1j} \right|}{\left| a_{11} \right|} \left| a_{i1} \right| \\ 
-& = \left| a_{ii} \right| - \sum_{j = 2, \\ j \neq i}^{n} \left| a_{ij} \right| - \sum_{j = 2}^{n} \frac{\left| a_{1j} \right|}{\left| a_{11} \right|} \left| a_{i1} \right| \nonumber \\ 
-& > \left| a_{i1} \right| - \left| a_{i1} \right| \sum_{j = 2}^{n} \frac{\left| a_{1j} \right|}{\left| a_{11} \right|} \\ 
-& > 0 
-\end{split}\end{equation}</script><p>所以，$\mathbf{A}^{(1)}$ 仍是严格对角占优矩阵。</p>
+&amp; \left| a_{ii} \right| - \left| a_{ii} \right| \frac{\left| a_{1i} \right|}{\left| a_{11} \right|} - \sum_{j = 2, \\ j \neq i}^{n} \left| a_{ij} \right| - \sum_{j = 2, \\ j \neq i}^{n} \frac{\left| a_{1j} \right|}{\left| a_{11} \right|} \left| a_{i1} \right| \\ 
+&amp; = \left| a_{ii} \right| - \sum_{j = 2, \\ j \neq i}^{n} \left| a_{ij} \right| - \sum_{j = 2}^{n} \frac{\left| a_{1j} \right|}{\left| a_{11} \right|} \left| a_{i1} \right| \nonumber \\ 
+&amp; &gt; \left| a_{i1} \right| - \left| a_{i1} \right| \sum_{j = 2}^{n} \frac{\left| a_{1j} \right|}{\left| a_{11} \right|} \\ 
+&amp; &gt; 0 
+\end{split}\end{equation}\]</span></p>
+<p>所以，<span class="math inline">\(\mathbf{A}^{(1)}\)</span> 仍是严格对角占优矩阵。</p>
 
             </div>
             <hr>

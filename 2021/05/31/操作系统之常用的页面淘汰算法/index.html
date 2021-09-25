@@ -232,25 +232,39 @@
             <h1 style="display: none">操作系统之常用的页面淘汰算法(未竟)</h1>
             
             <div class="markdown-body">
-              <h2 id="最佳算法-OPT-算法-Optimal"><a href="#最佳算法-OPT-算法-Optimal" class="headerlink" title="最佳算法(OPT 算法, Optimal)"></a>最佳算法(OPT 算法, Optimal)</h2><h3 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h3><ul>
+              <h2 id="最佳算法opt-算法-optimal">最佳算法(OPT 算法, Optimal)</h2>
+<h3 id="思想">思想</h3>
+<ul>
 <li>淘汰不再需要或最远将来才会用到的页面.</li>
 </ul>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>分配 3 个页框. 页面序列: A, B, C, D, A, B, E, A, B, C, D, E. 分析其按照 OPT 算法淘汰页面的缺页情况.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210531145159.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="例子">例子</h3>
+<p>分配 3 个页框. 页面序列: A, B, C, D, A, B, E, A, B, C, D, E. 分析其按照 OPT 算法淘汰页面的缺页情况.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210531145159.png" srcset="/img/loading.gif" lazyload /></p>
 <p>缺页次数 = 7　　　缺页率 = 7 / 12 = 58%</p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>理论上最佳, 实践中该算法无法实现.</p>
-<h2 id="先进先出淘汰算法-FIFO-算法"><a href="#先进先出淘汰算法-FIFO-算法" class="headerlink" title="先进先出淘汰算法(FIFO 算法)"></a>先进先出淘汰算法(FIFO 算法)</h2><h3 id="思想-1"><a href="#思想-1" class="headerlink" title="思想"></a>思想</h3><p>淘汰在内存中停留时间最长的页面</p>
-<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>分配 3 个页框. 页面序列: A, B, C, D, A, B, E, A, B, C, D, E. 分析其按照 FIFO 算法淘汰页面的缺页情况.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210531150119.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="特点">特点</h3>
+<p>理论上最佳, 实践中该算法无法实现.</p>
+<h2 id="先进先出淘汰算法fifo-算法">先进先出淘汰算法(FIFO 算法)</h2>
+<h3 id="思想-1">思想</h3>
+<p>淘汰在内存中停留时间最长的页面</p>
+<h3 id="例子-1">例子</h3>
+<p>分配 3 个页框. 页面序列: A, B, C, D, A, B, E, A, B, C, D, E. 分析其按照 FIFO 算法淘汰页面的缺页情况.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210531150119.png" srcset="/img/loading.gif" lazyload /></p>
 <p>缺页次数 = 9　　　缺页率 = 9 / 12 = 75%</p>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>实现简单: 页面按进入内存的时间顺序排序, 淘汰队头页面.</p>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>进程只有按顺序访问地址空间时页面命中率才最理想.</p>
-<h3 id="异常现象"><a href="#异常现象" class="headerlink" title="异常现象"></a>异常现象</h3><p>对于一些特定的访问序列, 分配页框越多, 缺页率越高!</p>
-<h2 id="最久未使用淘汰算法-LRU-Least-Recently-Used"><a href="#最久未使用淘汰算法-LRU-Least-Recently-Used" class="headerlink" title="最久未使用淘汰算法(LRU, Least Recently Used)"></a>最久未使用淘汰算法(LRU, Least Recently Used)</h2><h3 id="思想-2"><a href="#思想-2" class="headerlink" title="思想"></a>思想</h3><p>淘汰最长时间未被使用的页面.</p>
-<h3 id="例子-2"><a href="#例子-2" class="headerlink" title="例子"></a>例子</h3><p>分配 3 个页框. 页面序列: A, B, C, D, A, B, E, A, B, C, D, E. 分析其按照 LRU 算法淘汰页面的缺页情况.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210531150753.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="优点">优点</h3>
+<p>实现简单: 页面按进入内存的时间顺序排序, 淘汰队头页面.</p>
+<h3 id="缺点">缺点</h3>
+<p>进程只有按顺序访问地址空间时页面命中率才最理想.</p>
+<h3 id="异常现象">异常现象</h3>
+<p>对于一些特定的访问序列, 分配页框越多, 缺页率越高!</p>
+<h2 id="最久未使用淘汰算法lru-least-recently-used">最久未使用淘汰算法(LRU, Least Recently Used)</h2>
+<h3 id="思想-2">思想</h3>
+<p>淘汰最长时间未被使用的页面.</p>
+<h3 id="例子-2">例子</h3>
+<p>分配 3 个页框. 页面序列: A, B, C, D, A, B, E, A, B, C, D, E. 分析其按照 LRU 算法淘汰页面的缺页情况.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210531150753.png" srcset="/img/loading.gif" lazyload /></p>
 <p>缺页次数 = 10　　　缺页率 = 10 / 12 = 83%</p>
-<h3 id="LRU-的实现方法-硬件方法"><a href="#LRU-的实现方法-硬件方法" class="headerlink" title="LRU 的实现方法(硬件方法)"></a>LRU 的实现方法(硬件方法)</h3>
+<h3 id="lru-的实现方法硬件方法">LRU 的实现方法(硬件方法)</h3>
+
             </div>
             <hr>
             <div>

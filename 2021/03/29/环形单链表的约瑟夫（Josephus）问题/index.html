@@ -232,25 +232,28 @@
             <h1 style="display: none">环形单链表的约瑟夫（Josephus）问题</h1>
             
             <div class="markdown-body">
-              <h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>据说著名犹太历史学家 Josephus 有过以下故事：在罗马人占领乔塔帕特后，39 个犹太人与 Josephus 及他的朋友躲到一个洞中，39 个犹太人决定宁愿死也不要被敌人抓到，于是决定了一种自杀方式，41 个人排成一个圆圈，由第1个人开始报数，报数到 3 的人就自杀，然后再由下一个人重新报 1，报数到 3 的人再自杀，这样依次下去，直到剩下最后一个人时，那个人可以自由选择自己的命运。这就是著名的约瑟夫问题。现在请用单向环形链表描述该结构并呈现整个自杀过程。</p>
+              <h4 id="题目">题目</h4>
+<p>据说著名犹太历史学家 Josephus 有过以下故事：在罗马人占领乔塔帕特后，39 个犹太人与 Josephus 及他的朋友躲到一个洞中，39 个犹太人决定宁愿死也不要被敌人抓到，于是决定了一种自杀方式，41 个人排成一个圆圈，由第1个人开始报数，报数到 3 的人就自杀，然后再由下一个人重新报 1，报数到 3 的人再自杀，这样依次下去，直到剩下最后一个人时，那个人可以自由选择自己的命运。这就是著名的约瑟夫问题。现在请用单向环形链表描述该结构并呈现整个自杀过程。</p>
 <div class="hljs code-wrapper"><pre><code>输入：一个环形单向链表的头节点 head 和报数的值 m。
-返回：最后生存下来的节点
-</code></pre></div><p>进阶问题：如果链表节点数为 $N$，想在时间复杂度为 $O(N)$ 时完成原问题的要求，该怎么实现？</p>
-<h4 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h4><p><strong>方法一</strong></p>
+返回：最后生存下来的节点</code></pre></div>
+<p>进阶问题：如果链表节点数为 <span class="math inline">\(N\)</span>，想在时间复杂度为 <span class="math inline">\(O(N)\)</span> 时完成原问题的要求，该怎么实现？</p>
+<h4 id="解答">解答</h4>
+<p><strong>方法一</strong></p>
 <p>直接模拟，这个按部就班写代码即可。</p>
 <p>代码</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span> </span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> value;<br>    <span class="hljs-keyword">public</span> Node next;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span><span class="hljs-params">(<span class="hljs-keyword">int</span> value)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.value = value;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 直接法模拟约瑟夫环的删除过程</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> head 环形单向链表的头节点</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> m 每隔 m 个节点删除一次</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> 最后的幸存者</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Node <span class="hljs-title">josephusKill</span><span class="hljs-params">(Node head, <span class="hljs-keyword">int</span> m)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (head == <span class="hljs-keyword">null</span> || head.next == head || m &lt; <span class="hljs-number">1</span>) &#123; <span class="hljs-comment">// 输入不合理</span><br>        <span class="hljs-keyword">return</span> head;<br>    &#125;<br>    Node last = head;<br>    <span class="hljs-comment">// 找出最后一个节点 last</span><br>    <span class="hljs-keyword">while</span> (last.next != head) &#123;<br>        last = last.next;<br>    &#125;<br>    <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (head != last) &#123;<br>        <span class="hljs-keyword">if</span> (++count == m) &#123; <span class="hljs-comment">// 如果报数到了 m</span><br>            last.next = head.next; <span class="hljs-comment">// 删除节点</span><br>            count = <span class="hljs-number">0</span>; <span class="hljs-comment">// count 重又归零</span><br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            last = last.next; <span class="hljs-comment">// last 往后移动一位</span><br>        &#125;<br>        head = last.next; <span class="hljs-comment">// 移动 head 指针，使 head 指针始终保持是 last 指针的下一位</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> head;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<p>方法一的时间复杂度为 $O(N \times m)$，$N$ 是节点数。</p>
+<p>方法一的时间复杂度为 <span class="math inline">\(O(N \times m)\)</span>，<span class="math inline">\(N\)</span> 是节点数。</p>
 <p><strong>方法二</strong></p>
 <p>公式法。通过找规律，直接利用递推公式来求解。注意，这个公式法并不是书上介绍的方法，而是上个学期在上数据结构课程时老师讲述的方法。具体思路如下。</p>
 <p>首先，我们给出公式</p>
 <blockquote>
-<p>J(n, m) = J(J(n - 1, m) + m) \% n, if n &gt; 1,<br>J(1, m) = 0</p>
+<p>J(n, m) = J(J(n - 1, m) + m) % n, if n &gt; 1, J(1, m) = 0</p>
 </blockquote>
 <p>下面，我们就来简单证明一下这个算法。</p>
 <p>举例，我们用数字表示每一个人：</p>
-<script type="math/tex; mode=display">1,2,3,4,5,6,7,8,9,10,11</script><p>一共 11 个人，他们排成一排，假设报到 3 的人被杀掉。</p>
+<p><span class="math display">\[1,2,3,4,5,6,7,8,9,10,11\]</span></p>
+<p>一共 11 个人，他们排成一排，假设报到 3 的人被杀掉。</p>
 <ul>
 <li>刚开始时，头一个人编号是1，从他开始报数，第一轮被杀掉的是编号3的人。</li>
 <li>编号4的人从1开始重新报数，这时候我们可以认为编号4这个人是队伍的头。第二轮被杀掉的是编号6的人。</li>
@@ -261,134 +264,188 @@
 <li>最后的胜利者是编号为7的人。</li>
 </ul>
 <p>表格演示(表头代表数组的下标)：</p>
-<div class="table-container">
 <table>
 <thead>
-<tr>
-<th style="text-align:center">0</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-<th style="text-align:center">5</th>
-<th style="text-align:center">6</th>
-<th style="text-align:center">7</th>
-<th style="text-align:center">8</th>
-<th style="text-align:center">9</th>
-<th style="text-align:center">10</th>
+<tr class="header">
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: center;">10</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center"><strong>3</strong></td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">6</td>
-<td style="text-align:center">7</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">9</td>
-<td style="text-align:center">10</td>
-<td style="text-align:center">11</td>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><strong>3</strong></td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">11</td>
 </tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center"><strong>6</strong></td>
-<td style="text-align:center">7</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">9</td>
-<td style="text-align:center">10</td>
-<td style="text-align:center">11</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"><strong>6</strong></td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center"><strong>9</strong></td>
-<td style="text-align:center">10</td>
-<td style="text-align:center">11</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">5</td>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;"><strong>9</strong></td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:center">11</td>
-<td style="text-align:center"><strong>1</strong></td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">7</td>
-<td style="text-align:center">8</td>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;"><strong>1</strong></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center"><strong>5</strong></td>
-<td style="text-align:center">7</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">10</td>
-<td style="text-align:center">11</td>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center"><strong>10</strong></td>
-<td style="text-align:center">11</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">4</td>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;"><strong>10</strong></td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center"><strong>4</strong></td>
-<td style="text-align:center">7</td>
-<td style="text-align:center">8</td>
+<tr class="odd">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><strong>4</strong></td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center"><strong>11</strong></td>
-<td style="text-align:center">2</td>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;"><strong>11</strong></td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">7</td>
-<td style="text-align:center"><strong>8</strong></td>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;"><strong>8</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center"><strong>2</strong></td>
-<td style="text-align:center">7</td>
+<tr class="even">
+<td style="text-align: center;"><strong>2</strong></td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
-<tr>
-<td style="text-align:center">7</td>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
 </tr>
 </tbody>
 </table>
-</div>
 <p>我们用上面的数据验证一下公式的正确性，其中，J(n, m) 表示的是幸存者在这一轮的下标位置：</p>
 <ul>
-<li>$J(1, 3) = 0$；只有一个人，此人是最后的幸存者，其在数组中的下标为 0</li>
-<li>$J(2, 3) = 1 = (J(1, 3) + 3) \% 2$；还剩 2 个人时</li>
-<li>$J(3, 3) = 1 = (J(2, 3) + 3) \% 3$；还剩 3 个人时</li>
-<li>$J(4, 3) = 0 = (J(3, 3) + 3) \% 4$</li>
-<li>$J(5, 3) = 3 = (J(4, 3) + 3) \% 5$</li>
-<li>…</li>
-<li>$J(11, 3) = 6 = (J(10, 3) + 3) \% 11$；最终计算出待求的情况</li>
+<li><span class="math inline">\(J(1, 3) = 0\)</span>；只有一个人，此人是最后的幸存者，其在数组中的下标为 0</li>
+<li><span class="math inline">\(J(2, 3) = 1 = (J(1, 3) + 3) \% 2\)</span>；还剩 2 个人时</li>
+<li><span class="math inline">\(J(3, 3) = 1 = (J(2, 3) + 3) \% 3\)</span>；还剩 3 个人时</li>
+<li><span class="math inline">\(J(4, 3) = 0 = (J(3, 3) + 3) \% 4\)</span></li>
+<li><span class="math inline">\(J(5, 3) = 3 = (J(4, 3) + 3) \% 5\)</span></li>
+<li>...</li>
+<li><span class="math inline">\(J(11, 3) = 6 = (J(10, 3) + 3) \% 11\)</span>；最终计算出待求的情况</li>
 </ul>
 <p>我们通过实例只是验证了这一种情况是成立的，这能够很好地辅助我们理解，但是，我们还需要这个公式的具体推导，下面，就以问答的方式来推导这个公式。</p>
 <p><strong>问题1</strong>：假设我们已经知道 11 个人时，幸存者的下标位置为 6，那么下一轮 10 个人时，幸存者下标的位置是多少？</p>
 <p><strong>答</strong>：我们在第 1 轮杀掉第 3 个人时，后面的人都往前面移动了 3 位，幸存者也往前移动了 3 位，所以他的下标由 6 变成了 3。</p>
 <p><strong>问题2</strong>：假设我们呢已经知道 10 个人时，幸存者的下标位置为 3，那么上一轮 11 个人时，幸存者下标的位置是多少？</p>
-<p><strong>答</strong>：这可以看成是上一个问题的逆过程，所以由 10 变成 11 个人时，所有人都往后移动 3 位，所以 $J(11, 3) = J(10, 3) + 3$，不过数组可能会越界，我们可以想象成数组的首尾是相接的环，那么越界的元素就要重新回到开头，所以这个式子还要模取当前的人数(注意，这里是当前数组，在这里就是人数为 11 的这个数组)：$J(11,3) = (J(10, 3) + 3) \% 11$。</p>
+<p><strong>答</strong>：这可以看成是上一个问题的逆过程，所以由 10 变成 11 个人时，所有人都往后移动 3 位，所以 <span class="math inline">\(J(11, 3) = J(10, 3) + 3\)</span>，不过数组可能会越界，我们可以想象成数组的首尾是相接的环，那么越界的元素就要重新回到开头，所以这个式子还要模取当前的人数(注意，这里是当前数组，在这里就是人数为 11 的这个数组)：<span class="math inline">\(J(11,3) = (J(10, 3) + 3) \% 11\)</span>。</p>
 <p><strong>问题3</strong>：推及到一般情况，人数为 n，报到 m 时，把那个人杀掉，那么数组又是怎么移动的？</p>
-<p><strong>答</strong>：由上面的推导，我们应该很容易就能得出，若已知 n - 1 个人时，幸存者的下标位置为 $J(n - 1, m)$，那么 n 个人的时候，就是往后移动 m 位，同样的，因为可能数组越界，所以式子要变成：$J(n, m) = (J(n - 1, m) + 3) \% n$。</p>
+<p><strong>答</strong>：由上面的推导，我们应该很容易就能得出，若已知 n - 1 个人时，幸存者的下标位置为 <span class="math inline">\(J(n - 1, m)\)</span>，那么 n 个人的时候，就是往后移动 m 位，同样的，因为可能数组越界，所以式子要变成：<span class="math inline">\(J(n, m) = (J(n - 1, m) + 3) \% n\)</span>。</p>
 <p>代码</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 使用公式法求解最后幸存的节点</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> head 单向环状链表头节点</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> m 报数到 m 就删去一个节点</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> 最后生存的节点</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Node <span class="hljs-title">JosephusKillFormula</span><span class="hljs-params">(Node head, <span class="hljs-keyword">int</span> m)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> n = <span class="hljs-number">0</span>; <span class="hljs-comment">// n 表示链表的长度</span><br>    Node last = head;<br>    <span class="hljs-keyword">while</span> (last.next != head) &#123;<br>        n++;<br>        last = last.next;<br>    &#125;<br>    n++;<br>    <span class="hljs-keyword">int</span> p = <span class="hljs-number">0</span>; <span class="hljs-comment">// 只剩一个人时，数组下标为 0</span><br>    <span class="hljs-comment">// 这个循环就是关键的核心</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;<br>        p = (p + m) % i; <span class="hljs-comment">// i 是当前的人数</span><br>    &#125;<br>    p += <span class="hljs-number">1</span>; <span class="hljs-comment">// 因为 p 是从 0 开始，所以最后要加一</span><br>    <span class="hljs-keyword">while</span> (--p != <span class="hljs-number">0</span>) &#123;<br>        last = last.next;<br>        head = head.next;<br>    &#125;<br>    last.next = <span class="hljs-keyword">null</span>;<br>    head.next = <span class="hljs-keyword">null</span>; <span class="hljs-comment">// 只取最后的 head 这一个节点，其他都舍去</span><br>    <span class="hljs-keyword">return</span> head;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
             </div>
             <hr>
             <div>

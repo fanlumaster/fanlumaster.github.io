@@ -232,10 +232,12 @@
             <h1 style="display: none">隐藏（去掉）Hexo 命令行执行 hexo d 时出现的 warning LF will be replaced by CRLF 警告信息</h1>
             
             <div class="markdown-body">
-              <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>Hexo 在部署到 Github 上时，即执行 <code>hexo d</code> 命令时，命令行出现这样的警告</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210421221511.png" srcset="/img/loading.gif" lazyload alt="20210421221511"></p>
+              <h3 id="问题描述">问题描述</h3>
+<p>Hexo 在部署到 Github 上时，即执行 <code>hexo d</code> 命令时，命令行出现这样的警告</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210421221511.png" srcset="/img/loading.gif" lazyload alt="20210421221511" /></p>
 <p>这个警告表示 Git 会把 <code>LF</code> 替换为 <code>CRLF</code>，这个警告并没有什么不好的影响，所以我决定把它给隐藏掉。</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>Git 命令行输入以下命令</p>
+<h3 id="解决方法">解决方法</h3>
+<p>Git 命令行输入以下命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ git config --global core.autocrlf <span class="hljs-literal">false</span><br></code></pre></div></td></tr></table></figure>
 
             </div>

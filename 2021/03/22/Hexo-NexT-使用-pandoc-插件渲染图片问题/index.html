@@ -232,18 +232,20 @@
             <h1 style="display: none">Hexo NexT 使用 pandoc 插件渲染图片问题</h1>
             
             <div class="markdown-body">
-              <h3 id="问题复现"><a href="#问题复现" class="headerlink" title="问题复现"></a>问题复现</h3><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210322232830.png" srcset="/img/loading.gif" lazyload alt="20210322232830"></p>
+              <h3 id="问题复现">问题复现</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210322232830.png" srcset="/img/loading.gif" lazyload alt="20210322232830" /></p>
 <p>这个图片的原来的 <code>Markdown</code> 文本为</p>
 <figure class="highlight md"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs md">![<span class="hljs-string">20210321222711</span>](<span class="hljs-link">https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210321222711.png</span>)<br></code></pre></div></td></tr></table></figure>
 <p>显然，<code>pandoc</code> 是将 <code>[]</code> 中的内容给渲染到图片的下方了。</p>
-<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><p>找到站点目录下的 <code>_configure.yml</code> 文件，并在末尾添加如下代码</p>
+<h3 id="问题解决">问题解决</h3>
+<p>找到站点目录下的 <code>_configure.yml</code> 文件，并在末尾添加如下代码</p>
 <figure class="highlight yml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yml"><span class="hljs-attr">pandoc:</span><br>  <span class="hljs-attr">extensions:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;-implicit_figures&#x27;</span><br></code></pre></div></td></tr></table></figure>
 <p>然后执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">hexo clean<br>hexo g<br>hexo s<br></code></pre></div></td></tr></table></figure>
 <p>检验成效</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210322233357.png" srcset="/img/loading.gif" lazyload alt="20210322233357"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210322233357.png" srcset="/img/loading.gif" lazyload alt="20210322233357" /></p>
 <p>发现多余的文字已经消失了。</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://wylu.me/posts/7bd83fc5/">https://wylu.me/posts/7bd83fc5/</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://wylu.me/posts/7bd83fc5/" class="uri">https://wylu.me/posts/7bd83fc5/</a></p>
 
             </div>
             <hr>

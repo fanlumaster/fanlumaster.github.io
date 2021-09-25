@@ -232,33 +232,38 @@
             <h1 style="display: none">关于计数排序的稳定性及其对于基数排序的影响</h1>
             
             <div class="markdown-body">
-              <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这篇博客的主要目的是记录以下对于计数排序稳定性及其对基数排序的影响的理解，故对于算法本身不会作详细描述。</p>
-<h3 id="计数排序的稳定性"><a href="#计数排序的稳定性" class="headerlink" title="计数排序的稳定性"></a>计数排序的稳定性</h3><p>在《算法导论》中，计数排序的大概思路是</p>
+              <h3 id="前言">前言</h3>
+<p>这篇博客的主要目的是记录以下对于计数排序稳定性及其对基数排序的影响的理解，故对于算法本身不会作详细描述。</p>
+<h3 id="计数排序的稳定性">计数排序的稳定性</h3>
+<p>在《算法导论》中，计数排序的大概思路是</p>
 <ul>
 <li>1、利用一个辅助数组 C 记录原数组 A 的各个元素的计数</li>
 <li>2、对辅助数组 C 进行处理，即 <code>C[i] = C[i] + C[i - 1]</code></li>
 <li>3、对原数组 A 从后往前依次进行重新放置元素到结果数组 B 中，使之到达有序状态</li>
 </ul>
 <p>伪代码如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210422164501.png" srcset="/img/loading.gif" lazyload alt="20210422164501"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210422164501.png" srcset="/img/loading.gif" lazyload alt="20210422164501" /></p>
 <p>下面我们具体来解释一下计数排序的稳定性问题。</p>
 <p>首先，我们要弄清楚一件事情，就是稳定性的定义是什么？所谓排序的稳定性，是指如果数组中有重复的元素（值相等），那么数组在排完序的前后，这些重复的元素的相对位置保持不变。简单一点讲，就是，比如原来的数组 A 中有两个相等的元素 <code>A[i]</code> 和 <code>A[j]</code>，并且 <code>A[i]</code> 在 <code>A[j]</code> 的前面，那么，排完序之后，<code>A[i]</code> 还是在 <code>A[j]</code> 的前面。我们称能保持这种性质的排序是稳定的。</p>
 <p>在上面的伪代码中，第 10 到 12 行，也就是最后处理数组的一步，对于 j，我们是从后往前进行遍历的，那么，这样可以保证排序是稳定的。</p>
 <p>我们借助书中的例子来理解这一点。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210422165446.png" srcset="/img/loading.gif" lazyload alt="20210422165446"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210422165446.png" srcset="/img/loading.gif" lazyload alt="20210422165446" /></p>
 <p>原数组 A 中有 3 个 <code>3</code>，我们假设排好序的数组中放置所有 <code>3</code> 的区域是 <code>B[i..j]</code>，那么，我们按照书中的次序，即从后往前往结果数组 <code>B</code> 中放置元素时，可以保证所有的 <code>3</code> 维持原来在 <code>A</code> 数组中的相对次序。</p>
 <p>相应地，如果我们最后一步是从前往后处理数组的元素的话，那么，所有的 <code>3</code> 的相对位置会正好反过来。这与稳定性的要求相悖。</p>
 <p>需要说明的一点是，对于计数排序本身，不管采用具有稳定性的排序或是采用不具有稳定性的排序，对于最后排序结果的正确性是没有影响的。</p>
-<h3 id="计数排序稳定性对于基数排序的影响"><a href="#计数排序稳定性对于基数排序的影响" class="headerlink" title="计数排序稳定性对于基数排序的影响"></a>计数排序稳定性对于基数排序的影响</h3><p>书上的基数排序是先按最低有效位进行排序的，排序的示例过程如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210422170446.png" srcset="/img/loading.gif" lazyload alt="20210422170446"></p>
+<h3 id="计数排序稳定性对于基数排序的影响">计数排序稳定性对于基数排序的影响</h3>
+<p>书上的基数排序是先按最低有效位进行排序的，排序的示例过程如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210422170446.png" srcset="/img/loading.gif" lazyload alt="20210422170446" /></p>
 <p>如果我们按照具有稳定性的计数排序，那么，很容易推出，基数排序是可以正常运转的。</p>
 <p>然而，当我们采用另一种不具有稳定性的计数排序来给数据的每一位进行排序的话，那么最后排序的正确性是无法得到保证的。举个例子说明这一点：</p>
 <p>我们假设有 4 个待排元素，当计数排序不稳定时，排序过程如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210422173114.png" srcset="/img/loading.gif" lazyload alt="20210422173114"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210422173114.png" srcset="/img/loading.gif" lazyload alt="20210422173114" /></p>
 <p>我们发现最后的结果是不对的。</p>
 <p>我们只需要稍微回想一下基数排序的排序过程，应该就能明白针对单位数字排序的稳定性对于基数排序的重要性了。</p>
-<h3 id="计数排序的代码实现"><a href="#计数排序的代码实现" class="headerlink" title="计数排序的代码实现"></a>计数排序的代码实现</h3><p>计数排序的 <code>Python</code> 实现</p>
+<h3 id="计数排序的代码实现">计数排序的代码实现</h3>
+<p>计数排序的 <code>Python</code> 实现</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">count_sort</span>(<span class="hljs-params">A: <span class="hljs-built_in">list</span>, B: <span class="hljs-built_in">list</span>, k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-literal">None</span>:</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    计数排序</span><br><span class="hljs-string">    :param A: 待排数组</span><br><span class="hljs-string">    :param B: 排好序的结果数组</span><br><span class="hljs-string">    :param k: A 中元素最大值</span><br><span class="hljs-string">    :return: B</span><br><span class="hljs-string">    &#x27;&#x27;&#x27;</span><br>    C = []<br>    <span class="hljs-comment"># 初始化 C 为 k + 1 个 0，索引是从 0 到 k</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(k + <span class="hljs-number">1</span>):<br>        C.append(<span class="hljs-number">0</span>)<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(B)):<br>        C[A[j]] = C[A[j]] + <span class="hljs-number">1</span> <span class="hljs-comment"># 给数组 A 中的所有不同的数字计数</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, k + <span class="hljs-number">1</span>):<br>        C[i] = C[i] + C[i - <span class="hljs-number">1</span>] <span class="hljs-comment"># 计算累加和</span><br>    <span class="hljs-comment"># 按从后往前的顺序从 A 中取数据，然后根据规则放入 B 中</span><br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(A) - <span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>):<br>        B[C[A[j]] - <span class="hljs-number">1</span>] = A[j] <span class="hljs-comment"># 注意 B 的索引是从 0 开始的</span><br>        C[A[j]] = C[A[j]] - <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br><br><span class="hljs-comment"># 测试</span><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    A = [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">10</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>]<br>    B = [<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(A))]<br>    k = <span class="hljs-built_in">max</span>(A)<br>    count_sort(A, B, k)<br>    <span class="hljs-built_in">print</span>(B)<br><span class="hljs-comment"># output: [2, 2, 3, 3, 3, 4, 5, 10]</span><br></code></pre></div></td></tr></table></figure>
+
             </div>
             <hr>
             <div>

@@ -203,14 +203,18 @@
           
             
           
-          最佳算法(OPT 算法, Optimal)思想
+          最佳算法(OPT 算法, Optimal)
+思想
+
 淘汰不再需要或最远将来才会用到的页面.
 
-例子分配 3 个页框. 页面序列: A, B, C, D, A, B, E, A, B, C, D, E. 分析其按照 OPT 算法淘汰页面的缺页情况.
+例子
+分配 3 个页框. 页面序列: A, B, C, D, A, B, E, A, B, C, D, E. 分析其按照 OPT 算法淘汰页面的缺页情况.
 
 缺页次数 = 7　　　缺页率 = 7 / 12 = 58%
-特点理论上最佳, 实践中该算法无法实现.
-先进先出淘汰算法(FIFO 算法)思想淘汰在内存中停
+特点
+理论上最佳, 实践中该算法无法实现.
+先进先出淘汰算法(FI
         </a>
       </p>
 
@@ -268,10 +272,10 @@
           
             
           
-          主定理令 a \geqslant 1 和 b > 1 是常数, f(n) 是一个函数, T(n) 是定义在非负整数上的递归式:
-T(n) = aT(n/b) + f(n)其中我们将 n/b 解释为 \left \lfloor n/b \right \rfloor 或 \left \lceil n/b \right \rceil. 那么 T(n) 有如下渐进界:
-
-若对某个常数 \varepsilo
+          主定理
+令 $a \geqslant 1$ 和 $b &gt; 1$ 是常数, $f(n)$ 是一个函数, $T(n)$ 是定义在非负整数上的递归式:
+\[T(n) = aT(n/b) + f(n)\]
+其中我们将 $n/b$ 解释为 $\left \lfloor n/b \right \rfloor$ 或 $\left \lceil n/b \right \rceil$. 那么 $T(n)
         </a>
       </p>
 
@@ -330,7 +334,8 @@ T(n) = aT(n/b) + f(n)其中我们将 n/b 解释为 \left \lfloor n/b \right \rfl
             
           
           本文转载自: https://blog.konghy.cn/2017/04/24/python-entry-program/
-程序入口对于很多编程语言来说，程序都必须要有一个入口，比如 C，C++，以及完全面向对象的编程语言 Java，C# 等。如果你接触过这些语言，对于程序入口这个概念应该很好理解，C 和 C++ 都需要有一个 main 函数来作为程序的入口，也就是程序的运行会从 main 函数
+程序入口
+对于很多编程语言来说，程序都必须要有一个入口，比如 C，C++，以及完全面向对象的编程语言 Java，C# 等。如果你接触过这些语言，对于程序入口这个概念应该很好理解，C 和 C++ 都需要有一个 main 函数来作为程序的入口，也就是程序的运行会从 main
         </a>
       </p>
 
@@ -392,7 +397,7 @@ T(n) = aT(n/b) + f(n)其中我们将 n/b 解释为 \left \lfloor n/b \right \rfl
 示例代码
 1234str = r&#x27;hello \n&#x27;str2 = &#x27;hello \n hello&#x27;print(str)print(str2)
 输出
-1234hello \nhello  
+1234hello \nhel
         </a>
       </p>
 
@@ -680,12 +685,12 @@ T(n) = aT(n/b) + f(n)其中我们将 n/b 解释为 \left \lfloor n/b \right \rfl
           
             
           
-          上传配置因为要在另一台设备上继续使用我原来在 Github 上面搭建的图床，遂在这里记录一下安装 PicGo 插件之后需要做的配置，由于我之前配置过，所以我只需要将之前的配置参数给直接 copy 过去即可。结果发现果然如此哈哈。
+          上传配置
+因为要在另一台设备上继续使用我原来在 Github 上面搭建的图床，遂在这里记录一下安装 PicGo 插件之后需要做的配置，由于我之前配置过，所以我只需要将之前的配置参数给直接 copy 过去即可。结果发现果然如此哈哈。
 
 然后就可以在另一台设备上面继续愉快地使用原来的图床了。
-文件名设置这是原来的设置，它会在 [] 内默认填充文件名，即 PicGo 自动给文件赋予的名称。
-
-下面是修改后
+文件名设置
+这是原来的设置，它会在 [] 内默认填充文件名，即 PicGo 自动给文件赋予的名称。
         </a>
       </p>
 
@@ -746,7 +751,7 @@ T(n) = aT(n/b) + f(n)其中我们将 n/b 解释为 \left \lfloor n/b \right \rfl
           这个问题无法通过设置 BIOS 来解决，目测是 ThinkPad 的适配工作没有做好，目前可以做的是，手动关闭这个灯
 1$ echo 0 | sudo tee /sys/class/leds/platform\:\:micmute/brightness
 开启的命令则是：
-1$ echo 1 | sudo tee /sys/class/leds/platform\:\:micmute/brightn
+1$ echo 1 | sudo tee /sys/class/leds/platform\:\:micmute/brig
         </a>
       </p>
 

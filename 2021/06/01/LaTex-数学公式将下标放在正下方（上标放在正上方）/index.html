@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      420 字
+      456 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      6
        分钟
     </span>
   
@@ -233,29 +233,42 @@
             
             <div class="markdown-body">
               <p>使用 LaTex 的语法，关于把数学公式的下表放在正下方的方法，分两种情况。如下。</p>
-<h2 id="1、本身是数学符号"><a href="#1、本身是数学符号" class="headerlink" title="1、本身是数学符号"></a>1、本身是数学符号</h2><p>比如，<script type="math/tex">\sum</script>，行内数学公式默认的格式是 </p>
+<h2 id="本身是数学符号">1、本身是数学符号</h2>
+<p>比如，<code>$\sum$</code>，行内数学公式默认的格式是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$\sum_&#123;i = 0&#125;^&#123;n&#125;$<br></code></pre></div></td></tr></table></figure>
-<p>效果是：<script type="math/tex">\sum_{i = 0}^{n}</script></p>
+<p>效果是：<code>$\sum_&#123;i = 0&#125;^&#123;n&#125;$</code></p>
 <p>而如果我们要想将下标放在正下方，则需要使用 <code>\limits</code> 语法，书写格式如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$\sum\limits_&#123;i = 0&#125;^&#123;n&#125;$<br></code></pre></div></td></tr></table></figure>
-<p>效果是：<script type="math/tex">\sum\limits_{i = 0}^{n}</script></p>
+<p>效果是：<code>$\sum\limits_&#123;i = 0&#125;^&#123;n&#125;$</code></p>
 <p><strong>注意</strong>，如果使用段数学公式，即用双美元符号包裹的 LaTex 代码，那么，下标是默认放置在正下方的。格式如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$\sum_&#123;i = 0&#125;^&#123;n&#125;$$<br></code></pre></div></td></tr></table></figure>
 <p>效果如下</p>
-<script type="math/tex; mode=display">\sum_{i = 0}^{n}</script><h2 id="2、本身不是数学符号"><a href="#2、本身不是数学符号" class="headerlink" title="2、本身不是数学符号"></a>2、本身不是数学符号</h2><p>比如，如果我们想将 <code>max</code> 的右下角的下标放置在正下方，就像这样 <script type="math/tex">\mathop{max}\limits_{1 \leqslant i \leqslant n}</script>，那么我们需要先使用 <code>\mathop</code> 将 <code>max</code> 转为数学符号，然后再使用 <code>\limits</code>，格式如下</p>
+<p><span class="math display">\[\sum_{i = 0}^{n}\]</span></p>
+<h2 id="本身不是数学符号">2、本身不是数学符号</h2>
+<p>比如，如果我们想将 <code>max</code> 的右下角的下标放置在正下方，就像这样 <code>$\mathop&#123;max&#125;\limits_&#123;1 \leqslant i \leqslant n&#125;$</code>，那么我们需要先使用 <code>\mathop</code> 将 <code>max</code> 转为数学符号，然后再使用 <code>\limits</code>，格式如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$\mathop&#123;max&#125;\limits_&#123;1 \leqslant i \leqslant n&#125; |x_i|$<br></code></pre></div></td></tr></table></figure>
-<p>效果是：<script type="math/tex">\mathop{max}\limits_{1 \leqslant i \leqslant n} |x_i|</script></p>
+<p>效果是：<code>$\mathop&#123;max&#125;\limits_&#123;1 \leqslant i \leqslant n&#125; |x_i|$</code></p>
 <p><strong>注意</strong>，如果使用段数学公式，那么，相应的代码和效果如下</p>
 <p>代码 2.1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$\mathop&#123;max&#125;_&#123;1 \leqslant i \leqslant n&#125; |x_i|$$<br></code></pre></div></td></tr></table></figure>
 <p>效果 2.1</p>
-<script type="math/tex; mode=display">{max}_{1 \leqslant i \leqslant n} |x_i|</script><p>代码 2.2</p>
+<p><span class="math display">\[{max}_{1 \leqslant i \leqslant n} |x_i|\]</span></p>
+<p>代码 2.2</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$\mathop&#123;max&#125;_&#123;1 \leqslant i \leqslant n&#125; |x_i|$$<br></code></pre></div></td></tr></table></figure>
 <p>效果 2.2</p>
-<script type="math/tex; mode=display">\mathop{max}_{1 \leqslant i \leqslant n} |x_i|</script><p>代码 2.3</p>
+<p><span class="math display">\[\mathop{max}_{1 \leqslant i \leqslant n} |x_i|\]</span></p>
+<p>代码 2.3</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$\mathop&#123;max&#125;\limits_&#123;1 \leqslant i \leqslant n&#125; |x_i|$$<br></code></pre></div></td></tr></table></figure>
 <p>效果 2.3</p>
-<script type="math/tex; mode=display">\mathop{max}\limits_{1 \leqslant i \leqslant n} |x_i|</script><p>还有一个值得<strong>注意</strong>的点是，只有数学符号可以使用 <code>\limits</code> 语法，这一点一定要切记。</p>
+<p><span class="math display">\[\mathop{max}\limits_{1 \leqslant i \leqslant n} |x_i|\]</span></p>
+<p>还有一个值得<strong>注意</strong>的点是，只有数学符号可以使用 <code>\limits</code> 语法，这一点一定要切记。</p>
+<h2 id="其他方法">3、其他方法</h2>
+<p>代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$\stackrel&#123;+&#125;&#123;\Rightarrow&#125;$$<br></code></pre></div></td></tr></table></figure>
+<p>显示效果：</p>
+<p><span class="math display">\[
+\stackrel{+}{\Rightarrow}
+\]</span></p>
 
             </div>
             <hr>

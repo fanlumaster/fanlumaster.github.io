@@ -232,19 +232,21 @@
             <h1 style="display: none">NexT 主题更改页脚内容的颜色（由 ... 强力驱动）</h1>
             
             <div class="markdown-body">
-              <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>我们需要修改页面底部的颜色信息，如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210402161712.png" srcset="/img/loading.gif" lazyload alt="20210402161712"></p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>首先，找到在站点目录下的 <code>themes/next/source/css/_common/outline/footer</code> 的文件夹，然后，打开 <code>footer.styl</code> 文件。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210402161200.png" srcset="/img/loading.gif" lazyload alt="20210402161200"></p>
+              <h3 id="问题描述">问题描述</h3>
+<p>我们需要修改页面底部的颜色信息，如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210402161712.png" srcset="/img/loading.gif" lazyload alt="20210402161712" /></p>
+<h3 id="解决方案">解决方案</h3>
+<p>首先，找到在站点目录下的 <code>themes/next/source/css/_common/outline/footer</code> 的文件夹，然后，打开 <code>footer.styl</code> 文件。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210402161200.png" srcset="/img/loading.gif" lazyload alt="20210402161200" /></p>
 <p>我们需要更改两个地方。</p>
 <p>第一处</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210402161534.png" srcset="/img/loading.gif" lazyload alt="20210402161534"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210402161534.png" srcset="/img/loading.gif" lazyload alt="20210402161534" /></p>
 <p>这里将 color 换成我们需要的颜色的十六进制码即可。</p>
 <p>这里的效果是更改页脚的文字的颜色（不包括链接）。</p>
 <p>第二处</p>
 <p>在文件尾部添加一段代码</p>
 <figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">// 后加的改变页脚颜色的文件<br><span class="hljs-selector-class">.theme-link</span> &#123;<br>    <span class="hljs-attribute">color</span>: <span class="hljs-number">#71ffe5</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210402161847.png" srcset="/img/loading.gif" lazyload alt="20210402161847"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210402161847.png" srcset="/img/loading.gif" lazyload alt="20210402161847" /></p>
 <p>这里的颜色随便设定，效果是将页脚的链接的颜色更改为我们设定的值。</p>
 
             </div>

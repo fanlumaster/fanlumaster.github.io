@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      477 字
+      496 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      8
        分钟
     </span>
   
@@ -232,13 +232,16 @@
             <h1 style="display: none">LaTex 中的空格（空白）表示方法（知其然并知其所以然）</h1>
             
             <div class="markdown-body">
-              <h3 id="LaTex-中的单位"><a href="#LaTex-中的单位" class="headerlink" title="LaTex 中的单位"></a>LaTex 中的单位</h3><p>首先我们来了解一下之后我们在使用空格时需要用到的 LaTex 中的单位。</p>
+              <h3 id="latex-中的单位">LaTex 中的单位</h3>
+<p>首先我们来了解一下之后我们在使用空格时需要用到的 LaTex 中的单位。</p>
 <ul>
 <li><code>cm</code>：1 厘米</li>
 <li><code>em</code>：大致等于一个当前字体的 <code>M</code> 的宽度</li>
 <li><code>mu</code>：等于 1/18 <code>em</code> 的数学单位</li>
 </ul>
-<h3 id="LaTex-显示空格"><a href="#LaTex-显示空格" class="headerlink" title="LaTex 显示空格"></a>LaTex 显示空格</h3><h4 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h4><ul>
+<h3 id="latex-显示空格">LaTex 显示空格</h3>
+<h4 id="语法格式">语法格式</h4>
+<ul>
 <li><code>\hspace&#123;1cm&#125;</code>：插入 1cm 的水平空白，这里也可以使用其他的 LaTex 单位。如 <code>pt、mm、cm、in、ex、em、mu</code>。这个指令是可以很精确地控制显示多少空白的。</li>
 <li><code>\quad</code>：大致和当前字体的 <code>M</code> 等宽的空白（= 18 mu = 1 em）</li>
 <li><code>\,</code>：等于 3/18 个 <code>\quad</code>（= 3 mu）</li>
@@ -248,25 +251,27 @@
 <li><code>\</code>(在反斜杠后面跟一个空格)：等于正常文本中的一个空格</li>
 <li><code>\qquad</code>：两倍的 <code>quad</code>（= 36 mu）</li>
 </ul>
-<h4 id="使用范例"><a href="#使用范例" class="headerlink" title="使用范例"></a>使用范例</h4><p>LaTex 代码</p>
+<h4 id="使用范例">使用范例</h4>
+<p>LaTex 代码</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$\begin&#123;align&#125;<br>&amp; 0-&gt;a \hspace&#123;2cm&#125;bcd \\<br>&amp; 0-&gt;a \hspace&#123;1em&#125;bcd \\<br>&amp; 0-&gt;a \hspace&#123;18mu&#125;bcd \\<br>&amp; 1-&gt;a \quad bcd \\<br>&amp; 2-&gt;a \, bcd \\<br>&amp; 3-&gt;a \: bcd \\<br>&amp; 4-&gt;a \; bcd \\<br>&amp; 5-&gt;a \! bcd \\<br>&amp; 6-&gt;a \  bcd \\<br>&amp; 7-&gt;a \qquad bcd \\<br>&amp; 8-&gt;abcd<br>\end&#123;align&#125;$$<br></code></pre></div></td></tr></table></figure>
 <p>效果</p>
-<script type="math/tex; mode=display">\begin{align}
-& 0->a \hspace{2cm}bcd \\
-& 0->a \hspace{1em}bcd \\
-& 0->a \hspace{18mu}bcd \\
-& 1->a \quad bcd \\
-& 2->a \, bcd \\
-& 3->a \: bcd \\
-& 4->a \; bcd \\
-& 5->a \! bcd \\
-& 6->a \  bcd \\
-& 7->a \qquad bcd \\
-& 8->abcd
-\end{align}</script><p>参考：<a href="">hspace 相关</a>， <a target="_blank" rel="noopener" href="https://www.overleaf.com/learn/latex/Spacing_in_math_mode#Reference_guide">quad 相关</a>，<a target="_blank" rel="noopener" href="https://www.overleaf.com/learn/latex/Lengths_in_LaTeX">LaTex 单位</a></p>
+<p><span class="math display">\[\begin{align}
+&amp; 0-&gt;a \hspace{2cm}bcd \\
+&amp; 0-&gt;a \hspace{1em}bcd \\
+&amp; 0-&gt;a \hspace{18mu}bcd \\
+&amp; 1-&gt;a \quad bcd \\
+&amp; 2-&gt;a \, bcd \\
+&amp; 3-&gt;a \: bcd \\
+&amp; 4-&gt;a \; bcd \\
+&amp; 5-&gt;a \! bcd \\
+&amp; 6-&gt;a \  bcd \\
+&amp; 7-&gt;a \qquad bcd \\
+&amp; 8-&gt;abcd
+\end{align}\]</span></p>
+<p>参考：<a href="">hspace 相关</a>， <a target="_blank" rel="noopener" href="https://www.overleaf.com/learn/latex/Spacing_in_math_mode#Reference_guide">quad 相关</a>，<a target="_blank" rel="noopener" href="https://www.overleaf.com/learn/latex/Lengths_in_LaTeX">LaTex 单位</a></p>
 <p>附注一：关于 quad 的解释</p>
 <blockquote>
-<p>The word “quad” is a traditional term in typography. It comes from Italian “quadratone” (big square). In old fashioned metal typography it meant a square piece of metal lower than type height that could be inserted between types for spacing them. In Italian typography it’s still called “spazio quadratone”.<br>It’s commonly as wide and high as an uppercase “M”, since this is usually the widest letter in a font and occupies a square area.<br>The command \quad takes its name from this traditional name; \qquad just means ”two quads”. However in TeX the \quad has no height, but only width.(来自：<a target="_blank" rel="noopener" href="https://tex.stackexchange.com/questions/119068/meaning-of-quad#:~:text=In%20the%20Not%20so%20Short,is%20the%20space%20of%20MM%20.">stackexchange</a>)</p>
+<p>The word “quad” is a traditional term in typography. It comes from Italian “quadratone” (big square). In old fashioned metal typography it meant a square piece of metal lower than type height that could be inserted between types for spacing them. In Italian typography it's still called “spazio quadratone”. It's commonly as wide and high as an uppercase “M”, since this is usually the widest letter in a font and occupies a square area. The command takes its name from this traditional name; just means ”two quads”. However in TeX the has no height, but only width.(来自：<a target="_blank" rel="noopener" href="https://tex.stackexchange.com/questions/119068/meaning-of-quad#:~:text=In%20the%20Not%20so%20Short,is%20the%20space%20of%20MM%20.">stackexchange</a>)</p>
 </blockquote>
 <p>附注二：这里使用的 LaTex 解析器是 mathjax。</p>
 

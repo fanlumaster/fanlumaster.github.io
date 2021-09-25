@@ -232,13 +232,14 @@
             <h1 style="display: none">给定链表的头节点 head，实现删除链表的中间节点的函数</h1>
             
             <div class="markdown-body">
-              <h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>给定链表的头节点 head，实现删除链表的中间节点的函数。</p>
+              <h4 id="题目">题目</h4>
+<p>给定链表的头节点 head，实现删除链表的中间节点的函数。</p>
 <p>例如：</p>
 <div class="hljs code-wrapper"><pre><code>1-＞2，删除节点1；
 1-＞2-＞3，删除节点2；
 1-＞2-＞3-＞4，删除节点2；
-1-＞2-＞3-＞4-＞5，删除节点3；
-</code></pre></div><p>进阶：给定链表的头节点 head、整数 a 和 b，实现删除位于 a/b 处节点的函数。</p>
+1-＞2-＞3-＞4-＞5，删除节点3；</code></pre></div>
+<p>进阶：给定链表的头节点 head、整数 a 和 b，实现删除位于 a/b 处节点的函数。</p>
 <p>例如：</p>
 <div class="hljs code-wrapper"><pre><code>链表：1-＞2-＞3-＞4-＞5，假设a/b的值为r。
 如果r等于0，不删除任何节点；
@@ -246,13 +247,14 @@
 如果r在区间（1/5，2/5]上，删除节点2；
 如果r在区间（2/5，3/5]上，删除节点3；
 如果r在区间（3/5，4/5]上，删除节点4；
-如果r在区间（4/5，1]上，删除节点5；如果r大于1，不删除任何节点。
-</code></pre></div><h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p><strong>原问题</strong></p>
+如果r在区间（4/5，1]上，删除节点5；如果r大于1，不删除任何节点。</code></pre></div>
+<h4 id="解题思路">解题思路</h4>
+<p><strong>原问题</strong></p>
 <p>整体思路是利用快慢指针。只是要注意一些细节问题。我们将小于等于 2 个节点的链表直接作硬编码处理。然后处理大于 2 个节点的情况。首先初始化快慢指针，快指针初始时指向第 3 个节点，慢指针初始时指向第 1 个节点。然后开始移动，每一次移动，快指针走两个节点，慢指针走一个节点。终止条件是快指针到达了倒数第一个或者倒数第二个节点。</p>
-<p>至于为何快指针和慢指针走的规则是这样的，我们可以分两种情况来看。我们假定链表节点数为 $N, N \geqslant 3$。</p>
+<p>至于为何快指针和慢指针走的规则是这样的，我们可以分两种情况来看。我们假定链表节点数为 <span class="math inline">\(N, N \geqslant 3\)</span>。</p>
 <ul>
-<li>$N$ 是偶数。快指针最后是停在了倒数第二个节点的位置。则慢指针走了 $\frac{N - 3 - 1}{2}$ 步，即 $\frac{N}{2} - 1$ 步。很显然，最后慢指针的位置是在该删除节点的前一个位置。</li>
-<li>$N$ 是奇数。快指针最后是停在了倒数第一个位置。则慢指针走了 $\frac{N - 3}{2}$ 步，即 $\frac{N - 1}{2} - 1$，而慢指针从头节点开始走 $\frac{N - 1}{2}$ 步正好会走到中间的节点的地方。因此，最后慢指针的位置是中间节点的前一个位置。</li>
+<li><span class="math inline">\(N\)</span> 是偶数。快指针最后是停在了倒数第二个节点的位置。则慢指针走了 <span class="math inline">\(\frac{N - 3 - 1}{2}\)</span> 步，即 <span class="math inline">\(\frac{N}{2} - 1\)</span> 步。很显然，最后慢指针的位置是在该删除节点的前一个位置。</li>
+<li><span class="math inline">\(N\)</span> 是奇数。快指针最后是停在了倒数第一个位置。则慢指针走了 <span class="math inline">\(\frac{N - 3}{2}\)</span> 步，即 <span class="math inline">\(\frac{N - 1}{2} - 1\)</span>，而慢指针从头节点开始走 <span class="math inline">\(\frac{N - 1}{2}\)</span> 步正好会走到中间的节点的地方。因此，最后慢指针的位置是中间节点的前一个位置。</li>
 </ul>
 <p>代码</p>
 <p>节点类</p>
@@ -264,6 +266,7 @@
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">n = (<span class="hljs-keyword">int</span>) Math.ceil((<span class="hljs-keyword">double</span>) (n * a) / (<span class="hljs-keyword">double</span>) b);<br></code></pre></div></td></tr></table></figure>
 <p>完整函数</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// 删除位于 a/b 处的节点</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Node <span class="hljs-title">removeByRatio</span><span class="hljs-params">(Node head, <span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (a &lt; <span class="hljs-number">1</span> || a &gt; b) &#123;<br>        <span class="hljs-keyword">return</span> head;<br>    &#125;<br>    <span class="hljs-keyword">int</span> n = <span class="hljs-number">0</span>;<br>    Node cur = head;<br>    <span class="hljs-keyword">while</span> (cur != <span class="hljs-keyword">null</span>) &#123; <span class="hljs-comment">// 计算出节点的个数</span><br>        n++;<br>        cur = cur.next;<br>    &#125;<br>    n = (<span class="hljs-keyword">int</span>) Math.ceil((<span class="hljs-keyword">double</span>) (n * a) / (<span class="hljs-keyword">double</span>) b); <span class="hljs-comment">// 向上取整，之所以将计算出来的值仍用 n 存储，是为了节省空间</span><br>    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) &#123;<br>        head = head.next;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (n &gt; <span class="hljs-number">1</span>) &#123;<br>        cur = head;<br>        <span class="hljs-keyword">while</span> (--n != <span class="hljs-number">1</span>) &#123; <span class="hljs-comment">// 找到待删除节点的前一个节点</span><br>            cur = cur.next;<br>        &#125;<br>        cur.next = cur.next.next;<br>    &#125;<br>    <span class="hljs-keyword">return</span> head;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
             </div>
             <hr>
             <div>

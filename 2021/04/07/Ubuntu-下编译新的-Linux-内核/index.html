@@ -232,50 +232,66 @@
             <h1 style="display: none">Ubuntu 下编译新的 Linux 内核</h1>
             
             <div class="markdown-body">
-              <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这是一次操作系统布置的作业。本来第一次是布置的课后作业，只是说让编译一个新的 Linux 内核，然后我就按照本文的步骤编译并启用了新的内核。后来做实验时布置的任务又说是 “裁剪内核并编译”，真是有点懵逼。实验之前，一直在纠结裁减内核，究竟怎么裁剪嘛！因为在编译内核的过程中，有一个步骤是 <code>$ sudo make menuconfig</code>，这个里面可以选择或者去掉内核的模块，其实这里就是相当于裁剪内核了，而且我们就是在不知道裁剪内核这个概念的情况下一路走下去，最后安装的内核也是裁剪之后的内核。</p>
+              <h3 id="前言">前言</h3>
+<p>这是一次操作系统布置的作业。本来第一次是布置的课后作业，只是说让编译一个新的 Linux 内核，然后我就按照本文的步骤编译并启用了新的内核。后来做实验时布置的任务又说是 “裁剪内核并编译”，真是有点懵逼。实验之前，一直在纠结裁减内核，究竟怎么裁剪嘛！因为在编译内核的过程中，有一个步骤是 <code>$ sudo make menuconfig</code>，这个里面可以选择或者去掉内核的模块，其实这里就是相当于裁剪内核了，而且我们就是在不知道裁剪内核这个概念的情况下一路走下去，最后安装的内核也是裁剪之后的内核。</p>
 <p>最后老师在实验之前，讲了，裁剪内核这个实验我们之前做过。好吧，果然，在他眼里，裁剪内核和编译一个新的内核没有什么本质的区别。</p>
-<h3 id="下载内核"><a href="#下载内核" class="headerlink" title="下载内核"></a>下载内核</h3><p>首先，到官网（<a target="_blank" rel="noopener" href="https://www.kernel.org/">https://www.kernel.org/</a>）下载内核。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407133515.png" srcset="/img/loading.gif" lazyload alt="20210407133515"></p>
+<h3 id="下载内核">下载内核</h3>
+<p>首先，到官网（<a target="_blank" rel="noopener" href="https://www.kernel.org/" class="uri">https://www.kernel.org/</a>）下载内核。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407133515.png" srcset="/img/loading.gif" lazyload alt="20210407133515" /></p>
 <p>下载好之后，因为我这个 Ubuntu 是 Windows 下的虚拟机，所以，直接将文件拖入虚拟机的任意一个文件夹即可。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407134031.png" srcset="/img/loading.gif" lazyload alt="20210407134031"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407134159.png" srcset="/img/loading.gif" lazyload alt="20210407134159"></p>
-<h3 id="解压-tar-xz-包"><a href="#解压-tar-xz-包" class="headerlink" title="解压 tar.xz 包"></a>解压 tar.xz 包</h3><p>进入刚刚放置内核文件的目录，右键解压，或者在命令行解压</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407134031.png" srcset="/img/loading.gif" lazyload alt="20210407134031" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407134159.png" srcset="/img/loading.gif" lazyload alt="20210407134159" /></p>
+<h3 id="解压-tar.xz-包">解压 tar.xz 包</h3>
+<p>进入刚刚放置内核文件的目录，右键解压，或者在命令行解压</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ tar -Jxvf linux-5.11.11.tar.xz<br></code></pre></div></td></tr></table></figure>
 <p>注意，<code>tar -Jxvf</code> 的 <code>J</code> 要大写。</p>
-<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>安装之前，先执行以下命令</p>
+<h3 id="安装依赖">安装依赖</h3>
+<p>安装之前，先执行以下命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo apt-get update<br>$ sudo apt-get upgrade<br></code></pre></div></td></tr></table></figure>
 <p>一般来说，安装下面的 9 个依赖就好了</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo apt-get install libncurses5-dev openssl libssl-dev<br>$ sudo apt-get install build-essential openssl<br>$ sudo apt-get install pkg-config<br>$ sudo apt-get install libc6-dev<br>$ sudo apt-get install bison<br>$ sudo apt-get install flex<br>$ sudo apt-get install libelf-dev<br>$ sudo apt-get install zlibc minizip<br>$ sudo apt-get install libidn11-dev libidn11<br></code></pre></div></td></tr></table></figure>
-<h3 id="开始编译新的内核"><a href="#开始编译新的内核" class="headerlink" title="开始编译新的内核"></a>开始编译新的内核</h3><h4 id="进入解压出来的目录"><a href="#进入解压出来的目录" class="headerlink" title="进入解压出来的目录"></a>进入解压出来的目录</h4><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> linux-5.11.11/<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407164541.png" srcset="/img/loading.gif" lazyload alt="20210407164541"></p>
+<h3 id="开始编译新的内核">开始编译新的内核</h3>
+<h4 id="进入解压出来的目录">进入解压出来的目录</h4>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> linux-5.11.11/<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407164541.png" srcset="/img/loading.gif" lazyload alt="20210407164541" /></p>
 <p>这里可以给虚拟机拍一个快照。这是为了后续出错时，可以回到这个点。（如果不知道快照，可以自行搜索引擎搜索，这个真的很方便）</p>
-<h4 id="使用现存内核的配置文件"><a href="#使用现存内核的配置文件" class="headerlink" title="使用现存内核的配置文件"></a>使用现存内核的配置文件</h4><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo cp /boot/config-5.11.7 .config<br></code></pre></div></td></tr></table></figure>
-<h4 id="应用现存配置文件"><a href="#应用现存配置文件" class="headerlink" title="应用现存配置文件"></a>应用现存配置文件</h4><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo make oldconfig<br></code></pre></div></td></tr></table></figure>
+<h4 id="使用现存内核的配置文件">使用现存内核的配置文件</h4>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo cp /boot/config-5.11.7 .config<br></code></pre></div></td></tr></table></figure>
+<h4 id="应用现存配置文件">应用现存配置文件</h4>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo make oldconfig<br></code></pre></div></td></tr></table></figure>
 <p>这个命令的作用是，读取现有的 <code>.config</code>（注意，这个是隐藏文件，使用 <code>ls</code> 命令无法查看）文件，并提示用户输入当前内核源中在文件中找不到的选项。 当采用现有配置并将其移至新内核时，这很有用。</p>
 <p>遇到需要选择的选项直接选 <code>y</code> 或者回车即可。</p>
-<h4 id="仅安装已有-module"><a href="#仅安装已有-module" class="headerlink" title="仅安装已有 module"></a>仅安装已有 module</h4><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo make localmodconfig<br></code></pre></div></td></tr></table></figure>
-<h4 id="配置其他编译选项"><a href="#配置其他编译选项" class="headerlink" title="配置其他编译选项"></a>配置其他编译选项</h4><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo make menuconfig<br></code></pre></div></td></tr></table></figure>
+<h4 id="仅安装已有-module">仅安装已有 module</h4>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo make localmodconfig<br></code></pre></div></td></tr></table></figure>
+<h4 id="配置其他编译选项">配置其他编译选项</h4>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo make menuconfig<br></code></pre></div></td></tr></table></figure>
 <p>这个命令执行完之后会出现一个图形界面，如果需要裁剪内核，那么，我们需要对这里的选项进行一些配置。这里我们直接使用右方向键，跳到 <code>Exit</code> 选项，然会回车退出即可。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407202347.png" srcset="/img/loading.gif" lazyload alt="20210407202347"></p>
-<h4 id="开始编译"><a href="#开始编译" class="headerlink" title="开始编译"></a>开始编译</h4><p>输入以下命令开始编译</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407202347.png" srcset="/img/loading.gif" lazyload alt="20210407202347" /></p>
+<h4 id="开始编译">开始编译</h4>
+<p>输入以下命令开始编译</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo make -j4<br></code></pre></div></td></tr></table></figure>
 <p>这里的 <code>-j</code> 选项后面的数字表示使用多进程并发编译的意思，我这里选择 4，也可以选择 2 或者不要 <code>-j4</code> 这个选项。我这里因为使用了 4 个进程，所以编译基本在两分钟以内就完成了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407171823.png" srcset="/img/loading.gif" lazyload alt="20210407171823"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407171823.png" srcset="/img/loading.gif" lazyload alt="20210407171823" /></p>
 <p>以上表示 make 好了。</p>
-<h3 id="安装-Linux-内核"><a href="#安装-Linux-内核" class="headerlink" title="安装 Linux 内核"></a>安装 Linux 内核</h3><h4 id="返回上一级目录，然后将文件夹移动到-src-目录"><a href="#返回上一级目录，然后将文件夹移动到-src-目录" class="headerlink" title="返回上一级目录，然后将文件夹移动到 src 目录"></a>返回上一级目录，然后将文件夹移动到 src 目录</h4><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> ..<br>$ sudo mv linux-5.11.11/ /usr/src/<br></code></pre></div></td></tr></table></figure>
-<h4 id="进入新目录，然后安装-modules"><a href="#进入新目录，然后安装-modules" class="headerlink" title="进入新目录，然后安装 modules"></a>进入新目录，然后安装 modules</h4><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> /usr/src/linux-5.11.11/<br></code></pre></div></td></tr></table></figure>
+<h3 id="安装-linux-内核">安装 Linux 内核</h3>
+<h4 id="返回上一级目录然后将文件夹移动到-src-目录">返回上一级目录，然后将文件夹移动到 src 目录</h4>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> ..<br>$ sudo mv linux-5.11.11/ /usr/src/<br></code></pre></div></td></tr></table></figure>
+<h4 id="进入新目录然后安装-modules">进入新目录，然后安装 modules</h4>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> /usr/src/linux-5.11.11/<br></code></pre></div></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo make modules_install<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407172434.png" srcset="/img/loading.gif" lazyload alt="20210407172434"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407172434.png" srcset="/img/loading.gif" lazyload alt="20210407172434" /></p>
 <p>以上表示 modules 安装完成。</p>
-<h4 id="安装内核"><a href="#安装内核" class="headerlink" title="安装内核"></a>安装内核</h4><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo make install<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407172707.png" srcset="/img/loading.gif" lazyload alt="20210407172707"></p>
+<h4 id="安装内核">安装内核</h4>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo make install<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407172707.png" srcset="/img/loading.gif" lazyload alt="20210407172707" /></p>
 <p>以上表示新内核安装完成。</p>
-<h3 id="检验安装成果"><a href="#检验安装成果" class="headerlink" title="检验安装成果"></a>检验安装成果</h3><p>执行以下命令检查内核版本</p>
+<h3 id="检验安装成果">检验安装成果</h3>
+<p>执行以下命令检查内核版本</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ uname -r<br></code></pre></div></td></tr></table></figure>
 <p>之前是 <code>5.11.7</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407172819.png" srcset="/img/loading.gif" lazyload alt="20210407172819"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407172819.png" srcset="/img/loading.gif" lazyload alt="20210407172819" /></p>
 <p>重启 Ubuntu 18.04.5 系统并检查内核版本，结果如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407173212.png" srcset="/img/loading.gif" lazyload alt="20210407173212"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407173212.png" srcset="/img/loading.gif" lazyload alt="20210407173212" /></p>
 <p>发现内核版本变成了 <code>5.11.11</code>，表明安装内核成功。</p>
 
             </div>

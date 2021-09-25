@@ -235,24 +235,15 @@
               <p>程序中的每一个变量在使用前都应该有一个值。</p>
 <p>每一个 <code>类变量（class variable）</code>、<code>实例变量（instance variable）</code> 或 <code>数组变量（array component）</code> 在被创建（声明）时都会被初始化一个默认值。各个类型的默认值如下。</p>
 <ul>
-<li><p>byte: 0，即 <code>(byte)0</code></p>
-</li>
-<li><p>short: 0，即 <code>(short)0</code></p>
-</li>
-<li><p>int: 0</p>
-</li>
-<li><p>long: 0，即 <code>0L</code></p>
-</li>
-<li><p>float: 0，即 <code>0.0f</code></p>
-</li>
-<li><p>double: 0，即 <code>0.0d</code></p>
-</li>
-<li><p>char: null，即 <code>\u0000</code></p>
-</li>
-<li><p>boolean: false</p>
-</li>
-<li><p>所有的引用类型：null</p>
-</li>
+<li><p>byte: 0，即 <code>(byte)0</code></p></li>
+<li><p>short: 0，即 <code>(short)0</code></p></li>
+<li><p>int: 0</p></li>
+<li><p>long: 0，即 <code>0L</code></p></li>
+<li><p>float: 0，即 <code>0.0f</code></p></li>
+<li><p>double: 0，即 <code>0.0d</code></p></li>
+<li><p>char: null，即 <code>\u0000</code></p></li>
+<li><p>boolean: false</p></li>
+<li><p>所有的引用类型：null</p></li>
 </ul>
 <p>附注一：Java 中数字常量默认为 int 类型，所以给 long 类型的数据赋值时数字结尾要加 <code>L</code> 或 <code>l</code>，给取值范围小于 int 的 byte 和 short 类型赋值时，一般直接赋值即可，或者可以进行显式的类型转换。而小数常量默认为 double 类型，所以一般可以将不加后缀的小数常量赋给 double 类型的变量，而给 float 数据赋值时必须要加 <code>F</code> 或 <code>f</code> 后缀。</p>
 <p>参考：<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-4.html#jls-4.12.5">Java 文档</a></p>
