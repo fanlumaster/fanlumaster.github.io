@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      456 字
+      444 字
     </span>
   
 
@@ -236,10 +236,10 @@
 <h2 id="本身是数学符号">1、本身是数学符号</h2>
 <p>比如，<code>$\sum$</code>，行内数学公式默认的格式是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$\sum_&#123;i = 0&#125;^&#123;n&#125;$<br></code></pre></div></td></tr></table></figure>
-<p>效果是：<code>$\sum_&#123;i = 0&#125;^&#123;n&#125;$</code></p>
+<p>效果是：<span class="math inline">\(\sum_{i = 0}^{n}\)</span></p>
 <p>而如果我们要想将下标放在正下方，则需要使用 <code>\limits</code> 语法，书写格式如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$\sum\limits_&#123;i = 0&#125;^&#123;n&#125;$<br></code></pre></div></td></tr></table></figure>
-<p>效果是：<code>$\sum\limits_&#123;i = 0&#125;^&#123;n&#125;$</code></p>
+<p>效果是：<span class="math inline">\(\sum\limits_{i = 0}^{n}\)</span></p>
 <p><strong>注意</strong>，如果使用段数学公式，即用双美元符号包裹的 LaTex 代码，那么，下标是默认放置在正下方的。格式如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$\sum_&#123;i = 0&#125;^&#123;n&#125;$$<br></code></pre></div></td></tr></table></figure>
 <p>效果如下</p>
@@ -247,7 +247,7 @@
 <h2 id="本身不是数学符号">2、本身不是数学符号</h2>
 <p>比如，如果我们想将 <code>max</code> 的右下角的下标放置在正下方，就像这样 <code>$\mathop&#123;max&#125;\limits_&#123;1 \leqslant i \leqslant n&#125;$</code>，那么我们需要先使用 <code>\mathop</code> 将 <code>max</code> 转为数学符号，然后再使用 <code>\limits</code>，格式如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$\mathop&#123;max&#125;\limits_&#123;1 \leqslant i \leqslant n&#125; |x_i|$<br></code></pre></div></td></tr></table></figure>
-<p>效果是：<code>$\mathop&#123;max&#125;\limits_&#123;1 \leqslant i \leqslant n&#125; |x_i|$</code></p>
+<p>效果是：<span class="math inline">\(\mathop{max}\limits_{1 \leqslant i \leqslant n} |x_i|\)</span></p>
 <p><strong>注意</strong>，如果使用段数学公式，那么，相应的代码和效果如下</p>
 <p>代码 2.1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$\mathop&#123;max&#125;_&#123;1 \leqslant i \leqslant n&#125; |x_i|$$<br></code></pre></div></td></tr></table></figure>
