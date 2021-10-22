@@ -18,7 +18,7 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-  <title>计算机原码、反码和补码 - Fan Lu&#39;s Blog</title>
+  <title>Ubuntu 解决浏览器无法播放视频的问题 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,12 +162,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210916124817.png') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20211022144047.pn') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="计算机原码、反码和补码">
+            <span class="h2" id="subtitle" title="Ubuntu 解决浏览器无法播放视频的问题">
               
             </span>
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-09-15 17:40" pubdate>
-        2021年9月15日 下午
+      <time datetime="2021-10-22 20:25" pubdate>
+        2021年10月22日 晚上
       </time>
     </span>
   
@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.4k 字
+      177 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20
+      2
        分钟
     </span>
   
@@ -229,222 +229,18 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">计算机原码、反码和补码</h1>
+            <h1 style="display: none">Ubuntu 解决浏览器无法播放视频的问题</h1>
             
             <div class="markdown-body">
-              <p>时间长了，在上计算机组成原理时，发现这部分的知识又遗忘了。所以还是整理以下，方便以后可以即时回顾，就不用去翻书了。</p>
-<h1 id="原码">1、原码</h1>
-<p>用原码表示带符号的二进制数时，符号位用 0 表示正，1 表示负；数值位保持不变。原码表示法又称为符号-数值表示法。</p>
-<h2 id="小数原码的定义">1.1 小数原码的定义</h2>
-<p>设二进制小数 <span class="math inline">\(X = \pm 0.x_{-1}x_{-2}...x_{-m}\)</span>，则其原码定义为</p>
-<p><span class="math display">\[
-[X]_{原} = 
-\left\{
-    \begin{matrix}
-    \begin{align*}
-&amp;X &amp; 0 \leqslant X &lt; 1 \\ 
-&amp;1 - X &amp; -1 &lt; X \leqslant 0 
-    \end{align*}
-    \end{matrix}
-\right.
-\]</span></p>
-<p><strong>例</strong>，<span class="math inline">\(X_1 = +0.1011, X_2 = -0.1011\)</span>，求 <span class="math inline">\(X_1\)</span> 和 <span class="math inline">\(X_2\)</span> 的原码。</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp; [X_1]_{原} = 0.1011 \\
-&amp; [X_2]_{原} = 1 - （-0.1011） = 1.1011
-\end{aligned}
-\]</span></p>
-<p>根据定义，小数“0”的原码可以表示成 <span class="math inline">\(0.0...0\)</span> 或 <span class="math inline">\(1.0...0\)</span>.</p>
-<h2 id="整数原码的定义">1.2 整数原码的定义</h2>
-<p>设二进制整数 <span class="math inline">\(X = \pm x_{n - 1}x_{n - 2}...x_0\)</span>，则其原码定义为</p>
-<p><span class="math display">\[
-[X]_{原} = 
-\left\{
-    \begin{matrix}
-    \begin{align*}
-&amp;X &amp; 0 &amp; \leqslant X &lt; 2^n \\ 
-&amp;2^n - X &amp; -2^n &amp; &lt; X \leqslant 0
-    \end{align*}
-    \end{matrix}
-\right.
-\]</span></p>
-<p><strong>例</strong>，<span class="math inline">\(X_1 = +1011, X_2 = -1011\)</span>，求 <span class="math inline">\(X_1\)</span> 和 <span class="math inline">\(X_2\)</span> 的原码。</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-[X_1]_{原} &amp;= 01011\\
-[X_2]_{原} &amp;=2^4 - (-1011) \\
-&amp;=10000 + 1101 \\
-&amp;=11101
-\end{split}
-\end{equation}
-\]</span></p>
-<p>同样，整数“0”的原码也有两种形式，即 <span class="math inline">\(00...0\)</span> 和 <span class="math inline">\(10...0\)</span>.</p>
-<h1 id="反码">2、反码</h1>
-<p>用反码表示带符号的二进制数时，符号位与原码相同，即用 0 表示正，用 1 表示负；数值位与符号位相关，正数反码的数值位和真值相同，而负数反码的数值位是真值的数值位按位变反。</p>
-<h2 id="小数反码的定义">2.1 小数反码的定义</h2>
-<p>设二进制小数 <span class="math inline">\(X = \pm 0, x_{-1}x_{-2}...x_{-m}\)</span>，则其反码定义为</p>
-<p><span class="math display">\[
-[X]_{反} = 
-\left\{
-    \begin{matrix}
-    \begin{align*}
-&amp;X &amp; 0 \leqslant X &lt; 1 \\ 
-&amp;(2 - 2^{-m}) + X &amp; -1 &lt; X \leqslant 0 
-    \end{align*}
-    \end{matrix}
-\right.
-\]</span></p>
-<p><strong>例</strong>，若 <span class="math inline">\(X_1 = +0.1011, X_2 = -0.1011\)</span>，求 <span class="math inline">\(X_1\)</span> 和 <span class="math inline">\(X_2\)</span> 的反码。</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-[X_1]_{反} &amp;= 0.1011\\
-[X_2]_{反} &amp;= 2 - 2^{-4} + X_2 \\
-&amp;=10.0000 - 0.0001 - 0.1011 \\
-&amp;=1.0100
-\end{split}
-\end{equation}
-\]</span></p>
-<p>根据定义，小数“0”的反码有两种表示形式，即 <span class="math inline">\(0.0...0\)</span> 和 <span class="math inline">\(1.1...1\)</span></p>
-<h2 id="整数反码的定义">2.2 整数反码的定义</h2>
-<p>设二进制整数 <span class="math inline">\(X = \pm x_{n - 1}x_{n - 2}...x_{0}\)</span>，则其反码为</p>
-<p><span class="math display">\[
-[X]_{反} =
-\left\{\begin{matrix}
-\begin{aligned}
-&amp;X &amp; 0 &amp; \leqslant X &lt; 2^n \\
-&amp;(2^{n + 1} - 1) + X &amp; -2^n &amp; &lt; X \leqslant 0 \\
-\end{aligned}
-\end{matrix}\right.
-\]</span></p>
-<p><strong>例</strong>，若 <span class="math inline">\(X_1 = +1011, X_2 = -1011\)</span>，求 <span class="math inline">\(X_1\)</span> 和 <span class="math inline">\(X_2\)</span> 的反码。</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-[X_1]_{反} &amp;= 01001 \\
-[X_2]_{反} &amp;= (2^5 - 1) + X \\
-&amp;= (100000 - 1) + (-1001) \\
-&amp;= 11111 - 1001 \\
-&amp;= 10110
-\end{split}
-\end{equation}
-\]</span></p>
-<p>同样，整数“0”的反码也有两种形式，即 <span class="math inline">\(00...0\)</span> 和 <span class="math inline">\(11...1\)</span>。</p>
-<p>反码的加减运算规则如下：</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-[X_1 + X_2]_{反} &amp;= [X_1]_{反} + [X_2]_{反} \\
-[X_1 - X_2]_{反} &amp;= [X_1]_{反} + [-X_2]_{反}
-\end{split}
-\end{equation}
-\]</span></p>
-<p>运算时，若 <span class="math inline">\(X_1 = +0.1110, X_2 = +0.0101\)</span>，则求 <span class="math inline">\(X_1 - X_2\)</span> 可以通过反码相加实现。运算如下：</p>
-<p><span class="math display">\[
-[X_1 - X_2]_{反} = [X_1]_{反} + [-X_1]_{反} = 0.1110 + 1.1010
-\]</span></p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-0&amp;.111&amp;0 \\ 
-+\quad1&amp;.101&amp;0 \\ 
-\hline 
-10&amp;.100&amp;0 \\
-+\quad\ \ &amp;&amp;1 \\
-\hline
-0&amp;.100&amp;1
-\end{split}
-\end {equation}
-\]</span></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210916104233.png" srcset="/img/loading.gif" lazyload /></p>
-<p>即 <span class="math inline">\([X_1 - X_2]_{反} = 0.1001\)</span></p>
-<p>由于结果的符号为 0，表示是正数，故</p>
-<p><span class="math display">\[X_1 - X_2 = +0.1001\]</span></p>
-<h1 id="补码">3、补码</h1>
-<p>用补码表示带符号的二进制数时，符号位与原码、反码相同，即用 0 表示正，用 1 表示负；数值位与符号位相关，正数补码的数值位与真值相同，而负数补码的数值位是真值的数值位按位变反，并在最低位加 1。</p>
-<h2 id="小数补码的定义">3.1 小数补码的定义</h2>
-<p>设二进制小数 <span class="math inline">\(X = \pm 0.x_{-1}x_{-2}...x_{-m}\)</span>，则其补码定义为</p>
-<p><span class="math display">\[
-[X]_{补} = 
-\left\{\begin{matrix}
-\begin{aligned}
-&amp;X &amp; 0 &amp; \leqslant X &lt; 1 \\
-&amp;2 + X &amp; -1 &amp; \leqslant X &lt; 0 \\
-\end{aligned}
-\end{matrix}\right.
-\]</span></p>
-<p>上面的式子可以归结成一个式子：</p>
-<p><span class="math display">\[
-[X]_{补} = (2 + X) \; mod \; 2 \qquad -1 \leqslant X &lt; 1
-\]</span></p>
-<p><strong>例</strong>，若 <span class="math inline">\(X_1 = +0.1011, X_2 = -0.1011\)</span>，则 <span class="math inline">\(X_1\)</span> 和 <span class="math inline">\(X_2\)</span> 的补码为</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-[X_1]_{补} &amp;= 0.1011 \\
-[X_2]_{补} &amp;= 2 + X \\
-&amp;= 10.0000 - 0.1011 \\
-&amp;= 1.0101
-\end{split}
-\end{equation}
-\]</span></p>
-<p>小数“0”只有一种表示形式，即 <span class="math inline">\(0.0...0\)</span>。</p>
-<h2 id="整数补码的定义">3.2 整数补码的定义</h2>
-<p>设二进制整数 <span class="math inline">\(X = \pm x_{n - 1}x_{n - 2}...x_0\)</span>，则其补码定义为</p>
-<p><span class="math display">\[
-[X]_{补} =
-\left\{\begin{matrix}
-\begin{aligned}
-&amp;X &amp; 0 &amp; \leqslant X &lt; 2^n \\
-&amp;2^{n + 1} + X &amp; -2^n &amp; \leqslant X &lt; 0 \\
-\end{aligned}
-\end{matrix}\right.
-\]</span></p>
-<p><strong>例</strong>，若 <span class="math inline">\(X_1 = + 1010, X_2 = -1010\)</span>，求 <span class="math inline">\(X_1\)</span> 和 <span class="math inline">\(X_2\)</span> 的补码。</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-[X_1]_{补} &amp;= 01011 \\
-[X_2]_{补} &amp;= 2^5 + X \\
-&amp;= 100000 - 1010 \\
-&amp;= 10110
-\end{split}
-\end{equation}
-\]</span></p>
-<p>同样，整数“0”的补码也只有一种表示形式，即 <span class="math inline">\(00...0\)</span>。</p>
-<p>补码的加减运算规则如下：</p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-[X_1 + X_2]_{补} &amp;= [X_1]_{补} + [X_2]_{补} \\
-[X_1 - X_2]_{补} &amp;= [X_1]_{补} + [-X_2]_{补}
-\end{split}
-\end{equation}
-\]</span></p>
-<p>运算时，符号位和数值位一样参加运算，若符号位有进位产生。则应将进位丢掉才能得到正确结果。</p>
-<p><strong>例如</strong>，若 <span class="math inline">\(X_1 = -1001, X_2 = +0011\)</span>，则采用补码求 <span class="math inline">\(X_1 - X_2\)</span> 的运算如下：</p>
-<p><span class="math display">\[
-[X_1 - X_2]_{补} = [X_1]_{补} + [-X_2]_{补} = 10111 + 11101
-\]</span></p>
-<p><span class="math display">\[
-\begin{equation}
-\begin{split}
-10111 \\ 
-+\quad11101 \\ 
-\hline 
-110100 \\
-\end{split}
-\end {equation}
-\]</span></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210916111814.png" srcset="/img/loading.gif" lazyload /></p>
-<p>即 <span class="math inline">\([X_1 - X_2]_{补} = 10100\)</span></p>
-<p>由于结果的符号位为 1，表示是负数，故</p>
-<p><span class="math display">\[X_1 - X_2 = -1100\]</span></p>
+              <p>今天装这个 Ubuntu20 系统，又遇到了一个问题，就是浏览器中无法播放视频。以前遇到过两次，所以我隐隐约约记得是安装什么 ffmpg 之类的东西，但是因为之前没有记录，所以还是得去谷歌，然后搜到了一堆安装 flash 这个不好的东西的，但是凭着印象，还是找到了一篇安装 ffmpg 的，这一次，就要把它给记录下来了。</p>
+<p>简单一点，就几个命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt update<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt install ffmpeg<br></code></pre></div></td></tr></table></figure>
+<p>安装好之后可以使用以下命令查看一下是否安装成功：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">ffmpeg -version<br></code></pre></div></td></tr></table></figure>
 <hr />
 <p>参考：</p>
-<p>1、《数字逻辑 第四版》（华中科技大学出版社）</p>
+<p>1、https://www.myfreax.com/how-to-install-ffmpeg-on-ubuntu-18-04/</p>
 
             </div>
             <hr>
@@ -454,7 +250,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/">数字逻辑</a>
+                      <a class="hover-with-bg" href="/categories/Ubuntu/">Ubuntu</a>
                     
                   </div>
                 
@@ -462,9 +258,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/">数字逻辑</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
+                      <a class="hover-with-bg" href="/tags/Ubuntu/">Ubuntu</a>
                     
                   </div>
                 
@@ -481,18 +275,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/09/15/LaTex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%B7%A6%E5%AF%B9%E9%BD%90%E5%86%99%E6%B3%95/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LaTex 数学公式左对齐写法</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/08/09/Autowired-%E6%B3%A8%E8%A7%A3%E4%BD%9C%E7%94%A8%E4%BA%8E-Constructor/">
-                        <span class="hidden-mobile">@Autowired 注解作用于 Constructor</span>
+                      <a href="/2021/10/04/Java-%E4%B8%AD%E7%9A%84-switch-%E7%9A%84%E7%94%A8%E6%B3%95/">
+                        <span class="hidden-mobile">Java 中的 switch 的用法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
