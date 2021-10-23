@@ -4,6 +4,58 @@
   
   
   <entry>
+    <title>《Python Cookbook》第二章：字符串和文本学习札记</title>
+    <link href="/2021/10/23/%E3%80%8APython-Cookbook%E3%80%8B%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%96%87%E6%9C%AC%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/"/>
+    <url>/2021/10/23/%E3%80%8APython-Cookbook%E3%80%8B%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%96%87%E6%9C%AC%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<p>首先要说一下 Python 的 r 前缀：</p><blockquote><p>Python 的 r 前缀表示原始字符串（raw string），就是字面意义上的字符串，<code>\</code> 这个符号并不表示转义。比如 <code>r'\n'</code> 表示的是一个反斜杠和一个字母 n。如果不加 <code>r</code> 即 <code>'\n'</code>，那么 <code>\</code> 就表示转义，<code>\n</code> 表示一个换行符。可以把 <code>r'\n'</code> 理解为 <code>'\\n'</code>。</p></blockquote><p>然后，开始阅读。</p><h1 id="使用多个界定符分割字符串">1、使用多个界定符分割字符串</h1><blockquote><p>将一个字符串分割成多个字段，但是分隔符（还有周围的空格）并不是固定的。</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; line = <span class="hljs-string">&#x27;asdf fjdk; afed, fjek, asdf, foo&#x27;</span></span><br><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; import re</span><br><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; re.split(r<span class="hljs-string">&#x27;[;,\s]\s*&#x27;</span>, line)</span><br>[&#x27;asdf&#x27;, &#x27;fjdk&#x27;, &#x27;afed&#x27;, &#x27;fjek&#x27;, &#x27;asdf&#x27;, &#x27;foo&#x27;]<br></code></pre></div></td></tr></table></figure><p>这段代码中的正则表达的含义是：分隔符可以是逗号、分号或者是空格，并且后面紧跟着任意个空格。</p><p>我们稍微改动一下，再测试一下：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; line = <span class="hljs-string">&#x27;asdf fjdk;; afed;, fjek, asdf, foo&#x27;</span></span><br><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; re.split(r<span class="hljs-string">&#x27;[;,\s]\s*&#x27;</span>, line)</span><br>[&#x27;asdf&#x27;, &#x27;fjdk&#x27;, &#x27;&#x27;, &#x27;afed&#x27;, &#x27;&#x27;, &#x27;fjek&#x27;, &#x27;asdf&#x27;, &#x27;foo&#x27;]<br></code></pre></div></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; line = <span class="hljs-string">&#x27;asdf fjdk;; afed;, fjek, asdf, foo&#x27;</span></span><br><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; re.split(r<span class="hljs-string">&#x27;[;,\s]+\s*&#x27;</span>, line)</span><br>[&#x27;asdf&#x27;, &#x27;fjdk&#x27;, &#x27;afed&#x27;, &#x27;fjek&#x27;, &#x27;asdf&#x27;, &#x27;foo&#x27;]<br></code></pre></div></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; re.split(r<span class="hljs-string">&#x27;[;,\s]*\s*&#x27;</span>, line)</span><br>[&#x27;&#x27;, &#x27;a&#x27;, &#x27;s&#x27;, &#x27;d&#x27;, &#x27;f&#x27;, &#x27;&#x27;, &#x27;f&#x27;, &#x27;j&#x27;, &#x27;d&#x27;, &#x27;k&#x27;, &#x27;&#x27;, &#x27;a&#x27;, &#x27;f&#x27;, &#x27;e&#x27;, &#x27;d&#x27;, &#x27;&#x27;, &#x27;f&#x27;, &#x27;j&#x27;, &#x27;e&#x27;, &#x27;k&#x27;, &#x27;&#x27;, &#x27;a&#x27;, &#x27;s&#x27;, &#x27;d&#x27;, &#x27;f&#x27;, &#x27;&#x27;, &#x27;f&#x27;, &#x27;o&#x27;, &#x27;o&#x27;, &#x27;&#x27;]<br></code></pre></div></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; line = <span class="hljs-string">&#x27;asdf fjdk;; afed;, fjek, asdf, foo&#x27;</span></span><br><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; fields = re.split(r<span class="hljs-string">&#x27;(;|,|\s)\s*&#x27;</span>, line)</span><br><span class="hljs-meta">&gt;</span><span class="bash">&gt;&gt; fields</span><br>[&#x27;asdf&#x27;, &#x27; &#x27;, &#x27;fjdk&#x27;, &#x27;;&#x27;, &#x27;afed&#x27;, &#x27;,&#x27;, &#x27;fjek&#x27;, &#x27;,&#x27;, &#x27;asdf&#x27;, &#x27;,&#x27;, &#x27;foo&#x27;]<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Python</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>一些值得整理的链接（url）</title>
+    <link href="/2021/10/23/%E4%B8%80%E4%BA%9B%E5%80%BC%E5%BE%97%E6%95%B4%E7%90%86%E7%9A%84%E9%93%BE%E6%8E%A5%EF%BC%88url%EF%BC%89/"/>
+    <url>/2021/10/23/%E4%B8%80%E4%BA%9B%E5%80%BC%E5%BE%97%E6%95%B4%E7%90%86%E7%9A%84%E9%93%BE%E6%8E%A5%EF%BC%88url%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<p>安装 Windows 和 Ubuntu 双系统：<a href="https://regulus.cc/2019/10/05/Windows10+Ubuntu18.04%E5%8F%8C%E7%B3%BB%E7%BB%9F%E7%AE%80%E5%8D%95%E5%AE%89%E8%A3%85%E6%8C%87%E5%8C%97/" class="uri">https://regulus.cc/2019/10/05/Windows10+Ubuntu18.04%E5%8F%8C%E7%B3%BB%E7%BB%9F%E7%AE%80%E5%8D%95%E5%AE%89%E8%A3%85%E6%8C%87%E5%8C%97/</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>URL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>URL</tag>
+      
+      <tag>收集</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Ubuntu 解决浏览器无法播放视频的问题</title>
     <link href="/2021/10/22/Ubuntu%20%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <url>/2021/10/22/Ubuntu%20%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91%E7%9A%84%E9%97%AE%E9%A2%98/</url>
