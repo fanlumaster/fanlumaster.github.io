@@ -4,13 +4,67 @@
   
   
   <entry>
-    <title>Ubuntu 测试文章</title>
-    <link href="/2021/11/01/Ubuntu-%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"/>
-    <url>/2021/11/01/Ubuntu-%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/</url>
+    <title>我遇到的 Bugs 及其解决方案记录</title>
+    <link href="/2021/11/01/%E6%88%91%E9%81%87%E5%88%B0%E7%9A%84-Bugs-%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E8%AE%B0%E5%BD%95/"/>
+    <url>/2021/11/01/%E6%88%91%E9%81%87%E5%88%B0%E7%9A%84-Bugs-%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E8%AE%B0%E5%BD%95/</url>
     
-    <content type="html"><![CDATA[<p>这是一篇测试文章。</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>Ubuntu 中使用 <code>hexo g</code> 生成博客时候出现问题。 报错信息是 <code>TypeError: line.matchAll is not a function</code></p></blockquote><p>这个问题可以通过升级 node 来解决。</p><p>链接：<a href="https://stackoverflow.com/questions/67516168/i-just-installed-hexo-static-site-generator-on-debian-and-ran-hexo-server-to-see">StackOverflow</a></p>]]></content>
     
     
+    <categories>
+      
+      <category>Bugs</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Bugs</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>《flex 与 bison 中文版》阅读札记</title>
+    <link href="/2021/11/01/%E3%80%8Aflex-%E4%B8%8E-bison-%E4%B8%AD%E6%96%87%E7%89%88%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/"/>
+    <url>/2021/11/01/%E3%80%8Aflex-%E4%B8%8E-bison-%E4%B8%AD%E6%96%87%E7%89%88%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<p>在阅读本书的过程中，我使用的系统是 Ubuntu 20.04。</p><h1 id="第-1-章-flex-和-bison-简介">第 1 章 Flex 和 Bison 简介</h1><blockquote><p>flex 程序的组成？</p></blockquote><p>flex 程序主要由一系列带有指令的正则表达式组成，这些指令确定了正则表达式匹配后相应的动作（action）。由 flex 生成的词法分析器可以读取输入，匹配输入与所有正则表达式并且执行每次匹配后适当的关联动作。</p><blockquote><p>第一个程序如何理解？</p></blockquote><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-comment">/* 正如 Unix 的 wc 程序 */</span><br>%&#123;<br><span class="hljs-keyword">int</span> chars = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">int</span> words = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">int</span> lines = <span class="hljs-number">0</span>;<br>%&#125;<br>%%<br>[a-zA-Z]+   &#123; words++; chars += <span class="hljs-built_in">strlen</span>(yytext); &#125;<br>\n          &#123; chars++; lines++; &#125;<br>.           &#123; chars++; &#125;<br>%%<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv)</span></span><br><span class="hljs-function"></span>&#123;<br>    yylex();<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%8d%8d%8d\n&quot;</span>, lines, words, chars);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure><p>flex 程序包含三个部分，各部分之间通过仅有 <code>%%</code> 的行来分割。</p><ul><li>第一个部分包含声明和选项设置；</li><li>第二个部分是一系列的模式（pattern）和动作；</li><li>第三部分是会被拷贝到生成的词法分析器里面的 C 代码，它们通常是一些与动作代码相关的例程。</li></ul>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>PotPlayer 截屏相关</title>
+    <link href="/2021/11/01/PotPlayer-%E6%88%AA%E5%B1%8F%E7%9B%B8%E5%85%B3/"/>
+    <url>/2021/11/01/PotPlayer-%E6%88%AA%E5%B1%8F%E7%9B%B8%E5%85%B3/</url>
+    
+    <content type="html"><![CDATA[<p>这里主要有两个要注意的地方，</p><ul><li>1）截屏快捷键，<code>Ctrl + Alt + E</code></li><li>2）截图默认存放的位置<ul><li>要么是 <code>D:Program FIles\DAUM\PotPlayer\Capture</code></li><li>要么是 <code>C:\Users\17309\AppData\Roaming\PotPlayerMini64\Capture</code></li></ul></li></ul><p>注意, 里面有一个选项是同时截取字幕(如果有的话), 这个默认是关闭的, 如果有需要截字幕的要仔细看一下.</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20201206205824.png" /></p><p>附: 截图默认存放位置</p><p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20201206210401.png" /></p><p><img src="https://i.imgur.com/YmBSee0.png" /></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>软件使用</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>博客园让人失望</tag>
+      
+      <tag>软件使用</tag>
+      
+      <tag>快捷键</tag>
+      
+    </tags>
     
   </entry>
   
