@@ -18,7 +18,7 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-  <title>我遇到的 Bugs 及其解决方案记录 - Fan Lu&#39;s Blog</title>
+  <title>《一站式学习 C 编程》阅读札记 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,12 +162,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/ih1afjO.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/UsVe1zq.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="我遇到的 Bugs 及其解决方案记录">
+            <span class="h2" id="subtitle" title="《一站式学习 C 编程》阅读札记">
               
             </span>
 
@@ -177,7 +177,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-01 18:45" pubdate>
+      <time datetime="2021-11-01 22:16" pubdate>
         2021年11月1日 晚上
       </time>
     </span>
@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      45 字
+      1.2k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      14
        分钟
     </span>
   
@@ -229,14 +229,96 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">我遇到的 Bugs 及其解决方案记录</h1>
+            <h1 style="display: none">《一站式学习 C 编程》阅读札记</h1>
             
             <div class="markdown-body">
-              <blockquote>
-<p>Ubuntu 中使用 <code>hexo g</code> 生成博客时候出现问题。 报错信息是 <code>TypeError: line.matchAll is not a function</code></p>
+              <h1 id="第-1-章-程序的基本概念">第 1 章 程序的基本概念</h1>
+<blockquote>
+<p>编写程序可以说就是这样一个过程：把复杂的任务分解成子任务，把子任务再分解成更简单的任务，层层分解，直到最后简单得可以用以上指令来完成。</p>
 </blockquote>
-<p>这个问题可以通过升级 node 来解决。</p>
-<p>链接：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/67516168/i-just-installed-hexo-static-site-generator-on-debian-and-ran-hexo-server-to-see">StackOverflow</a></p>
+<p>按：这里所谓的指令是指如下的几种指令：</p>
+<ul>
+<li>输入（Input）</li>
+<li>输出（Output）</li>
+<li>基本运算</li>
+<li>测试和分支</li>
+<li>循环</li>
+</ul>
+<blockquote>
+<p>一个语句的三种表示，该如何理解？</p>
+</blockquote>
+<p><img src="https://i.imgur.com/4teiZhM.png" srcset="/img/loading.gif" lazyload /></p>
+<p>对于汇编指令转换到机器指令，这个过程由来汇编器来完成，例如，在第一条指令中，把 mov ?, %eax 这种格式的指令替换成机器码 a1 ?<code>，?</code> 表示一个地址，在汇编指令中是 <code>0x804a01c</code>，转换成机器码之后是 <code>1c a0 04 08</code>（这是指令中十六进制数的小端表示）。</p>
+<p>shell #! /bin/sh VAR=1 VAR=<span class="math inline">\(((\)</span>VAR+1)) echo $VAR</p>
+<p>shell $ /bin/sh script.sh 2</p>
+<p>shell $ VAR=1 $ VAR=<span class="math inline">\(((\)</span>VAR+1)) $ echo $VAR 2</p>
+<blockquote>
+<p>还有很多编程语言采用编译和解释相结合的方式执行，这种方式相当流行，Java、Python、Perl 等编程语言都采用这种方式。以 Python 为例，程序员写的源代码 .py 文件首先被编译成 .pyc 文件，称为字节码（Byte Code），然后字节码被 Python 虚拟机解释执行。</p>
+</blockquote>
+<blockquote>
+<p>如何理解某个语言是第某代语言？</p>
+</blockquote>
+<p>以上介绍的机器语言称为第一代语言（1GL，1st Generation Programming Language），汇编语言称为第二代语言（2GL，2nd Generation ProgrammingLanguage），C、C++、Java、Python 等可以称为第三代语言（3GL，3rd Generation Programming Language）。目前已经有了 4GL（4th Generation Programming Language）和 5GL（5th Generation Programming Language）的概念。3GL 的编程语言虽然是用语句编程而不直接用指令编程，但语句也分为输入、输出、基本运算、测试分支和循环等几种，和指令有直接的对应关系。而 4GL 以后的编程语言更多是描述要做什么（Declarative）而不描述具体每一步怎么做（Imperative），具体步骤完全由编译器或解释器决定，例如 SQL（SQL，Structured Query Language，结构化查询语言）就是这样的例子。</p>
+<blockquote>
+<p>如何理解符号（Token）？</p>
+</blockquote>
+<p>语法规则是由符号（Token）和结构（Structure）的规则所组成的。Token 的概念相当于自然语言中的单词和标点、数学式中的数和运算符、化学分子式中的元素名和数字。</p>
+<blockquote>
+<p>如何区分词法规则和语法规则？</p>
+</blockquote>
+<p>关于 Token 的规则称为词法（Lexical）规则，而关于结构的规则称为语法（Grammar）规则。</p>
+<p>按：这个在编译原理里面有学习过。</p>
+<blockquote>
+<p>阅读程序的建议？</p>
+</blockquote>
+<p>首先请记住形式语言远比自然语言紧凑，所以要多花点时间来读。其次，结构很重要，从上到下从左到右读往往不是一个好办法，而应该学会在大脑里解析：识别 Token，分解结构。</p>
+<blockquote>
+<p>关于 Bug 的典故？</p>
+</blockquote>
+<p>早期的计算机体积都很大，有一次一台计算机不能正常工作，工程师们找了半天原因最后发现是一只虫子（Bug）钻进计算机中造成的。从此以后，程序中的错误被叫做 Bug，而找到这些 Bug 并加以纠正的过程就叫做调试（Debug）。</p>
+<blockquote>
+<p>几种常见的错误类型？</p>
+</blockquote>
+<ul>
+<li>编译时错误</li>
+<li>运行时错误</li>
+<li>逻辑错误和语义错误</li>
+</ul>
+<blockquote>
+<p>关于 Linux 的一个有趣的东西？</p>
+</blockquote>
+<p>“Linus 的早期工程之一是编写一个交替打印 AAAA 和 BBBB 的程序，这玩意儿后来进化成了 Linux。”</p>
+<blockquote>
+<p>Linux 下编写 C 语言代码需要安装的一些包？</p>
+</blockquote>
+<ul>
+<li>gcc: The GNU C compiler</li>
+<li>libc6-dev: GNU C Library: Development Librariesand Header Files</li>
+<li>manpages-dev: Manual pages about usingGNU/Linux for development</li>
+<li>binutils:The GNU assembler,linker and binaryutilities</li>
+<li>gdb: The GNU Debugger</li>
+<li>make: The GNU version of the "make" utility</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-comment">// filename: main.c</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-comment">/* main: generate some simple ouput */</span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello, world.\n&quot;</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> gcc main.c</span><br><span class="hljs-meta">$</span><span class="bash"> ./main</span><br>Hello, world.<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>如何理解 Linux 下 C 语言程序编译后生成的 a.out 文件？</p>
+</blockquote>
+<p>a.out 是 Assembler Output 的缩写，实际上一个 C 程序要先被编译器翻译成汇编程序，再被汇编器翻译成机器指令，最后还要经过链接器的处理才能成为可执行文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> gcc main.c -o main</span><br><span class="hljs-meta">$</span><span class="bash"> ./main</span><br>Hello, world.<br></code></pre></div></td></tr></table></figure>
+<p>按：这个 <code>-o</code> 参数是用来指定文件名的。</p>
+<blockquote>
+<p>C 程序中的 main 有什么特殊？</p>
+</blockquote>
+<p>C 程序总是从 main 里面的第一条语句开始执行的。</p>
+<blockquote>
+<p>{} 的英文怎么说？</p>
+</blockquote>
+<p>Brace 或 Curly Brace。</p>
+<blockquote>
+<p>一个好的习惯是打开 gcc 的 -Wall 选项，让 gcc 提示所有的警告信息，不管是严重的还是不严重的，然后把这些问题从代码中全部消灭。</p>
+</blockquote>
+<p>按：<code>-Wall</code> 大概是 Warning all 的意思。</p>
 
             </div>
             <hr>
@@ -246,7 +328,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Bugs/">Bugs</a>
+                      <a class="hover-with-bg" href="/categories/C-%E8%AF%AD%E8%A8%80/">C 语言</a>
                     
                   </div>
                 
@@ -254,7 +336,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Bugs/">Bugs</a>
+                      <a class="hover-with-bg" href="/tags/C-%E8%AF%AD%E8%A8%80/">C 语言</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%9F%BA%E7%A1%80/">基础</a>
                     
                   </div>
                 
@@ -271,18 +355,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/01/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0-C-%E7%BC%96%E7%A8%8B%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《一站式学习 C 编程》阅读札记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/01/%E3%80%8Aflex-%E4%B8%8E-bison-%E4%B8%AD%E6%96%87%E7%89%88%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/">
-                        <span class="hidden-mobile">《flex 与 bison 中文版》阅读札记</span>
+                      <a href="/2021/11/01/%E6%88%91%E9%81%87%E5%88%B0%E7%9A%84-Bugs-%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E8%AE%B0%E5%BD%95/">
+                        <span class="hidden-mobile">我遇到的 Bugs 及其解决方案记录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
