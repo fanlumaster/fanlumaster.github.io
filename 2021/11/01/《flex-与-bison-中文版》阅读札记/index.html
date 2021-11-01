@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      279 字
+      1.3k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      15
        分钟
     </span>
   
@@ -233,6 +233,8 @@
             
             <div class="markdown-body">
               <p>在阅读本书的过程中，我使用的系统是 Ubuntu 20.04。</p>
+<p>安装 flex 和 bison 在 Linux 系统中是一件很简单的事情，直接命令行安装即可。安装完可以检查一下版本来看看是否安装成功。</p>
+<p><img src="https://i.imgur.com/ZQX99q4.png" srcset="/img/loading.gif" lazyload /></p>
 <h1 id="第-1-章-flex-和-bison-简介">第 1 章 Flex 和 Bison 简介</h1>
 <blockquote>
 <p>flex 程序的组成？</p>
@@ -248,6 +250,57 @@
 <li>第二个部分是一系列的模式（pattern）和动作；</li>
 <li>第三部分是会被拷贝到生成的词法分析器里面的 C 代码，它们通常是一些与动作代码相关的例程。</li>
 </ul>
+<p>在声明部分，<code>%&#123;</code> 和 <code>%&#125;</code> 之间的代码会被原样照抄到生成的 C 文件的开头部分。在这个例子里面，它只是用来设定了行数、单词数和字符数的变量。</p>
+<p>在第二部分，</p>
+<ul>
+<li><code>[a-zA-Z]+</code>，用来匹配一个单词，相关的动作是更新匹配过的单词和字符的个数。需要注意的是，变量 <code>yytext</code> 总是被设为指向本次匹配的输入文本。</li>
+<li><code>\n</code>，用来匹配换行符。相关的动作更新行数和字符数。</li>
+<li><code>.</code>，匹配任意一个字符。关联的动作更新字符数。</li>
+</ul>
+<blockquote>
+<p>也许读者会问，如果 <code>.</code> 代表匹配所有的字符，难道它不会也匹配第一个模式所应该匹配的字母吗？答案是肯定的，但是 flex 棋高一着的地方是它总是选择更长的匹配，而且如果两个模式都匹配的，flex 会选择在程序里面首先出现的那个模式。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> flex fb1-1.l</span><br><span class="hljs-meta">$</span><span class="bash"> cc lex.yy.c -lfl</span><br><span class="hljs-meta">$</span><span class="bash"> ./a.out</span><br>The boy stood on the burning deck<br>shelling peanuts by the peck<br>^D<br>2 12 63<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://i.imgur.com/BGAhqpZ.png" srcset="/img/loading.gif" lazyload /></p>
+<p>注意几点：</p>
+<ul>
+<li>1）<code>cc</code> 这里表示使用系统默认的 C 编译器进行编译，这里是 gcc；</li>
+<li>2）<code>-lfl</code> 中两个都是字母 <code>l</code>；</li>
+<li>3）<code>^D</code> 在 Ubuntu 中没有显示。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c">[^ \t\n\r\f\v]+    &#123; words++; chars += <span class="hljs-built_in">strlen</span>(yytext); &#125;<br></code></pre></div></td></tr></table></figure>
+<p>按：匹配没有空白字符的字符串。<code>^</code> 指匹配任意一个不在字符类里面的字符。</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-comment">/* 英式英语 -&gt; 美式英语 */</span><br>%%<br><span class="hljs-string">&quot;colour&quot;</span> &#123; <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;color&quot;</span>); &#125;<br><span class="hljs-string">&quot;flavour&quot;</span> &#123; <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;smart&quot;</span>); &#125;<br><span class="hljs-string">&quot;smart&quot;</span> &#123; <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;elegant&quot;</span>); &#125;<br><span class="hljs-string">&quot;conservative&quot;</span> &#123; <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;liberal&quot;</span>); &#125;<br>··· 其他更多的单词 ···<br>. &#123; <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s&quot;</span>, yytext); &#125;<br>%%<br></code></pre></div></td></tr></table></figure>
+<p>按：这个程序当然是不能直接跑起来的。</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-comment">/* 识别出用于计算器的记号并把它输出 */</span><br><br>%%<br><span class="hljs-string">&quot;+&quot;</span>     &#123; <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;PLUS\n&quot;</span>); &#125;<br><span class="hljs-string">&quot;-&quot;</span>     &#123; <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;MINUS\n&quot;</span>); &#125;<br><span class="hljs-string">&quot;*&quot;</span>     &#123; <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;TIMES\n&quot;</span>); &#125;<br><span class="hljs-string">&quot;/&quot;</span>     &#123; <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;DIVIDE\n&quot;</span>); &#125;<br><span class="hljs-string">&quot;|&quot;</span>     &#123; <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;ABS\n&quot;</span>); &#125;<br>[<span class="hljs-number">0</span><span class="hljs-number">-9</span>]+  &#123; <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;NUMBER %s\n&quot;</span>, yytext); &#125;<br>\n      &#123; <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;NEWLINE\n&quot;</span>); &#125;<br>[ \t]   &#123; &#125;<br>.       &#123; <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Mystery character %s\n&quot;</span>, yytext); &#125;<br>%%<br>%%<br></code></pre></div></td></tr></table></figure>
+<p>按：前 5 个模式就是操作符本身，用引号引起。引号告诉 flex 使用引号内文本的原义，而不是把它们解释成正则表达式。<br />
+然后，对于这段程序，我们并没有第三段的 C 代码，但是 flex 库文件（<code>-lfl</code>）提供了一个极小的主程序来调用词法分析器。</p>
+<p><img src="https://i.imgur.com/9sJL97z.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p><code>^D</code> 是 Unix/Linux 的文件结束符。在 Windows 中，你可以输入 <code>^Z</code>。</p>
+</blockquote>
+<blockquote>
+<p>每当程序需要一个记号时，它调用 <code>yylex()</code> 来读取一小部分输入然后返回相应的记号。当程序需要下一个记号时，<code>yylex()</code> 会被再次调用。</p>
+</blockquote>
+<blockquote>
+<p>词法分析器以协同程序的方式来运行，也就是说，它会记住当前处理的位置，并从这个位置开始去处理下一次调用。</p>
+</blockquote>
+<p>按：关于协同程序，《一站式学习 C 编程》中应该有讲。</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-string">&quot;+&quot;</span>     &#123; <span class="hljs-keyword">return</span> ADD; &#125;<br>[<span class="hljs-number">0</span><span class="hljs-number">-9</span>]+  &#123; <span class="hljs-keyword">return</span> NUMBER; &#125;<br>[ \t]   &#123; <span class="hljs-comment">/* 忽略空白字符 */</span> &#125;<br></code></pre></div></td></tr></table></figure>
+<p>按：如果有动作返回，词法分析会在下一次 <code>yylex()</code> 调用时继续，如果动作没有返回，词法分析程序将会继续进行。</p>
+<blockquote>
+<p>当 bison 创建一个语法分析器时，bison 自动地从 258 起指派每个记号编号，并且创建一个包含这些编号定义的 <code>.h</code> 文件。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/kgU2mAr.png" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>bison 起源？</p>
+</blockquote>
+<p>bison 来源于 yacc，yacc 是 "yet another compiler compiler" 的缩写。</p>
+<blockquote>
+<p>lex 和 flex 的渊源？</p>
+</blockquote>
+<p>lex 是 "Lexical Analyzer Generator"，flex 是 "Fast Lexical Analyzer Generator" 的缩写。</p>
+<p>按：flex 和 bison 配对；lex 和 yacc 配对。</p>
 
             </div>
             <hr>
