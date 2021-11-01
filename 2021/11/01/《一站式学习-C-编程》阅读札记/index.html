@@ -249,9 +249,9 @@
 </blockquote>
 <p><img src="https://i.imgur.com/4teiZhM.png" srcset="/img/loading.gif" lazyload /></p>
 <p>对于汇编指令转换到机器指令，这个过程由来汇编器来完成，例如，在第一条指令中，把 mov ?, %eax 这种格式的指令替换成机器码 a1 ?<code>，?</code> 表示一个地址，在汇编指令中是 <code>0x804a01c</code>，转换成机器码之后是 <code>1c a0 04 08</code>（这是指令中十六进制数的小端表示）。</p>
-<p>shell #! /bin/sh VAR=1 VAR=<span class="math inline">\(((\)</span>VAR+1)) echo $VAR</p>
-<p>shell $ /bin/sh script.sh 2</p>
-<p>shell $ VAR=1 $ VAR=<span class="math inline">\(((\)</span>VAR+1)) $ echo $VAR 2</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">! /bin/sh</span><br>VAR=1<br>VAR=$(($VAR+1))<br>echo $VAR<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> /bin/sh script.sh</span><br>2<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> VAR=1</span><br><span class="hljs-meta">$</span><span class="bash"> VAR=$((<span class="hljs-variable">$VAR</span>+<span class="hljs-number">1</span>))</span><br><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$VAR</span></span><br>2<br></code></pre></div></td></tr></table></figure>
 <blockquote>
 <p>还有很多编程语言采用编译和解释相结合的方式执行，这种方式相当流行，Java、Python、Perl 等编程语言都采用这种方式。以 Python 为例，程序员写的源代码 .py 文件首先被编译成 .pyc 文件，称为字节码（Byte Code），然后字节码被 Python 虚拟机解释执行。</p>
 </blockquote>
