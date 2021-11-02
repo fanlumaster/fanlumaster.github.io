@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      2.1k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      18
+      24
        分钟
     </span>
   
@@ -344,7 +344,50 @@
 <p>对 Line Feed 和 Carriage Return 的理解？</p>
 </blockquote>
 <p>Line Feed是跳到下一行（进纸，喂纸，有个喂的动作所以是 feed），Carriage Return 是回到本行开头（Carriage 是卷着纸的轴，随着打字慢慢左移，打完一行就一下子移回最右边，如果你看过欧美的老电影应该能想起来这是什么）。用老式打字机打完一行之后需要这么两个动作，，所以现在 Windows 平台的文本文件用 做换行符，许多应用层网络协议（如 HTTP）也用 做换行符，而 Linux 和各种 UNIX 平台的文本文件只用 做换行符。</p>
-<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello, world.\n&quot;</span>);<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>按：空格和 Tab 一般是无关紧要的。</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>&#123;<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello, world.\n&quot;</span>);<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;&#125;<br></code></pre></div></td></tr></table></figure>
+<p>按：没有换行也可以。</p>
+<blockquote>
+<p>好的代码风格？</p>
+</blockquote>
+<p>好的代码风格要求缩进整齐，每个语句一行，适当留空行。</p>
+<blockquote>
+<p>常量有哪些？</p>
+</blockquote>
+<ul>
+<li>字符（Character）常量</li>
+<li>整数（Integer）常量</li>
+<li>浮点数（Floating Point）常量</li>
+<li>枚举常量</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;character: %c\ninteger: %d\nfloating point: %f\n&quot;</span>,<span class="hljs-string">&#x27;&#125;&#x27;</span>, <span class="hljs-number">34</span>, <span class="hljs-number">3.14</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>字符常量有什么注意点？</p>
+</blockquote>
+<ul>
+<li>字符常量要用单引号括起来，如 <code>'&#125;'</code>，注意单引号只能括一个字符而不能像双引号那样括一串字符；</li>
+<li>字符常量也可以是一个转义序列，如 <code>'\n'</code>，这时虽然单引号括了两个字符，但实际上只表示一个字符；</li>
+<li>如果在字符常量中要表示双引号 <code>"</code> 和问号 <code>?</code>，既可以使用转义序列 <code>\"</code> 和 <code>\?</code>，也可以直接使用字符 <code>"</code> 和 <code>?</code>，而表示 <code>'</code> 和 <code>\</code> 则必须使用转义序列。</li>
+</ul>
+<blockquote>
+<p>何为格式化字符串（Format String）？</p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;character: %c\ninteger: %d\nfloating point: %f\n&quot;</span>,<span class="hljs-string">&#x27;&#125;&#x27;</span>, <span class="hljs-number">34</span>, <span class="hljs-number">3.14</span>);<br></code></pre></div></td></tr></table></figure>
+<p>printf 中的第一个字符串称为格式化字符串（Format String），它规定了后面几个常量以何种格式插入到这个字符串中。</p>
+<blockquote>
+<p>何为占位符（Placeholder）？</p>
+</blockquote>
+<p>在格式化字符串中，<code>%</code> 号（Percent Sign）后面加上字母 c、d、f 分别表示字符型、整型和浮点型的转换说明（Conversion Specification），转换说明只在格式化字符串中占个位置，并不出现在最终的打印结果中，这种用法通常叫做占位符（Placeholder）。</p>
+<blockquote>
+<p>转义序列和转换说明有什么区别？</p>
+</blockquote>
+<p>转义序列是在编译时处理的，而转换说明是在运行时调用 printf 函数处理的。</p>
+<blockquote>
+<p>在 printf 格式化字符串中怎么表示一个 <code>%</code> 字符？</p>
+</blockquote>
+<p>只需要输入两个百分号 <code>%</code> 即可，即 <code>%%</code>。</p>
 
             </div>
             <hr>
@@ -380,6 +423,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/11/02/%E5%88%A9%E7%94%A8-Python-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA-Telegram-%E6%9C%BA%E5%99%A8%E4%BA%BA/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">利用 Python 从零开始搭建一个 Telegram 机器人</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
