@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>绕个路解决 Ubuntu terminal 在从全屏或最大化切换到原来窗口时窗口尺寸缩小的问题</title>
+    <link href="/2021/11/03/%E7%BB%95%E4%B8%AA%E8%B7%AF%E8%A7%A3%E5%86%B3-Ubuntu-terminal-%E5%9C%A8%E4%BB%8E%E5%85%A8%E5%B1%8F%E6%88%96%E6%9C%80%E5%A4%A7%E5%8C%96%E5%88%87%E6%8D%A2%E5%88%B0%E5%8E%9F%E6%9D%A5%E7%AA%97%E5%8F%A3%E6%97%B6%E7%AA%97%E5%8F%A3%E5%B0%BA%E5%AF%B8%E7%BC%A9%E5%B0%8F%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <url>/2021/11/03/%E7%BB%95%E4%B8%AA%E8%B7%AF%E8%A7%A3%E5%86%B3-Ubuntu-terminal-%E5%9C%A8%E4%BB%8E%E5%85%A8%E5%B1%8F%E6%88%96%E6%9C%80%E5%A4%A7%E5%8C%96%E5%88%87%E6%8D%A2%E5%88%B0%E5%8E%9F%E6%9D%A5%E7%AA%97%E5%8F%A3%E6%97%B6%E7%AA%97%E5%8F%A3%E5%B0%BA%E5%AF%B8%E7%BC%A9%E5%B0%8F%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p>Ubuntu 的 terminal 有一个严重的问题，那就是在最大化 terminal 或者全屏化窗口之后再恢复到原来的窗口时，这个窗口的尺寸会缩小一行和一列。</p><p>这个问题七年前就存在，今天在谷歌找了半天，最终也没有找出一个像样的解决方案，具体的讨论可以看看这些：</p><ul><li><a href="https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1706008">讨论一</a></li><li><a href="https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1288655">讨论二</a></li></ul><p>循着这两个讨论，发现网上的讨论还有很多，但是最终都没有完美的解决方案，gnome 官方到现在似乎也没有解决，Ubuntu 官方也不解决，无奈呀。</p><p>大家不响，我也不响。</p><p>不响半天，算了，给自己设置一个快捷命令吧。</p><p>于是，</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> vi ~/.bashsrc</span><br></code></pre></div></td></tr></table></figure><p>然后，来到文件末尾，加上如下代码</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> resize the window to 80x24 shortcut</span><br>alias rss=&#x27;resize -s 24 80 &gt;/dev/null&#x27;<br></code></pre></div></td></tr></table></figure><p>然后我们就可以在命令行中使用 <code>rss</code> 命令来快速让窗口恢复到 <code>80 x 24</code> 的尺寸了。</p><p>解释一下这行脚本的含义：</p><p><code>resize -s 24 80</code> 是将窗口重新设置成 <code>80 x 24</code> 的尺寸。如果是直接执行这个命令，那么终端会输出一些信息，</p><p><img src="https://i.imgur.com/DqqyvcY.png" /></p><p>所以，我们使用 <code>&gt;/dev/null</code> 将输出进行重定向，<code>/dev/null</code> 可以理解为 Linux 下的回收站。</p><p>如此一来，我们在切换全屏或者最大化与正常窗口之间的状态时，执行一下这个我们自定义的命令就可以得到想要的效果了。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Ubuntu</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Ubuntu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>利用 Python 从零开始搭建一个 Telegram 机器人</title>
     <link href="/2021/11/02/%E5%88%A9%E7%94%A8-Python-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA-Telegram-%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
     <url>/2021/11/02/%E5%88%A9%E7%94%A8-Python-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA-Telegram-%E6%9C%BA%E5%99%A8%E4%BA%BA/</url>
