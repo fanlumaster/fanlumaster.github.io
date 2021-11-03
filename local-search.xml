@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>数字图像处理学习笔记</title>
+    <link href="/2021/11/03/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <url>/2021/11/03/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<p>系电子科大网课笔记。</p><blockquote><p>数字图像处理的概念？</p></blockquote><ul><li>图像是一个二维亮度函数 <span class="math inline">\(f(x, y)\)</span>，<span class="math inline">\((x, y)\)</span> 定义了空间坐标，<span class="math inline">\(f(x, y)\)</span> 定义该点的亮度或灰度。<br />按：这里主要是灰度。书上也讲灰度。<br /></li><li>数字图像处理是指图像的元素的空间坐标和亮度的数字化。数字图像是由有限的元素组成的，每一个元素都有一个特定的位置和幅值，这些元素称为图像元素或像素。</li><li>数字图像处理是指借用数字计算机处理数字图像。</li></ul><blockquote><p>视网膜表面分布的分离光接收器提供了图案视觉。</p></blockquote><blockquote><p>两类光接收器，锥状体和杆状体在功能上有什么区别？</p></blockquote><ul><li>锥状体和亮视觉有关，对颜色的感知能力比较强。</li><li>杆状体和暗视觉有关，对颜色感知能力比较弱。</li></ul><blockquote><p>有一张图看不懂？</p></blockquote><p>下图显示了右眼中通过眼睛光神经应急区的横截面的杆状体和锥状体密度。</p><p><img src="https://i.imgur.com/rwAR0Nm.png" /></p><p>疑：这个光神经应急系统是什么？这个图应该怎么理解？</p><blockquote><p>人的视觉系统能适应的光强度级别范围有多宽？</p></blockquote><p>从夜视阈值到强闪光约有 <span class="math inline">\(10^{10}\)</span> 量级。</p><blockquote><p>何为亮度适应现象？</p></blockquote><p>人的视觉不能同时在整个范围内工作，确切地说，它是利用改变其整个灵敏度来完成这一大变动的，这就是所谓的亮度适应现象。</p><p>与整个适应范围相比，能同时鉴别的光强度级的总范围很小。</p><blockquote><p>视觉系统对亮度的感知不是简单的强度函数。例如马赫带现象和同时对比现象。</p></blockquote><blockquote><p>何为马赫带现象？</p></blockquote><p>指人们在明暗变化的边界，常常在亮区看到一条更亮的光带，而在暗区看到一条更暗的线条。</p><p>我们可以用侧抑制来解释马赫带现象的产生。</p><p><img src="https://i.imgur.com/idWphY9.png" /></p><blockquote><p>何为侧抑制？</p></blockquote><p>侧抑制是指相邻的感受器之间能够互相抑制的现象。</p><p>按：在马赫带现象中，侧抑制表现为：亮的一侧抑制暗的一侧，暗的一侧抑制亮的一侧。</p><blockquote><p>何为同时对比？</p></blockquote><p>几个刺激物同时作用于同一感受器产生的现象称为同时对比。</p><p><img src="https://i.imgur.com/m4RbhEI.png" /></p><blockquote><p>人眼可以感受到的光的范围？</p></blockquote><p><img src="https://i.imgur.com/rCa0qqC.png" /></p><p>人眼可以感受到的光的波长的范围是 <span class="math inline">\(400 \sim 700\)</span> 纳米。</p><blockquote><p>用二维形式 <span class="math inline">\(f(x, y)\)</span> 表示图像，在特定坐标 <span class="math inline">\((x, y)\)</span> 处， <span class="math inline">\(f\)</span> 的值或幅度是一个正的标量，其物理意义由图像源决定。</p></blockquote><blockquote><p>当一幅图像从物理过程产生时，它的值正比于物理源的辐射能量。因此 <span class="math inline">\(f(x, y)\)</span> 一定是非零和有限的，即：</p></blockquote><p><span class="math display">\[0 &lt; f(x, y) &lt; \infty\]</span></p><blockquote><p>数字化坐标值称为取样，数字化幅度值称为量化。</p></blockquote><blockquote><p>有一个取样函数的推演看不懂呀？</p></blockquote><p><img src="https://i.imgur.com/N0vAZ3l.png" /></p><p><img src="https://i.imgur.com/bmn7JVV.png" /></p><blockquote><p>一个比较好理解的关于取样和量化的例子。</p></blockquote><p><img src="https://i.imgur.com/LzCKMRX.png" /></p><p>按：总体来讲，是一行一行取样，然后对每一行进行取样，把它们的亮度给量化出来。</p><blockquote><p>可以用矩阵形式表示一幅数字图像，也可以用变量和幅值都是整数的二维函数表示。</p></blockquote><p><img src="https://i.imgur.com/IpVt2k5.png" /></p><p><img src="https://i.imgur.com/i1TBRta.png" /></p><blockquote><p>对于上图中的 M 和 N 有什么要求？</p></blockquote><p>数字化过程中对 <span class="math inline">\(M\)</span> 和 <span class="math inline">\(N\)</span> 除了必须取正整数外没有其他要求。</p><p>然而，出于处理、存储和取样硬件的考虑，灰度级典型的取值是 2 的整数次幂。</p><blockquote><p>对于一幅大小为 <span class="math inline">\(M \times N\)</span>，灰度级 <span class="math inline">\(L = 2^k\)</span> 的数字图像，所需的存储空间为 <span class="math inline">\(b = M \times N \times k\)</span>。</p></blockquote><blockquote><p>何为灰度级？</p></blockquote><p>灰度级的典型取值是 2 的整数次幂。通常假设离散灰度级是等间隔的并且是区间 <span class="math inline">\([0, L - 1]\)</span> 内的整数。（<span class="math inline">\(L\)</span> 即 2 的整数次幂）</p><blockquote><p>何为 k 比特图像？</p></blockquote><p>当一幅图像有 <span class="math inline">\(2^k\)</span> 灰度级时，通常称该图像是 k 比特图像。</p><blockquote><p>何为动态范围？</p></blockquote><p>有时灰度级的取值范围称为图像的动态范围。把占有灰度级全部有效段的图像叫做高动态范围图像。当相当可观数目的像素呈现这样的特征时，图像就有较高的对比度。相反，低动态范围的图像看上去似乎是冲淡了的灰暗格调。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数字图像处理</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数字图像处理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>绕个路解决 Ubuntu terminal 在从全屏或最大化切换到原来窗口时窗口尺寸缩小的问题</title>
     <link href="/2021/11/03/%E7%BB%95%E4%B8%AA%E8%B7%AF%E8%A7%A3%E5%86%B3-Ubuntu-terminal-%E5%9C%A8%E4%BB%8E%E5%85%A8%E5%B1%8F%E6%88%96%E6%9C%80%E5%A4%A7%E5%8C%96%E5%88%87%E6%8D%A2%E5%88%B0%E5%8E%9F%E6%9D%A5%E7%AA%97%E5%8F%A3%E6%97%B6%E7%AA%97%E5%8F%A3%E5%B0%BA%E5%AF%B8%E7%BC%A9%E5%B0%8F%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <url>/2021/11/03/%E7%BB%95%E4%B8%AA%E8%B7%AF%E8%A7%A3%E5%86%B3-Ubuntu-terminal-%E5%9C%A8%E4%BB%8E%E5%85%A8%E5%B1%8F%E6%88%96%E6%9C%80%E5%A4%A7%E5%8C%96%E5%88%87%E6%8D%A2%E5%88%B0%E5%8E%9F%E6%9D%A5%E7%AA%97%E5%8F%A3%E6%97%B6%E7%AA%97%E5%8F%A3%E5%B0%BA%E5%AF%B8%E7%BC%A9%E5%B0%8F%E7%9A%84%E9%97%AE%E9%A2%98/</url>
