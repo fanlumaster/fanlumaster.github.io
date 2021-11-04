@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.1k 字
+      2.8k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      24
+      32
        分钟
     </span>
   
@@ -319,6 +319,7 @@
 <p>一个好的习惯是打开 gcc 的 -Wall 选项，让 gcc 提示所有的警告信息，不管是严重的还是不严重的，然后把这些问题从代码中全部消灭。</p>
 </blockquote>
 <p>按：<code>-Wall</code> 大概是 Warning all 的意思。</p>
+<h1 id="第-2-章-常量变量和表达式">第 2 章 常量、变量和表达式</h1>
 <figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">* comment1</span><br><span class="hljs-comment">* main: generate some simple output</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-built_in">printf</span>(<span class="hljs-comment">/* comment2 */</span><span class="hljs-string">&quot;Hello, world.\n&quot;</span>); <span class="hljs-comment">/* comment3 */</span><br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <p>按：注释可以跨行，也可以穿插在程序之中</p>
 <blockquote>
@@ -388,6 +389,73 @@
 <p>在 printf 格式化字符串中怎么表示一个 <code>%</code> 字符？</p>
 </blockquote>
 <p>只需要输入两个百分号 <code>%</code> 即可，即 <code>%%</code>。</p>
+<blockquote>
+<p>在 C 语言中如何规定变量的名字和类型？</p>
+</blockquote>
+<p>在 C 语言中用声明（Declaration）来规定变量的名字和类型。</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-keyword">char</span> fred;<br><span class="hljs-keyword">int</span> bob;<br><span class="hljs-keyword">float</span> jimmy;<br><span class="hljs-keyword">double</span> tom;<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>C 语言的声明有几种？</p>
+</blockquote>
+<p>三种：</p>
+<ul>
+<li>变量声明</li>
+<li>函数声明</li>
+<li>类型声明</li>
+</ul>
+<blockquote>
+<p>如何理解声明分为“是定义（Definition）的声明”和“不是定义的声明”？</p>
+</blockquote>
+<p>简单地说，分配存储空间的声明同时也是定义，不分配存储空间的声明不是定义。</p>
+<blockquote>
+<p>如何判断变量声明、函数声明、类型声明是否同时是定义？</p>
+</blockquote>
+<ul>
+<li>如果一个变量声明要求编译器为它分配存储空间，那么这个声明同时也是变量的定义。 <figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-comment">/* 下面这些声明同时也是定义 */</span><br><span class="hljs-keyword">char</span> fred;<br><span class="hljs-keyword">int</span> bob;<br><span class="hljs-keyword">float</span> jimmy;<br><span class="hljs-keyword">double</span> tom;<br></code></pre></div></td></tr></table></figure></li>
+<li>如果一个函数声明带有函数体，要求编译器为它生成指令（当然也需要分配存储空间来保存这些指令），那么这个声明同时也是函数的定义。不带函数体的申明不是函数定义。</li>
+<li>类型声明总是不分配存储空间，所以严格来说只有类型声明而没有类型定义，我们通常所说的“定义了某种类型”其实是“声明了某种类型”。</li>
+</ul>
+<blockquote>
+<p>声明和语句的区别？</p>
+</blockquote>
+<p>语句只能出现在函数体中，而声明既可以出现在函数体中也可以出现在所有函数中。</p>
+<blockquote>
+<p>浮点型有几种？</p>
+</blockquote>
+<p>三种：</p>
+<ul>
+<li>float 是单精度浮点型；</li>
+<li>double 是双精度浮点型；</li>
+<li>long double 精度更高的浮点型。</li>
+</ul>
+<blockquote>
+<p><code>printf</code> 的 <code>%f</code> 是哪一种浮点？</p>
+</blockquote>
+<p>double。要特别注意，不是 <code>float</code>。</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-keyword">char</span> firstletter;<br><span class="hljs-keyword">char</span> lastletter;<br><span class="hljs-keyword">int</span> hour, minute;<br></code></pre></div></td></tr></table></figure>
+<p>按：取名字要注意其意义。</p>
+<blockquote>
+<p>C 语言给变量起名的限制？</p>
+</blockquote>
+<p>C 语言规定，变量名必须以字母或下划线 <code>_</code>（Underscore）开头，后面可以跟若干个字母、数字、下划线，但不能有其他字符。</p>
+<p>合法变量名举例：<code>Abc</code>、<code>__abc__</code>、<code>_123</code>。<br />
+不合法变量名举例：<code>3abc</code>、<code>ab$</code>。</p>
+<blockquote>
+<p>何为标识符？</p>
+</blockquote>
+<p>变量名、函数名、宏定义、结构体成员名等，在 C 语言中统称为标识符。</p>
+<blockquote>
+<p>C99 规定的关键字有哪些？</p>
+</blockquote>
+<div class="hljs code-wrapper"><pre><code>auto  break  case  char  const  continue  default  do  double 
+else  enum  extern  float  for  goto  if  inline  int  long 
+register  restrict  return  short  signed  sizeof  static 
+struct  switch  typedef  union  unsigned  void  volatile 
+while  _Bool  _Complex  _Imaginary</code></pre></div>
+<blockquote>
+<p>为何一般要避免使用以下划线开头的标识符？</p>
+</blockquote>
+<p>因为以下划线开头的标识符一般被编译器用作一些功能扩展，所以有时候可能会和 C 标准库中的命名造成冲突。</p>
 
             </div>
             <hr>
