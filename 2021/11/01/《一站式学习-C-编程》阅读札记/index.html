@@ -456,6 +456,11 @@ while  _Bool  _Complex  _Imaginary</code></pre></div>
 <p>为何一般要避免使用以下划线开头的标识符？</p>
 </blockquote>
 <p>因为以下划线开头的标识符一般被编译器用作一些功能扩展，所以有时候可能会和 C 标准库中的命名造成冲突。</p>
+<blockquote>
+<p>What is Best Practice?</p>
+</blockquote>
+<p>就是一般推荐的做法啦。有的书中翻译成最佳实践。</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-keyword">char</span> firstletter;<br><span class="hljs-keyword">int</span> hour, minute;<br>firstletter = <span class="hljs-string">&#x27; a&#x27;</span><br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
