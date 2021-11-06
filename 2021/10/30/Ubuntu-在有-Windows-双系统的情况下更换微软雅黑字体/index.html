@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      129 字
+      127 字
     </span>
   
 
@@ -238,7 +238,7 @@
 <p><img src="https://i.imgur.com/pZGliv6.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img src="https://i.imgur.com/j1pUc1X.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后，在 <code>C:\Windows</code> 目录下打开 Terminal，然后，将所有的 Windows 字体复制到 <code>/usr/share/fonts</code> 目录下，并使用命令安装字体：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo mkdir /usr/share/fonts/WindowsFonts<br>sudo cp /Windowsdrive/Windows/Fonts/* /usr/share/fonts/WindowsFonts<br>sudo chmod 755 /usr/share/fonts/WindowsFonts/*<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo mkdir /usr/share/fonts/WindowsFonts<br>sudo cp Fonts/* /usr/share/fonts/WindowsFonts<br>sudo chmod 755 /usr/share/fonts/WindowsFonts/*<br></code></pre></div></td></tr></table></figure>
 <p>最后，使用命令重新生成 fontconfig 缓存：</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo fc-cache<br></code></pre></div></td></tr></table></figure>
 <h1 id="使用">使用</h1>

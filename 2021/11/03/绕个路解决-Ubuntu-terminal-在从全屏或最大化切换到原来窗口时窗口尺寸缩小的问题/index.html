@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      389 字
+      420 字
     </span>
   
 
@@ -245,12 +245,15 @@
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> vi ~/.bashsrc</span><br></code></pre></div></td></tr></table></figure>
 <p>然后，来到文件末尾，加上如下代码</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> resize the window to 80x24 shortcut</span><br>alias rss=&#x27;resize -s 24 80 &gt;/dev/null&#x27;<br></code></pre></div></td></tr></table></figure>
+<p>然后，激活脚本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">source</span> ~/.bashrc</span><br></code></pre></div></td></tr></table></figure>
 <p>然后我们就可以在命令行中使用 <code>rss</code> 命令来快速让窗口恢复到 <code>80 x 24</code> 的尺寸了。</p>
 <p>解释一下这行脚本的含义：</p>
 <p><code>resize -s 24 80</code> 是将窗口重新设置成 <code>80 x 24</code> 的尺寸。如果是直接执行这个命令，那么终端会输出一些信息，</p>
 <p><img src="https://i.imgur.com/DqqyvcY.png" srcset="/img/loading.gif" lazyload /></p>
 <p>所以，我们使用 <code>&gt;/dev/null</code> 将输出进行重定向，<code>/dev/null</code> 可以理解为 Linux 下的回收站。</p>
 <p>如此一来，我们在切换全屏或者最大化与正常窗口之间的状态时，执行一下这个我们自定义的命令就可以得到想要的效果了。</p>
+<p>按：<code>resize</code> 这个快捷键是 xterm 中带有的，所以事前要先安装 xterm。</p>
 
             </div>
             <hr>

@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>我的问题与 url 答案 list</title>
+    <link href="/2021/11/06/%E6%88%91%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E-url-%E7%AD%94%E6%A1%88-list/"/>
+    <url>/2021/11/06/%E6%88%91%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E-url-%E7%AD%94%E6%A1%88-list/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>Ubuntu 21.10 如何隐藏桌面图标？</p></blockquote><p><a href="https://askubuntu.com/questions/1335398/ubuntu-21-04-remove-trash-user-and-drive-icon-from-desktop" class="uri">https://askubuntu.com/questions/1335398/ubuntu-21-04-remove-trash-user-and-drive-icon-from-desktop</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>问题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Ubuntu</tag>
+      
+      <tag>问题</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Flask Web 开发（第 2 版）阅读札记</title>
     <link href="/2021/11/05/Flask-Web-%E5%BC%80%E5%8F%91%EF%BC%88%E7%AC%AC-2-%E7%89%88%EF%BC%89%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/"/>
     <url>/2021/11/05/Flask-Web-%E5%BC%80%E5%8F%91%EF%BC%88%E7%AC%AC-2-%E7%89%88%EF%BC%89%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/</url>
@@ -89,7 +116,7 @@
     <link href="/2021/11/03/%E7%BB%95%E4%B8%AA%E8%B7%AF%E8%A7%A3%E5%86%B3-Ubuntu-terminal-%E5%9C%A8%E4%BB%8E%E5%85%A8%E5%B1%8F%E6%88%96%E6%9C%80%E5%A4%A7%E5%8C%96%E5%88%87%E6%8D%A2%E5%88%B0%E5%8E%9F%E6%9D%A5%E7%AA%97%E5%8F%A3%E6%97%B6%E7%AA%97%E5%8F%A3%E5%B0%BA%E5%AF%B8%E7%BC%A9%E5%B0%8F%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <url>/2021/11/03/%E7%BB%95%E4%B8%AA%E8%B7%AF%E8%A7%A3%E5%86%B3-Ubuntu-terminal-%E5%9C%A8%E4%BB%8E%E5%85%A8%E5%B1%8F%E6%88%96%E6%9C%80%E5%A4%A7%E5%8C%96%E5%88%87%E6%8D%A2%E5%88%B0%E5%8E%9F%E6%9D%A5%E7%AA%97%E5%8F%A3%E6%97%B6%E7%AA%97%E5%8F%A3%E5%B0%BA%E5%AF%B8%E7%BC%A9%E5%B0%8F%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     
-    <content type="html"><![CDATA[<p>Ubuntu 的 terminal 有一个严重的问题，那就是在最大化 terminal 或者全屏化窗口之后再恢复到原来的窗口时，这个窗口的尺寸会缩小一行和一列。</p><p>这个问题七年前就存在，今天在谷歌找了半天，最终也没有找出一个像样的解决方案，具体的讨论可以看看这些：</p><ul><li><a href="https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1706008">讨论一</a></li><li><a href="https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1288655">讨论二</a></li></ul><p>循着这两个讨论，发现网上的讨论还有很多，但是最终都没有完美的解决方案，gnome 官方到现在似乎也没有解决，Ubuntu 官方也不解决，无奈呀。</p><p>大家不响，我也不响。</p><p>不响半天，算了，给自己设置一个快捷命令吧。</p><p>于是，</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> vi ~/.bashsrc</span><br></code></pre></div></td></tr></table></figure><p>然后，来到文件末尾，加上如下代码</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> resize the window to 80x24 shortcut</span><br>alias rss=&#x27;resize -s 24 80 &gt;/dev/null&#x27;<br></code></pre></div></td></tr></table></figure><p>然后我们就可以在命令行中使用 <code>rss</code> 命令来快速让窗口恢复到 <code>80 x 24</code> 的尺寸了。</p><p>解释一下这行脚本的含义：</p><p><code>resize -s 24 80</code> 是将窗口重新设置成 <code>80 x 24</code> 的尺寸。如果是直接执行这个命令，那么终端会输出一些信息，</p><p><img src="https://i.imgur.com/DqqyvcY.png" /></p><p>所以，我们使用 <code>&gt;/dev/null</code> 将输出进行重定向，<code>/dev/null</code> 可以理解为 Linux 下的回收站。</p><p>如此一来，我们在切换全屏或者最大化与正常窗口之间的状态时，执行一下这个我们自定义的命令就可以得到想要的效果了。</p>]]></content>
+    <content type="html"><![CDATA[<p>Ubuntu 的 terminal 有一个严重的问题，那就是在最大化 terminal 或者全屏化窗口之后再恢复到原来的窗口时，这个窗口的尺寸会缩小一行和一列。</p><p>这个问题七年前就存在，今天在谷歌找了半天，最终也没有找出一个像样的解决方案，具体的讨论可以看看这些：</p><ul><li><a href="https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1706008">讨论一</a></li><li><a href="https://bugs.launchpad.net/ubuntu/+source/gnome-terminal/+bug/1288655">讨论二</a></li></ul><p>循着这两个讨论，发现网上的讨论还有很多，但是最终都没有完美的解决方案，gnome 官方到现在似乎也没有解决，Ubuntu 官方也不解决，无奈呀。</p><p>大家不响，我也不响。</p><p>不响半天，算了，给自己设置一个快捷命令吧。</p><p>于是，</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> vi ~/.bashsrc</span><br></code></pre></div></td></tr></table></figure><p>然后，来到文件末尾，加上如下代码</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> resize the window to 80x24 shortcut</span><br>alias rss=&#x27;resize -s 24 80 &gt;/dev/null&#x27;<br></code></pre></div></td></tr></table></figure><p>然后，激活脚本：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">source</span> ~/.bashrc</span><br></code></pre></div></td></tr></table></figure><p>然后我们就可以在命令行中使用 <code>rss</code> 命令来快速让窗口恢复到 <code>80 x 24</code> 的尺寸了。</p><p>解释一下这行脚本的含义：</p><p><code>resize -s 24 80</code> 是将窗口重新设置成 <code>80 x 24</code> 的尺寸。如果是直接执行这个命令，那么终端会输出一些信息，</p><p><img src="https://i.imgur.com/DqqyvcY.png" /></p><p>所以，我们使用 <code>&gt;/dev/null</code> 将输出进行重定向，<code>/dev/null</code> 可以理解为 Linux 下的回收站。</p><p>如此一来，我们在切换全屏或者最大化与正常窗口之间的状态时，执行一下这个我们自定义的命令就可以得到想要的效果了。</p><p>按：<code>resize</code> 这个快捷键是 xterm 中带有的，所以事前要先安装 xterm。</p>]]></content>
     
     
     <categories>
@@ -235,7 +262,7 @@
     <link href="/2021/10/30/Ubuntu-%E5%9C%A8%E6%9C%89-Windows-%E5%8F%8C%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%9B%B4%E6%8D%A2%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91%E5%AD%97%E4%BD%93/"/>
     <url>/2021/10/30/Ubuntu-%E5%9C%A8%E6%9C%89-Windows-%E5%8F%8C%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%9B%B4%E6%8D%A2%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91%E5%AD%97%E4%BD%93/</url>
     
-    <content type="html"><![CDATA[<p>此次操作的 Ubuntu 版本是 Ubuntu20.04。</p><h1 id="安装">安装</h1><p>首先，找到 Windows 安装的磁盘分区：</p><p><img src="https://i.imgur.com/pZGliv6.png" /></p><p><img src="https://i.imgur.com/j1pUc1X.png" /></p><p>然后，在 <code>C:\Windows</code> 目录下打开 Terminal，然后，将所有的 Windows 字体复制到 <code>/usr/share/fonts</code> 目录下，并使用命令安装字体：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo mkdir /usr/share/fonts/WindowsFonts<br>sudo cp /Windowsdrive/Windows/Fonts/* /usr/share/fonts/WindowsFonts<br>sudo chmod 755 /usr/share/fonts/WindowsFonts/*<br></code></pre></div></td></tr></table></figure><p>最后，使用命令重新生成 fontconfig 缓存：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo fc-cache<br></code></pre></div></td></tr></table></figure><h1 id="使用">使用</h1><p>在命令行打开 gnome-tweaks</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">gnome-tweaks<br></code></pre></div></td></tr></table></figure><p>然后，在相关的选项里面进行修改字体即可：</p><p><img src="https://i.imgur.com/VzUW5hh.png" /></p>]]></content>
+    <content type="html"><![CDATA[<p>此次操作的 Ubuntu 版本是 Ubuntu20.04。</p><h1 id="安装">安装</h1><p>首先，找到 Windows 安装的磁盘分区：</p><p><img src="https://i.imgur.com/pZGliv6.png" /></p><p><img src="https://i.imgur.com/j1pUc1X.png" /></p><p>然后，在 <code>C:\Windows</code> 目录下打开 Terminal，然后，将所有的 Windows 字体复制到 <code>/usr/share/fonts</code> 目录下，并使用命令安装字体：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo mkdir /usr/share/fonts/WindowsFonts<br>sudo cp Fonts/* /usr/share/fonts/WindowsFonts<br>sudo chmod 755 /usr/share/fonts/WindowsFonts/*<br></code></pre></div></td></tr></table></figure><p>最后，使用命令重新生成 fontconfig 缓存：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo fc-cache<br></code></pre></div></td></tr></table></figure><h1 id="使用">使用</h1><p>在命令行打开 gnome-tweaks</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">gnome-tweaks<br></code></pre></div></td></tr></table></figure><p>然后，在相关的选项里面进行修改字体即可：</p><p><img src="https://i.imgur.com/VzUW5hh.png" /></p>]]></content>
     
     
     <categories>
