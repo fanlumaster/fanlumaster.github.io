@@ -18,7 +18,7 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-  <title>《Linux 命令行大全》阅读札记 - Fan Lu&#39;s Blog</title>
+  <title>Flask Web 开发（第 2 版）阅读札记 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,12 +162,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/4XB3k6T.png') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="《Linux 命令行大全》阅读札记">
+            <span class="h2" id="subtitle" title="Flask Web 开发（第 2 版）阅读札记">
               
             </span>
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-04 10:14" pubdate>
-        2021年11月4日 上午
+      <time datetime="2021-11-05 13:08" pubdate>
+        2021年11月5日 下午
       </time>
     </span>
   
@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      678 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      7
        分钟
     </span>
   
@@ -229,10 +229,68 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">《Linux 命令行大全》阅读札记</h1>
+            <h1 style="display: none">Flask Web 开发（第 2 版）阅读札记</h1>
             
             <div class="markdown-body">
-              
+              <p>本书实践环境为 Ubuntu20.04。</p>
+<h1 id="第-1-章-安装">第 1 章 安装</h1>
+<blockquote>
+<p>Flask 的 3 个主要依赖？</p>
+</blockquote>
+<ul>
+<li>路由、调试和 Web 服务器网关接口（WSGI，Web server gateway interface）子系统由 Werkzeug 提供；</li>
+<li>模板系统由 Jinja2 提供；</li>
+<li>命令行集成由 Click 提供。</li>
+</ul>
+<blockquote>
+<p>Python 虚拟环境的好处？</p>
+</blockquote>
+<p>虚拟环境是 Python 解释器的一个私有副本，在这个环境中你可以安装私有包，而且不会影响系统中安装的全局 Python 解释器。</p>
+<p>虚拟环境非常有用，可以避免你安装的 Python 版本和包与系统预装的发生冲突。为每个项目单独创建虚拟环境，可以保证应用只能访问所在虚拟环境中的包，从而保持全局解释器的干净整洁，使其只作为创建更多虚拟环境的源。与直接使用系统全局的 Python 解释器相比，使用虚拟环境还有个好处，那就是不需要管理员权限。</p>
+<blockquote>
+<p>如何使用 Ubuntu 系统预装的 Python3 来创建虚拟环境？</p>
+</blockquote>
+<p>需要先安装 <code>python3-venv</code> 包：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> sudo apt-get install python3-venv</span><br></code></pre></div></td></tr></table></figure>
+<p>然后创建：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> python3 -m venv venv</span><br></code></pre></div></td></tr></table></figure>
+<p>按：最后一个 <code>venv</code> 是虚拟环境的名称，可以自由更改。</p>
+<blockquote>
+<p>如何激活虚拟环境？</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">source</span> venv/bin/activate</span><br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>需要安装哪些包？</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">(venv) $ pip install flask<br></code></pre></div></td></tr></table></figure>
+<p>可以使用 <code>pip freeze</code> 命名查看安装了哪些包。</p>
+<p><img src="https://i.imgur.com/MPWSETu.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="第-2-章-应用的基本结构">第 2 章 应用的基本结构</h1>
+<blockquote>
+<p>WSGI 有什么用处？</p>
+</blockquote>
+<p>Web 服务器使用一种名为 Web 服务器网关接口（WSGI，Web server gateway interface，读作“wiz-ghee”）的协议，把接收自客户端的所有请求都转交给这个对象处理。</p>
+<blockquote>
+<p>何为 Flask 应用的应用实例？</p>
+</blockquote>
+<p>所有 Flask 应用都必须创建一个应用实例。应用实例是 Flask 类的对象，通常由下述代码创建：</p>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask<br>app = Flask(__name__)<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>传给 Flask 应用构造函数的 <code>__name__</code> 参数有什么用？</p>
+</blockquote>
+<p>Flask 用这个参数确定应用的位置，进而找到应用中其他文件的位置，例如图像和模板。</p>
+<blockquote>
+<p>何为路由？</p>
+</blockquote>
+<p>处理 URL 和函数之间的关系的程序称为路由。</p>
+<blockquote>
+<p>在 Flask 应用中如何定义路由？</p>
+</blockquote>
+<p>最简便的方式是使用应用实例提供的 <code>app.route</code> 装饰器。</p>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/&#x27;</span></span>)</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span>():</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&lt;h1&gt;Hello World!&lt;/h1&gt;&#x27;</span><br></code></pre></div></td></tr></table></figure>
+<p>还有一种更传统的方式：使用 <code>app.add_url_rule()</code> 方法。这个方式最简单的形式接受 3 个参数：URL、端点名和视图函数。</p>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span>():</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&lt;h1&gt;Hello World!&lt;/h1&gt;&#x27;</span><br><br>app.add_url_rule(<span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-string">&#x27;index&#x27;</span>, index)<br></code></pre></div></td></tr></table></figure>
+<p>按：这个和前面使用装饰器的代码达到的效果相同。</p>
 
             </div>
             <hr>
@@ -250,9 +308,11 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
                       <a class="hover-with-bg" href="/tags/%E8%AF%BB%E4%B9%A6/">读书</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
+                      <a class="hover-with-bg" href="/tags/Flask/">Flask</a>
                     
                   </div>
                 
@@ -269,18 +329,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/05/Flask-Web-%E5%BC%80%E5%8F%91%EF%BC%88%E7%AC%AC-2-%E7%89%88%EF%BC%89%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Flask Web 开发（第 2 版）阅读札记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/03/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <span class="hidden-mobile">数字图像处理学习笔记</span>
+                      <a href="/2021/11/04/%E3%80%8ALinux-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%A4%A7%E5%85%A8%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/">
+                        <span class="hidden-mobile">《Linux 命令行大全》阅读札记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
