@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.4k 字
+      4.5k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      53
+      55
        分钟
     </span>
   
@@ -567,7 +567,7 @@ Second Line.</code></pre></div>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Three lines:\n&quot;</span>);<br>    threelines();<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Another three lines.\n&quot;</span>);<br>    threelines();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">newline</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">threelines</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    newline();<br>    newline();<br>    newline();<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <p><img src="https://i.imgur.com/orCvHQF.png" srcset="/img/loading.gif" lazyload /></p>
-<p>按：这里编译能通过，运行结果也是对的。这里涉及的语法规则称为函数的隐式声明。由于在 main 函数中调用 <code>threeline()</code> 之前没有声明它，编译器只能根据函数调用来猜测它的原型。但是猜得不对时，遇到下面的定义时，就会报 conflic 警告。</p>
+<p>按：这里编译能通过，运行结果也是对的。这里涉及的语法规则称为函数的隐式声明。由于在 main 函数中调用 <code>threeline()</code> 之前没有声明它，编译器只能根据函数调用来猜测它的原型。但是猜得不对时，遇到下面的定义时，就会报 conflict 警告。</p>
 <blockquote>
 <p>两个注意点？</p>
 </blockquote>
@@ -575,6 +575,21 @@ Second Line.</code></pre></div>
 <li>如果调用函数时参数列表为空，并且缺少函数原型，则编译器根据隐式声明规则认为参数类型是 void。隐式声明规则会认为默认的返回值为 int。</li>
 <li>如果声明函数时参数列表为空，则这个声明属于 Old Style C 语法，不算函数原型，编译器认为参数类型和个数没有明确指出。</li>
 </ul>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print_time</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hour, <span class="hljs-keyword">int</span> minute)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d:%d\n&quot;</span>, hour, minute);<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>	print_time(<span class="hljs-number">23</span>, <span class="hljs-number">59</span>);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>按：带参数的自定义函数。</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print_time</span><span class="hljs-params">(<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>)</span></span>;<br></code></pre></div></td></tr></table></figure>
+<p>按：如果写一个非定义的函数声明，可以只写参数类型而不写参数名。</p>
+<blockquote>
+<p>定义变量和参数的区别？</p>
+</blockquote>
+<p>定义（声明）变量时可以把相同类型的变量列在一起，如</p>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-keyword">int</span> hour, minute;<br></code></pre></div></td></tr></table></figure>
+<p>但是，定义参数是不行的。</p>
+<blockquote>
+<p>什么叫最少例外原则？</p>
+</blockquote>
+<p>Rule of Least Surprise.</p>
+<p>容易被用户接受。</p>
 
             </div>
             <hr>
