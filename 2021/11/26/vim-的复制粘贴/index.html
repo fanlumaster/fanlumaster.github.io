@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      275 字
+      598 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      7
        分钟
     </span>
   
@@ -253,9 +253,35 @@
 <li><code>yw</code>：复制当前单词</li>
 <li><code>y$</code>：从当前位置复制到行尾</li>
 <li><code>y0</code>：从当前行复制到行首</li>
-<li><code>y^</code>：从当前位置向左复制到第一个非空白字符 <img src="https://i.imgur.com/Je6B8Jy.png" srcset="/img/loading.gif" lazyload /> 按：这里是从 21 行的 t 字符使用这个命令，然后复制的结果是 24 行的内容。</li>
+<li><code>y^</code>：从当前位置向左复制到第一个非空白字符<br />
+<img src="https://i.imgur.com/Je6B8Jy.png" srcset="/img/loading.gif" lazyload /><br />
+按：这里是从 21 行的 t 字符使用这个命令，然后复制的结果是 24 行的内容。</li>
 <li><code>yG</code>：从当前行复制到文件结束</li>
+<li><code>y20G</code>：从当前行复制到第 20 行</li>
+<li><code>y?bar</code>：复制至上一个出现 bar 的地方</li>
 </ul>
+<h2 id="粘贴-paste">粘贴 p(aste)</h2>
+<ul>
+<li><code>p</code>：小写，在光标位置之后粘贴</li>
+<li><code>P</code>：大写，在光标位置之前粘贴</li>
+</ul>
+<h2 id="剪切">剪切</h2>
+<ul>
+<li><code>v</code> + 方向键(hjkl)选中内容 + <code>d</code> 剪切 + <code>p</code> 粘贴</li>
+</ul>
+<h1 id="剪贴板寄存器">剪贴板(寄存器)</h1>
+<h2 id="默认剪贴板">默认剪贴板</h2>
+<p>vim has 26 named registers "a/A" to "z/Z". Vim fills or updates the content of these registers only when we tell it to do so. That is to say, we have 26 clipboards in Vim.</p>
+<p>更多内容，参考 <a target="_blank" rel="noopener" href="https://www.baeldung.com/linux/vim-registers" class="uri">https://www.baeldung.com/linux/vim-registers</a></p>
+<h1 id="系统剪贴板">系统剪贴板</h1>
+<p>vim 支持系统剪贴板，需要打开 clipboard 功能。使用下面的命令，检查当前版本的 vim 是否支持 clipboard，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> vim --version | grep <span class="hljs-string">&quot;clipboard&quot;</span></span><br>+clipboard         +keymap            +printer           +vertsplit<br>+emacs_tags        +mouse_gpm         -sun_workshop      +xterm_clipboard<br></code></pre></div></td></tr></table></figure>
+<p><code>+clipboard</code> 代表支持，<code>-clipboard</code> 代表不支持。</p>
+<p>如果不支持的话，需要重新安装别的版本的 vim，这个在网上也有相关的教程，暂时不再赘述。</p>
+<h2 id="vim-复制到系统剪贴板">vim 复制到系统剪贴板</h2>
+<p>我们只需要设置 vim 默认使用系统剪贴板即可。在确定 vim 支持 <code>+clipboard</code> 之后，如果想 <code>y/p</code> 直接和系统剪贴板打通，可以在 <code>~/.vimrc</code> 中加上如下配置：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros"><span class="hljs-builtin-name">set</span> clipboard^=unnamed,unnamedplus<br></code></pre></div></td></tr></table></figure>
+<p>还有其他的方法，这里暂时不去研究。用到的时候再说。</p>
 
             </div>
             <hr>
