@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Linux 常用快捷键</title>
+    <link href="/2021/11/28/Linux-%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <url>/2021/11/28/Linux-%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    
+    <content type="html"><![CDATA[<h1 id="截图">截图</h1><ul><li><code>PrtSc</code>：全屏捕捉，截取的图片保存在 <code>Pictures</code> 目录下。</li><li><code>Shift + PrtSc</code>：自由选定区域，截取的图片保存在 <code>Pictures</code> 目录下。</li><li>Alt + PtrSc：截图当前窗口，截取的图片保存在 <code>Pictures</code> 目录下。</li><li>Ctrl + PrtSc：全屏截图，保存到剪贴板中。</li><li>Ctrl + Shift + PrtSc：自由选定区域，截取的图片保存到剪贴板中。</li><li>Ctrl + Alt + PrtSc：截取当前窗口，截取的图片保存到剪贴板中。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>vim 的复制粘贴</title>
     <link href="/2021/11/26/vim-%E7%9A%84%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/"/>
     <url>/2021/11/26/vim-%E7%9A%84%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/</url>
