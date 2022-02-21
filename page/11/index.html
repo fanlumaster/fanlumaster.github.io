@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=dark>
 
 
 
@@ -9,14 +9,21 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Fan Lu&#39;s Blog">
+<meta property="og:url" content="http://example.com/page/11/index.html">
+<meta property="og:site_name" content="Fan Lu&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="fanlumaster">
+<meta name="twitter:card" content="summary_large_image">
+  
   
   <title>Fan Lu&#39;s Blog</title>
 
@@ -44,7 +51,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -55,8 +62,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fan Lu's Blog</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fan Lu&#39;s Blog</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -130,13 +138,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -200,9 +209,6 @@
       <p class="index-excerpt">
         <a href="/2021/04/05/Linux-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%A4%87%E5%BF%98/" target="_self">
           
-          
-            
-          
           Linux 的一些中间命令的学习记录。
         </a>
       </p>
@@ -257,9 +263,6 @@
 
       <p class="index-excerpt">
         <a href="/2021/04/05/%E6%9C%AA%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%B4%AF%E5%8A%A0%E5%92%8C%E4%B8%BA%E7%BB%99%E5%AE%9A%E5%80%BC%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E6%95%B0%E7%BB%84%E7%B3%BB%E5%88%97%E9%97%AE%E9%A2%98/" target="_self">
-          
-          
-            
           
           《程序员代码面试指南第 2 版》8-10
         </a>
@@ -320,9 +323,6 @@
       <p class="index-excerpt">
         <a href="/2021/04/04/%E6%9C%AA%E6%8E%92%E5%BA%8F%E6%AD%A3%E6%95%B0%E6%95%B0%E7%BB%84%E4%B8%AD%E7%B4%AF%E5%8A%A0%E5%92%8C%E4%B8%BA%E7%BB%99%E5%AE%9A%E5%80%BC%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6/" target="_self">
           
-          
-            
-          
           《程序员代码面试指南第 2 版》8-9。真是的，一个小小的双指针就竟然也能够困扰我那么长时间
         </a>
       </p>
@@ -382,14 +382,7 @@
       <p class="index-excerpt">
         <a href="/2021/04/04/%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%A5%9E%E7%BA%A7%E6%96%B9%E6%B3%95%EF%BC%88Morris-%E9%81%8D%E5%8E%86%EF%BC%89/" target="_self">
           
-          
-            
-          
-          题目
-给定一棵二叉树的头节点 head，完成二叉树的先序、中序和后序遍历。如果二叉树的节点数为 N，则要求时间复杂度为 O(N)，额外空间复杂度为 O(1)。
-解答
-要想使得遍历二叉树的额外空间复杂度为 O(1)，那么就需要使用 Morris 遍历方法。
-Morris 方法的思路，讲得最好的我认为是这一篇博客：https://www.cnblogs.com/anniekim/archive
+          题目 给定一棵二叉树的头节点 head，完成二叉树的先序、中序和后序遍历。如果二叉树的节点数为 N，则要求时间复杂度为 O(N)，额外空间复杂度为 O(1)。 解答 要想使得遍历二叉树的额外空间复杂度为 O(1)，那么就需要使用 Morris 遍历方法。 Morris 方法的思路，讲得最好的我认为是这一篇博客：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;anniekim&#x2F;archive
         </a>
       </p>
 
@@ -448,9 +441,6 @@ Morris 方法的思路，讲得最好的我认为是这一篇博客：https://ww
       <p class="index-excerpt">
         <a href="/2021/04/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E5%A4%87%E7%94%A8/" target="_self">
           
-          
-            
-          
           构造一些备用的二叉树数据，测试算法时有用
         </a>
       </p>
@@ -507,9 +497,6 @@ Morris 方法的思路，讲得最好的我认为是这一篇博客：https://ww
         <a href="/2021/04/03/%E5%85%B3%E4%BA%8E%E9%80%92%E5%BD%92%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/" target="_self">
           
           
-            
-          
-           
         </a>
       </p>
 
@@ -561,9 +548,6 @@ Morris 方法的思路，讲得最好的我认为是这一篇博客：https://ww
 
       <p class="index-excerpt">
         <a href="/2021/04/02/%E5%85%B3%E4%BA%8E%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%BD%91%E7%BB%9C%E4%B8%8B-ssh-T-git-github-com-%E5%8F%AF%E8%83%BD%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5%E7%9A%84%E4%B8%80%E4%B8%AA-bug/" target="_self">
-          
-          
-            
           
           是日，遇一奇葩错误，遂记录之。
         </a>
@@ -619,9 +603,6 @@ Morris 方法的思路，讲得最好的我认为是这一篇博客：https://ww
         <a href="/2021/04/02/NexT-%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%94%B9%E9%A1%B5%E8%84%9A%E5%86%85%E5%AE%B9%E7%9A%84%E9%A2%9C%E8%89%B2%EF%BC%88%E7%94%B1-%E5%BC%BA%E5%8A%9B%E9%A9%B1%E5%8A%A8%EF%BC%89/" target="_self">
           
           
-            
-          
-           
         </a>
       </p>
 
@@ -677,9 +658,6 @@ Morris 方法的思路，讲得最好的我认为是这一篇博客：https://ww
 
       <p class="index-excerpt">
         <a href="/2021/03/31/Ubuntu-18-%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95/" target="_self">
-          
-          
-            
           
           记录一次在 Linux(Ubuntu) 安装搜狗输入法的过程
         </a>
@@ -738,9 +716,6 @@ Morris 方法的思路，讲得最好的我认为是这一篇博客：https://ww
       <p class="index-excerpt">
         <a href="/2021/03/31/Java-%E4%B8%AD%E9%80%9A%E8%BF%87-u-%E7%BB%99-char-%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%E8%B5%8B%E5%80%BC/" target="_self">
           
-          
-            
-          
           Java 小知识点
         </a>
       </p>
@@ -792,7 +767,7 @@ Morris 方法的思路，讲得最好的我认为是这一篇博客：https://ww
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -858,6 +833,10 @@ Morris 方法的思路，讲得最好的我认为是这一篇博客：https://ww
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -873,38 +852,15 @@ Morris 方法的思路，讲得最好的我认为是这一篇博客：https://ww
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-
-
-
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 

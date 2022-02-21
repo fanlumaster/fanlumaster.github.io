@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=dark>
 
 
 
@@ -9,14 +9,21 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Fan Lu&#39;s Blog">
+<meta property="og:url" content="http://example.com/page/10/index.html">
+<meta property="og:site_name" content="Fan Lu&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="fanlumaster">
+<meta name="twitter:card" content="summary_large_image">
+  
   
   <title>Fan Lu&#39;s Blog</title>
 
@@ -44,7 +51,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -55,8 +62,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fan Lu's Blog</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fan Lu&#39;s Blog</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -130,13 +138,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -201,9 +210,6 @@
         <a href="/2021/04/14/django-template-exceptions-TemplateSyntaxError-staticfiles-is-not-a-registered-tag-library-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" target="_self">
           
           
-            
-          
-           
         </a>
       </p>
 
@@ -257,9 +263,6 @@
         <a href="/2021/04/13/Django-%E7%BC%96%E5%86%99-URL-%E7%9B%B8%E5%85%B3%EF%BC%88%E6%99%AE%E9%80%9A%E5%92%8C%E6%AD%A3%E5%88%99%EF%BC%89/" target="_self">
           
           
-            
-          
-           
         </a>
       </p>
 
@@ -313,9 +316,6 @@
 
       <p class="index-excerpt">
         <a href="/2021/04/09/%E5%9C%A8-Linux-%E4%B8%8B%EF%BC%8C%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC%E6%88%96%E6%89%B9%E5%A4%84%E7%90%86%E3%80%82%E5%8A%9F%E8%83%BD%EF%BC%9A%E5%9C%A8%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95%E4%B8%AD%E5%85%A8%E9%83%A8-txt-%E6%96%87%E4%BB%B6%E7%9A%84%E6%9C%AB%E5%B0%BE%E8%BF%BD%E5%8A%A0%E4%B8%80%E8%A1%8C%EF%BC%8C%E5%86%99%E5%85%A5%E4%BB%8A%E5%A4%A9%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4/" target="_self">
-          
-          
-            
           
           一道操作系统实验题
         </a>
@@ -373,9 +373,6 @@
         <a href="/2021/04/08/VMware-%E5%AE%89%E8%A3%85-Ubuntu-18-04/" target="_self">
           
           
-            
-          
-           
         </a>
       </p>
 
@@ -431,9 +428,6 @@
 
       <p class="index-excerpt">
         <a href="/2021/04/07/Ubuntu-%E4%B8%8B%E4%B8%BA-Linux-%E5%86%85%E6%A0%B8%E5%A2%9E%E5%8A%A0-2-%E4%B8%AA%E6%96%B0%E7%9A%84%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%EF%BC%8C%E5%B9%B6%E5%90%AF%E7%94%A8%E6%96%B0%E7%9A%84%E5%86%85%E6%A0%B8/" target="_self">
-          
-          
-            
           
           记录一次给 Linux 内核增加系统调用的实验过程
         </a>
@@ -492,9 +486,6 @@
       <p class="index-excerpt">
         <a href="/2021/04/07/Ubuntu-%E4%B8%8B%E7%BC%96%E8%AF%91%E6%96%B0%E7%9A%84-Linux-%E5%86%85%E6%A0%B8/" target="_self">
           
-          
-            
-          
           记录一次 Ubuntu 编译 Linux 内核的过程。
         </a>
       </p>
@@ -547,9 +538,6 @@
 
       <p class="index-excerpt">
         <a href="/2021/04/06/%E6%9C%AA%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%B4%AF%E5%8A%A0%E5%92%8C%E5%B0%8F%E4%BA%8E%E6%88%96%E7%AD%89%E4%BA%8E%E7%BB%99%E5%AE%9A%E5%80%BC%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6/" target="_self">
-          
-          
-            
           
           《程序员代码面试指南第 2 版》8-11。这一题最后在一个判断那里是否应该加一个等于号那里卡了一会儿，不过，这也加深了对于这种问题的理解
         </a>
@@ -610,9 +598,6 @@
       <p class="index-excerpt">
         <a href="/2021/04/05/%E4%B8%80%E4%B8%AA%E6%80%AA%E5%BC%82%E7%9A%84-Bug%EF%BC%9APress-ENTER-or-type-command-to-continue/" target="_self">
           
-          
-            
-          
           在使用 vim 过程中遇到的一个奇怪的问题
         </a>
       </p>
@@ -670,9 +655,6 @@
       <p class="index-excerpt">
         <a href="/2021/04/05/Linux-ls-l-%E5%91%BD%E4%BB%A4%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C%E4%B8%AD%E7%9A%84-total-%E7%9A%84%E5%90%AB%E4%B9%89/" target="_self">
           
-          
-            
-          
           关于 Linux 下 ls -l 命令输出结果中 total 的解释
         </a>
       </p>
@@ -728,9 +710,6 @@
       <p class="index-excerpt">
         <a href="/2021/04/05/%E6%9C%89%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E9%9D%9E%E5%B8%B8%E7%94%A8%E7%9A%84-Linux-%E5%91%BD%E4%BB%A4/" target="_self">
           
-          
-            
-          
           一些冷门的 Linux 命令记录
         </a>
       </p>
@@ -784,7 +763,7 @@
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -850,6 +829,10 @@
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -865,38 +848,15 @@
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-
-
-
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 

@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=dark>
 
 
 
@@ -9,14 +9,21 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Fan Lu&#39;s Blog">
+<meta property="og:url" content="http://example.com/page/5/index.html">
+<meta property="og:site_name" content="Fan Lu&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="fanlumaster">
+<meta name="twitter:card" content="summary_large_image">
+  
   
   <title>Fan Lu&#39;s Blog</title>
 
@@ -44,7 +51,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -55,8 +62,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fan Lu's Blog</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fan Lu&#39;s Blog</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -130,13 +138,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -200,22 +209,7 @@
       <p class="index-excerpt">
         <a href="/2021/07/12/MySQL8-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/" target="_self">
           
-          
-            
-          
-          一、下载
-首先，来到下载的网页 https://dev.mysql.com/downloads/mysql/ 进行下载，
-
-
-
-这里写的 32-bit 不要担心，这个讲的是安装程序是 32 位的。
-二、安装
-下载好之后，双击安装，
-
-
-然后，把左边需要安装的内容通过中间的箭头给移动到右边去，
-
-注意到右下角还有一个单选框，如果选中，那么，还可以对右边我们下载下来的组件进行进
+          一、下载 首先，来到下载的网页 https:&#x2F;&#x2F;dev.mysql.com&#x2F;downloads&#x2F;mysql&#x2F; 进行下载，    这里写的 32-bit 不要担心，这个讲的是安装程序是 32 位的。 二、安装 下载好之后，双击安装，   然后，把左边需要安装的内容通过中间的箭头给移动到右边去，  注意到右下角还有一个单选框，如果选中，那么，还可以对右边我们下载下来的组件进行进
         </a>
       </p>
 
@@ -272,15 +266,7 @@
       <p class="index-excerpt">
         <a href="/2021/07/12/LeetCode-8-String-to-Integer-atoi/" target="_self">
           
-          
-            
-          
-          一、题目链接
-https://leetcode.com/problems/string-to-integer-atoi/
-二、解答
-思路比较清晰，首先找到第一个不是空格的字符，然后判断是否是正负号，然后再判断是否是数字，然后逐个处理即可。这里要注意一下 Integer 的范围，超过范围就要按照题目给定的规则截断。
-代码
-1234567891011121314151617181920212
+          一、题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;string-to-integer-atoi&#x2F; 二、解答 思路比较清晰，首先找到第一个不是空格的字符，然后判断是否是正负号，然后再判断是否是数字，然后逐个处理即可。这里要注意一下 Integer 的范围，超过范围就要按照题目给定的规则截断。 代码 1234567891011121314151617181920212
         </a>
       </p>
 
@@ -335,14 +321,7 @@ https://leetcode.com/problems/string-to-integer-atoi/
       <p class="index-excerpt">
         <a href="/2021/07/12/LeetCode-7-Reverse-Integer/" target="_self">
           
-          
-            
-          
-          一、题目链接
-https://leetcode.com/problems/reverse-integer/
-二、解答
-这是一道简单题，思路的确不难想，要注意的就是一点小的细节，题目中给了一个 Integer 的范围：$[-2^&#123;31&#125;, 2^&#123;31&#125; - 1]$，超过了这个范围，应当返回 0。
-还有一个是 Python 的注意点，它的对负数的整除和取
+          一、题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;reverse-integer&#x2F; 二、解答 这是一道简单题，思路的确不难想，要注意的就是一点小的细节，题目中给了一个 Integer 的范围：$[-2^&amp;#123;31&amp;#125;, 2^&amp;#123;31&amp;#125; - 1]$，超过了这个范围，应当返回 0。 还有一个是 Python 的注意点，它的对负数的整除和取
         </a>
       </p>
 
@@ -397,14 +376,7 @@ https://leetcode.com/problems/reverse-integer/
       <p class="index-excerpt">
         <a href="/2021/07/11/LeetCode-5-Longest-Palindromic-Substring/" target="_self">
           
-          
-            
-          
-          一、题目链接
-https://leetcode.com/problems/longest-palindromic-substring/
-二、解答
-这一题的思路很清晰，把回文看成中间部分是一个字符 - 如果中间只有一个不重复的字符，显然成立； - 如果中间有很多重复的字符，比如 abcccba 中间有三个重复的字符 c，那么，把它们看作是一个字符 c。
-然后在满足回文条件的情况下，分别向两边
+          一、题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;longest-palindromic-substring&#x2F; 二、解答 这一题的思路很清晰，把回文看成中间部分是一个字符 - 如果中间只有一个不重复的字符，显然成立； - 如果中间有很多重复的字符，比如 abcccba 中间有三个重复的字符 c，那么，把它们看作是一个字符 c。 然后在满足回文条件的情况下，分别向两边
         </a>
       </p>
 
@@ -459,14 +431,7 @@ https://leetcode.com/problems/longest-palindromic-substring/
       <p class="index-excerpt">
         <a href="/2021/07/11/LeetCode-4-Median-of-Two-Sorted-Arrays/" target="_self">
           
-          
-            
-          
-          一、题目链接
-https://leetcode.com/problems/median-of-two-sorted-arrays/
-二、解答
-由于这题要求时间复杂度为 $O(log(m + n))$，所以，根据经验，这题就用对半查找来解决。
-12345678910111213141516171819202122class Solution:    def findMedianSortedA
+          一、题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;median-of-two-sorted-arrays&#x2F; 二、解答 由于这题要求时间复杂度为 $O(log(m + n))$，所以，根据经验，这题就用对半查找来解决。 12345678910111213141516171819202122class Solution:    def findMedianSortedA
         </a>
       </p>
 
@@ -521,12 +486,7 @@ https://leetcode.com/problems/median-of-two-sorted-arrays/
       <p class="index-excerpt">
         <a href="/2021/07/08/%E4%BD%BF%E7%94%A8-Python-%E6%8F%90%E5%8F%96-epub-%E4%B8%AD%E7%9A%84%E6%96%87%E6%9C%AC/" target="_self">
           
-          
-            
-          
-          前言
-最近读了《繁花》这本书，就想着能不能使用 Python 把 epub 格式的小说中的文本给提取出来，然后进行文本分析。本来我以为 Python 的相关的库是很多的，然而在实际运用过程中却遇到了困难。网上能够找到的库基本上只有一个 ebooklib，这是让我很惊讶的。
-无奈之下，只好去研究 epub 格式的文件的构造，经过研究，发现 epub 电子书格式其实是很多个 xhtml 文件的压缩
+          前言 最近读了《繁花》这本书，就想着能不能使用 Python 把 epub 格式的小说中的文本给提取出来，然后进行文本分析。本来我以为 Python 的相关的库是很多的，然而在实际运用过程中却遇到了困难。网上能够找到的库基本上只有一个 ebooklib，这是让我很惊讶的。 无奈之下，只好去研究 epub 格式的文件的构造，经过研究，发现 epub 电子书格式其实是很多个 xhtml 文件的压缩
         </a>
       </p>
 
@@ -581,16 +541,7 @@ https://leetcode.com/problems/median-of-two-sorted-arrays/
       <p class="index-excerpt">
         <a href="/2021/07/04/%E4%BD%BF%E7%94%A8-UltraISO-%E5%AE%89%E8%A3%85-Windows10-%E7%B3%BB%E7%BB%9F/" target="_self">
           
-          
-            
-          
-          前言
-准备给电脑重装个操作系统，之前主要是把 500 GB 的固态硬盘给分区了，现在有些后悔，就趁着有空重装一下，并小小地记录一下，以方便以后重装系统（肯定要重装的）。
-正文
-首先，到网上下载一个 Windows10 镜像，我这里因为学校网站有资源，就直接在学校的网站下载了。
-
-然后，在到网上下载 UltraISO 软件，这个软件我们可以一直试用，挺好的。
-打开我们刚刚下载好的镜像文件
+          前言 准备给电脑重装个操作系统，之前主要是把 500 GB 的固态硬盘给分区了，现在有些后悔，就趁着有空重装一下，并小小地记录一下，以方便以后重装系统（肯定要重装的）。 正文 首先，到网上下载一个 Windows10 镜像，我这里因为学校网站有资源，就直接在学校的网站下载了。  然后，在到网上下载 UltraISO 软件，这个软件我们可以一直试用，挺好的。 打开我们刚刚下载好的镜像文件
         </a>
       </p>
 
@@ -645,15 +596,7 @@ https://leetcode.com/problems/median-of-two-sorted-arrays/
       <p class="index-excerpt">
         <a href="/2021/06/13/Markdown-%E9%93%BE%E6%8E%A5%E6%8B%AC%E5%8F%B7%E9%97%AE%E9%A2%98/" target="_self">
           
-          
-            
-          
-          关于 Markdown，它的链接格式是这样的
-1[title](link)
-其中，方括号中的填写的是链接的名称，而括弧里面的内容是链接的 url。
-但是，今天遇到了一个问题，就是如果 url 中含有括号，就像下面这样
-1https://en.wikipedia.org/wiki/P6_(microarchitecture)
-那么，渲染成 html 页面之后可能出现下面的问题，比如书写的 
+          关于 Markdown，它的链接格式是这样的 1[title](link) 其中，方括号中的填写的是链接的名称，而括弧里面的内容是链接的 url。 但是，今天遇到了一个问题，就是如果 url 中含有括号，就像下面这样 1https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;P6_(microarchitecture) 那么，渲染成 html 页面之后可能出现下面的问题，比如书写的
         </a>
       </p>
 
@@ -706,17 +649,7 @@ https://leetcode.com/problems/median-of-two-sorted-arrays/
       <p class="index-excerpt">
         <a href="/2021/06/13/bochs-%E5%88%A9%E7%94%A8-freedos-%E6%90%AD%E5%BB%BA%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/" target="_self">
           
-          
-            
-          
-          前言
-这里是对《一个操作系统的实现》第 3 章的“保护模式的运行环境”这一节的实操的记录。因为有一点点小的注意点，所以在这里记录一下。
-操作步骤
-1、下载
-第一种方法，直接在命令行获取文件
-1$ wget http://bochs.sourceforge.net/guestos/freedos-img.tar.gz
-
-也可以到 bochs 官网下载 freedos 软盘映像文件，这里
+          前言 这里是对《一个操作系统的实现》第 3 章的“保护模式的运行环境”这一节的实操的记录。因为有一点点小的注意点，所以在这里记录一下。 操作步骤 1、下载 第一种方法，直接在命令行获取文件 1$ wget http:&#x2F;&#x2F;bochs.sourceforge.net&#x2F;guestos&#x2F;freedos-img.tar.gz  也可以到 bochs 官网下载 freedos 软盘映像文件，这里
         </a>
       </p>
 
@@ -773,14 +706,7 @@ https://leetcode.com/problems/median-of-two-sorted-arrays/
       <p class="index-excerpt">
         <a href="/2021/06/08/%E5%85%B3%E4%BA%8E%E5%AF%B9-x86-%E7%9A%84%E7%90%86%E8%A7%A3/" target="_self">
           
-          
-            
-          
-          前言
-今天在阅读《Linux C 一站式编程》中这个 x86 汇编程序基础，突然意识到，自己对于 x86 这个概念似乎是十分模糊。然后查看了维基百科和知乎，在这里记录一下。
-x86
-x86 泛指一系列基于 Intel 8086 且向后兼容的中央处理器指令集架构。最早的 8086 处理器于 1978 年由 Intel 推出，为 16 位微处理器。
-该系列较早期的处理器名称是以数字来表示 80
+          前言 今天在阅读《Linux C 一站式编程》中这个 x86 汇编程序基础，突然意识到，自己对于 x86 这个概念似乎是十分模糊。然后查看了维基百科和知乎，在这里记录一下。 x86 x86 泛指一系列基于 Intel 8086 且向后兼容的中央处理器指令集架构。最早的 8086 处理器于 1978 年由 Intel 推出，为 16 位微处理器。 该系列较早期的处理器名称是以数字来表示 80
         </a>
       </p>
 
@@ -833,7 +759,7 @@ x86 泛指一系列基于 Intel 8086 且向后兼容的中央处理器指令集�
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -899,6 +825,10 @@ x86 泛指一系列基于 Intel 8086 且向后兼容的中央处理器指令集�
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -914,38 +844,15 @@ x86 泛指一系列基于 Intel 8086 且向后兼容的中央处理器指令集�
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-
-
-
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 

@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=dark>
 
 
 
@@ -9,14 +9,21 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Fan Lu&#39;s Blog">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="Fan Lu&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="fanlumaster">
+<meta name="twitter:card" content="summary_large_image">
+  
   
   <title>Fan Lu&#39;s Blog</title>
 
@@ -44,7 +51,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -55,8 +62,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fan Lu's Blog</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fan Lu&#39;s Blog</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -130,13 +138,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -200,20 +209,7 @@
       <p class="index-excerpt">
         <a href="/2021/11/26/vim-%E7%9A%84%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/" target="_self">
           
-          
-            
-          
-          本文内容转载自：https://www.cnblogs.com/huahuayu/p/12235242.html
-vim 内部复制、粘贴、剪切
-选择文本
-
-v + 光标移动（按字符选择）高亮所要的文本，然后进行各种操作比如，
-
-d 表示删除
-c 表示更改选中的文字 按：按 c 之后会将选中的内容删除，然后模式转为 INSERT 模式。
-
-V（按行选择）。 按：V 不太好用。
-
+          本文内容转载自：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;huahuayu&#x2F;p&#x2F;12235242.html vim 内部复制、粘贴、剪切 选择文本  v + 光标移动（按字符选择）高亮所要的文本，然后进行各种操作比如，  d 表示删除 c 表示更改选中的文字 按：按 c 之后会将选中的内容删除，然后模式转为 INSERT 模式。  V（按行选择）。 按：V 不太好用。
         </a>
       </p>
 
@@ -266,19 +262,7 @@ V（按行选择）。 按：V 不太好用。
       <p class="index-excerpt">
         <a href="/2021/11/26/BST-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/" target="_self">
           
-          
-            
-          
-          文件结构如下：
-.
-├── fatal.h
-├── main
-├── main.c
-├── tree.c
-└── tree.h
-
-0 directories, 5 files
-12345678910111213141516171819202122/* tree.h */typedef int ElementType;/* START: fig4_16.txt */#ifndef 
+          文件结构如下： . ├── fatal.h ├── main ├── main.c ├── tree.c └── tree.h  0 directories, 5 files 12345678910111213141516171819202122&#x2F;* tree.h *&#x2F;typedef int ElementType;&#x2F;* START: fig4_16.txt *&#x2F;#ifndef
         </a>
       </p>
 
@@ -335,14 +319,7 @@ V（按行选择）。 按：V 不太好用。
       <p class="index-excerpt">
         <a href="/2021/11/06/%E6%88%91%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E-url-%E7%AD%94%E6%A1%88-list/" target="_self">
           
-          
-            
-          
-          
-Ubuntu 21.10 如何隐藏桌面图标？
-
-https://askubuntu.com/questions/1335398/ubuntu-21-04-remove-trash-user-and-drive-icon-from-desktop
-
+          Ubuntu 21.10 如何隐藏桌面图标？  https:&#x2F;&#x2F;askubuntu.com&#x2F;questions&#x2F;1335398&#x2F;ubuntu-21-04-remove-trash-user-and-drive-icon-from-desktop
         </a>
       </p>
 
@@ -397,23 +374,7 @@ https://askubuntu.com/questions/1335398/ubuntu-21-04-remove-trash-user-and-drive
       <p class="index-excerpt">
         <a href="/2021/11/05/Flask-Web-%E5%BC%80%E5%8F%91%EF%BC%88%E7%AC%AC-2-%E7%89%88%EF%BC%89%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          本书实践环境为 Ubuntu20.04。
-第 1 章 安装
-
-Flask 的 3 个主要依赖？
-
-
-路由、调试和 Web 服务器网关接口（WSGI，Web server gateway interface）子系统由 Werkzeug 提供；
-模板系统由 Jinja2 提供；
-命令行集成由 Click 提供。
-
-
-Python 虚拟环境的好处？
-
-虚拟环境是 Python 
+          本书实践环境为 Ubuntu20.04。 第 1 章 安装  Flask 的 3 个主要依赖？   路由、调试和 Web 服务器网关接口（WSGI，Web server gateway interface）子系统由 Werkzeug 提供； 模板系统由 Jinja2 提供； 命令行集成由 Click 提供。   Python 虚拟环境的好处？  虚拟环境是 Python
         </a>
       </p>
 
@@ -471,10 +432,6 @@ Python 虚拟环境的好处？
         <a href="/2021/11/04/%E3%80%8ALinux-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%A4%A7%E5%85%A8%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/" target="_self">
           
           
-            
-          
-          
-
         </a>
       </p>
 
@@ -529,19 +486,7 @@ Python 虚拟环境的好处？
       <p class="index-excerpt">
         <a href="/2021/11/03/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          系电子科大网课笔记。
-
-数字图像处理的概念？
-
-
-图像是一个二维亮度函数 \(f(x, y)\)，\((x, y)\) 定义了空间坐标，\(f(x, y)\) 定义该点的亮度或灰度。
-按：这里主要是灰度。书上也讲灰度。
-
-数字图像处理是指图像的元素的空间坐标和亮度的数字化。数字图像是由有限的元素组成的，每一个元素都有一个特定的位置和幅值，这些元素称为图像元素或像素。
-数字图像处理
+          系电子科大网课笔记。  数字图像处理的概念？   图像是一个二维亮度函数 \(f(x, y)\)，\((x, y)\) 定义了空间坐标，\(f(x, y)\) 定义该点的亮度或灰度。 按：这里主要是灰度。书上也讲灰度。  数字图像处理是指图像的元素的空间坐标和亮度的数字化。数字图像是由有限的元素组成的，每一个元素都有一个特定的位置和幅值，这些元素称为图像元素或像素。 数字图像处理
         </a>
       </p>
 
@@ -594,16 +539,7 @@ Python 虚拟环境的好处？
       <p class="index-excerpt">
         <a href="/2021/11/03/%E7%BB%95%E4%B8%AA%E8%B7%AF%E8%A7%A3%E5%86%B3-Ubuntu-terminal-%E5%9C%A8%E4%BB%8E%E5%85%A8%E5%B1%8F%E6%88%96%E6%9C%80%E5%A4%A7%E5%8C%96%E5%88%87%E6%8D%A2%E5%88%B0%E5%8E%9F%E6%9D%A5%E7%AA%97%E5%8F%A3%E6%97%B6%E7%AA%97%E5%8F%A3%E5%B0%BA%E5%AF%B8%E7%BC%A9%E5%B0%8F%E7%9A%84%E9%97%AE%E9%A2%98/" target="_self">
           
-          
-            
-          
-          Ubuntu 的 terminal 有一个严重的问题，那就是在最大化 terminal 或者全屏化窗口之后再恢复到原来的窗口时，这个窗口的尺寸会缩小一行和一列。
-这个问题七年前就存在，今天在谷歌找了半天，最终也没有找出一个像样的解决方案，具体的讨论可以看看这些：
-
-讨论一
-讨论二
-
-循着这两个讨论，发现网上的讨论还有很多，但是最终都没有完美的解决方案，gnome 官方到现在似乎也没有解
+          Ubuntu 的 terminal 有一个严重的问题，那就是在最大化 terminal 或者全屏化窗口之后再恢复到原来的窗口时，这个窗口的尺寸会缩小一行和一列。 这个问题七年前就存在，今天在谷歌找了半天，最终也没有找出一个像样的解决方案，具体的讨论可以看看这些：  讨论一 讨论二  循着这两个讨论，发现网上的讨论还有很多，但是最终都没有完美的解决方案，gnome 官方到现在似乎也没有解
         </a>
       </p>
 
@@ -656,15 +592,7 @@ Python 虚拟环境的好处？
       <p class="index-excerpt">
         <a href="/2021/11/02/%E5%88%A9%E7%94%A8-Python-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA-Telegram-%E6%9C%BA%E5%99%A8%E4%BA%BA/" target="_self">
           
-          
-            
-          
-          本人使用的操作系统是 Ubuntu 20.04，如果是 Windows 或者 MacOS，其操作过程应该类似，应该。
-然后编程的语言是 Python，使用的 Web 框架是 Flask。
-创建机器人
-首先，注册一个 Telegram 账号，然后，执行相关操作，
-
-我们的 bot 应该有两个属性：一个 name，另一个是 username。name 相当于昵称，而 username 则是在
+          本人使用的操作系统是 Ubuntu 20.04，如果是 Windows 或者 MacOS，其操作过程应该类似，应该。 然后编程的语言是 Python，使用的 Web 框架是 Flask。 创建机器人 首先，注册一个 Telegram 账号，然后，执行相关操作，  我们的 bot 应该有两个属性：一个 name，另一个是 username。name 相当于昵称，而 username 则是在
         </a>
       </p>
 
@@ -719,26 +647,7 @@ Python 虚拟环境的好处？
       <p class="index-excerpt">
         <a href="/2021/11/01/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0-C-%E7%BC%96%E7%A8%8B%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          第 1 章 程序的基本概念
-
-编写程序可以说就是这样一个过程：把复杂的任务分解成子任务，把子任务再分解成更简单的任务，层层分解，直到最后简单得可以用以上指令来完成。
-
-按：这里所谓的指令是指如下的几种指令：
-
-输入（Input）
-输出（Output）
-基本运算
-测试和分支
-循环
-
-
-一个语句的三种表示，该如何理解？
-
-
-对于汇编指令转换到机器指令，这个过程由来汇编器
+          第 1 章 程序的基本概念  编写程序可以说就是这样一个过程：把复杂的任务分解成子任务，把子任务再分解成更简单的任务，层层分解，直到最后简单得可以用以上指令来完成。  按：这里所谓的指令是指如下的几种指令：  输入（Input） 输出（Output） 基本运算 测试和分支 循环   一个语句的三种表示，该如何理解？   对于汇编指令转换到机器指令，这个过程由来汇编器
         </a>
       </p>
 
@@ -793,15 +702,7 @@ Python 虚拟环境的好处？
       <p class="index-excerpt">
         <a href="/2021/11/01/%E6%88%91%E9%81%87%E5%88%B0%E7%9A%84-Bugs-%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E8%AE%B0%E5%BD%95/" target="_self">
           
-          
-            
-          
-          
-Ubuntu 中使用 hexo g 生成博客时候出现问题。 报错信息是 TypeError: line.matchAll is not a function
-
-这个问题可以通过升级 node 来解决。
-链接：StackOverflow
-
+          Ubuntu 中使用 hexo g 生成博客时候出现问题。 报错信息是 TypeError: line.matchAll is not a function  这个问题可以通过升级 node 来解决。 链接：StackOverflow
         </a>
       </p>
 
@@ -852,7 +753,7 @@ Ubuntu 中使用 hexo g 生成博客时候出现问题。 报错信息是 TypeEr
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -918,6 +819,10 @@ Ubuntu 中使用 hexo g 生成博客时候出现问题。 报错信息是 TypeEr
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -933,38 +838,15 @@ Ubuntu 中使用 hexo g 生成博客时候出现问题。 报错信息是 TypeEr
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-
-
-
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 

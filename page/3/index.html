@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=dark>
 
 
 
@@ -9,14 +9,21 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Fan Lu&#39;s Blog">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="Fan Lu&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="fanlumaster">
+<meta name="twitter:card" content="summary_large_image">
+  
   
   <title>Fan Lu&#39;s Blog</title>
 
@@ -44,7 +51,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -55,8 +62,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fan Lu's Blog</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fan Lu&#39;s Blog</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -130,13 +138,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -200,17 +209,7 @@
       <p class="index-excerpt">
         <a href="/2021/11/01/%E3%80%8Aflex-%E4%B8%8E-bison-%E4%B8%AD%E6%96%87%E7%89%88%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          在阅读本书的过程中，我使用的系统是 Ubuntu 20.04。
-安装 flex 和 bison 在 Linux 系统中是一件很简单的事情，直接命令行安装即可。安装完可以检查一下版本来看看是否安装成功。
-
-第 1 章 Flex 和 Bison 简介
-
-flex 程序的组成？
-
-flex 程序主要由一系列带有指令的正则表达式组成，这些指令确定了正则表达式匹配后相应的动作（action）。
+          在阅读本书的过程中，我使用的系统是 Ubuntu 20.04。 安装 flex 和 bison 在 Linux 系统中是一件很简单的事情，直接命令行安装即可。安装完可以检查一下版本来看看是否安装成功。  第 1 章 Flex 和 Bison 简介  flex 程序的组成？  flex 程序主要由一系列带有指令的正则表达式组成，这些指令确定了正则表达式匹配后相应的动作（action）。
         </a>
       </p>
 
@@ -249,19 +248,7 @@ flex 程序主要由一系列带有指令的正则表达式组成，这些指令
       <p class="index-excerpt">
         <a href="/2021/11/01/PotPlayer-%E6%88%AA%E5%B1%8F%E7%9B%B8%E5%85%B3/" target="_self">
           
-          
-            
-          
-          这里主要有两个要注意的地方，
-
-1）截屏快捷键，Ctrl + Alt + E
-2）截图默认存放的位置
-
-要么是 D:Program FIles\DAUM\PotPlayer\Capture
-要么是 C:\Users\17309\AppData\Roaming\PotPlayerMini64\Capture
-
-
-注意, 里面有一个选项是同时截取字幕(如果有的话), 这个默认是关闭的
+          这里主要有两个要注意的地方，  1）截屏快捷键，Ctrl + Alt + E 2）截图默认存放的位置  要么是 D:Program FIles\DAUM\PotPlayer\Capture 要么是 C:\Users\17309\AppData\Roaming\PotPlayerMini64\Capture   注意, 里面有一个选项是同时截取字幕(如果有的话), 这个默认是关闭的
         </a>
       </p>
 
@@ -318,16 +305,7 @@ flex 程序主要由一系列带有指令的正则表达式组成，这些指令
       <p class="index-excerpt">
         <a href="/2021/10/30/Ubuntu-%E5%9C%A8%E6%9C%89-Windows-%E5%8F%8C%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E6%9B%B4%E6%8D%A2%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91%E5%AD%97%E4%BD%93/" target="_self">
           
-          
-            
-          
-          此次操作的 Ubuntu 版本是 Ubuntu20.04。
-安装
-首先，找到 Windows 安装的磁盘分区：
-
-
-然后，在 C:\Windows 目录下打开 Terminal，然后，将所有的 Windows 字体复制到 /usr/share/fonts 目录下，并使用命令安装字体：
-123sudo mkdir /usr/share/fonts/WindowsFontssudo cp 
+          此次操作的 Ubuntu 版本是 Ubuntu20.04。 安装 首先，找到 Windows 安装的磁盘分区：   然后，在 C:\Windows 目录下打开 Terminal，然后，将所有的 Windows 字体复制到 &#x2F;usr&#x2F;share&#x2F;fonts 目录下，并使用命令安装字体： 123sudo mkdir &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;WindowsFontssudo cp
         </a>
       </p>
 
@@ -382,17 +360,7 @@ flex 程序主要由一系列带有指令的正则表达式组成，这些指令
       <p class="index-excerpt">
         <a href="/2021/10/23/%E3%80%8APython-Cookbook%E3%80%8B%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%96%87%E6%9C%AC%E5%AD%A6%E4%B9%A0%E6%9C%AD%E8%AE%B0/" target="_self">
           
-          
-            
-          
-          首先要说一下 Python 的 r 前缀：
-
-Python 的 r 前缀表示原始字符串（raw string），就是字面意义上的字符串，\ 这个符号并不表示转义。比如 r'\n' 表示的是一个反斜杠和一个字母 n。如果不加 r 即 '\n'，那么 \ 就表示转义，\n 表示一个换行符。可以把 r'\n' 理解为 '\\n'。
-
-然后，开始阅读。
-1、使用多个界定符分割字符串
-
-将一个
+          首先要说一下 Python 的 r 前缀：  Python 的 r 前缀表示原始字符串（raw string），就是字面意义上的字符串，\ 这个符号并不表示转义。比如 r&#39;\n&#39; 表示的是一个反斜杠和一个字母 n。如果不加 r 即 &#39;\n&#39;，那么 \ 就表示转义，\n 表示一个换行符。可以把 r&#39;\n&#39; 理解为 &#39;\\n&#39;。  然后，开始阅读。 1、使用多个界定符分割字符串  将一个
         </a>
       </p>
 
@@ -445,11 +413,7 @@ Python 的 r 前缀表示原始字符串（raw string），就是字面意义上
       <p class="index-excerpt">
         <a href="/2021/10/23/%E4%B8%80%E4%BA%9B%E5%80%BC%E5%BE%97%E6%95%B4%E7%90%86%E7%9A%84%E9%93%BE%E6%8E%A5%EF%BC%88url%EF%BC%89/" target="_self">
           
-          
-            
-          
-          安装 Windows 和 Ubuntu 双系统：https://regulus.cc/2019/10/05/Windows10+Ubuntu18.04%E5%8F%8C%E7%B3%BB%E7%BB%9F%E7%AE%80%E5%8D%95%E5%AE%89%E8%A3%85%E6%8C%87%E5%8C%97/
-安装双系统时，Windows 压缩卷操作中，可压缩的空间远远小于实际的空闲的空间的
+          安装 Windows 和 Ubuntu 双系统：https:&#x2F;&#x2F;regulus.cc&#x2F;2019&#x2F;10&#x2F;05&#x2F;Windows10+Ubuntu18.04%E5%8F%8C%E7%B3%BB%E7%BB%9F%E7%AE%80%E5%8D%95%E5%AE%89%E8%A3%85%E6%8C%87%E5%8C%97&#x2F; 安装双系统时，Windows 压缩卷操作中，可压缩的空间远远小于实际的空闲的空间的
         </a>
       </p>
 
@@ -504,13 +468,7 @@ Python 的 r 前缀表示原始字符串（raw string），就是字面意义上
       <p class="index-excerpt">
         <a href="/2021/10/22/Ubuntu%20%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91%E7%9A%84%E9%97%AE%E9%A2%98/" target="_self">
           
-          
-            
-          
-          今天装这个 Ubuntu20 系统，又遇到了一个问题，就是浏览器中无法播放视频。以前遇到过两次，所以我隐隐约约记得是安装什么 ffmpg 之类的东西，但是因为之前没有记录，所以还是得去谷歌，然后搜到了一堆安装 flash 这个不好的东西的，但是凭着印象，还是找到了一篇安装 ffmpg 的，这一次，就要把它给记录下来了。
-简单一点，就几个命令：
-1sudo apt update
-1sudo a
+          今天装这个 Ubuntu20 系统，又遇到了一个问题，就是浏览器中无法播放视频。以前遇到过两次，所以我隐隐约约记得是安装什么 ffmpg 之类的东西，但是因为之前没有记录，所以还是得去谷歌，然后搜到了一堆安装 flash 这个不好的东西的，但是凭着印象，还是找到了一篇安装 ffmpg 的，这一次，就要把它给记录下来了。 简单一点，就几个命令： 1sudo apt update 1sudo a
         </a>
       </p>
 
@@ -563,13 +521,7 @@ Python 的 r 前缀表示原始字符串（raw string），就是字面意义上
       <p class="index-excerpt">
         <a href="/2021/10/04/Java-%E4%B8%AD%E7%9A%84-switch-%E7%9A%84%E7%94%A8%E6%B3%95/" target="_self">
           
-          
-            
-          
-          今天适逢学弟问这个问题，这里就记录一下。说实话，关于 switch，我之前也是有点犯迷糊的，今天翻阅《On Java 8》，发现写得没有 Oracle 的官方教程好。所以，就把官方教程中的例子给拿出来咀嚼一下。
-Switch 语句
-最常用的也是最简单的示例：
-123456789101112131415161718192021222324252627282930313233343536publ
+          今天适逢学弟问这个问题，这里就记录一下。说实话，关于 switch，我之前也是有点犯迷糊的，今天翻阅《On Java 8》，发现写得没有 Oracle 的官方教程好。所以，就把官方教程中的例子给拿出来咀嚼一下。 Switch 语句 最常用的也是最简单的示例： 123456789101112131415161718192021222324252627282930313233343536publ
         </a>
       </p>
 
@@ -624,17 +576,7 @@ Switch 语句
       <p class="index-excerpt">
         <a href="/2021/09/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A1%A5%E7%A0%81%E4%B8%80%E4%BD%8D%E4%B9%98%E6%B3%95/" target="_self">
           
-          
-            
-          
-          补码乘法由英国人布斯（Booth）于 1950 年发明，又称为布斯（Booth）算法。
-1、Booth 算法的推导
-设 \([x]_{补} = x_0.x_1x_2...x_n\)，\([y]_{补} = y_0.y_1y_2...y_n\)。下面分两种情况来推导 Booth 算法。
-
-设被乘数 \(x\) 符号任意，乘数 \(y\) 符号为正，则：
-
-\[
-[x]_{补} = x_
+          补码乘法由英国人布斯（Booth）于 1950 年发明，又称为布斯（Booth）算法。 1、Booth 算法的推导 设 \([x]_{补} &#x3D; x_0.x_1x_2...x_n\)，\([y]_{补} &#x3D; y_0.y_1y_2...y_n\)。下面分两种情况来推导 Booth 算法。  设被乘数 \(x\) 符号任意，乘数 \(y\) 符号为正，则：  \[ [x]_{补} &#x3D; x_
         </a>
       </p>
 
@@ -687,13 +629,7 @@ Switch 语句
       <p class="index-excerpt">
         <a href="/2021/09/15/LaTex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%AF%B9%E9%BD%90%E6%A0%B7%E4%BE%8B%E6%95%B4%E7%90%86/" target="_self">
           
-          
-            
-          
-          样例一
-让花括号中第二列中第一行的小于等于号和下一行的小于号对齐。
-代码：
-1234567891011$$[X]_&#123;原&#125; = \left\&#123;    \begin&#123;matrix&#125;    \begin&#123;align*&#125;&amp;X &amp; 0 &amp; \leqslant X &lt; 2^n \\ &amp;2^n - 
+          样例一 让花括号中第二列中第一行的小于等于号和下一行的小于号对齐。 代码： 1234567891011$$[X]_&amp;#123;原&amp;#125; &#x3D; \left\&amp;#123;    \begin&amp;#123;matrix&amp;#125;    \begin&amp;#123;align*&amp;#125;&amp;X &amp; 0 &amp; \leqslant X &lt; 2^n \\ &amp;2^n -
         </a>
       </p>
 
@@ -746,16 +682,7 @@ Switch 语句
       <p class="index-excerpt">
         <a href="/2021/09/15/LaTex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%B7%A6%E5%AF%B9%E9%BD%90%E5%86%99%E6%B3%95/" target="_self">
           
-          
-            
-          
-          需求描述
-写两行等式，然后让这两行等式保持左对齐。
-实现
-123456$$\begin&#123;aligned&#125;&amp; [X_1]_&#123;原&#125; = 0.1011 \\&amp; [X_2]_&#123;原&#125; = 1 - （-0.1011） = 1.1011\end&#123;aligned&#125;$$
-效果
-\[
-\begin{aligne
+          需求描述 写两行等式，然后让这两行等式保持左对齐。 实现 123456$$\begin&amp;#123;aligned&amp;#125;&amp; [X_1]_&amp;#123;原&amp;#125; &#x3D; 0.1011 \\&amp; [X_2]_&amp;#123;原&amp;#125; &#x3D; 1 - （-0.1011） &#x3D; 1.1011\end&amp;#123;aligned&amp;#125;$$ 效果 \[ \begin{aligne
         </a>
       </p>
 
@@ -806,7 +733,7 @@ Switch 语句
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -872,6 +799,10 @@ Switch 语句
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -887,38 +818,15 @@ Switch 语句
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-
-
-
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 

@@ -63,6 +63,20 @@
     <content type="html"><![CDATA[<h1 id="powershell-如何显示隐藏文件">PowerShell 如何显示隐藏文件</h1><p>方法：在相应的命令后面加上 <code>-Force</code> 选项。</p><p>如：</p><figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-built_in">dir</span> <span class="hljs-literal">-Force</span><br></code></pre></div></td></tr></table></figure><figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-built_in">ls</span> <span class="hljs-literal">-Force</span><br></code></pre></div></td></tr></table></figure>]]></content>
     
     
+    <categories>
+      
+      <category>PowerShell</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Windows</tag>
+      
+      <tag>PowerShell</tag>
+      
+    </tags>
     
   </entry>
   
@@ -76,6 +90,20 @@
     <content type="html"><![CDATA[<h1 id="bugs-解决记录">Bugs 解决记录</h1><h2id="django.template.exceptions.templatedoesnotexist">django.template.exceptions.TemplateDoesNotExist</h2><p><ahref="https://stackoverflow.com/questions/65425433/django-template-exceptions-templatedoesnotexist-hello">StackOverflow</a></p><h2 id="dash-符号命令问题">dash 符号命令问题</h2><p>前端：</p><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;search-area&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;&#123;&#123;search_input&#125;&#125;&quot;</span>&gt;</span><br></code></pre></div></td></tr></table></figure><p>后端：</p><figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">context[<span class="hljs-string">&#x27;search_input&#x27;</span>] = search_input<br></code></pre></div></td></tr></table></figure><p>上面这样是对的，但是如果把下划线 <code>_</code> 换成 <code>-</code>就会出错。这个应该是命名规范的问题。</p>]]></content>
     
     
+    <categories>
+      
+      <category>Django</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Python</tag>
+      
+      <tag>Django</tag>
+      
+    </tags>
     
   </entry>
   
@@ -89,6 +117,20 @@
     <content type="html"><![CDATA[<p>跟着<ahref="https://developer.android.com/codelabs/jetpack-compose-basics#0">官方教程</a>在做，最后的效果就是这个样子的：</p><p><img src="https://i.imgur.com/0UlBzWs.gif" /></p><p>这个效果图是从安卓官网上搬过来的，实际上跟着这个 codelab在学习就是相当于做一次实验了。最后做出来的效果和教程中的是吻合的。</p><p>我终于体验到了声明式 UI 的魅力。制作 UI 很方便，做出来的 UI也好看。尤其是渲染列表的时候，本来是要用那个XML，又要用适配器之类的，那样做是很繁琐的。现在只需要写一个遍历语句即可。</p><p>说明，这个所有的代码基本上都是在 <code>MainActivity.kt</code>文件里面。</p><p>其实，要我写究竟学到了什么，我想，最多学到的是 <code>byremember</code> 这个语法的用法？</p><p>然后就是对这个动画效果有了一点认识。</p><p>代码是完全照着教程来写的，这里将其上传到 GitHub 上留作纪念。</p><p>现阶段还是有点迷茫，一个小小的想法是，先尽量地多写代码，能总结的，就先总结着，总之不断往前走就是。</p>]]></content>
     
     
+    <categories>
+      
+      <category>Android</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Android</tag>
+      
+      <tag>Jetpack Compose</tag>
+      
+    </tags>
     
   </entry>
   

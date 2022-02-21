@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=dark>
 
 
 
@@ -9,14 +9,21 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Fan Lu&#39;s Blog">
+<meta property="og:url" content="http://example.com/page/13/index.html">
+<meta property="og:site_name" content="Fan Lu&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="fanlumaster">
+<meta name="twitter:card" content="summary_large_image">
+  
   
   <title>Fan Lu&#39;s Blog</title>
 
@@ -44,7 +51,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -55,8 +62,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fan Lu's Blog</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fan Lu&#39;s Blog</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -130,13 +138,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -201,9 +210,6 @@
         <a href="/2021/03/29/Hexo-NexT-%E6%96%87%E7%AB%A0%E9%A1%B5%E9%9D%A2%E5%8E%BB%E6%8E%89%E9%A1%B5%E9%A6%96%E7%9A%84%E6%8F%8F%E8%BF%B0%EF%BC%88description%EF%BC%89/" target="_self">
           
           
-            
-          
-           
         </a>
       </p>
 
@@ -258,11 +264,7 @@
       <p class="index-excerpt">
         <a href="/2021/03/28/hello-world/" target="_self">
           
-          
-            
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quic
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quic
         </a>
       </p>
 
@@ -314,9 +316,6 @@ Quic
 
       <p class="index-excerpt">
         <a href="/2021/03/28/LaTex-%E4%B8%AD%E7%9A%84%E7%A9%BA%E6%A0%BC%EF%BC%88%E7%A9%BA%E7%99%BD%EF%BC%89%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95%EF%BC%88%E7%9F%A5%E5%85%B6%E7%84%B6%E5%B9%B6%E7%9F%A5%E5%85%B6%E6%89%80%E4%BB%A5%E7%84%B6%EF%BC%89/" target="_self">
-          
-          
-            
           
           关于 LaTex 的显示空格的方式，这个并没有参考中文的一些网上资料，因为感觉稍微有些迷惑，而且有很多都是雷同的，并没有讲清楚（并没有说其他的中文资料不好的意思，只针对这一个知识点），然后在外网找到了比较详细的关于这个小知识点的详细的解释，遂记录并分享之。
         </a>
@@ -372,9 +371,6 @@ Quic
 
       <p class="index-excerpt">
         <a href="/2021/03/28/%E4%BF%AE%E6%94%B9%20Hexo-NexT%20%E7%9A%84%20mathjax%20%E9%85%8D%E7%BD%AE%EF%BC%8C%E9%85%8D%E7%BD%AE%E5%85%AC%E5%BC%8F%E4%B8%8D%E8%A6%81%E8%87%AA%E5%8A%A8%E6%B8%B2%E6%9F%93%E7%BC%96%E5%8F%B7/" target="_self">
-          
-          
-            
           
           MathJax 去掉编号
         </a>
@@ -433,9 +429,6 @@ Quic
       <p class="index-excerpt">
         <a href="/2021/03/28/%E8%AF%81%E6%98%8E%E4%B8%A5%E6%A0%BC%E5%AF%B9%E8%A7%92%E5%8D%A0%E4%BC%98%E7%9F%A9%E9%98%B5%E7%BB%8F%E4%B8%80%E6%AD%A5-Gauss-%E6%B6%88%E5%85%83%E5%90%8E%E4%BB%8D%E4%B8%BA%E4%B8%A5%E6%A0%BC%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5/" target="_self">
           
-          
-            
-          
           一道矩阵数学证明题
         </a>
       </p>
@@ -492,9 +485,6 @@ Quic
 
       <p class="index-excerpt">
         <a href="/2021/03/26/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%80%92%E5%BD%92%E9%81%8D%E5%8E%86%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%BA-O-logN-%E9%97%AE%E9%A2%98/" target="_self">
-          
-          
-            
           
           关于二叉树的递归空间复杂度的理解
         </a>
@@ -553,12 +543,7 @@ Quic
       <p class="index-excerpt">
         <a href="/2021/03/25/%E3%80%8A%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%AC-4-%E7%89%88-Java-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98/" target="_self">
           
-          
-            
-          
-          在阅读《算法》第 4 版时，由于程序的运行需要依赖书中提供的程序库，遂到官网下载之。
-第一次下载的是 stdlib.jar，然后导入这个 jar 包到 IDEA 中后，发现无法在程序中 import，尝试了三种导入 jar 包的方法，都没有奏效。
-最后解决的办法是，重新下载了全书所有的依赖整合成的依赖集 algs4.jar，然后重新导入到 IDEA，这下就解决了。这里说明一下，stdlib.j
+          在阅读《算法》第 4 版时，由于程序的运行需要依赖书中提供的程序库，遂到官网下载之。 第一次下载的是 stdlib.jar，然后导入这个 jar 包到 IDEA 中后，发现无法在程序中 import，尝试了三种导入 jar 包的方法，都没有奏效。 最后解决的办法是，重新下载了全书所有的依赖整合成的依赖集 algs4.jar，然后重新导入到 IDEA，这下就解决了。这里说明一下，stdlib.j
         </a>
       </p>
 
@@ -617,9 +602,6 @@ Quic
       <p class="index-excerpt">
         <a href="/2021/03/23/Steffensen-%E6%96%B9%E6%B3%95%E7%9A%84%E6%8E%A8%E5%AF%BC%E5%8F%8A%E5%85%B6%E4%BA%8C%E9%98%B6%E6%94%B6%E6%95%9B%E7%9A%84%E8%AF%81%E6%98%8E/" target="_self">
           
-          
-            
-          
           Steffensen 方法的推导以及证明其至少是二阶收敛的
         </a>
       </p>
@@ -674,9 +656,6 @@ Quic
 
       <p class="index-excerpt">
         <a href="/2021/03/23/Git-%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86-VPN/" target="_self">
-          
-          
-            
           
           Git 使用 VPN 代理来提速
         </a>
@@ -733,9 +712,6 @@ Quic
       <p class="index-excerpt">
         <a href="/2021/03/22/%E5%88%A9%E7%94%A8-Python-%E5%92%8C-sympy-%E5%BA%93%E6%9D%A5%E6%B1%82%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0%E7%9A%84%E7%9C%9F%E5%80%BC%E8%A1%A8/" target="_self">
           
-          
-            
-          
           使用 Python 来求逻辑函数的真值表...
         </a>
       </p>
@@ -789,7 +765,7 @@ Quic
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -855,6 +831,10 @@ Quic
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -870,38 +850,15 @@ Quic
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-
-
-
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 

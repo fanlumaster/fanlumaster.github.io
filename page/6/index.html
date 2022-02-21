@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+<html lang="zh-CN" data-default-color-scheme=dark>
 
 
 
@@ -9,14 +9,21 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" href="/img/myfavicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Fan Lu&#39;s Blog">
+<meta property="og:url" content="http://example.com/page/6/index.html">
+<meta property="og:site_name" content="Fan Lu&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="fanlumaster">
+<meta name="twitter:card" content="summary_large_image">
+  
   
   <title>Fan Lu&#39;s Blog</title>
 
@@ -44,7 +51,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -55,8 +62,9 @@
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fan Lu's Blog</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fan Lu&#39;s Blog</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -130,13 +138,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -200,19 +209,7 @@
       <p class="index-excerpt">
         <a href="/2021/06/08/Hexo-Fluid-%E4%B8%BB%E9%A2%98%E6%96%87%E7%AB%A0%E5%86%85%E5%AE%B9%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E7%9A%84%E5%9C%86%E8%A7%92%E6%9C%89%E6%97%B6%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%99%BD%E8%89%B2%E8%BE%B9%E6%A1%86%E9%97%AE%E9%A2%98/" target="_self">
           
-          
-            
-          
-          前言
-Fluid 主题的版本是 hexo-theme-fluid@1.8.10。
-问题描述
-如下图所示
-
-左下角这里会出现一点点白色的边框。其实其他三个角也会出现，只是在这张图片上不太明显。
-然后我刷新以下页面，或者点击一下图片然后再还原，这个白色的边框就会消失。如下图所示
-
-而且，这个问题随着圆角的值越大会更明显，即白色边框更加明显(虽然还是需要仔细盯着看哈哈)，如下图所示
-
+          前言 Fluid 主题的版本是 hexo-theme-fluid@1.8.10。 问题描述 如下图所示  左下角这里会出现一点点白色的边框。其实其他三个角也会出现，只是在这张图片上不太明显。 然后我刷新以下页面，或者点击一下图片然后再还原，这个白色的边框就会消失。如下图所示  而且，这个问题随着圆角的值越大会更明显，即白色边框更加明显(虽然还是需要仔细盯着看哈哈)，如下图所示
         </a>
       </p>
 
@@ -267,15 +264,7 @@ Fluid 主题的版本是 hexo-theme-fluid@1.8.10。
       <p class="index-excerpt">
         <a href="/2021/06/07/UML-%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E5%85%B3%E7%B3%BB-%E7%AE%AD%E5%A4%B4%E5%90%AB%E4%B9%89%E6%95%B4%E7%90%86/" target="_self">
           
-          
-            
-          
-          前言
-最近在读《人人都懂设计模式》（罗伟富）这本书，发现这里面的讲解 UML 常见的几种关系非常形象，在这里就做一个笔记，加强印象。
-UML 常见关系
-1. 泛化（Generalization）
-泛化（Generalization）是一种继承关系，表示一般与特殊的关系，它指定了子类如何特化父类的所有特征和行为。
-如：哺乳动物具有恒温、胎生、哺乳等生理特征，猫和牛都是哺乳动物，也都具有这些
+          前言 最近在读《人人都懂设计模式》（罗伟富）这本书，发现这里面的讲解 UML 常见的几种关系非常形象，在这里就做一个笔记，加强印象。 UML 常见关系 1. 泛化（Generalization） 泛化（Generalization）是一种继承关系，表示一般与特殊的关系，它指定了子类如何特化父类的所有特征和行为。 如：哺乳动物具有恒温、胎生、哺乳等生理特征，猫和牛都是哺乳动物，也都具有这些
         </a>
       </p>
 
@@ -330,14 +319,7 @@ UML 常见关系
       <p class="index-excerpt">
         <a href="/2021/06/06/Hexo-Fluid-%E4%B8%BB%E9%A2%98%E8%A7%A3%E5%86%B3%E7%BC%A9%E8%BF%9B%E6%A0%BC%E5%BC%8F%E7%9A%84%E4%BB%A3%E7%A0%81%E5%9D%97%E6%97%A0%E6%B3%95%E6%AD%A3%E7%A1%AE%E6%B8%B2%E6%9F%93%E9%97%AE%E9%A2%98/" target="_self">
           
-          
-            
-          
-          Bug 描述
-我的问题是在代码高亮配置为 highlightjs 的 Atom One Dark 的情况下，关于采用 TAB 键缩进的代码无法正常渲染，效果如下
-
-主题配置文件中的相关配置如下
-123456789101112131415161718192021222324252627282930313233# 代码高亮# Code highlighthighlight:  enable: 
+          Bug 描述 我的问题是在代码高亮配置为 highlightjs 的 Atom One Dark 的情况下，关于采用 TAB 键缩进的代码无法正常渲染，效果如下  主题配置文件中的相关配置如下 123456789101112131415161718192021222324252627282930313233# 代码高亮# Code highlighthighlight:  enable:
         </a>
       </p>
 
@@ -392,21 +374,7 @@ UML 常见关系
       <p class="index-excerpt">
         <a href="/2021/06/06/Ubuntu-18-%E7%94%A8-NASM-%E7%BC%96%E5%86%99-MBR-%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F%EF%BC%8C%E5%9C%A8-BOCHS-%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E6%B5%8B%E8%AF%95/" target="_self">
           
-          
-            
-          
-          前言
-这是一次 OS 实验的记录。
-实验的要求是，编写 MBR 引导程序，在屏幕显示 "Hello OS world!"，然后原地停下。
-由于实验的过程稍微有些曲折，这个任务难度不大，就是过程中的坑比较多。遂记录这一次实验过程，供个人以后复习及后来人参考。
-本次实验的环境是
-
-Ubuntu 18.04
-Bochs-2.6.11
-
-安装 Bochs
-安装依赖
-为了运行 Boch
+          前言 这是一次 OS 实验的记录。 实验的要求是，编写 MBR 引导程序，在屏幕显示 &quot;Hello OS world!&quot;，然后原地停下。 由于实验的过程稍微有些曲折，这个任务难度不大，就是过程中的坑比较多。遂记录这一次实验过程，供个人以后复习及后来人参考。 本次实验的环境是  Ubuntu 18.04 Bochs-2.6.11  安装 Bochs 安装依赖 为了运行 Boch
         </a>
       </p>
 
@@ -463,18 +431,7 @@ Bochs-2.6.11
       <p class="index-excerpt">
         <a href="/2021/06/01/%E8%A7%A3%E5%86%B3%E5%85%A8%E7%A8%8B%E5%AF%B9%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98%E7%9A%84-Floyd-Warshall-%E7%AE%97%E6%B3%95/" target="_self">
           
-          
-            
-          
-          算法思路
-递归式
-\[
-d_{ij}^{(k)} = 
-\left\{
-\begin{matrix}
-\begin{align}
-&amp; \omega_{ij} &amp;&amp; {if \quad k = 0} \\
-&amp; min(d_{ij}^{(k - 1)}, d_{ik}^{(k - 1)} + d_{kj}^{(i - 1)}) &amp;&amp; {i
+          算法思路 递归式 \[ d_{ij}^{(k)} &#x3D;  \left\{ \begin{matrix} \begin{align} &amp; \omega_{ij} &amp;&amp; {if \quad k &#x3D; 0} \\ &amp; min(d_{ij}^{(k - 1)}, d_{ik}^{(k - 1)} + d_{kj}^{(i - 1)}) &amp;&amp; {i
         </a>
       </p>
 
@@ -531,9 +488,6 @@ d_{ij}^{(k)} =
       <p class="index-excerpt">
         <a href="/2021/06/01/LaTex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%8A%B1%E6%8B%AC%E5%8F%B7%E5%8F%B3%E4%BE%A7%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%AF%8F%E8%A1%8C%E4%BF%9D%E6%8C%81%E5%B7%A6%E5%AF%B9%E9%BD%90(%E5%8F%8A%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9%E5%B7%A6%E5%AF%B9%E9%BD%90)/" target="_self">
           
-          
-            
-          
           记录 LaTex 数学公式中多行公式保持左对齐的书写方法，方便用时备查。
         </a>
       </p>
@@ -587,16 +541,7 @@ d_{ij}^{(k)} =
       <p class="index-excerpt">
         <a href="/2021/06/01/LaTex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%B0%86%E4%B8%8B%E6%A0%87%E6%94%BE%E5%9C%A8%E6%AD%A3%E4%B8%8B%E6%96%B9%EF%BC%88%E4%B8%8A%E6%A0%87%E6%94%BE%E5%9C%A8%E6%AD%A3%E4%B8%8A%E6%96%B9%EF%BC%89/" target="_self">
           
-          
-            
-          
-          使用 LaTex 的语法，关于把数学公式的下表放在正下方的方法，分两种情况。如下。
-1、本身是数学符号
-比如，$\sum$，行内数学公式默认的格式是
-1$\sum_&#123;i = 0&#125;^&#123;n&#125;$
-效果是：\(\sum_{i = 0}^{n}\)
-而如果我们要想将下标放在正下方，则需要使用 \limits 语法，书写格式如下
-1$\sum\limits_
+          使用 LaTex 的语法，关于把数学公式的下表放在正下方的方法，分两种情况。如下。 1、本身是数学符号 比如，$\sum$，行内数学公式默认的格式是 1$\sum_&amp;#123;i &#x3D; 0&amp;#125;^&amp;#123;n&amp;#125;$ 效果是：\(\sum_{i &#x3D; 0}^{n}\) 而如果我们要想将下标放在正下方，则需要使用 \limits 语法，书写格式如下 1$\sum\limits_
         </a>
       </p>
 
@@ -649,21 +594,7 @@ d_{ij}^{(k)} =
       <p class="index-excerpt">
         <a href="/2021/05/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E9%A1%B5%E9%9D%A2%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/" target="_self">
           
-          
-            
-          
-          最佳算法(OPT 算法, Optimal)
-思想
-
-淘汰不再需要或最远将来才会用到的页面.
-
-例子
-分配 3 个页框. 页面序列: A, B, C, D, A, B, E, A, B, C, D, E. 分析其按照 OPT 算法淘汰页面的缺页情况.
-
-缺页次数 = 7　　　缺页率 = 7 / 12 = 58%
-特点
-理论上最佳, 实践中该算法无法实现.
-先进先出淘汰算法(FI
+          最佳算法(OPT 算法, Optimal) 思想  淘汰不再需要或最远将来才会用到的页面.  例子 分配 3 个页框. 页面序列: A, B, C, D, A, B, E, A, B, C, D, E. 分析其按照 OPT 算法淘汰页面的缺页情况.  缺页次数 &#x3D; 7　　　缺页率 &#x3D; 7 &#x2F; 12 &#x3D; 58% 特点 理论上最佳, 实践中该算法无法实现. 先进先出淘汰算法(FI
         </a>
       </p>
 
@@ -718,13 +649,7 @@ d_{ij}^{(k)} =
       <p class="index-excerpt">
         <a href="/2021/05/30/%E4%B8%BB%E5%AE%9A%E7%90%86%E4%B8%8E%E4%B8%BB%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
           
-          
-            
-          
-          主定理
-令 $a \geqslant 1$ 和 $b &gt; 1$ 是常数, $f(n)$ 是一个函数, $T(n)$ 是定义在非负整数上的递归式:
-\[T(n) = aT(n/b) + f(n)\]
-其中我们将 $n/b$ 解释为 $\left \lfloor n/b \right \rfloor$ 或 $\left \lceil n/b \right \rceil$. 那么 $T(n)
+          主定理 令 $a \geqslant 1$ 和 $b &gt; 1$ 是常数, $f(n)$ 是一个函数, $T(n)$ 是定义在非负整数上的递归式: \[T(n) &#x3D; aT(n&#x2F;b) + f(n)\] 其中我们将 $n&#x2F;b$ 解释为 $\left \lfloor n&#x2F;b \right \rfloor$ 或 $\left \lceil n&#x2F;b \right \rceil$. 那么 $T(n)
         </a>
       </p>
 
@@ -779,12 +704,7 @@ d_{ij}^{(k)} =
       <p class="index-excerpt">
         <a href="/2021/05/28/Python-%E4%B8%AD%E7%9A%84-if-name-main-%E8%AF%A5%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3/" target="_self">
           
-          
-            
-          
-          本文转载自: https://blog.konghy.cn/2017/04/24/python-entry-program/
-程序入口
-对于很多编程语言来说，程序都必须要有一个入口，比如 C，C++，以及完全面向对象的编程语言 Java，C# 等。如果你接触过这些语言，对于程序入口这个概念应该很好理解，C 和 C++ 都需要有一个 main 函数来作为程序的入口，也就是程序的运行会从 main
+          本文转载自: https:&#x2F;&#x2F;blog.konghy.cn&#x2F;2017&#x2F;04&#x2F;24&#x2F;python-entry-program&#x2F; 程序入口 对于很多编程语言来说，程序都必须要有一个入口，比如 C，C++，以及完全面向对象的编程语言 Java，C# 等。如果你接触过这些语言，对于程序入口这个概念应该很好理解，C 和 C++ 都需要有一个 main 函数来作为程序的入口，也就是程序的运行会从 main
         </a>
       </p>
 
@@ -837,7 +757,7 @@ d_{ij}^{(k)} =
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -903,6 +823,10 @@ d_{ij}^{(k)} =
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -918,38 +842,15 @@ d_{ij}^{(k)} =
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-
-
-
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      $('#local-search-input').on('click', function() {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      });
-      $('#modalSearch').on('shown.bs.modal', function() {
-        $('#local-search-input').focus();
-      });
-    })()
   </script>
 
 
