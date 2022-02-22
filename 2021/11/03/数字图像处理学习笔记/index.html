@@ -16,12 +16,12 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="系电子科大网课笔记。  数字图像处理的概念？   图像是一个二维亮度函数 \(f(x, y)\)，\((x, y)\) 定义了空间坐标，\(f(x, y)\) 定义该点的亮度或灰度。 按：这里主要是灰度。书上也讲灰度。  数字图像处理是指图像的元素的空间坐标和亮度的数字化。数字图像是由有限的元素组成的，每一个元素都有一个特定的位置和幅值，这些元素称为图像元素或像素。 数字图像处理">
+    <meta name="description" content="系电子科大网课笔记。  数字图像处理的概念？   图像是一个二维亮度函数 \(f(x, y)\)，\((x, y)\) 定义了空间坐标，\(f(x, y)\) 定义该点的亮度或灰度。 按：这里主要是灰度。书上也讲灰度。  数字图像处理是指图像的元素的空间坐标和亮度的数字化。数字图像是由有限的元素组成的，每一个元素都有一个特定的位置和幅值，这些元素称为图像元素或像素。 数字图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数字图像处理学习笔记">
 <meta property="og:url" content="http://example.com/2021/11/03/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="系电子科大网课笔记。  数字图像处理的概念？   图像是一个二维亮度函数 \(f(x, y)\)，\((x, y)\) 定义了空间坐标，\(f(x, y)\) 定义该点的亮度或灰度。 按：这里主要是灰度。书上也讲灰度。  数字图像处理是指图像的元素的空间坐标和亮度的数字化。数字图像是由有限的元素组成的，每一个元素都有一个特定的位置和幅值，这些元素称为图像元素或像素。 数字图像处理">
+<meta property="og:description" content="系电子科大网课笔记。  数字图像处理的概念？   图像是一个二维亮度函数 \(f(x, y)\)，\((x, y)\) 定义了空间坐标，\(f(x, y)\) 定义该点的亮度或灰度。 按：这里主要是灰度。书上也讲灰度。  数字图像处理是指图像的元素的空间坐标和亮度的数字化。数字图像是由有限的元素组成的，每一个元素都有一个特定的位置和幅值，这些元素称为图像元素或像素。 数字图">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/aZvPv2O.png">
 <meta property="article:published_time" content="2021-11-03T11:36:31.000Z">
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      2.1k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      18 分钟
     </span>
   
 
@@ -249,7 +249,10 @@
 <p>数字图像处理的概念？</p>
 </blockquote>
 <ul>
-<li>图像是一个二维亮度函数 <span class="math inline">\(f(x, y)\)</span>，<span class="math inline">\((x, y)\)</span> 定义了空间坐标，<span class="math inline">\(f(x, y)\)</span> 定义该点的亮度或灰度。<br />
+<li>图像是一个二维亮度函数 <span class="math inline">\(f(x,
+y)\)</span>，<span class="math inline">\((x, y)\)</span>
+定义了空间坐标，<span class="math inline">\(f(x, y)\)</span>
+定义该点的亮度或灰度。<br />
 按：这里主要是灰度。书上也讲灰度。<br />
 </li>
 <li>数字图像处理是指图像的元素的空间坐标和亮度的数字化。数字图像是由有限的元素组成的，每一个元素都有一个特定的位置和幅值，这些元素称为图像元素或像素。</li>
@@ -274,7 +277,8 @@
 <blockquote>
 <p>人的视觉系统能适应的光强度级别范围有多宽？</p>
 </blockquote>
-<p>从夜视阈值到强闪光约有 <span class="math inline">\(10^{10}\)</span> 量级。</p>
+<p>从夜视阈值到强闪光约有 <span class="math inline">\(10^{10}\)</span>
+量级。</p>
 <blockquote>
 <p>何为亮度适应现象？</p>
 </blockquote>
@@ -303,12 +307,17 @@
 <p>人眼可以感受到的光的范围？</p>
 </blockquote>
 <p><img src="https://i.imgur.com/rCa0qqC.png" srcset="/img/loading.gif" lazyload /></p>
-<p>人眼可以感受到的光的波长的范围是 <span class="math inline">\(400 \sim 700\)</span> 纳米。</p>
+<p>人眼可以感受到的光的波长的范围是 <span class="math inline">\(400 \sim
+700\)</span> 纳米。</p>
 <blockquote>
-<p>用二维形式 <span class="math inline">\(f(x, y)\)</span> 表示图像，在特定坐标 <span class="math inline">\((x, y)\)</span> 处， <span class="math inline">\(f\)</span> 的值或幅度是一个正的标量，其物理意义由图像源决定。</p>
+<p>用二维形式 <span class="math inline">\(f(x, y)\)</span>
+表示图像，在特定坐标 <span class="math inline">\((x, y)\)</span> 处，
+<span class="math inline">\(f\)</span>
+的值或幅度是一个正的标量，其物理意义由图像源决定。</p>
 </blockquote>
 <blockquote>
-<p>当一幅图像从物理过程产生时，它的值正比于物理源的辐射能量。因此 <span class="math inline">\(f(x, y)\)</span> 一定是非零和有限的，即：</p>
+<p>当一幅图像从物理过程产生时，它的值正比于物理源的辐射能量。因此 <span
+class="math inline">\(f(x, y)\)</span> 一定是非零和有限的，即：</p>
 </blockquote>
 <p><span class="math display">\[
 0 &lt; f(x, y) &lt; \infty
@@ -334,19 +343,28 @@
 <blockquote>
 <p>对于上图中的 M 和 N 有什么要求？</p>
 </blockquote>
-<p>数字化过程中对 <span class="math inline">\(M\)</span> 和 <span class="math inline">\(N\)</span> 除了必须取正整数外没有其他要求。</p>
-<p>然而，出于处理、存储和取样硬件的考虑，灰度级典型的取值是 2 的整数次幂。</p>
+<p>数字化过程中对 <span class="math inline">\(M\)</span> 和 <span
+class="math inline">\(N\)</span> 除了必须取正整数外没有其他要求。</p>
+<p>然而，出于处理、存储和取样硬件的考虑，灰度级典型的取值是 2
+的整数次幂。</p>
 <blockquote>
-<p>对于一幅大小为 <span class="math inline">\(M \times N\)</span>，灰度级 <span class="math inline">\(L = 2^k\)</span> 的数字图像，所需的存储空间为 <span class="math inline">\(b = M \times N \times k\)</span>。</p>
+<p>对于一幅大小为 <span class="math inline">\(M \times
+N\)</span>，灰度级 <span class="math inline">\(L = 2^k\)</span>
+的数字图像，所需的存储空间为 <span class="math inline">\(b = M \times N
+\times k\)</span>。</p>
 </blockquote>
 <blockquote>
 <p>何为灰度级？</p>
 </blockquote>
-<p>灰度级的典型取值是 2 的整数次幂。通常假设离散灰度级是等间隔的并且是区间 <span class="math inline">\([0, L - 1]\)</span> 内的整数。（<span class="math inline">\(L\)</span> 即 2 的整数次幂）</p>
+<p>灰度级的典型取值是 2
+的整数次幂。通常假设离散灰度级是等间隔的并且是区间 <span
+class="math inline">\([0, L - 1]\)</span> 内的整数。（<span
+class="math inline">\(L\)</span> 即 2 的整数次幂）</p>
 <blockquote>
 <p>何为 k 比特图像？</p>
 </blockquote>
-<p>当一幅图像有 <span class="math inline">\(2^k\)</span> 灰度级时，通常称该图像是 k 比特图像。</p>
+<p>当一幅图像有 <span class="math inline">\(2^k\)</span>
+灰度级时，通常称该图像是 k 比特图像。</p>
 <blockquote>
 <p>何为动态范围？</p>
 </blockquote>
@@ -360,14 +378,18 @@
 <p>疑问：PPT 上关于线对的解释似乎很难懂呀？</p>
 </blockquote>
 <p><img src="https://i.imgur.com/6omR2uM.png" srcset="/img/loading.gif" lazyload /></p>
-<p>后面老师所讲的 1 毫米有 100 个线对，其代表的是这 1 毫米中有 100 根黑线，同时有 100 根白线铺满这个 1 毫米的宽度。这样似乎就能够理解了。</p>
+<p>后面老师所讲的 1 毫米有 100 个线对，其代表的是这 1 毫米中有 100
+根黑线，同时有 100 根白线铺满这个 1
+毫米的宽度。这样似乎就能够理解了。</p>
 <blockquote>
 <p>何为灰度级分辨率？</p>
 </blockquote>
 <p>灰度级分辨率是指在灰度级别中可分辨的最小变化。</p>
 <p>疑：为何是最小变化？</p>
 <blockquote>
-<p>当没有必要对涉及像素的物理分辨率进行实际度量和在原始场景中分析细节等级时，通常就把大小为 M x N，灰度为 L 级的数字图像称为空间分辨率为 M x N 像素、灰度级分辨率为 L 级的数字图像。</p>
+<p>当没有必要对涉及像素的物理分辨率进行实际度量和在原始场景中分析细节等级时，通常就把大小为
+M x N，灰度为 L 级的数字图像称为空间分辨率为 M x N 像素、灰度级分辨率为
+L 级的数字图像。</p>
 </blockquote>
 <blockquote>
 <p>疑：怎么复制行和列使得 512 x 512 恢复成 1024 x 1024 的图像的？</p>

@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      1.2k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      11 分钟
     </span>
   
 
@@ -250,17 +250,19 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$<br>[X]_&#123;原&#125; = <br>\left\&#123;<br>    \begin&#123;matrix&#125;<br>    \begin&#123;align*&#125;<br>&amp;X &amp; 0 &amp; \leqslant X &lt; 2^n \\ <br>&amp;2^n - X &amp; -2^n &amp; &lt; X \leqslant 0<br>    \end&#123;align*&#125;<br>    \end&#123;matrix&#125;<br>\right.<br>$$<br></code></pre></div></td></tr></table></figure>
 <p>效果</p>
 <p><span class="math display">\[
-[X]_{原} = 
+[X]_{原} =
 \left\{
     \begin{matrix}
     \begin{align*}
-&amp;X &amp; 0 &amp; \leqslant X &lt; 2^n \\ 
+&amp;X &amp; 0 &amp; \leqslant X &lt; 2^n \\
 &amp;2^n - X &amp; -2^n &amp; &lt; X \leqslant 0
     \end{align*}
     \end{matrix}
 \right.
 \]</span></p>
-<p>参考：<a target="_blank" rel="noopener" href="https://tex.stackexchange.com/questions/145657/align-equation-left">stackexchange</a>，这里主要是参考了回答中的 <code>\begin&#123;align*&#125;</code> 的用法。</p>
+<p>参考：<a
+target="_blank" rel="noopener" href="https://tex.stackexchange.com/questions/145657/align-equation-left">stackexchange</a>，这里主要是参考了回答中的
+<code>\begin&#123;align*&#125;</code> 的用法。</p>
 <h3 id="样例二">样例二</h3>
 <p>写两行等式，然后让这两行等式保持左对齐。</p>
 <p>代码</p>
@@ -272,9 +274,12 @@
 &amp; [X_2]_{原} = 1 - （-0.1011） = 1.1011
 \end{aligned}
 \]</span></p>
-<p>注：如果不加 <code>\begin&#123;aligned&#125; \end&#123;aligned&#125;</code>，那么默认的公式是保持居中显示。</p>
+<p>注：如果不加 <code>\begin&#123;aligned&#125;
+\end&#123;aligned&#125;</code>，那么默认的公式是保持居中显示。</p>
 <hr />
-<p>参考：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/11296415/how-to-left-align-mathjax-elements">stackoverflow</a>，这里主要是参考了 <code>\begin&#123;aligned&#125;</code> 的用法。</p>
+<p>参考：<a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/11296415/how-to-left-align-mathjax-elements">stackoverflow</a>，这里主要是参考了
+<code>\begin&#123;aligned&#125;</code> 的用法。</p>
 <h3 id="样例三">样例三</h3>
 <p>代码</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$<br>\begin&#123;equation&#125;<br>\begin&#123;split&#125;<br>[X_1]_&#123;原&#125; &amp;= 01011\\<br>[X_2]_&#123;原&#125; &amp;=2^4 - (-1011) \\<br>&amp;=10000 + 1101 \\<br>&amp;=11101<br>\end&#123;split&#125;<br>\end&#123;equation&#125;<br>$$<br></code></pre></div></td></tr></table></figure>

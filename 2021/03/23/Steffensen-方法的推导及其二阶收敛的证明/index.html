@@ -202,7 +202,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      1.6k 字
     </span>
   
 
@@ -211,7 +211,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      14 分钟
     </span>
   
 
@@ -244,29 +244,66 @@
             
             <div class="markdown-body">
               <h3 id="steffensen-方法的推导">Steffensen 方法的推导</h3>
-<p>由于 Steffensen 方法是由弦截法改造来的，所以，这里先给出弦截法的迭代公式</p>
-<p><span class="math display">\[ x_{k + 1} = x_k - \frac{x_k - x_{k - 1}}{f(x_k) - f(x_{k - 1})} f(x_k), \quad k = 1, 2,... \ .\]</span></p>
-<p>弦截法的定义及推导比较简单，这里不再赘述，然后我们来看如何将弦截法改造成 Steffensen 方法：若弦截法产生的迭代序列 <span class="math inline">\(\{ x_k \}\)</span> 充分接近于精确解 <span class="math inline">\(x^*\)</span>，则 <span class="math inline">\(x_k - x_{k - 1}\)</span> 与 <span class="math inline">\(f(x_k)\)</span> 均充分接近于零。因此，我们可以近似地置 <span class="math inline">\(x_k - x_{k - 1} \approx f(x_k)\)</span>，然后将弦截法迭代公式中的 <span class="math inline">\(x_{k - 1}\)</span> 给代换掉，就得到了 <strong>Steffensen</strong> 方法</p>
-<p><span class="math display">\[x_{k + 1} = x_k - \frac{f^2(x_k)}{f(x_k) - f(x_k - f(x_k))}, \quad k = 1, 2,... \ .\]</span></p>
-<h3 id="证明-steffensen-方法的二阶收敛性">证明 Steffensen 方法的二阶收敛性</h3>
-<p><strong>给定条件</strong>：设 <span class="math inline">\(f(x) = 0\)</span> 有根 <span class="math inline">\(x_*\)</span>，其中 <span class="math inline">\(f(x)\)</span> 在 <span class="math inline">\(x^*\)</span> 的某邻域 <span class="math inline">\(S(x^*, \delta)\)</span> 内二阶连续可微，且 <span class="math inline">\(f^{&#39;} (x) \neq 0\)</span>.</p>
+<p>由于 Steffensen
+方法是由弦截法改造来的，所以，这里先给出弦截法的迭代公式</p>
+<p><span class="math display">\[ x_{k + 1} = x_k - \frac{x_k - x_{k -
+1}}{f(x_k) - f(x_{k - 1})} f(x_k), \quad k = 1, 2,... \ .\]</span></p>
+<p>弦截法的定义及推导比较简单，这里不再赘述，然后我们来看如何将弦截法改造成
+Steffensen 方法：若弦截法产生的迭代序列 <span class="math inline">\(\{
+x_k \}\)</span> 充分接近于精确解 <span
+class="math inline">\(x^*\)</span>，则 <span class="math inline">\(x_k -
+x_{k - 1}\)</span> 与 <span class="math inline">\(f(x_k)\)</span>
+均充分接近于零。因此，我们可以近似地置 <span class="math inline">\(x_k -
+x_{k - 1} \approx f(x_k)\)</span>，然后将弦截法迭代公式中的 <span
+class="math inline">\(x_{k - 1}\)</span> 给代换掉，就得到了
+<strong>Steffensen</strong> 方法</p>
+<p><span class="math display">\[x_{k + 1} = x_k - \frac{f^2(x_k)}{f(x_k)
+- f(x_k - f(x_k))}, \quad k = 1, 2,... \ .\]</span></p>
+<h3 id="证明-steffensen-方法的二阶收敛性">证明 Steffensen
+方法的二阶收敛性</h3>
+<p><strong>给定条件</strong>：设 <span class="math inline">\(f(x) =
+0\)</span> 有根 <span class="math inline">\(x_*\)</span>，其中 <span
+class="math inline">\(f(x)\)</span> 在 <span
+class="math inline">\(x^*\)</span> 的某邻域 <span
+class="math inline">\(S(x^*, \delta)\)</span> 内二阶连续可微，且 <span
+class="math inline">\(f^{&#39;} (x) \neq 0\)</span>.</p>
 <p><strong>证明：</strong></p>
 <p>由 Steffensen 迭代公式，有</p>
-<p><span class="math display">\[\varphi(x) = x - \frac{f(x)}{f(x) - f(x - f(x))}\]</span></p>
-<p>对 <span class="math inline">\(f(x - f(x))\)</span> 进行泰勒展开，得</p>
-<p><span class="math display">\[\displaystyle f(x - f(x)) = f(x) - f^{&#39;}(x)f(x) + \frac{1}{2}f^{&#39;&#39;}(\xi)f^{2}(x) ，\]</span></p>
-<p>其中，<span class="math inline">\(\xi\)</span> 是 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(x - f(x)\)</span> 之间的一个值。</p>
+<p><span class="math display">\[\varphi(x) = x - \frac{f(x)}{f(x) - f(x
+- f(x))}\]</span></p>
+<p>对 <span class="math inline">\(f(x - f(x))\)</span>
+进行泰勒展开，得</p>
+<p><span class="math display">\[\displaystyle f(x - f(x)) = f(x) -
+f^{&#39;}(x)f(x) + \frac{1}{2}f^{&#39;&#39;}(\xi)f^{2}(x)
+，\]</span></p>
+<p>其中，<span class="math inline">\(\xi\)</span> 是 <span
+class="math inline">\(x\)</span> 和 <span class="math inline">\(x -
+f(x)\)</span> 之间的一个值。</p>
 <p>于是，有</p>
-<p><span class="math display">\[g(x) = \frac{f(x) - f(x - f(x))}{f(x)} = \frac{f^{&#39;}(x)f(x) - \frac{1}{2}f^{&#39;&#39;}f^{2}(x)}{f(x)} = f^{&#39;}(x) - \frac{1}{2} f^{&#39;&#39;}(\xi) f(x) .\]</span></p>
+<p><span class="math display">\[g(x) = \frac{f(x) - f(x - f(x))}{f(x)} =
+\frac{f^{&#39;}(x)f(x) - \frac{1}{2}f^{&#39;&#39;}f^{2}(x)}{f(x)} =
+f^{&#39;}(x) - \frac{1}{2} f^{&#39;&#39;}(\xi) f(x) .\]</span></p>
 <p>进而，</p>
-<p><span class="math display">\[\varphi (x) = x - \frac{f^{2} (x)}{f(x) - f(x - f(x))} = x - \frac{f(x)}{f^{&#39;} (x) - \frac{1}{2} f^{&#39;&#39;} (\xi) f(x)}.\]</span></p>
+<p><span class="math display">\[\varphi (x) = x - \frac{f^{2} (x)}{f(x)
+- f(x - f(x))} = x - \frac{f(x)}{f^{&#39;} (x) - \frac{1}{2}
+f^{&#39;&#39;} (\xi) f(x)}.\]</span></p>
 <p>因此，</p>
-<p><span class="math display">\[\frac{\varphi(x) - \varphi(x^*)}{x - x^*} = \frac{x - \frac{f(x)}{f^{&#39;} (x) - \frac{1}{2} f^{&#39;&#39;} (\xi) f(x)} - x^*}{x - x^*} = \frac{x - x^* - \frac{f(x)}{f^{&#39;} (x) - \frac{1}{2} f^{&#39;&#39;} (\xi) f(x)}}{x - x^*} = 1 - \frac{f(x) - f(x^*)}{x - x^*} \frac{1}{f^{&#39;} (x) - \frac{1}{2} f^{&#39;&#39;} (\xi) f(x)}\]</span></p>
+<p><span class="math display">\[\frac{\varphi(x) - \varphi(x^*)}{x -
+x^*} = \frac{x - \frac{f(x)}{f^{&#39;} (x) - \frac{1}{2} f^{&#39;&#39;}
+(\xi) f(x)} - x^*}{x - x^*} = \frac{x - x^* - \frac{f(x)}{f^{&#39;} (x)
+- \frac{1}{2} f^{&#39;&#39;} (\xi) f(x)}}{x - x^*} = 1 - \frac{f(x) -
+f(x^*)}{x - x^*} \frac{1}{f^{&#39;} (x) - \frac{1}{2} f^{&#39;&#39;}
+(\xi) f(x)}\]</span></p>
 <p>所以，</p>
-<p><span class="math display">\[\varphi^{&#39;} (x^*) = \lim_{x \to x^*} \frac{\varphi(x) - \varphi(x^*)}{x - x^*} = 1 - f^{&#39;} (x^*) \frac{1}{f^{&#39;} (x^*)} = 0.\]</span></p>
-<p>因为 <span class="math inline">\(f^{&#39;}(x^*) \neq 0\)</span>，所以，Steffensen 方法至少是二阶收敛的。</p>
-<p>注意，Steffensen 方法是严格二阶收敛的，但是，证明这个所需的知识不在学习范围内，暂时不作证明。</p>
-<p>按：本文给出的 Steffensen 方法是华科的计算方法课本上的。网上还有其他的形式，在符号上略有区别，但是证明方法相同，而且，英文的证明在网上比较多。</p>
+<p><span class="math display">\[\varphi^{&#39;} (x^*) = \lim_{x \to x^*}
+\frac{\varphi(x) - \varphi(x^*)}{x - x^*} = 1 - f^{&#39;} (x^*)
+\frac{1}{f^{&#39;} (x^*)} = 0.\]</span></p>
+<p>因为 <span class="math inline">\(f^{&#39;}(x^*) \neq
+0\)</span>，所以，Steffensen 方法至少是二阶收敛的。</p>
+<p>注意，Steffensen
+方法是严格二阶收敛的，但是，证明这个所需的知识不在学习范围内，暂时不作证明。</p>
+<p>按：本文给出的 Steffensen
+方法是华科的计算方法课本上的。网上还有其他的形式，在符号上略有区别，但是证明方法相同，而且，英文的证明在网上比较多。</p>
 
             </div>
             <hr>

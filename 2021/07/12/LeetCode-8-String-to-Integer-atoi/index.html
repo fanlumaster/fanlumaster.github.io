@@ -16,12 +16,12 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一、题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;string-to-integer-atoi&#x2F; 二、解答 思路比较清晰，首先找到第一个不是空格的字符，然后判断是否是正负号，然后再判断是否是数字，然后逐个处理即可。这里要注意一下 Integer 的范围，超过范围就要按照题目给定的规则截断。 代码 1234567891011121314151617181920212">
+    <meta name="description" content="一、题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;string-to-integer-atoi&#x2F; 二、解答 思路比较清晰，首先找到第一个不是空格的字符，然后判断是否是正负号，然后再判断是否是数字，然后逐个处理即可。这里要注意一下 Integer 的范围，超过范围就要按照题目给定的规则截断。 代码 123456789101112131415161718192021">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 8 String to Integer (atoi)">
 <meta property="og:url" content="http://example.com/2021/07/12/LeetCode-8-String-to-Integer-atoi/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="一、题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;string-to-integer-atoi&#x2F; 二、解答 思路比较清晰，首先找到第一个不是空格的字符，然后判断是否是正负号，然后再判断是否是数字，然后逐个处理即可。这里要注意一下 Integer 的范围，超过范围就要按照题目给定的规则截断。 代码 1234567891011121314151617181920212">
+<meta property="og:description" content="一、题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;string-to-integer-atoi&#x2F; 二、解答 思路比较清晰，首先找到第一个不是空格的字符，然后判断是否是正负号，然后再判断是否是数字，然后逐个处理即可。这里要注意一下 Integer 的范围，超过范围就要按照题目给定的规则截断。 代码 123456789101112131415161718192021">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210712184410.png">
 <meta property="article:published_time" content="2021-07-12T10:38:53.000Z">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      1.4k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      12 分钟
     </span>
   
 
@@ -246,9 +246,11 @@
             
             <div class="markdown-body">
               <h2 id="一题目链接">一、题目链接</h2>
-<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/string-to-integer-atoi/" class="uri">https://leetcode.com/problems/string-to-integer-atoi/</a></p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/string-to-integer-atoi/"
+class="uri">https://leetcode.com/problems/string-to-integer-atoi/</a></p>
 <h2 id="二解答">二、解答</h2>
-<p>思路比较清晰，首先找到第一个不是空格的字符，然后判断是否是正负号，然后再判断是否是数字，然后逐个处理即可。这里要注意一下 Integer 的范围，超过范围就要按照题目给定的规则截断。</p>
+<p>思路比较清晰，首先找到第一个不是空格的字符，然后判断是否是正负号，然后再判断是否是数字，然后逐个处理即可。这里要注意一下
+Integer 的范围，超过范围就要按照题目给定的规则截断。</p>
 <p>代码</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">myAtoi</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">int</span>:</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(s) == <span class="hljs-number">0</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>        i = <span class="hljs-number">0</span> <span class="hljs-comment"># 索引</span><br>        ans = <span class="hljs-number">0</span> <span class="hljs-comment"># 结果</span><br>        pos_or_neg = <span class="hljs-number">1</span> <span class="hljs-comment"># 正还是负</span><br>        <span class="hljs-keyword">while</span> i &lt; <span class="hljs-built_in">len</span>(s) <span class="hljs-keyword">and</span> s[i] == <span class="hljs-string">&#x27; &#x27;</span>:<br>            i += <span class="hljs-number">1</span> <span class="hljs-comment"># 找到第一个非空格的字符</span><br>        <span class="hljs-keyword">if</span> i == <span class="hljs-built_in">len</span>(s):<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>        <span class="hljs-comment"># 确定正负</span><br>        <span class="hljs-keyword">if</span> s[i] == <span class="hljs-string">&#x27;+&#x27;</span>:<br>            i += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">elif</span> s[i] == <span class="hljs-string">&#x27;-&#x27;</span>:<br>            pos_or_neg = -<span class="hljs-number">1</span><br>            i += <span class="hljs-number">1</span><br>        <span class="hljs-comment"># 当前 i 索引位置上的字符必须是数字才能触发这个 while 循环</span><br>        <span class="hljs-keyword">while</span> i &lt; <span class="hljs-built_in">len</span>(s) <span class="hljs-keyword">and</span> s[i] &gt;= <span class="hljs-string">&#x27;0&#x27;</span> <span class="hljs-keyword">and</span> s[i] &lt;= <span class="hljs-string">&#x27;9&#x27;</span>:<br>            ans = ans * <span class="hljs-number">10</span> + <span class="hljs-built_in">int</span>(s[i])<br>            i += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">if</span> ans &gt; <span class="hljs-number">2</span> ** <span class="hljs-number">31</span> - <span class="hljs-number">1</span>:<br>                <span class="hljs-keyword">if</span> pos_or_neg == <span class="hljs-number">1</span>:<br>                    <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> ** <span class="hljs-number">31</span> - <span class="hljs-number">1</span><br>                <span class="hljs-keyword">else</span>:<br>                    <span class="hljs-keyword">return</span> -<span class="hljs-number">2</span> ** <span class="hljs-number">31</span><br>        <span class="hljs-keyword">return</span> ans * pos_or_neg<br></code></pre></div></td></tr></table></figure>
 <p>时间复杂度：<code>O(N)</code>。 空间复杂度：<code>O(1)</code>。</p>

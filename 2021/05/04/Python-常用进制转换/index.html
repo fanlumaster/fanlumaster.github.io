@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      828 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      7 分钟
     </span>
   
 
@@ -258,7 +258,7 @@
 <p><strong>使用实例</strong></p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(<span class="hljs-number">12</span>))<br><span class="hljs-comment"># 二进制转十进制</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(<span class="hljs-string">&#x27;11&#x27;</span>, <span class="hljs-number">2</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(<span class="hljs-string">&#x27;0b11&#x27;</span>, <span class="hljs-number">2</span>))<br><span class="hljs-comment"># 8 进制转十进制</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(<span class="hljs-string">&#x27;12&#x27;</span>, <span class="hljs-number">8</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(<span class="hljs-string">&#x27;012&#x27;</span>, <span class="hljs-number">8</span>))<br><span class="hljs-comment"># 16 进制转十进制</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(<span class="hljs-string">&#x27;12&#x27;</span>, <span class="hljs-number">16</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(<span class="hljs-string">&#x27;0x12&#x27;</span>, <span class="hljs-number">16</span>))<br></code></pre></div></td></tr></table></figure>
 <p>输出</p>
-<div class="hljs code-wrapper"><pre><code>12
+<div class="hljs code-wrapper"><pre><code class="hljs">12
 3
 3
 10
@@ -277,14 +277,17 @@
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">&gt;&gt;&gt; hex(12)<br><span class="hljs-string">&#x27;0xc&#x27;</span><br></code></pre></div></td></tr></table></figure>
 <h3 id="其他非十进制之间的互转">其他非十进制之间的互转</h3>
 <p>一个简单的方法是，可以利用十进制作中转。</p>
-<p>另一个方法是，我们给相应进制的数加上代表它们的前缀，然后使用诸如 <code>hex()</code> 函数即可。</p>
+<p>另一个方法是，我们给相应进制的数加上代表它们的前缀，然后使用诸如
+<code>hex()</code> 函数即可。</p>
 <p>例如，我们将十六进制 <code>0x12</code> 数转成八进制数</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">&gt;&gt;&gt;oct(int(<span class="hljs-string">&#x27;0x12&#x27;</span>, 16))<br><span class="hljs-string">&#x27;0o22&#x27;</span><br>&gt;&gt;&gt;oct(0x12)<br><span class="hljs-string">&#x27;0o22&#x27;</span><br></code></pre></div></td></tr></table></figure>
 <h3 id="补充">补充</h3>
 <p>这里补充各个常用的进制的前缀和后缀。</p>
 <ul>
 <li>二进制：前缀 <code>0b/0B</code>，后缀 <code>b/B</code></li>
-<li>八进制：前缀 <code>0o/0O</code>，后缀 <code>o/O</code>，有的资料说，八进制的前缀也可以使用单独一个数字 <code>0</code>，但是，这在 Python 中是行不通的</li>
+<li>八进制：前缀 <code>0o/0O</code>，后缀
+<code>o/O</code>，有的资料说，八进制的前缀也可以使用单独一个数字
+<code>0</code>，但是，这在 Python 中是行不通的</li>
 <li>十进制：前缀 <code>无</code>，后缀 <code>d/D</code></li>
 <li>十六进制：前缀 <code>0x/0X</code>，后缀 <code>h/H</code></li>
 </ul>

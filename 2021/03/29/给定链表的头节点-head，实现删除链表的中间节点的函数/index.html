@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      1.9k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      16 分钟
     </span>
   
 
@@ -247,13 +247,14 @@
               <h4 id="题目">题目</h4>
 <p>给定链表的头节点 head，实现删除链表的中间节点的函数。</p>
 <p>例如：</p>
-<div class="hljs code-wrapper"><pre><code>1-＞2，删除节点1；
+<div class="hljs code-wrapper"><pre><code class="hljs">1-＞2，删除节点1；
 1-＞2-＞3，删除节点2；
 1-＞2-＞3-＞4，删除节点2；
 1-＞2-＞3-＞4-＞5，删除节点3；</code></pre></div>
-<p>进阶：给定链表的头节点 head、整数 a 和 b，实现删除位于 a/b 处节点的函数。</p>
+<p>进阶：给定链表的头节点 head、整数 a 和 b，实现删除位于 a/b
+处节点的函数。</p>
 <p>例如：</p>
-<div class="hljs code-wrapper"><pre><code>链表：1-＞2-＞3-＞4-＞5，假设a/b的值为r。
+<div class="hljs code-wrapper"><pre><code class="hljs">链表：1-＞2-＞3-＞4-＞5，假设a/b的值为r。
 如果r等于0，不删除任何节点；
 如果r在区间（0，1/5]上，删除节点1；
 如果r在区间（1/5，2/5]上，删除节点2；
@@ -262,11 +263,26 @@
 如果r在区间（4/5，1]上，删除节点5；如果r大于1，不删除任何节点。</code></pre></div>
 <h4 id="解题思路">解题思路</h4>
 <p><strong>原问题</strong></p>
-<p>整体思路是利用快慢指针。只是要注意一些细节问题。我们将小于等于 2 个节点的链表直接作硬编码处理。然后处理大于 2 个节点的情况。首先初始化快慢指针，快指针初始时指向第 3 个节点，慢指针初始时指向第 1 个节点。然后开始移动，每一次移动，快指针走两个节点，慢指针走一个节点。终止条件是快指针到达了倒数第一个或者倒数第二个节点。</p>
-<p>至于为何快指针和慢指针走的规则是这样的，我们可以分两种情况来看。我们假定链表节点数为 <span class="math inline">\(N, N \geqslant 3\)</span>。</p>
+<p>整体思路是利用快慢指针。只是要注意一些细节问题。我们将小于等于 2
+个节点的链表直接作硬编码处理。然后处理大于 2
+个节点的情况。首先初始化快慢指针，快指针初始时指向第 3
+个节点，慢指针初始时指向第 1
+个节点。然后开始移动，每一次移动，快指针走两个节点，慢指针走一个节点。终止条件是快指针到达了倒数第一个或者倒数第二个节点。</p>
+<p>至于为何快指针和慢指针走的规则是这样的，我们可以分两种情况来看。我们假定链表节点数为
+<span class="math inline">\(N, N \geqslant 3\)</span>。</p>
 <ul>
-<li><span class="math inline">\(N\)</span> 是偶数。快指针最后是停在了倒数第二个节点的位置。则慢指针走了 <span class="math inline">\(\frac{N - 3 - 1}{2}\)</span> 步，即 <span class="math inline">\(\frac{N}{2} - 1\)</span> 步。很显然，最后慢指针的位置是在该删除节点的前一个位置。</li>
-<li><span class="math inline">\(N\)</span> 是奇数。快指针最后是停在了倒数第一个位置。则慢指针走了 <span class="math inline">\(\frac{N - 3}{2}\)</span> 步，即 <span class="math inline">\(\frac{N - 1}{2} - 1\)</span>，而慢指针从头节点开始走 <span class="math inline">\(\frac{N - 1}{2}\)</span> 步正好会走到中间的节点的地方。因此，最后慢指针的位置是中间节点的前一个位置。</li>
+<li><span class="math inline">\(N\)</span>
+是偶数。快指针最后是停在了倒数第二个节点的位置。则慢指针走了 <span
+class="math inline">\(\frac{N - 3 - 1}{2}\)</span> 步，即 <span
+class="math inline">\(\frac{N}{2} - 1\)</span>
+步。很显然，最后慢指针的位置是在该删除节点的前一个位置。</li>
+<li><span class="math inline">\(N\)</span>
+是奇数。快指针最后是停在了倒数第一个位置。则慢指针走了 <span
+class="math inline">\(\frac{N - 3}{2}\)</span> 步，即 <span
+class="math inline">\(\frac{N - 1}{2} -
+1\)</span>，而慢指针从头节点开始走 <span class="math inline">\(\frac{N -
+1}{2}\)</span>
+步正好会走到中间的节点的地方。因此，最后慢指针的位置是中间节点的前一个位置。</li>
 </ul>
 <p>代码</p>
 <p>节点类</p>

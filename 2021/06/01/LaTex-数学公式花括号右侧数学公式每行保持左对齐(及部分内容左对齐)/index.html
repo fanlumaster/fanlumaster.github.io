@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      1.7k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      15 分钟
     </span>
   
 
@@ -249,12 +249,13 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$<br>m[i, j] = <br>\left\&#123;<br>\begin&#123;matrix&#125;<br>\begin&#123;align&#125;<br>&amp; 0 &amp; if \quad i = j \\<br>&amp; min\&#123;m[i, k] + m[k + 1, j] + p_&#123;i - 1&#125; p_k p_j\&#125; &amp; if \quad i &lt; j \\<br>\end&#123;align&#125;<br>\end&#123;matrix&#125;<br>\right.<br>$$<br></code></pre></div></td></tr></table></figure>
 <p>效果</p>
 <p><span class="math display">\[
-m[i, j] = 
+m[i, j] =
 \left\{
 \begin{matrix}
 \begin{align}
 &amp; 0 &amp; if \quad i = j \\
-&amp; min\{m[i, k] + m[k + 1, j] + p_{i - 1} p_k p_j\} &amp; if \quad i &lt; j \\
+&amp; min\{m[i, k] + m[k + 1, j] + p_{i - 1} p_k p_j\} &amp; if \quad i
+&lt; j \\
 \end{align}
 \end{matrix}
 \right.
@@ -278,20 +279,25 @@ m[i, j] =
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs latex">$$<br>c[i, j] = <br>\left\&#123;<br>\begin&#123;matrix&#125;<br>\begin&#123;align&#125;<br>&amp; &#123;0&#125; &amp;&amp; &#123;if \quad i = 0 \; or \; j = 0,&#125; \\<br>&amp; &#123;c[i - 1, j - 1] + 1&#125; &amp;&amp; &#123;if \quad i, j &gt; 0 \; and \; x_i = y_j,&#125; \\<br>&amp; &#123;max(c[i, j - 1], c[i - 1, j])&#125; &amp;&amp; &#123;if \quad i, j &gt; 0 \; and \; x_i \neq y_j.&#125; \\<br>\end&#123;align&#125;<br>\end&#123;matrix&#125;<br>\right.<br>$$<br></code></pre></div></td></tr></table></figure>
 <p>效果</p>
 <p><span class="math display">\[
-c[i, j] = 
+c[i, j] =
 \left\{
 \begin{matrix}
 \begin{align}
 &amp; {0} &amp;&amp; {if \quad i = 0 \; or \; j = 0,} \\
-&amp; {c[i - 1, j - 1] + 1} &amp;&amp; {if \quad i, j &gt; 0 \; and \; x_i = y_j,} \\
-&amp; {max(c[i, j - 1], c[i - 1, j])} &amp;&amp; {if \quad i, j &gt; 0 \; and \; x_i \neq y_j.} \\
+&amp; {c[i - 1, j - 1] + 1} &amp;&amp; {if \quad i, j &gt; 0 \; and \;
+x_i = y_j,} \\
+&amp; {max(c[i, j - 1], c[i - 1, j])} &amp;&amp; {if \quad i, j &gt; 0
+\; and \; x_i \neq y_j.} \\
 \end{align}
 \end{matrix}
 \right.
 \]</span></p>
 <h2 id="注意点">注意点</h2>
-<p>这里的关键是要把需要对齐的行包裹在 <code>\begin&#123;align&#125;</code> 和 <code>\end&#123;align&#125;</code> 内，然后使用对齐符号 <code>&amp;</code>。</p>
-<p>注意上面的示例 3，后面使用了 <code>&amp;&amp;</code> 这样一个符号，来对第二部分的内容进行左对齐，这里解释一下这个符号的含义，第一个 <code>&amp;</code> 表示分隔，第二个 <code>&amp;</code> 表示对齐。</p>
+<p>这里的关键是要把需要对齐的行包裹在 <code>\begin&#123;align&#125;</code> 和
+<code>\end&#123;align&#125;</code> 内，然后使用对齐符号 <code>&amp;</code>。</p>
+<p>注意上面的示例 3，后面使用了 <code>&amp;&amp;</code>
+这样一个符号，来对第二部分的内容进行左对齐，这里解释一下这个符号的含义，第一个
+<code>&amp;</code> 表示分隔，第二个 <code>&amp;</code> 表示对齐。</p>
 
             </div>
             <hr>

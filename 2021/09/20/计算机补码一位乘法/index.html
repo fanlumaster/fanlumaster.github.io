@@ -16,12 +16,12 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="补码乘法由英国人布斯（Booth）于 1950 年发明，又称为布斯（Booth）算法。 1、Booth 算法的推导 设 \([x]_{补} &#x3D; x_0.x_1x_2...x_n\)，\([y]_{补} &#x3D; y_0.y_1y_2...y_n\)。下面分两种情况来推导 Booth 算法。  设被乘数 \(x\) 符号任意，乘数 \(y\) 符号为正，则：  \[ [x]_{补} &#x3D; x_">
+    <meta name="description" content="补码乘法由英国人布斯（Booth）于 1950 年发明，又称为布斯（Booth）算法。 1、Booth 算法的推导 设 \([x]_{补} &#x3D; x_0.x_1x_2...x_n\)，\([y]_{补} &#x3D; y_0.y_1y_2...y_n\)。下面分两种情况来推导 Booth 算法。  设被乘数 \(x\) 符号任意，乘数 \(y\) 符号为正，则：  \[ [x]_{补} &#x3D;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机补码一位乘法">
 <meta property="og:url" content="http://example.com/2021/09/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A1%A5%E7%A0%81%E4%B8%80%E4%BD%8D%E4%B9%98%E6%B3%95/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="补码乘法由英国人布斯（Booth）于 1950 年发明，又称为布斯（Booth）算法。 1、Booth 算法的推导 设 \([x]_{补} &#x3D; x_0.x_1x_2...x_n\)，\([y]_{补} &#x3D; y_0.y_1y_2...y_n\)。下面分两种情况来推导 Booth 算法。  设被乘数 \(x\) 符号任意，乘数 \(y\) 符号为正，则：  \[ [x]_{补} &#x3D; x_">
+<meta property="og:description" content="补码乘法由英国人布斯（Booth）于 1950 年发明，又称为布斯（Booth）算法。 1、Booth 算法的推导 设 \([x]_{补} &#x3D; x_0.x_1x_2...x_n\)，\([y]_{补} &#x3D; y_0.y_1y_2...y_n\)。下面分两种情况来推导 Booth 算法。  设被乘数 \(x\) 符号任意，乘数 \(y\) 符号为正，则：  \[ [x]_{补} &#x3D;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210920221556.png">
 <meta property="article:published_time" content="2021-09-20T12:44:31.000Z">
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      5.1k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      43 分钟
     </span>
   
 
@@ -244,11 +244,15 @@
             <h1 style="display: none">计算机补码一位乘法</h1>
             
             <div class="markdown-body">
-              <p>补码乘法由英国人布斯（Booth）于 1950 年发明，又称为布斯（Booth）算法。</p>
+              <p>补码乘法由英国人布斯（Booth）于 1950
+年发明，又称为布斯（Booth）算法。</p>
 <h1 id="booth-算法的推导">1、Booth 算法的推导</h1>
-<p>设 <span class="math inline">\([x]_{补} = x_0.x_1x_2...x_n\)</span>，<span class="math inline">\([y]_{补} = y_0.y_1y_2...y_n\)</span>。下面分两种情况来推导 Booth 算法。</p>
+<p>设 <span class="math inline">\([x]_{补} =
+x_0.x_1x_2...x_n\)</span>，<span class="math inline">\([y]_{补} =
+y_0.y_1y_2...y_n\)</span>。下面分两种情况来推导 Booth 算法。</p>
 <ol type="1">
-<li>设被乘数 <span class="math inline">\(x\)</span> 符号任意，乘数 <span class="math inline">\(y\)</span> 符号为正，则：</li>
+<li>设被乘数 <span class="math inline">\(x\)</span> 符号任意，乘数 <span
+class="math inline">\(y\)</span> 符号为正，则：</li>
 </ol>
 <p><span class="math display">\[
 [x]_{补} = x_0.x_1x_2...x_n \quad [y]_{补} = 0.y_1y_2...y_n
@@ -257,7 +261,8 @@
 <p><span class="math display">\[
 \begin{equation}
 \begin{split}
-&amp;[x]_{补} = (2 + x) \; mod \; 2 = (2^{n + 1} + x) \; mod \; 2（注 1） \\
+&amp;[x]_{补} = (2 + x) \; mod \; 2 = (2^{n + 1} + x) \; mod \; 2（注
+1） \\
 &amp;[y]_{补} = y
 \end{split}
 \end{equation}
@@ -265,7 +270,8 @@
 <p><span class="math display">\[
 \begin{equation}
 \begin{split}
-[x]_{补} \times [y]_{补} &amp;= [(2^{n + 1} + x) \; mod \; 2] \times y \\
+[x]_{补} \times [y]_{补} &amp;= [(2^{n + 1} + x) \; mod \; 2] \times y
+\\
 &amp;= [(2^{n + 1} + x) \times y] \; mod \; 2 \\
 &amp;= (2^{n + 1} \times y + x \times y) \; mod \; 2 \\
 &amp;= (2 \times y_1y_2...y_n + x \times y) \; mod \; 2 \\
@@ -276,12 +282,14 @@
 <p>所以，</p>
 <p><span class="math display">\[
 \begin{matrix}
-[x]_{补} \times [y]_{补} = (2 + x \times y) \; mod \; 2 = [x \times y]_{补} \\
+[x]_{补} \times [y]_{补} = (2 + x \times y) \; mod \; 2 = [x \times
+y]_{补} \\
 [x \times y]_{补} = [x]_{补} \times y \qquad \qquad (1)
 \end{matrix}
 \]</span></p>
 <ol start="2" type="1">
-<li>被乘数 <span class="math inline">\(x\)</span> 符号任意，乘数 <span class="math inline">\(y\)</span> 符号为负，则根据补码定义：</li>
+<li>被乘数 <span class="math inline">\(x\)</span> 符号任意，乘数 <span
+class="math inline">\(y\)</span> 符号为负，则根据补码定义：</li>
 </ol>
 <p><span class="math display">\[
 [x]_{补} = x_0.x_1x_2...x_n \quad [y]_{补} = 1.y_1y_2...y_n = 2 + y
@@ -290,53 +298,72 @@
 <p><span class="math display">\[
 \begin{matrix}
 y = [y]_{补} - 2 = 1.y_1y_2...y_n - 2 = 0.y_1y_2...y_n - 1 \\
-x \times y = x \times (0.y_1y_2...y_n - 1) = x \times 0.y_1y_2...y_n - x \qquad \qquad (2)
+x \times y = x \times (0.y_1y_2...y_n - 1) = x \times 0.y_1y_2...y_n - x
+\qquad \qquad (2)
 \end{matrix}
 \]</span></p>
 <p>对式 (2) 两边同时求补，并利用补码减法公式展开等式右边项可得：</p>
 <p><span class="math display">\[
-[x \times y]_{补} = [x \times 0.y_1y_2...y_n]_{补} - [x]_{补} \qquad \qquad (3)
+[x \times y]_{补} = [x \times 0.y_1y_2...y_n]_{补} - [x]_{补} \qquad
+\qquad (3)
 \]</span></p>
 <p>根据式 (1) 可得：</p>
 <p><span class="math display">\[
-[x \times y]_{补} = [x]_{补} \times 0.y_1y_2...y_n - [x]_{补} \qquad \qquad (4)
+[x \times y]_{补} = [x]_{补} \times 0.y_1y_2...y_n - [x]_{补} \qquad
+\qquad (4)
 \]</span></p>
-<p>将式 (1) 和式 (4) 综合起来，引入 <span class="math inline">\(y_0\)</span> 位，即可得补码一位乘法的统一算式，即：</p>
+<p>将式 (1) 和式 (4) 综合起来，引入 <span
+class="math inline">\(y_0\)</span>
+位，即可得补码一位乘法的统一算式，即：</p>
 <p><span class="math display">\[
-[x \times y]_{补} = [x]_{补} \times 0.y_1y_2...y_n - [x]_{补} \times y_0 \qquad \qquad (5)
+[x \times y]_{补} = [x]_{补} \times 0.y_1y_2...y_n - [x]_{补} \times y_0
+\qquad \qquad (5)
 \]</span></p>
-<p>对于式 (5) 右边第二项 <span class="math inline">\([x]_{补} \times y_0\)</span>，存在如下结论：</p>
-<p>当 <span class="math inline">\(y\)</span> 为正时，<span class="math inline">\(y_0 = 0\)</span>，该项不存在；当 <span class="math inline">\(y\)</span> 为负时 <span class="math inline">\(y_0 = 1\)</span>，该项为 <span class="math inline">\([x]_{补}\)</span>。</p>
+<p>对于式 (5) 右边第二项 <span class="math inline">\([x]_{补} \times
+y_0\)</span>，存在如下结论：</p>
+<p>当 <span class="math inline">\(y\)</span> 为正时，<span
+class="math inline">\(y_0 = 0\)</span>，该项不存在；当 <span
+class="math inline">\(y\)</span> 为负时 <span class="math inline">\(y_0
+= 1\)</span>，该项为 <span class="math inline">\([x]_{补}\)</span>。</p>
 <p>总结下来，就是以下的式子：</p>
 <p><span class="math display">\[
 \begin{equation}
 \begin{split}
 &amp;[x \times y]_{补} = [x]_{补} \times y &amp; \quad y \; 符号为正 \\
-&amp;[x \times y]_{补} = [x]_{补} \times 0.y_1y_2...y_n - [x]_{补} &amp; \quad y 符号为负
+&amp;[x \times y]_{补} = [x]_{补} \times 0.y_1y_2...y_n - [x]_{补} &amp;
+\quad y 符号为负
 \end{split}
 \end{equation}
 \]</span></p>
 <p><span class="math display">\[
-[x \times y]_{补} = [x]_{补} \times 0.y_1y_2...y_n - [x]_{补} \times y_0 \quad 不考虑 \; y \; 的符号
+[x \times y]_{补} = [x]_{补} \times 0.y_1y_2...y_n - [x]_{补} \times y_0
+\quad 不考虑 \; y \; 的符号
 \]</span></p>
-<p><strong>接下来是推导从式 (5) 演变成适合计算机计算的迭代公式。</strong></p>
+<p><strong>接下来是推导从式 (5)
+演变成适合计算机计算的迭代公式。</strong></p>
 <p>为了方便，我们把上面的式 (5) 放在这里：</p>
 <p><span class="math display">\[
 [x \times y]_{补} = [x]_{补} \times 0.y_1y_2...y_n - [x]_{补} \times y_0
 \]</span></p>
 <p>上面的式子可以展开成下面的形式：</p>
 <p><span class="math display">\[
-[x \times y]_{补} = [x]_{补} \times [(y_1 - y_0) + 2^{-1}(y_2 - y_1) + 2^{-2}(y_3 - y_2) + \cdots + 2^{-(n - 1)}(y_n - y_{n - 1}) + 2^{-n}(0 - y_n)]
+[x \times y]_{补} = [x]_{补} \times [(y_1 - y_0) + 2^{-1}(y_2 - y_1) +
+2^{-2}(y_3 - y_2) + \cdots + 2^{-(n - 1)}(y_n - y_{n - 1}) + 2^{-n}(0 -
+y_n)]
 \]</span></p>
-<p>然后，设 <span class="math inline">\([z_0]_{补} = 0\)</span>，接着，</p>
+<p>然后，设 <span class="math inline">\([z_0]_{补} =
+0\)</span>，接着，</p>
 <p><span class="math display">\[
 \begin{equation}
 \begin{split}
 [z_1]_{补} &amp;= 2^{-1} \{ [z_0]_{补} + (y_{n + 1} - y_n)[x]_{补} \} \\
-[z_2]_{补} &amp;= 2^{-1} \{ [z_1]_{补} + (y_{n} - y_{n - 1})[x]_{补} \} \\
+[z_2]_{补} &amp;= 2^{-1} \{ [z_1]_{补} + (y_{n} - y_{n - 1})[x]_{补} \}
+\\
 \cdots &amp;\cdots \\
-[z_n]_{补} &amp;= 2^{-1} \{ [z_{n - 1}]_{补} + (y_{2} - y_1)[x]_{补} \} \\
-[x \times y]_{补} &amp;= [z_{n + 1}]_{补} = 2^{-1} \{ [z_n]_{补} + (y_1 - y_0)[x]_{补} \} \\
+[z_n]_{补} &amp;= 2^{-1} \{ [z_{n - 1}]_{补} + (y_{2} - y_1)[x]_{补} \}
+\\
+[x \times y]_{补} &amp;= [z_{n + 1}]_{补} = 2^{-1} \{ [z_n]_{补} + (y_1
+- y_0)[x]_{补} \} \\
 \end{split}
 \end{equation}
 \]</span></p>
@@ -360,16 +387,29 @@ S_4 &amp;= S_3 + a_0
 <p><span class="math display">\[
 [z_1]_{补} = 2^{-1} \{ [z_0]_{补} + (y_{n + 1} - y_n)[x]_{补} \}
 \]</span></p>
-<p>有一项 <span class="math inline">\((y_{n + 1} - y_n)\)</span> 的后面还乘上了一个 <span class="math inline">\([x]_{补}\)</span>，这个我一开始也不理解，后来经同学点拨，我决定将推导过程中的前几个式子给展开看一下，结果发现每一个式子都可以把 <span class="math inline">\([x]_{补}\)</span> 给提出来，那么，这个问题自然就解决了。</p>
+<p>有一项 <span class="math inline">\((y_{n + 1} - y_n)\)</span>
+的后面还乘上了一个 <span
+class="math inline">\([x]_{补}\)</span>，这个我一开始也不理解，后来经同学点拨，我决定将推导过程中的前几个式子给展开看一下，结果发现每一个式子都可以把
+<span class="math inline">\([x]_{补}\)</span>
+给提出来，那么，这个问题自然就解决了。</p>
 <p><strong>算法描述</strong></p>
 <ul>
-<li>在 <span class="math inline">\([y]_{补}\)</span> 后添一个 <span class="math inline">\(0\)</span> 作为 <span class="math inline">\(y_{n + 1}\)</span>，令部分积为 <span class="math inline">\(0\)</span></li>
-<li>如果 <span class="math inline">\(y_{n + 1} = y_n\)</span>，部分积 <span class="math inline">\(+ \; 0\)</span>，并将结果右移一位</li>
-<li>如果 <span class="math inline">\(y_{n + 1} &lt; y_n\)</span>，部分积 <span class="math inline">\(+ \; [-x]_{补}\)</span>，并将结果右移一位</li>
-<li>如果 <span class="math inline">\(y_{n + 1} &gt; y_n\)</span>，部分积 <span class="math inline">\(+ \; [x]_{补}\)</span>，并将结果右移一位</li>
+<li>在 <span class="math inline">\([y]_{补}\)</span> 后添一个 <span
+class="math inline">\(0\)</span> 作为 <span class="math inline">\(y_{n +
+1}\)</span>，令部分积为 <span class="math inline">\(0\)</span></li>
+<li>如果 <span class="math inline">\(y_{n + 1} = y_n\)</span>，部分积
+<span class="math inline">\(+ \; 0\)</span>，并将结果右移一位</li>
+<li>如果 <span class="math inline">\(y_{n + 1} &lt; y_n\)</span>，部分积
+<span class="math inline">\(+ \;
+[-x]_{补}\)</span>，并将结果右移一位</li>
+<li>如果 <span class="math inline">\(y_{n + 1} &gt; y_n\)</span>，部分积
+<span class="math inline">\(+ \;
+[x]_{补}\)</span>，并将结果右移一位</li>
 </ul>
 <h1 id="举例应用">2、举例应用</h1>
-<p>已知 <span class="math inline">\(X = +0..1101\)</span>，<span class="math inline">\(Y = +0.1011\)</span>，用补码一位乘法求 <span class="math inline">\(X \times Y\)</span>.</p>
+<p>已知 <span class="math inline">\(X = +0..1101\)</span>，<span
+class="math inline">\(Y = +0.1011\)</span>，用补码一位乘法求 <span
+class="math inline">\(X \times Y\)</span>.</p>
 <p><span class="math display">\[
 解：[X]_{补} = 0.1101 \quad [Y]_{补} = 0.1011 \quad [-X]_{补} = 1.0011
 \]</span></p>
@@ -378,7 +418,8 @@ S_4 &amp;= S_3 + a_0
 \begin{split}
 &amp;部分积 \qquad &amp; 乘数 \qquad \quad &amp; 说明 \\
 &amp;00.0000 \qquad &amp; 0.10110 &amp; \\
-{+} \; &amp;11.0011 \qquad &amp;  &amp; Y_{n + 1} &lt; Y_n, 部分积 +[-X]_{补}  \\
+{+} \; &amp;11.0011 \qquad &amp;  &amp; Y_{n + 1} &lt; Y_n, 部分积
++[-X]_{补}  \\
 ···&amp; ········&amp; &amp; \\
 &amp;11.0011 \qquad &amp;  &amp;  \\
 \rightarrow \; &amp;11.1001 \qquad &amp; 1001011 &amp; 将结果右移一位 \\
@@ -386,15 +427,18 @@ S_4 &amp;= S_3 + a_0
 ···&amp; ········ &amp; &amp; \\
 &amp;11.1001 \qquad &amp;  &amp;  \\
 \rightarrow \; &amp;11.1100 \qquad &amp; 11.0101 &amp; 将结果右移一位 \\
-{+} \; &amp;00.1101 \qquad &amp;  &amp; Y_{n + 1} &gt; Y_n, 部分积 + [X]_{补} \\
+{+} \; &amp;00.1101 \qquad &amp;  &amp; Y_{n + 1} &gt; Y_n, 部分积 +
+[X]_{补} \\
 ···&amp; ········ &amp; &amp; \\
 &amp;00.1001 \qquad &amp;  &amp;  \\
 \rightarrow \; &amp;00.0100 \qquad &amp; 111.010 &amp; 将结果右移一位 \\
-{+} \; &amp;11.0011 \qquad &amp;  &amp; Y_{n + 1} &lt; Y_n, 部分积 + [-X]_{补} \\
+{+} \; &amp;11.0011 \qquad &amp;  &amp; Y_{n + 1} &lt; Y_n, 部分积 +
+[-X]_{补} \\
 ···&amp; ········ &amp; &amp; \\
 &amp;11.0111 \qquad &amp;  &amp;  \\
 \rightarrow \; &amp;11.1011 \qquad &amp; 1111.01 &amp; 将结果右移一位 \\
-{+} \; &amp;00.1101 \qquad &amp;  &amp; Y_{n + 1} &gt; Y_n, 部分积 + [X]_{补} \\
+{+} \; &amp;00.1101 \qquad &amp;  &amp; Y_{n + 1} &gt; Y_n, 部分积 +
+[X]_{补} \\
 ···&amp; ········ &amp; &amp; \\
 &amp;00.1000 \qquad &amp;  &amp;
 \end{split}
@@ -412,9 +456,10 @@ XY &amp;= 0.10001111
 <hr />
 <p>注释：</p>
 <p>1、小数的补码，按照定义应该是：</p>
-<p>设二进制小数 <span class="math inline">\(X = \pm 0.x_{-1}x_{-2}...x_{-m}\)</span>，则其补码定义为</p>
+<p>设二进制小数 <span class="math inline">\(X = \pm
+0.x_{-1}x_{-2}...x_{-m}\)</span>，则其补码定义为</p>
 <p><span class="math display">\[
-[X]_{补} = 
+[X]_{补} =
 \left\{\begin{matrix}
 \begin{aligned}
 &amp;X &amp; 0 &amp; \leqslant X &lt; 1 \\
@@ -429,7 +474,8 @@ XY &amp;= 0.10001111
 <p>2、在上面的推导过程中，隐含地用了下面的关系：</p>
 <p>设 $ -1 &lt; x, y &lt; 1 $，则有</p>
 <p><span class="math display">\[
-[(2^{n + 1} + x) \; mod \; 2] \times y = [(2^{n + 1} + x) \times y] \; mod \; 2
+[(2^{n + 1} + x) \; mod \; 2] \times y = [(2^{n + 1} + x) \times y] \;
+mod \; 2
 \]</span></p>
 <p>下面我门来证明这个式子。</p>
 <ol type="1">
@@ -440,11 +486,13 @@ XY &amp;= 0.10001111
 \]</span></p>
 <p>对于模运算，有这样的运算法则：</p>
 <p><span class="math display">\[
-(a \times b) \; mod \; p = [(a \; mod \; p) \times (b \; mod \; p)] \; mod \; p
+(a \times b) \; mod \; p = [(a \; mod \; p) \times (b \; mod \; p)] \;
+mod \; p
 \]</span></p>
 <p>所以有</p>
 <p><span class="math display">\[
-[(2^{n + 1} + x) \; mod \; 2 \times y \; mod \; 2] \; mod \; 2 = (x \times y) \; mod \; 2 = x \times y
+[(2^{n + 1} + x) \; mod \; 2 \times y \; mod \; 2] \; mod \; 2 = (x
+\times y) \; mod \; 2 = x \times y
 \]</span></p>
 <p>所以有 <span class="math inline">\(左式 = 右式\)</span>。</p>
 <ol start="2" type="1">
@@ -458,17 +506,27 @@ XY &amp;= 0.10001111
 \]</span></p>
 <p>所以有 <span class="math inline">\(左式 = 右式\)</span>。</p>
 <p>综上，原式的正确性得证。</p>
-<p>对于边界情况，即 <span class="math inline">\(x = 0 \; or \; 1 \; or \; -1\)</span> 时候，我想，计算机应该有更好的方法直接就把结果给计算出来了，这里就不再赘述。</p>
+<p>对于边界情况，即 <span class="math inline">\(x = 0 \; or \; 1 \; or
+\; -1\)</span>
+时候，我想，计算机应该有更好的方法直接就把结果给计算出来了，这里就不再赘述。</p>
 <h1 id="电路图逻辑实现">3、电路图逻辑实现</h1>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210925182650.png" srcset="/img/loading.gif" lazyload alt="补码一位乘法逻辑结构图" /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210925182650.png" srcset="/img/loading.gif" lazyload
+alt="补码一位乘法逻辑结构图" /></p>
 <p>首先说明一下正方形方框充当的是缓冲器的角色。</p>
 <p>然后，解释一下下面的部分：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210925182928.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210925182928.png" srcset="/img/loading.gif" lazyload /></p>
 <ul>
-<li>左边，当 <span class="math inline">\(y_{n + 1} &gt; y_n\)</span> 时，与门输出为 1，这时，X 直接送上去；</li>
-<li>右边，当 <span class="math inline">\(y_{n + 1} &lt; y_n\)</span> 时。与门输出为 1，这时，X 按位取反加一，利用的是：<span class="math inline">\([-X]_{补} = [X]_{补}\)</span> 先按位取反然后在末尾加一。</li>
+<li>左边，当 <span class="math inline">\(y_{n + 1} &gt; y_n\)</span>
+时，与门输出为 1，这时，X 直接送上去；</li>
+<li>右边，当 <span class="math inline">\(y_{n + 1} &lt; y_n\)</span>
+时。与门输出为 1，这时，X 按位取反加一，利用的是：<span
+class="math inline">\([-X]_{补} = [X]_{补}\)</span>
+先按位取反然后在末尾加一。</li>
 </ul>
-<p>然后，图中的 <span class="math inline">\(R_0, \; R_1\)</span> 表示的寄存器（Register），在实际运作过程中，P 和 Y 都要移位。</p>
+<p>然后，图中的 <span class="math inline">\(R_0, \; R_1\)</span>
+表示的寄存器（Register），在实际运作过程中，P 和 Y 都要移位。</p>
 <p>最后，这个图仅仅是逻辑实现的示意图，其中还是隐藏了一些具体的细节的。</p>
 
             </div>

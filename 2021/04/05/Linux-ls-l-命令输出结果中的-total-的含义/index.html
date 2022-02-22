@@ -23,16 +23,12 @@
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
 <meta property="og:description" content="关于 Linux 下 ls -l 命令输出结果中 total 的解释">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405224205.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405224059.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405225101.png">
 <meta property="article:published_time" content="2021-04-05T14:26:10.000Z">
 <meta property="article:modified_time" content="2021-04-05T15:19:47.403Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Linux 命令">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405224205.png">
   
   
   <title>Linux ls -l 命令输出结果中的 total 的含义 - Fan Lu&#39;s Blog</title>
@@ -206,7 +202,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      815 字
     </span>
   
 
@@ -215,7 +211,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      7 分钟
     </span>
   
 
@@ -247,30 +243,59 @@
             <h1 style="display: none">Linux ls -l 命令输出结果中的 total 的含义</h1>
             
             <div class="markdown-body">
-              <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405224205.png" srcset="/img/loading.gif" lazyload alt="20210405224205" /></p>
-<p>我们观察这个 total 的值，显然，如果我们简单地把下面的所有文件的第五列的文件字节大小给加起来，得到的结果和这个 total 是不能画等号的。</p>
+              <p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405224205.png" srcset="/img/loading.gif" lazyload
+alt="20210405224205" /></p>
+<p>我们观察这个 total
+的值，显然，如果我们简单地把下面的所有文件的第五列的文件字节大小给加起来，得到的结果和这个
+total 是不能画等号的。</p>
 <p>那么，问题就来了，这个 total 究竟指的是什么呢？</p>
 <p>我们使用 <code>ls -lh</code> 命令来查看文件的具体大小</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405224059.png" srcset="/img/loading.gif" lazyload alt="20210405224059" /></p>
-<p>注意，这个命令列出来的文件大小的单位是 <code>K</code>，即 <code>KB</code>（不满 1.0 KB 的还是以字节为单位，并显示其以字节为单位应该显示的数字），但是，我们再重新加一下，发现其结果还是和 <code>total</code> 不相等。原因什么呢？</p>
-<p>这是因为，Linux 中有一个概念，叫做 <code>Block</code>，我们可以把这个 <code>Block</code> 想象成一个容器，这个容器的容量是固定的，假设是 <code>unit_size</code>，那么，<code>total</code> 的算法是这样的，它会对每一个文件进行计算，根据文件的大小计算其需要多少个这样的容器，对于不满 <code>unit_size</code> 的我们要向上取整。注意，这里是每一个文件计算一次。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405224059.png" srcset="/img/loading.gif" lazyload
+alt="20210405224059" /></p>
+<p>注意，这个命令列出来的文件大小的单位是 <code>K</code>，即
+<code>KB</code>（不满 1.0 KB
+的还是以字节为单位，并显示其以字节为单位应该显示的数字），但是，我们再重新加一下，发现其结果还是和
+<code>total</code> 不相等。原因什么呢？</p>
+<p>这是因为，Linux 中有一个概念，叫做 <code>Block</code>，我们可以把这个
+<code>Block</code> 想象成一个容器，这个容器的容量是固定的，假设是
+<code>unit_size</code>，那么，<code>total</code>
+的算法是这样的，它会对每一个文件进行计算，根据文件的大小计算其需要多少个这样的容器，对于不满
+<code>unit_size</code>
+的我们要向上取整。注意，这里是每一个文件计算一次。</p>
 <p>下面，举一个具体的例子。</p>
 <p>我们首先执行一个命令，查看当前系统的 <code>Block Size</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">stat</span> -<span class="hljs-built_in">fc</span> %s .<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405225101.png" srcset="/img/loading.gif" lazyload alt="20210405225101" /></p>
-<p>这里发现我的系统的 <code>Block Size</code> 为 4096，单位是字节，转换成 <code>KB</code> 也就是 <code>4KB</code>，那么，我们分别来计算上面列出来的文件各自需要多少个这样的 <code>Block Size</code>。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405225101.png" srcset="/img/loading.gif" lazyload
+alt="20210405225101" /></p>
+<p>这里发现我的系统的 <code>Block Size</code> 为
+4096，单位是字节，转换成 <code>KB</code> 也就是
+<code>4KB</code>，那么，我们分别来计算上面列出来的文件各自需要多少个这样的
+<code>Block Size</code>。</p>
 <ul>
-<li>首先是 <code>_config.lanscape.yml</code>，文件大小为 0，故需要 0 个 <code>Block</code></li>
-<li>对于 <code>_config.yml</code>，文件大小为 2.5K，故需要 1 个 <code>Block</code>，这里因为不满 4K 要取整，故最后需要 1 个 <code>Block</code>，下同</li>
-<li>对于 <code>db.json</code>，文件大小为 22K，故需要 6 个 <code>Block</code></li>
+<li>首先是 <code>_config.lanscape.yml</code>，文件大小为 0，故需要 0 个
+<code>Block</code></li>
+<li>对于 <code>_config.yml</code>，文件大小为 2.5K，故需要 1 个
+<code>Block</code>，这里因为不满 4K 要取整，故最后需要 1 个
+<code>Block</code>，下同</li>
+<li>对于 <code>db.json</code>，文件大小为 22K，故需要 6 个
+<code>Block</code></li>
 <li>......</li>
-<li>对于 <code>test.c</code>，注意这里的文件大小是 78B，也就是 78 个字节，向上取整，故需要 1 个 <code>Block</code></li>
-<li>对于 <code>themes</code>，文件大小为 4.0K，故需要 1 个 <code>Block</code></li>
+<li>对于 <code>test.c</code>，注意这里的文件大小是 78B，也就是 78
+个字节，向上取整，故需要 1 个 <code>Block</code></li>
+<li>对于 <code>themes</code>，文件大小为 4.0K，故需要 1 个
+<code>Block</code></li>
 </ul>
-<p>我们把所有的 <code>Block</code> 列式相加，再乘以每个 <code>Block</code> 的大小，得</p>
-<p><span class="math display">\[(0 + 1 + 6 + 1 + 1 + 15 + 1 + 1 + 1 + 1 + 1 + 1) \times 4 = 120K\]</span></p>
+<p>我们把所有的 <code>Block</code> 列式相加，再乘以每个
+<code>Block</code> 的大小，得</p>
+<p><span class="math display">\[(0 + 1 + 6 + 1 + 1 + 15 + 1 + 1 + 1 + 1
++ 1 + 1) \times 4 = 120K\]</span></p>
 <p>这样，结果就对得上了。</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/7401704/why-doesnt-total-from-ls-l-add-up-to-total-file-sizes-listed#comment117527984_7401744">StackOverflow 相关</a></p>
+<p>参考：<a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/7401704/why-doesnt-total-from-ls-l-add-up-to-total-file-sizes-listed#comment117527984_7401744">StackOverflow
+相关</a></p>
 
             </div>
             <hr>

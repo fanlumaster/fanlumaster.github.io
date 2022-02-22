@@ -21,19 +21,12 @@
 <meta property="og:url" content="http://example.com/2021/04/13/Django-%E7%BC%96%E5%86%99-URL-%E7%9B%B8%E5%85%B3%EF%BC%88%E6%99%AE%E9%80%9A%E5%92%8C%E6%AD%A3%E5%88%99%EF%BC%89/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413195445.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413200431.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413200846.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413201701.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413202800.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413202721.png">
 <meta property="article:published_time" content="2021-04-13T11:46:54.000Z">
 <meta property="article:modified_time" content="2021-05-20T15:11:28.128Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Django">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413195445.png">
   
   
   <title>Django 编写 URL 相关（普通和正则） - Fan Lu&#39;s Blog</title>
@@ -207,7 +200,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      2.5k 字
     </span>
   
 
@@ -216,7 +209,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      21 分钟
     </span>
   
 
@@ -248,30 +241,46 @@
             <h1 style="display: none">Django 编写 URL 相关（普通和正则）</h1>
             
             <div class="markdown-body">
-              <p>正规详细的参考资料可以参考官方文档：<a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/3.2/topics/http/urls/" class="uri">https://docs.djangoproject.com/zh-hans/3.2/topics/http/urls/</a></p>
+              <p>正规详细的参考资料可以参考官方文档：<a
+target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/3.2/topics/http/urls/"
+class="uri">https://docs.djangoproject.com/zh-hans/3.2/topics/http/urls/</a></p>
 <p>这里仅仅是记录一下几个我在学习过程中的例子和踩过的坑。</p>
 <h3 id="示例一编写一个简单的-url">示例一：编写一个简单的 URL</h3>
 <p>首先，在站点目录的 <code>url.py</code> 中编写 URL 规则</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413195445.png" srcset="/img/loading.gif" lazyload alt="20210413195445" /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413195445.png" srcset="/img/loading.gif" lazyload
+alt="20210413195445" /></p>
 <p>这个是创建项目（使用 PyCharm）时自动生成的目录。</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">from</span> django.contrib <span class="hljs-keyword">import</span> admin<br><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path, include<br><br>urlpatterns = [<br>    path(<span class="hljs-string">&#x27;admin/&#x27;</span>, admin.site.urls),<br>    path(<span class="hljs-string">&#x27;&#x27;</span>, include(<span class="hljs-string">&#x27;index.urls&#x27;</span>)), <span class="hljs-comment"># 函数 include() 允许引用其它 URLconfs，URL 为空，代表网站的域名是 localhost(127.0.0.1:8000)，通常是网站的首页</span><br>]<br></code></pre></div></td></tr></table></figure>
 <p>说明</p>
 <ul>
-<li><code>from django.urls import include</code> 这行代码对应 <code>path('', include('index.urls'))</code>，使用自己加的 APP 的文件下的 <code>urls.py</code> 必须要这样做</li>
+<li><code>from django.urls import include</code> 这行代码对应
+<code>path('', include('index.urls'))</code>，使用自己加的 APP
+的文件下的 <code>urls.py</code> 必须要这样做</li>
 </ul>
-<p>然后在 index 文件夹下编写 <code>urls.py</code>，上面引用的 <code>index.urls</code> 就是这个文件</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413200431.png" srcset="/img/loading.gif" lazyload alt="20210413200431" /></p>
+<p>然后在 index 文件夹下编写 <code>urls.py</code>，上面引用的
+<code>index.urls</code> 就是这个文件</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413200431.png" srcset="/img/loading.gif" lazyload
+alt="20210413200431" /></p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path<br><span class="hljs-keyword">from</span> . <span class="hljs-keyword">import</span> views<br>urlpatterns = [<br>    path(<span class="hljs-string">&#x27;&#x27;</span>, views.index),<br>]<br></code></pre></div></td></tr></table></figure>
 <p>说明</p>
 <ul>
-<li>这里的 <code>from . import views</code> 表示引用当前文件夹下的 <code>views.py</code></li>
+<li>这里的 <code>from . import views</code> 表示引用当前文件夹下的
+<code>views.py</code></li>
 </ul>
-<p>然后我们需要在 <code>views.py</code> 文件中编写 <code>index()</code> 函数</p>
+<p>然后我们需要在 <code>views.py</code> 文件中编写 <code>index()</code>
+函数</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">from</span> django.shortcuts <span class="hljs-keyword">import</span> render<br><br><span class="hljs-comment"># Create your views here.</span><br><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> HttpResponse<br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span>(<span class="hljs-params">request</span>):</span><br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;Hello World!&quot;</span>)<br></code></pre></div></td></tr></table></figure>
 <p>注释下面的代码即后加的代码。</p>
-<p>最后，我们可以运行项目，然后在浏览器中打开 <code>http://127.0.0.1:8000/</code> 测试一下了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413200846.png" srcset="/img/loading.gif" lazyload alt="20210413200846" /></p>
-<p>因为我们之前的 <code>path()</code> 第一个参数设置的是空字符串，所以，我们在浏览器地址栏输入的地址后，就会最终执行 <code>index()</code> 函数，然后显示相关信息。</p>
+<p>最后，我们可以运行项目，然后在浏览器中打开
+<code>http://127.0.0.1:8000/</code> 测试一下了</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413200846.png" srcset="/img/loading.gif" lazyload
+alt="20210413200846" /></p>
+<p>因为我们之前的 <code>path()</code>
+第一个参数设置的是空字符串，所以，我们在浏览器地址栏输入的地址后，就会最终执行
+<code>index()</code> 函数，然后显示相关信息。</p>
 <h3 id="示例二带变量的-url">示例二，带变量的 URL</h3>
 <p>注意，下面的操作全部是在 <code>index</code> 文件夹下。</p>
 <h4 id="普通写法">普通写法</h4>
@@ -285,22 +294,41 @@
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs Py"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path, re_path<br><span class="hljs-keyword">from</span> . <span class="hljs-keyword">import</span> views<br>urlpatterns = [<br>    path(<span class="hljs-string">&#x27;&#x27;</span>, views.index),<br>    <span class="hljs-comment"># 添加带有字符类型、整型和 slug 的 URL</span><br>    <span class="hljs-comment"># path(&#x27;&lt;year&gt;/&lt;int:month&gt;/&lt;slug:day&gt;&#x27;, views.mydate), # 这里的 year 相当于 str:year</span><br>    re_path(<span class="hljs-string">&#x27;(?P&lt;year&gt;[0-9]&#123;4&#125;)/(?P&lt;month&gt;[0-9]&#123;2&#125;)/(?P&lt;day&gt;[0-9]&#123;2&#125;).html$&#x27;</span>, views.mydate),<br>]<br></code></pre></div></td></tr></table></figure>
 <p>说明</p>
 <ul>
-<li>这里正则表达式最好要以 <code>$</code> 结尾，不然，在 <code>.html</code> 后面输入无限长的字符串程序也能正常访问。</li>
+<li>这里正则表达式最好要以 <code>$</code> 结尾，不然，在
+<code>.html</code> 后面输入无限长的字符串程序也能正常访问。</li>
 </ul>
 <p>然后编写 <code>mydate()</code> 函数</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mydate</span>(<span class="hljs-params">request, year, month, day</span>):</span><br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-built_in">str</span>(year) + <span class="hljs-string">&#x27;/&#x27;</span> + <span class="hljs-built_in">str</span>(month) + <span class="hljs-string">&#x27;/&#x27;</span> + <span class="hljs-built_in">str</span>(day))<br></code></pre></div></td></tr></table></figure>
 <p>然后运行，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413201701.png" srcset="/img/loading.gif" lazyload alt="20210413201701" /></p>
-<p>这里是正确的写法。我踩的坑其实是把正则表达式给写错了，具体就是多写了一个花括号 <code>&#125;</code>，然后访问 URL 时就总是 404。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413201701.png" srcset="/img/loading.gif" lazyload
+alt="20210413201701" /></p>
+<p>这里是正确的写法。我踩的坑其实是把正则表达式给写错了，具体就是多写了一个花括号
+<code>&#125;</code>，然后访问 URL 时就总是 404。</p>
 <h3 id="其他">其他</h3>
 <p>在写上面的正则表达式时，我测试过这样一种写法</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">re_path(<span class="hljs-string">&#x27;(?P&lt;year&gt;[0-9]&#123;4&#125;)/(?P&lt;month&gt;[0-9]&#123;2&#125;)/(?P&lt;day&gt;[0-9]&#123;2&#125;)/$&#x27;</span>, views.mydate),<br></code></pre></div></td></tr></table></figure>
-<p>即，利用正则表达式的规则，强制 URL 必须以正斜杠结尾，但是，实际测试时，发现结尾不写正斜杠也能够正常访问。原因是 Django 中有这样一个配置 <code>APPEND_SLASH</code>，它的默认值是 <code>True</code>，作用是如果 URL 结尾没有正斜杠，那么 Django 会默认把它加在末尾。这个变量我们可以在 <code>django/conf/global_settings</code> 中找到。如果我们想要更改其为 <code>False</code>，只需要在项目的站点目录下的 <code>settings.py</code> 中写下如下代码即可</p>
+<p>即，利用正则表达式的规则，强制 URL
+必须以正斜杠结尾，但是，实际测试时，发现结尾不写正斜杠也能够正常访问。原因是
+Django 中有这样一个配置 <code>APPEND_SLASH</code>，它的默认值是
+<code>True</code>，作用是如果 URL 结尾没有正斜杠，那么 Django
+会默认把它加在末尾。这个变量我们可以在
+<code>django/conf/global_settings</code> 中找到。如果我们想要更改其为
+<code>False</code>，只需要在项目的站点目录下的 <code>settings.py</code>
+中写下如下代码即可</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">APPEND_SLASH = <span class="hljs-literal">False</span><br></code></pre></div></td></tr></table></figure>
 <p><code>APPEND_SLASH</code> 在源码中的位置 ↓</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413202800.png" srcset="/img/loading.gif" lazyload alt="20210413202800" /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413202721.png" srcset="/img/loading.gif" lazyload alt="20210413202721" /></p>
-<p>参考：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/45784191/django-is-append-slash-set-to-true-even-if-not-in-settings-py">stackoverflow</a> <a target="_blank" rel="noopener" href="https://www.osgeo.cn/django/topics/http/urls.html">文档</a> <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/3.2/topics/http/urls/">官方文档</a> 《玩转 Django 2.0 - 黄永祥》</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413202800.png" srcset="/img/loading.gif" lazyload
+alt="20210413202800" /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413202721.png" srcset="/img/loading.gif" lazyload
+alt="20210413202721" /></p>
+<p>参考：<a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/45784191/django-is-append-slash-set-to-true-even-if-not-in-settings-py">stackoverflow</a>
+<a target="_blank" rel="noopener" href="https://www.osgeo.cn/django/topics/http/urls.html">文档</a> <a
+target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/3.2/topics/http/urls/">官方文档</a>
+《玩转 Django 2.0 - 黄永祥》</p>
 
             </div>
             <hr>

@@ -16,12 +16,12 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="主定理 令 $a \geqslant 1$ 和 $b &gt; 1$ 是常数, $f(n)$ 是一个函数, $T(n)$ 是定义在非负整数上的递归式: \[T(n) &#x3D; aT(n&#x2F;b) + f(n)\] 其中我们将 $n&#x2F;b$ 解释为 $\left \lfloor n&#x2F;b \right \rfloor$ 或 $\left \lceil n&#x2F;b \right \rceil$. 那么 $T(n)">
+    <meta name="description" content="主定理 令 $a \geqslant 1$ 和 $b &gt; 1$ 是常数, $f(n)$ 是一个函数, $T(n)$ 是定义在非负整数上的递归式: \[T(n) &#x3D; aT(n&#x2F;b) + f(n)\] 其中我们将 $n&#x2F;b$ 解释为 $\left \lfloor n&#x2F;b \right \rfloor$ 或 $\left \lceil n&#x2F;b \right \rceil$. 那么 $">
 <meta property="og:type" content="article">
 <meta property="og:title" content="主定理与主方法的使用">
 <meta property="og:url" content="http://example.com/2021/05/30/%E4%B8%BB%E5%AE%9A%E7%90%86%E4%B8%8E%E4%B8%BB%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="主定理 令 $a \geqslant 1$ 和 $b &gt; 1$ 是常数, $f(n)$ 是一个函数, $T(n)$ 是定义在非负整数上的递归式: \[T(n) &#x3D; aT(n&#x2F;b) + f(n)\] 其中我们将 $n&#x2F;b$ 解释为 $\left \lfloor n&#x2F;b \right \rfloor$ 或 $\left \lceil n&#x2F;b \right \rceil$. 那么 $T(n)">
+<meta property="og:description" content="主定理 令 $a \geqslant 1$ 和 $b &gt; 1$ 是常数, $f(n)$ 是一个函数, $T(n)$ 是定义在非负整数上的递归式: \[T(n) &#x3D; aT(n&#x2F;b) + f(n)\] 其中我们将 $n&#x2F;b$ 解释为 $\left \lfloor n&#x2F;b \right \rfloor$ 或 $\left \lceil n&#x2F;b \right \rceil$. 那么 $">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527222847.png">
 <meta property="article:published_time" content="2021-05-30T14:37:52.000Z">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      854 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      8 分钟
     </span>
   
 
@@ -246,19 +246,34 @@
             
             <div class="markdown-body">
               <h2 id="主定理">主定理</h2>
-<p>令 <code>$a \geqslant 1$</code> 和 <code>$b &gt; 1$</code> 是常数, <code>$f(n)$</code> 是一个函数, <code>$T(n)$</code> 是定义在非负整数上的递归式:</p>
+<p>令 <code>$a \geqslant 1$</code> 和 <code>$b &gt; 1$</code> 是常数,
+<code>$f(n)$</code> 是一个函数, <code>$T(n)$</code>
+是定义在非负整数上的递归式:</p>
 <p><span class="math display">\[T(n) = aT(n/b) + f(n)\]</span></p>
-<p>其中我们将 <code>$n/b$</code> 解释为 <code>$\left \lfloor n/b \right \rfloor$</code> 或 <code>$\left \lceil n/b \right \rceil$</code>. 那么 <code>$T(n)$</code> 有如下渐进界:</p>
+<p>其中我们将 <code>$n/b$</code> 解释为 <code>$\left \lfloor n/b \right
+\rfloor$</code> 或 <code>$\left \lceil n/b \right \rceil$</code>. 那么
+<code>$T(n)$</code> 有如下渐进界:</p>
 <ol type="1">
-<li>若对某个常数 <code>$\varepsilon &gt; 0$</code> 有 <code>$f(n) = O(n^&#123;log_&#123;b&#125;a - \varepsilon&#125;)$</code>, 则 <code>$T(n) = \Theta(n^&#123;log_&#123;b&#125;a&#125;)$</code>.</li>
-<li>若 <code>$f(n) = \Theta(n^&#123;log_&#123;b&#125;a&#125;)$</code>, 则 <code>$T(n) = O(n^&#123;log_&#123;b&#125;a&#125;lgn)$</code>.</li>
-<li>若对某个常数 <code>$\varepsilon &gt; 0$</code> 有 <code>$f(n) = \Omega(n^&#123;log_&#123;b&#125;a + \varepsilon&#125;)$</code>, 且对某个常数 <code>$c &lt; 1$</code> 和所有足够大的 <code>$n$</code> 有 <code>$af(n/b) \leqslant cf(n)$</code>, 则 <code>$T(n) = \Theta(f(n))$</code>.</li>
+<li>若对某个常数 <code>$\varepsilon &gt; 0$</code> 有 <code>$f(n) =
+O(n^&#123;log_&#123;b&#125;a - \varepsilon&#125;)$</code>, 则 <code>$T(n) =
+\Theta(n^&#123;log_&#123;b&#125;a&#125;)$</code>.</li>
+<li>若 <code>$f(n) = \Theta(n^&#123;log_&#123;b&#125;a&#125;)$</code>, 则 <code>$T(n) =
+O(n^&#123;log_&#123;b&#125;a&#125;lgn)$</code>.</li>
+<li>若对某个常数 <code>$\varepsilon &gt; 0$</code> 有 <code>$f(n) =
+\Omega(n^&#123;log_&#123;b&#125;a + \varepsilon&#125;)$</code>, 且对某个常数 <code>$c &lt;
+1$</code> 和所有足够大的 <code>$n$</code> 有 <code>$af(n/b) \leqslant
+cf(n)$</code>, 则 <code>$T(n) = \Theta(f(n))$</code>.</li>
 </ol>
 <h2 id="使用主方法">使用主方法</h2>
 <p>使用主方法很简单, 我们只需确定主定理的哪种情况成立, 即可得到解.</p>
 <p>我们看下面的例子</p>
 <p><span class="math display">\[T(n) = 9T(n/3) + n\]</span></p>
-<p>对于这个递归式, 我们有 <code>$a = 9$</code>, <code>$b = 3$</code>, <code>$f(n) = n$</code>, 因此 <code>$n^&#123;log_&#123;b&#125;a&#125; = n^&#123;log_&#123;3&#125;9&#125; = \Theta(n^2)$</code>. 由于 <code>$f(n) = O(n^&#123;log_&#123;3&#125;9 - \varepsilon&#125;)$</code>, 其中 <code>$\varepsilon = 1$</code>, 因此可以应用主定理的情况 1, 从而得到解 <code>$T(n) = \Theta(n^2)$</code>.</p>
+<p>对于这个递归式, 我们有 <code>$a = 9$</code>, <code>$b = 3$</code>,
+<code>$f(n) = n$</code>, 因此 <code>$n^&#123;log_&#123;b&#125;a&#125; = n^&#123;log_&#123;3&#125;9&#125; =
+\Theta(n^2)$</code>. 由于 <code>$f(n) = O(n^&#123;log_&#123;3&#125;9 -
+\varepsilon&#125;)$</code>, 其中 <code>$\varepsilon = 1$</code>,
+因此可以应用主定理的情况 1, 从而得到解 <code>$T(n) =
+\Theta(n^2)$</code>.</p>
 <h2 id="参考">参考</h2>
 <p>《算法导论》（中文版）</p>
 

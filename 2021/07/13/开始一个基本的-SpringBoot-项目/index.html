@@ -205,7 +205,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      864 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      8 分钟
     </span>
   
 
@@ -246,19 +246,26 @@
             <h1 style="display: none">开始一个基本的 SpringBoot 项目</h1>
             
             <div class="markdown-body">
-              <p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713025530.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713025612.png" srcset="/img/loading.gif" lazyload /></p>
+              <p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713025530.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713025612.png" srcset="/img/loading.gif" lazyload /></p>
 <p>这里我没有连阿里云的镜像，因为挂了梯子，所以速度虽然比阿里云慢一些，但是速度也还行，而且可以保证纯度。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713025830.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713025830.png" srcset="/img/loading.gif" lazyload /></p>
 <p>总共下载了 4 分钟左右，时间可以接受。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713030246.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713030246.png" srcset="/img/loading.gif" lazyload /></p>
 <p>添加代码</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713030712.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713030712.png" srcset="/img/loading.gif" lazyload /></p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fan.springbootdemo;<br><br><span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;<br><span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.GetMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestParam;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;<br><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SpringbootdemoApplication</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        SpringApplication.run(SpringbootdemoApplication.class, args);<br>    &#125;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/hello&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">hello</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(value = &quot;name&quot;, defaultValue = &quot;World&quot;)</span> String name)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> String.format(<span class="hljs-string">&quot;Hello %s!&quot;</span>, name);<br>    &#125;<br><br>&#125;<br><br></code></pre></div></td></tr></table></figure>
 <p>然后，运行项目，这清爽的控制台真是赏心悦目</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713031002.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713031002.png" srcset="/img/loading.gif" lazyload /></p>
 <p>在浏览器中访问 <code>localhost:8080/hello</code>，效果如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713030614.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713030614.png" srcset="/img/loading.gif" lazyload /></p>
 
             </div>
             <hr>

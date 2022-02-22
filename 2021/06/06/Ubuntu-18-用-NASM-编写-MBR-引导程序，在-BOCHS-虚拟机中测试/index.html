@@ -16,12 +16,12 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言 这是一次 OS 实验的记录。 实验的要求是，编写 MBR 引导程序，在屏幕显示 &quot;Hello OS world!&quot;，然后原地停下。 由于实验的过程稍微有些曲折，这个任务难度不大，就是过程中的坑比较多。遂记录这一次实验过程，供个人以后复习及后来人参考。 本次实验的环境是  Ubuntu 18.04 Bochs-2.6.11  安装 Bochs 安装依赖 为了运行 Boch">
+    <meta name="description" content="前言 这是一次 OS 实验的记录。 实验的要求是，编写 MBR 引导程序，在屏幕显示 &quot;Hello OS world!&quot;，然后原地停下。 由于实验的过程稍微有些曲折，这个任务难度不大，就是过程中的坑比较多。遂记录这一次实验过程，供个人以后复习及后来人参考。 本次实验的环境是  Ubuntu 18.04 Bochs-2.6.11  安装 Bochs 安装依赖 为了运行 Bo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu 18 用 NASM 编写 MBR 引导程序，在 BOCHS 虚拟机中测试">
 <meta property="og:url" content="http://example.com/2021/06/06/Ubuntu-18-%E7%94%A8-NASM-%E7%BC%96%E5%86%99-MBR-%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F%EF%BC%8C%E5%9C%A8-BOCHS-%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E6%B5%8B%E8%AF%95/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="前言 这是一次 OS 实验的记录。 实验的要求是，编写 MBR 引导程序，在屏幕显示 &quot;Hello OS world!&quot;，然后原地停下。 由于实验的过程稍微有些曲折，这个任务难度不大，就是过程中的坑比较多。遂记录这一次实验过程，供个人以后复习及后来人参考。 本次实验的环境是  Ubuntu 18.04 Bochs-2.6.11  安装 Bochs 安装依赖 为了运行 Boch">
+<meta property="og:description" content="前言 这是一次 OS 实验的记录。 实验的要求是，编写 MBR 引导程序，在屏幕显示 &quot;Hello OS world!&quot;，然后原地停下。 由于实验的过程稍微有些曲折，这个任务难度不大，就是过程中的坑比较多。遂记录这一次实验过程，供个人以后复习及后来人参考。 本次实验的环境是  Ubuntu 18.04 Bochs-2.6.11  安装 Bochs 安装依赖 为了运行 Bo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210606232013.png">
 <meta property="article:published_time" content="2021-06-06T13:58:57.000Z">
@@ -205,7 +205,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      3.7k 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      31 分钟
     </span>
   
 
@@ -248,7 +248,8 @@
             <div class="markdown-body">
               <h2 id="前言">前言</h2>
 <p>这是一次 OS 实验的记录。</p>
-<p>实验的要求是，编写 MBR 引导程序，在屏幕显示 "Hello OS world!"，然后原地停下。</p>
+<p>实验的要求是，编写 MBR 引导程序，在屏幕显示 "Hello OS
+world!"，然后原地停下。</p>
 <p>由于实验的过程稍微有些曲折，这个任务难度不大，就是过程中的坑比较多。遂记录这一次实验过程，供个人以后复习及后来人参考。</p>
 <p>本次实验的环境是</p>
 <ul>
@@ -257,11 +258,14 @@
 </ul>
 <h2 id="安装-bochs">安装 Bochs</h2>
 <h3 id="安装依赖">安装依赖</h3>
-<p>为了运行 Bochs，首先，我们需要安装一些必要的依赖，所有的安装命令如下</p>
+<p>为了运行
+Bochs，首先，我们需要安装一些必要的依赖，所有的安装命令如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo apt-get install build-essential <br>$ sudo apt-get install xorg-dev <br>$ sudo apt-get install bison <br></code></pre></div></td></tr></table></figure>
 <h3 id="下载并解压安装包并安装">下载并解压安装包，并安装</h3>
-<p>这里没有直接使用 <code>sudo apt-get install bochs</code> 的原因是我们还需要安装 Bochs 的调试功能。</p>
-<p>1、首先，下载 Bochs-2.6.11.tar.gz(<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/bochs/files/bochs/2.6.11/">下载链接</a>)</p>
+<p>这里没有直接使用 <code>sudo apt-get install bochs</code>
+的原因是我们还需要安装 Bochs 的调试功能。</p>
+<p>1、首先，下载 Bochs-2.6.11.tar.gz(<a
+target="_blank" rel="noopener" href="https://sourceforge.net/projects/bochs/files/bochs/2.6.11/">下载链接</a>)</p>
 <p>2、然后，我们在压缩包放置的目录中进行解压操作</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ tar zxvf bochs-2.6.11.tar.gz<br></code></pre></div></td></tr></table></figure>
 <p>3、进入解压后的目录，然后执行命令</p>
@@ -274,53 +278,80 @@
 <p>这里我是遇到了两个错误，如下</p>
 <p>1、<code>cpu directive malformed</code> 问题</p>
 <p>解决办法：</p>
-<div class="hljs code-wrapper"><pre><code>1. bochs -help cpu
+<div class="hljs code-wrapper"><pre><code class="hljs">1. bochs -help cpu
 这个命令将显示出所有支持的 CPU 类型
 2. 修改 .bochsrc 文件中的 cpu:model=core2+penryn+t9600 为 cup:model=上一条查到的所支持的 CPU 类型之一</code></pre></div>
-<p>2、<code>.bochsrc:926: Bochs is not compiled with lowlevel sound support.</code></p>
+<p>2、<code>.bochsrc:926: Bochs is not compiled with lowlevel sound
+support.</code></p>
 <p>解决办法：</p>
-<div class="hljs code-wrapper"><pre><code>在 .bochsrc 文件中删除 sound 配置即可</code></pre></div>
-<p>解决了问题之后，再重新输入 <code>bochs</code> 命令，发现已经安装成功了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210419134701.png" srcset="/img/loading.gif" lazyload /></p>
+<div class="hljs code-wrapper"><pre><code class="hljs">在 .bochsrc 文件中删除 sound 配置即可</code></pre></div>
+<p>解决了问题之后，再重新输入 <code>bochs</code>
+命令，发现已经安装成功了</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210419134701.png" srcset="/img/loading.gif" lazyload /></p>
 <h2 id="配置-bochs">配置 bochs</h2>
-<p>安装好 bochs 后，接下来需要对 bochs 进行配置了。如果我们不自己写配置文件的话，执行 bochs 命令时 bochs 会自己在当前目录下顺序寻找以下文件作为配置文件</p>
-<div class="hljs code-wrapper"><pre><code>.bochssrc
+<p>安装好 bochs 后，接下来需要对 bochs
+进行配置了。如果我们不自己写配置文件的话，执行 bochs 命令时 bochs
+会自己在当前目录下顺序寻找以下文件作为配置文件</p>
+<div class="hljs code-wrapper"><pre><code class="hljs">.bochssrc
 bochsrc
 bochsrc.txt
 bochsrc.bxrc(仅对 Windows 有效)</code></pre></div>
-<p>我们可以通过 <code>ls -a</code> 命令来看一下 bochs 安装目录下的所有文件：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607000942.png" srcset="/img/loading.gif" lazyload /></p>
+<p>我们可以通过 <code>ls -a</code> 命令来看一下 bochs
+安装目录下的所有文件：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607000942.png" srcset="/img/loading.gif" lazyload /></p>
 <p>在这里，我们选择在自己的目录下新建一个 bochsrc 配置文件，如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> FirstOS<br>$ touch bochsrc<br>$ gedit bochsrc<br></code></pre></div></td></tr></table></figure>
 <p>bochsrc 中的文件内容如下</p>
 <figure class="highlight clean"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs clean">#################################################################<br># Configuration file for Bochs<br>#################################################################<br><br># how much memory the emulated machine will have<br>megs: <span class="hljs-number">32</span><br><br># filenameof ROM images<br>romimage:file=/usr/local/share/bochs/BIOS-bochs-latest<br>vgaromimage:file=/usr/local/share/bochs/VGABIOS-lgpl-latest<br><br># which disk image will be used 这个是启动软盘，我们虚拟出来的那个a.img<br>floppya:<span class="hljs-number">1</span>_44=a.img, status=inserted<br><br># choose the boot disk 确定启动方式<br>boot: floppy<br><br># <span class="hljs-keyword">where</span> do we send log messages?<br>log: bochsout.txt<br><br># disable the mouse<br>mouse: enabled=<span class="hljs-number">0</span><br><br># enable key mapping ,using US layout <span class="hljs-keyword">as</span> default<br>keyboard:keymap=/usr/local/share/bochs/keymaps/x11-pc-us.map<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607183851.png" srcset="/img/loading.gif" lazyload /></p>
-<h2 id="编写-mbr-引导程序在-bochs-虚拟机中测试">编写 MBR 引导程序，在 bochs 虚拟机中测试</h2>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607183851.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="编写-mbr-引导程序在-bochs-虚拟机中测试">编写 MBR 引导程序，在
+bochs 虚拟机中测试</h2>
 <h3 id="编写-mbr-引导程序">编写 MBR 引导程序</h3>
 <p>1、编写汇编代码 boot.asm</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs nasm">    org    07c00h                   ; 告诉编译器程序加载到 7c00 处<br>    mov    ax, cs<br>    mov    ds, ax<br>    mov    es, ax<br>    call   DispStr                  ; 调用显示字符串例程<br>    jmp    $                        ; 无限循环<br>DispStr:<br>    mov    ax, BootMessage<br>    mov    bp, ax                   ; ES:BP = 串地址<br>    mov    cx, 16                   ; CX = 串长度<br>    mov    ax, 01301h               ; AH = 13, AL = 01h<br>    mov    bx, 000ch                ; 页号为 0(BH = 0) 黑底红字(BL = 0Ch, 高亮)<br>    mov    dl, 0<br>    int    10h                      ; 10h 号中断<br>    ret<br>BootMessage:    db    &quot;Hello, OS world!&quot;<br>times    510-($-$$)    db    0      ; 填充剩下的空间, 使生成的二进制代码恰好为 512 字节<br>dw       0xaa55                     ; 结束标志<br></code></pre></div></td></tr></table></figure>
 <p>2、使用 nasm 编译这段代码</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ nasm boot.asm -o boot.bin<br></code></pre></div></td></tr></table></figure>
-<p>然后在相应的目录下我们可以看到多了一个 512 字节的 boot.bin 文件，如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607184811.png" srcset="/img/loading.gif" lazyload /></p>
-<p>这个文件就要被我们写入到软盘里面。这里当然可以写入到一个真实的空白软盘上，但是我们这里选择使用 bochs 来虚拟出我们所需要的软盘。</p>
+<p>然后在相应的目录下我们可以看到多了一个 512 字节的 boot.bin
+文件，如下</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607184811.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这个文件就要被我们写入到软盘里面。这里当然可以写入到一个真实的空白软盘上，但是我们这里选择使用
+bochs 来虚拟出我们所需要的软盘。</p>
 <h3 id="代码解释">代码解释</h3>
-<p>我们刚刚完成的代码并不是一个完整的操作系统，而仅仅是一个最简单的引导扇区（Boot Sector）。但它是直接在裸机上运行的，不依赖于任何其他软件，所以虽然它不是操作系统，但已经具备了操作系统的一个特性。</p>
-<p>我们知道，当计算机电源被打开时，它会先进行加电自检（POST, Power-On Self-Test），然后寻找启动盘，如果是选择从软盘（<em>注一</em>）启动，计算机就会检查硬盘的 0 面 0 磁道 1 扇区，如果发现它以 0xAA55 结束，则 BIOS 认为它是一个引导扇区。当然，一个正确的引导扇区除了以 0xAA55 结束之外，还应该包含一段少于 512 字节的执行码。</p>
-<p>一旦 BIOS 发现了引导扇区，就会将这 512 字节的内容装载到内存地址 <code>$0000:7c00$</code> 处，然后跳转到 <code>$0000:7c00$</code> 处将控制权彻底交给这段引导代码。到此为止，计算机不再由 BIOS 中固有的程序来控制，而变成由操作系统的一部分来控制。</p>
-<p>所以，第一行代码 <code>org 07c00</code> 就是告诉编译器，将来我们的这段程序要被加载到内存偏移地址 <code>$0x7c00$</code> 处。</p>
+<p>我们刚刚完成的代码并不是一个完整的操作系统，而仅仅是一个最简单的引导扇区（Boot
+Sector）。但它是直接在裸机上运行的，不依赖于任何其他软件，所以虽然它不是操作系统，但已经具备了操作系统的一个特性。</p>
+<p>我们知道，当计算机电源被打开时，它会先进行加电自检（POST, Power-On
+Self-Test），然后寻找启动盘，如果是选择从软盘（<em>注一</em>）启动，计算机就会检查硬盘的
+0 面 0 磁道 1 扇区，如果发现它以 0xAA55 结束，则 BIOS
+认为它是一个引导扇区。当然，一个正确的引导扇区除了以 0xAA55
+结束之外，还应该包含一段少于 512 字节的执行码。</p>
+<p>一旦 BIOS 发现了引导扇区，就会将这 512 字节的内容装载到内存地址
+<code>$0000:7c00$</code> 处，然后跳转到 <code>$0000:7c00$</code>
+处将控制权彻底交给这段引导代码。到此为止，计算机不再由 BIOS
+中固有的程序来控制，而变成由操作系统的一部分来控制。</p>
+<p>所以，第一行代码 <code>org 07c00</code>
+就是告诉编译器，将来我们的这段程序要被加载到内存偏移地址
+<code>$0x7c00$</code> 处。</p>
 <h3 id="使用-bochs-制作软盘">使用 bochs 制作软盘</h3>
 <p>执行如下命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ bximage<br></code></pre></div></td></tr></table></figure>
-<p>然后在问到要创建 hd(硬盘) 还是 fd(软盘) 时，输入 fd，之后一直默认回车即可</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607185713.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后在问到要创建 hd(硬盘) 还是 fd(软盘) 时，输入
+fd，之后一直默认回车即可</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607185713.png" srcset="/img/loading.gif" lazyload /></p>
 <h3 id="将引导扇区写入软盘">将引导扇区写入软盘</h3>
 <p>执行如下命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ dd <span class="hljs-keyword">if</span>=boot.bin of=a.img bs=512 count=1 conv=notrunc<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607190246.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607190246.png" srcset="/img/loading.gif" lazyload /></p>
 <p>这里简单介绍一下 dd 命令。</p>
 <p>Linux dd 命令用于读取、转换并输出数据。</p>
-<p>dd 可从标准输入或文件中读取数据，根据指定的格式来转换数据，再输出到文件、设备或者标准输出。这里使用 dd 命令来进行绝对扇区读写操作。</p>
+<p>dd
+可从标准输入或文件中读取数据，根据指定的格式来转换数据，再输出到文件、设备或者标准输出。这里使用
+dd 命令来进行绝对扇区读写操作。</p>
 <p>参数说明：</p>
 <ul>
 <li>if=文件名：输入文件名，默认为标准输入。即指定源文件。</li>
@@ -332,17 +363,31 @@ bochsrc.bxrc(仅对 Windows 有效)</code></pre></div>
 <h3 id="启动-bochs">启动 bochs</h3>
 <p>进入 boot.bin 所在目录，然后输入如下命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ bochs -f bochsrc<br></code></pre></div></td></tr></table></figure>
-<p>注意，如果这里输入命令后出现的是一个什么都没有的一片黑色的界面的话，那是因为我们这里是带调试模式的 bochs，那么，还需要再 bochs 提示符之后输入 "c"，然后回车，即可看到我们想要的效果了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607190703.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607190628.png" srcset="/img/loading.gif" lazyload /></p>
-<p>注：关于这个 <code>-f</code> 后面的这个 bochsrc 配置文件，因为这里我是把它与 boot.bin 一起放在同一个目录下，所以这里直接就输入了 bochsrc，如果是放在其他目录下，则需要使用 bochsrc 的绝对路径。而且，前面也说了，其实我们这里不需要 <code>-f</code> 及后面的内容，因为我们在执行 <code>bochs</code> 命令时它会自己找到当前目录下的配置文件。</p>
+<p>注意，如果这里输入命令后出现的是一个什么都没有的一片黑色的界面的话，那是因为我们这里是带调试模式的
+bochs，那么，还需要再 bochs 提示符之后输入
+"c"，然后回车，即可看到我们想要的效果了。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607190703.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607190628.png" srcset="/img/loading.gif" lazyload /></p>
+<p>注：关于这个 <code>-f</code> 后面的这个 bochsrc
+配置文件，因为这里我是把它与 boot.bin
+一起放在同一个目录下，所以这里直接就输入了
+bochsrc，如果是放在其他目录下，则需要使用 bochsrc
+的绝对路径。而且，前面也说了，其实我们这里不需要 <code>-f</code>
+及后面的内容，因为我们在执行 <code>bochs</code>
+命令时它会自己找到当前目录下的配置文件。</p>
 <h3 id="退出-bochs">退出 bochs</h3>
-<p>在上面的基础上输入 <code>Ctrl + C</code>，然后输入 <code>exit</code>，回车，即可退出 bochs 虚拟机。</p>
+<p>在上面的基础上输入 <code>Ctrl + C</code>，然后输入
+<code>exit</code>，回车，即可退出 bochs 虚拟机。</p>
 <hr />
 <p>参考：</p>
-<p>1、《一个操作系统的实现》 2、<a target="_blank" rel="noopener" href="https://blog.csdn.net/bychen623/article/details/53619084" class="uri">https://blog.csdn.net/bychen623/article/details/53619084</a></p>
+<p>1、《一个操作系统的实现》 2、<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/bychen623/article/details/53619084"
+class="uri">https://blog.csdn.net/bychen623/article/details/53619084</a></p>
 <p>注释：</p>
-<p>注一：软盘是可移动的一种存储盘，就功能上来讲和现在的 U 盘类似，只是外形、存储原理不一样，容量也很小，速度很慢，目前已经被淘汰。</p>
+<p>注一：软盘是可移动的一种存储盘，就功能上来讲和现在的 U
+盘类似，只是外形、存储原理不一样，容量也很小，速度很慢，目前已经被淘汰。</p>
 
             </div>
             <hr>

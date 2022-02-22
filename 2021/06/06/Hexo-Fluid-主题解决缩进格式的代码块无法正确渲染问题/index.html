@@ -16,12 +16,12 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Bug 描述 我的问题是在代码高亮配置为 highlightjs 的 Atom One Dark 的情况下，关于采用 TAB 键缩进的代码无法正常渲染，效果如下  主题配置文件中的相关配置如下 123456789101112131415161718192021222324252627282930313233# 代码高亮# Code highlighthighlight:  enable:">
+    <meta name="description" content="Bug 描述 我的问题是在代码高亮配置为 highlightjs 的 Atom One Dark 的情况下，关于采用 TAB 键缩进的代码无法正常渲染，效果如下  主题配置文件中的相关配置如下 123456789101112131415161718192021222324252627282930313233# 代码高亮# Code highlighthighlight:  enable:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo Fluid 主题解决缩进格式的代码块无法正确渲染问题">
 <meta property="og:url" content="http://example.com/2021/06/06/Hexo-Fluid-%E4%B8%BB%E9%A2%98%E8%A7%A3%E5%86%B3%E7%BC%A9%E8%BF%9B%E6%A0%BC%E5%BC%8F%E7%9A%84%E4%BB%A3%E7%A0%81%E5%9D%97%E6%97%A0%E6%B3%95%E6%AD%A3%E7%A1%AE%E6%B8%B2%E6%9F%93%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="Bug 描述 我的问题是在代码高亮配置为 highlightjs 的 Atom One Dark 的情况下，关于采用 TAB 键缩进的代码无法正常渲染，效果如下  主题配置文件中的相关配置如下 123456789101112131415161718192021222324252627282930313233# 代码高亮# Code highlighthighlight:  enable:">
+<meta property="og:description" content="Bug 描述 我的问题是在代码高亮配置为 highlightjs 的 Atom One Dark 的情况下，关于采用 TAB 键缩进的代码无法正常渲染，效果如下  主题配置文件中的相关配置如下 123456789101112131415161718192021222324252627282930313233# 代码高亮# Code highlighthighlight:  enable:">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210606232105.png">
 <meta property="article:published_time" content="2021-06-06T15:10:37.000Z">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      1.3k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      11 分钟
     </span>
   
 
@@ -246,19 +246,26 @@
             
             <div class="markdown-body">
               <h2 id="bug-描述">Bug 描述</h2>
-<p>我的问题是在代码高亮配置为 highlightjs 的 Atom One Dark 的情况下，关于采用 TAB 键缩进的代码无法正常渲染，效果如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210606220528.png" srcset="/img/loading.gif" lazyload /></p>
+<p>我的问题是在代码高亮配置为 highlightjs 的 Atom One Dark
+的情况下，关于采用 TAB 键缩进的代码无法正常渲染，效果如下</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210606220528.png" srcset="/img/loading.gif" lazyload /></p>
 <p>主题配置文件中的相关配置如下</p>
 <figure class="highlight yml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yml"><span class="hljs-comment"># 代码高亮</span><br><span class="hljs-comment"># Code highlight</span><br><span class="hljs-attr">highlight:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br><br><span class="hljs-comment"># 代码块是否显示行号</span><br><span class="hljs-comment"># If true, the code block display line numbers</span><br><span class="hljs-attr">line_number:</span> <span class="hljs-literal">true</span><br><br><span class="hljs-comment"># 实现高亮的库，对应下面的设置</span><br><span class="hljs-comment"># Highlight library</span><br><span class="hljs-comment"># Options: highlightjs | prismjs</span><br><span class="hljs-attr">lib:</span> <span class="hljs-string">&quot;highlightjs&quot;</span><br><br><span class="hljs-attr">highlightjs:</span><br>  <span class="hljs-comment"># 在链接中挑选 style 填入</span><br>  <span class="hljs-comment"># Select a style in the link</span><br>  <span class="hljs-comment"># See: https://highlightjs.org/static/demo/</span><br>  <span class="hljs-attr">style:</span> <span class="hljs-string">&quot;Atom One Dark&quot;</span><br><br>  <span class="hljs-comment"># 是否根据 style 改变代码背景色（如果 style 是深色背景别忘了开启此项）</span><br>  <span class="hljs-comment"># If true, the code background will change color based on the style (If style has a dark background, don&#x27;t forget to true)</span><br>  <span class="hljs-attr">bg_color:</span> <span class="hljs-literal">true</span><br><br><span class="hljs-attr">prismjs:</span><br>  <span class="hljs-comment"># 在下方链接页面右侧的圆形按钮挑选 style 填入，也可以直接填入 css 链接</span><br>  <span class="hljs-comment"># Select the style button on the right side of the link page, you can also set the CSS link</span><br>  <span class="hljs-comment"># See: https://prismjs.com/</span><br>  <span class="hljs-attr">style:</span> <span class="hljs-string">&quot;default&quot;</span><br><br>  <span class="hljs-comment"># 设为 true 高亮将本地静态生成（并只支持部分 prismjs 插件），设为 false 高亮将在浏览器通过 js 生成</span><br>  <span class="hljs-comment"># If true, it will be generated locally (but some prismjs plugins are not supported). If false, it will be generated via JS in the browser</span><br>  <span class="hljs-attr">preprocess:</span> <span class="hljs-literal">true</span><br></code></pre></div></td></tr></table></figure>
 <h2 id="解决方法">解决方法</h2>
 <h3 id="增加-custom.css-文件">增加 custom.css 文件</h3>
-<p>根据官方文档(<a target="_blank" rel="noopener" href="https://fluid-dev.github.io/hexo-fluid-docs/guide/#%E8%87%AA%E5%AE%9A%E4%B9%89-js-css-html" class="uri">https://fluid-dev.github.io/hexo-fluid-docs/guide/#%E8%87%AA%E5%AE%9A%E4%B9%89-js-css-html</a>)给出的自定义 css 的方法，在 source 目录下新建一个 css 目录，然后在 css 目录下新建一个 <code>custom.css</code> 文件，内容如下</p>
+<p>根据官方文档(<a
+target="_blank" rel="noopener" href="https://fluid-dev.github.io/hexo-fluid-docs/guide/#%E8%87%AA%E5%AE%9A%E4%B9%89-js-css-html"
+class="uri">https://fluid-dev.github.io/hexo-fluid-docs/guide/#%E8%87%AA%E5%AE%9A%E4%B9%89-js-css-html</a>)给出的自定义
+css 的方法，在 source 目录下新建一个 css 目录，然后在 css 目录下新建一个
+<code>custom.css</code> 文件，内容如下</p>
 <figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">pre <span class="hljs-selector-tag">code</span> &#123;<br>    <span class="hljs-attribute">color</span>: <span class="hljs-number">#abb2bf</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <p>即通过修改代码颜色来解决问题。</p>
 <h3 id="修改主题配置文件">修改主题配置文件</h3>
 <figure class="highlight yml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yml"><span class="hljs-comment"># 指定自定义 .css 文件路径，用法和 custom_js 相同</span><br><span class="hljs-comment"># The usage is the same as custom_js</span><br><span class="hljs-attr">custom_css:</span> <span class="hljs-string">/css/custom.css</span><br></code></pre></div></td></tr></table></figure>
 <p>验证一下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210606231703.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210606231703.png" srcset="/img/loading.gif" lazyload /></p>
 <p>发现成功解决。</p>
 
             </div>

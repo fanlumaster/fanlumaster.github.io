@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      16k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      137 分钟
     </span>
   
 
@@ -253,19 +253,39 @@
 <p>关于这个算法，《算法导论》原书中并没有伪码来参考。但是根据书中的详细的描述，写出算法其实是可以的。只是，这其中有一些坑，或者说需要注意的点，需要详细记述一下。如下。</p>
 <h4 id="注意点一">注意点一</h4>
 <blockquote>
-<p>寻找一条垂直线 <code>$l$</code>，它把点集 <code>$P$</code> 对分为满足下列条件的两个集合 <code>$P_L$</code> 和 <code>$P_R$</code>：使得 <code>$|P_L| = \left \lceil |P| / 2 \right \rceil, \; |P_R| = \left \lfloor |P| / 2 \right \rfloor$</code>，<code>$P_L$</code> 中的点都在直线 <code>$l$</code> 上或 <code>$l$</code> 的左侧，<code>$P_R$</code> 中的所有点都在直线 <code>$l$</code> 上或 <code>$l$</code> 的右侧。</p>
+<p>寻找一条垂直线 <code>$l$</code>，它把点集 <code>$P$</code>
+对分为满足下列条件的两个集合 <code>$P_L$</code> 和
+<code>$P_R$</code>：使得 <code>$|P_L| = \left \lceil |P| / 2 \right
+\rceil, \; |P_R| = \left \lfloor |P| / 2 \right
+\rfloor$</code>，<code>$P_L$</code> 中的点都在直线 <code>$l$</code> 上或
+<code>$l$</code> 的左侧，<code>$P_R$</code> 中的所有点都在直线
+<code>$l$</code> 上或 <code>$l$</code> 的右侧。</p>
 </blockquote>
 <p>这里划分时，要注意向上和向下取整的问题。另外，在划分时，我使用了这样的代码</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">PL = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> P <span class="hljs-keyword">if</span> i <span class="hljs-keyword">in</span> XL]<br>PR = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> P <span class="hljs-keyword">if</span> i <span class="hljs-keyword">in</span> XR]<br></code></pre></div></td></tr></table></figure>
-<p>其实这两行代码执行后产生的 <code>$P_L$</code> 和 <code>$P_R$</code> 是有问题的。问题就出在如果 <code>$X_L$</code> 和 <code>$X_R$</code> 中有重复的元素，那么，<code>$|P_L|$</code> 或者 <code>$P_R$</code> 的值可能会大于 <code>$X_L$</code> 或者 <code>$X_R$</code> 的值。显然，这样是有问题的。所以我们需要对 <code>$P_L$</code> 和 <code>$P_R$</code> 进行一些处理</p>
+<p>其实这两行代码执行后产生的 <code>$P_L$</code> 和 <code>$P_R$</code>
+是有问题的。问题就出在如果 <code>$X_L$</code> 和 <code>$X_R$</code>
+中有重复的元素，那么，<code>$|P_L|$</code> 或者 <code>$P_R$</code>
+的值可能会大于 <code>$X_L$</code> 或者 <code>$X_R$</code>
+的值。显然，这样是有问题的。所以我们需要对 <code>$P_L$</code> 和
+<code>$P_R$</code> 进行一些处理</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-comment"># 对中间的边界的可能重复的元素进行处理</span><br><span class="hljs-keyword">while</span> <span class="hljs-built_in">len</span>(PL) != <span class="hljs-built_in">len</span>(XL):<br>    PL.remove(XL[-<span class="hljs-number">1</span>])<br><span class="hljs-keyword">while</span> <span class="hljs-built_in">len</span>(PR) != <span class="hljs-built_in">len</span>(XR):<br>    PR.remove(XR[<span class="hljs-number">0</span>])<br></code></pre></div></td></tr></table></figure>
-<p>这里的 <code>XL[-1]</code> 和 <code>XR[0]</code> 的值其实是相等的，而且，如果 <code>PL</code> 或者 <code>PR</code> 中出现了多余的元素，那么，多余的元素也一定是这个中间边界的值。</p>
+<p>这里的 <code>XL[-1]</code> 和 <code>XR[0]</code>
+的值其实是相等的，而且，如果 <code>PL</code> 或者 <code>PR</code>
+中出现了多余的元素，那么，多余的元素也一定是这个中间边界的值。</p>
 <h4 id="注意点二">注意点二</h4>
-<p>对于 <code>$Y^&#123;'&#125;$</code> 的处理。具体就是，对于 <code>$Y^&#123;'&#125;$</code> 中的每一个点 <code>$p$</code>，我们只需要考虑紧随 <code>$p$</code> 后的 7 个点。</p>
-<p>我之前还因为中间的分割线 <code>$l$</code> 上的重复点问题而异或，重复点的话，两个不是应该算成一个吗？所以为什么不是检查 5 个点呢？后来在解决注意点一的时候想明白了，重复的点是要慎重考虑的，是不能够把两个点算作一个的。</p>
+<p>对于 <code>$Y^&#123;'&#125;$</code> 的处理。具体就是，对于 <code>$Y^&#123;'&#125;$</code>
+中的每一个点 <code>$p$</code>，我们只需要考虑紧随 <code>$p$</code> 后的
+7 个点。</p>
+<p>我之前还因为中间的分割线 <code>$l$</code>
+上的重复点问题而异或，重复点的话，两个不是应该算成一个吗？所以为什么不是检查
+5
+个点呢？后来在解决注意点一的时候想明白了，重复的点是要慎重考虑的，是不能够把两个点算作一个的。</p>
 <h3 id="后记">后记</h3>
 <p>本算法是严格参照《算法导论》原书的描述来实现的。具体过程和算法的正确性的证明请阅读《算法导论》相关章节。</p>
-<p>另外，关于分治法的函数的参数问题，我认为，如果要像我一样，在代码中有去重的这一步操作的话，那么，参数 <code>P</code> 是可以省去的。我认为这个参数 <code>P</code> 是多余的。但是为了和书上的描述保持一致，这里就没有去掉这个参数。</p>
+<p>另外，关于分治法的函数的参数问题，我认为，如果要像我一样，在代码中有去重的这一步操作的话，那么，参数
+<code>P</code> 是可以省去的。我认为这个参数 <code>P</code>
+是多余的。但是为了和书上的描述保持一致，这里就没有去掉这个参数。</p>
 
             </div>
             <hr>

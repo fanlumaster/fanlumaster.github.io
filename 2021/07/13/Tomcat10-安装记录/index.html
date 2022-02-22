@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      347 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      3 分钟
     </span>
   
 
@@ -245,28 +245,39 @@
             <h1 style="display: none">Tomcat10 安装记录</h1>
             
             <div class="markdown-body">
-              <p>首先，到官网(<a target="_blank" rel="noopener" href="https://tomcat.apache.org/download-10.cgi" class="uri">https://tomcat.apache.org/download-10.cgi</a>)下载压缩包，我这里选择的是免安装版，一般都是选择这个，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713011606.png" srcset="/img/loading.gif" lazyload /></p>
+              <p>首先，到官网(<a target="_blank" rel="noopener" href="https://tomcat.apache.org/download-10.cgi"
+class="uri">https://tomcat.apache.org/download-10.cgi</a>)下载压缩包，我这里选择的是免安装版，一般都是选择这个，</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713011606.png" srcset="/img/loading.gif" lazyload /></p>
 <p>放到一个指定的位置，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713011828.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713011828.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后解压，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713011904.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713011904.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后就是配置环境变量了，</p>
 <figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">CATALINA_HOME</span><br><span class="hljs-attribute">C</span>:\DevEnvironment\JavaEnv\apache-tomcat-<span class="hljs-number">10</span>.<span class="hljs-number">0</span>.<span class="hljs-number">8</span><br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713012026.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713012026.png" srcset="/img/loading.gif" lazyload /></p>
 <p>注意，这里不是 bin 目录，而是解压后的目录。</p>
 <p>然后在 Path 新建如下内容</p>
 <figure class="highlight haml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs haml"><span class="hljs-tag">%<span class="hljs-selector-tag">CATALINA_HOME</span></span>%\bin<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713012200.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713012200.png" srcset="/img/loading.gif" lazyload /></p>
 <p>确定之后，在命令行输入 <code>startup.bat</code> 检验一下，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713012331.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713012331.png" srcset="/img/loading.gif" lazyload /></p>
 <p>发现启动了一个新的窗口，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713012423.png" srcset="/img/loading.gif" lazyload /></p>
-<p>访问一下 <code>localhost:8080</code>，发现如下内容，表明 Tomcat 启动成功。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713012459.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713012423.png" srcset="/img/loading.gif" lazyload /></p>
+<p>访问一下 <code>localhost:8080</code>，发现如下内容，表明 Tomcat
+启动成功。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713012459.png" srcset="/img/loading.gif" lazyload /></p>
 <p>到此，Tomcat 就安装配置完成了。</p>
 <p>最后，关闭 Tomcat 可以在命令行输入 <code>shutdown.bat</code>，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713012656.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713012656.png" srcset="/img/loading.gif" lazyload /></p>
 
             </div>
             <hr>

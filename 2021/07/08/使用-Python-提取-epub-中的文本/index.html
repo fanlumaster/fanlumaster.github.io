@@ -16,12 +16,12 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言 最近读了《繁花》这本书，就想着能不能使用 Python 把 epub 格式的小说中的文本给提取出来，然后进行文本分析。本来我以为 Python 的相关的库是很多的，然而在实际运用过程中却遇到了困难。网上能够找到的库基本上只有一个 ebooklib，这是让我很惊讶的。 无奈之下，只好去研究 epub 格式的文件的构造，经过研究，发现 epub 电子书格式其实是很多个 xhtml 文件的压缩">
+    <meta name="description" content="前言 最近读了《繁花》这本书，就想着能不能使用 Python 把 epub 格式的小说中的文本给提取出来，然后进行文本分析。本来我以为 Python 的相关的库是很多的，然而在实际运用过程中却遇到了困难。网上能够找到的库基本上只有一个 ebooklib，这是让我很惊讶的。 无奈之下，只好去研究 epub 格式的文件的构造，经过研究，发现 epub 电子书格式其实是很多个 xhtml">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 Python 提取 epub 中的文本">
 <meta property="og:url" content="http://example.com/2021/07/08/%E4%BD%BF%E7%94%A8-Python-%E6%8F%90%E5%8F%96-epub-%E4%B8%AD%E7%9A%84%E6%96%87%E6%9C%AC/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="前言 最近读了《繁花》这本书，就想着能不能使用 Python 把 epub 格式的小说中的文本给提取出来，然后进行文本分析。本来我以为 Python 的相关的库是很多的，然而在实际运用过程中却遇到了困难。网上能够找到的库基本上只有一个 ebooklib，这是让我很惊讶的。 无奈之下，只好去研究 epub 格式的文件的构造，经过研究，发现 epub 电子书格式其实是很多个 xhtml 文件的压缩">
+<meta property="og:description" content="前言 最近读了《繁花》这本书，就想着能不能使用 Python 把 epub 格式的小说中的文本给提取出来，然后进行文本分析。本来我以为 Python 的相关的库是很多的，然而在实际运用过程中却遇到了困难。网上能够找到的库基本上只有一个 ebooklib，这是让我很惊讶的。 无奈之下，只好去研究 epub 格式的文件的构造，经过研究，发现 epub 电子书格式其实是很多个 xhtml">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210708172236.png">
 <meta property="article:published_time" content="2021-07-08T04:12:07.000Z">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      3k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      25 分钟
     </span>
   
 
@@ -246,16 +246,25 @@
             
             <div class="markdown-body">
               <h2 id="前言">前言</h2>
-<p>最近读了《繁花》这本书，就想着能不能使用 Python 把 epub 格式的小说中的文本给提取出来，然后进行文本分析。本来我以为 Python 的相关的库是很多的，然而在实际运用过程中却遇到了困难。网上能够找到的库基本上只有一个 ebooklib，这是让我很惊讶的。</p>
-<p>无奈之下，只好去研究 epub 格式的文件的构造，经过研究，发现 epub 电子书格式其实是很多个 xhtml 文件的压缩格式，这一下子就好办了，这样我就可以直接用 BeautifulSoup 来解析它们了。（BeautifulSoup，写过爬虫的应该不会陌生）</p>
+<p>最近读了《繁花》这本书，就想着能不能使用 Python 把 epub
+格式的小说中的文本给提取出来，然后进行文本分析。本来我以为 Python
+的相关的库是很多的，然而在实际运用过程中却遇到了困难。网上能够找到的库基本上只有一个
+ebooklib，这是让我很惊讶的。</p>
+<p>无奈之下，只好去研究 epub 格式的文件的构造，经过研究，发现 epub
+电子书格式其实是很多个 xhtml
+文件的压缩格式，这一下子就好办了，这样我就可以直接用 BeautifulSoup
+来解析它们了。（BeautifulSoup，写过爬虫的应该不会陌生）</p>
 <h2 id="正文">正文</h2>
 <p>我把原 epub 文件解压后的文件夹 blossoms 放在项目的根目录下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210708182839.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210708182839.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后直接上代码</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-comment"># @File  : parse_book.py</span><br><span class="hljs-comment"># @Author: FanLu</span><br><span class="hljs-comment"># @Date  : 2021/7/7</span><br><br><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><br><span class="hljs-comment"># xhtml_file = open(&#x27;blossoms/OEBPS/Text/part0009.xhtml&#x27;, &#x27;r&#x27;, encoding=&#x27;utf-8&#x27;)</span><br><span class="hljs-comment"># xhtml_handle = xhtml_file.read()</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># soup = BeautifulSoup(xhtml_handle, &#x27;lxml&#x27;)</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># title = soup.find_all(&quot;title&quot;)</span><br><span class="hljs-comment"># print(title)</span><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># p_list = soup.find_all(&#x27;p&#x27;)</span><br><span class="hljs-comment"># for p in p_list:</span><br><span class="hljs-comment">#     print(p)</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">exact_p_tag</span>(<span class="hljs-params">path</span>):</span><br>    xhtml_file = <span class="hljs-built_in">open</span>(path, <span class="hljs-string">&#x27;r&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br>    xhtml_handle = xhtml_file.read()<br><br>    soup = BeautifulSoup(xhtml_handle, <span class="hljs-string">&#x27;lxml&#x27;</span>)<br><br>    title = soup.find_all(<span class="hljs-string">&quot;title&quot;</span>)<br>    <span class="hljs-comment"># print(title)</span><br><br>    p_list = soup.find_all(<span class="hljs-string">&#x27;p&#x27;</span>)<br>    <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> p_list:<br>        <span class="hljs-built_in">print</span>(p.text)<br><br><span class="hljs-comment"># 批量处理文件</span><br><span class="hljs-keyword">import</span> os<br><br>rec_res = os.walk(<span class="hljs-string">r&#x27;blossoms/OEBPS/Text&#x27;</span>)<br>filename_list = []<br><span class="hljs-keyword">for</span> path, dir_list, file_list <span class="hljs-keyword">in</span> rec_res:<br>    <span class="hljs-keyword">for</span> file_name <span class="hljs-keyword">in</span> file_list:<br>        filename_list.append(file_name)<br><span class="hljs-comment"># print(filename_list)</span><br>filename_list = filename_list[<span class="hljs-number">1</span>:]<br><span class="hljs-comment"># print(filename_list)</span><br><br>BASE_PATH = <span class="hljs-string">&#x27;blossoms/OEBPS/Text&#x27;</span><br><span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> filename_list:<br>    path = BASE_PATH + <span class="hljs-string">&#x27;/&#x27;</span> + filename<br>    exact_p_tag(path)<br>    <span class="hljs-comment"># print(path)</span><br></code></pre></div></td></tr></table></figure>
-<p>因为经过我的研究，所有的文本都是放在 p 标签内部的，所以，我需要做的就只是遍历所有的 xhtml 文件，然后将其中的 p 标签中的文本全部提取出来即可。</p>
+<p>因为经过我的研究，所有的文本都是放在 p
+标签内部的，所以，我需要做的就只是遍历所有的 xhtml 文件，然后将其中的 p
+标签中的文本全部提取出来即可。</p>
 <p>上面的程序输出如下</p>
-<div class="hljs code-wrapper"><pre><code>图书在版编目（CIP）数据
+<div class="hljs code-wrapper"><pre><code class="hljs">图书在版编目（CIP）数据
 繁花／金宇澄著．－上海：上海文艺出版社． 2013．3 ISBN 978-7-5321-4800-4 Ⅰ．①繁…　Ⅱ．①金…　Ⅲ．①长篇小说－中国－当代 Ⅳ．①1247.5 中国版本图书馆CIP数据核字（2013）第034242号
 上海市重大文艺创作项目　由上海文化发展基金会资助
 

@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      1.2k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      11 分钟
     </span>
   
 
@@ -245,14 +245,15 @@
             
             <div class="markdown-body">
               <h4 id="题目">题目</h4>
-<p>给定一个单向链表的头节点 head，以及两个整数 from 和 to，在单向链表上把第 from 个节点到第 to 个节点这一部分进行反转。</p>
+<p>给定一个单向链表的头节点 head，以及两个整数 from 和
+to，在单向链表上把第 from 个节点到第 to 个节点这一部分进行反转。</p>
 <p>例如</p>
-<div class="hljs code-wrapper"><pre><code>1-＞2-＞3-＞4-＞5-＞null, from=2, to=4
+<div class="hljs code-wrapper"><pre><code class="hljs">1-＞2-＞3-＞4-＞5-＞null, from=2, to=4
 调整结果为：1-＞4-＞3-＞2-＞5-＞null
 1-＞2-＞3-＞null, from=1, to=3
 调整结果为：3-＞2-＞1-＞null</code></pre></div>
 <p>要求</p>
-<div class="hljs code-wrapper"><pre><code>1. 如果链表长度为 N，时间复杂度要求为 O(N)，额外空间复杂度要求为 O(1)。
+<div class="hljs code-wrapper"><pre><code class="hljs">1. 如果链表长度为 N，时间复杂度要求为 O(N)，额外空间复杂度要求为 O(1)。
 2. 如果不满足 1 &lt;= from &lt;= to &lt;= N，则不用调整。</code></pre></div>
 <h4 id="解答">解答</h4>
 <p>这里主要要注意 from 是否为第一个节点，即是否为头节点的问题。</p>

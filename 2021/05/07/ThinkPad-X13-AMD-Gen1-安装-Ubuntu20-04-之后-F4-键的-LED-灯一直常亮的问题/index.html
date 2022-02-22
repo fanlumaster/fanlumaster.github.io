@@ -16,12 +16,12 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这个问题无法通过设置 BIOS 来解决，目测是 ThinkPad 的适配工作没有做好，目前可以做的是，手动关闭这个灯 1$ echo 0 | sudo tee &#x2F;sys&#x2F;class&#x2F;leds&#x2F;platform\:\:micmute&#x2F;brightness 开启的命令则是： 1$ echo 1 | sudo tee &#x2F;sys&#x2F;class&#x2F;leds&#x2F;platform\:\:micmute&#x2F;brig">
+    <meta name="description" content="这个问题无法通过设置 BIOS 来解决，目测是 ThinkPad 的适配工作没有做好，目前可以做的是，手动关闭这个灯 1$ echo 0 | sudo tee &#x2F;sys&#x2F;class&#x2F;leds&#x2F;platform\:\:micmute&#x2F;brightness 开启的命令则是： 1$ echo 1 | sudo tee &#x2F;sys&#x2F;class&#x2F;leds&#x2F;platform\:\:micmute&#x2F;bri">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ThinkPad X13 AMD Gen1 安装 Ubuntu20.04 之后 F4 键的 LED 灯一直常亮的问题">
 <meta property="og:url" content="http://example.com/2021/05/07/ThinkPad-X13-AMD-Gen1-%E5%AE%89%E8%A3%85-Ubuntu20-04-%E4%B9%8B%E5%90%8E-F4-%E9%94%AE%E7%9A%84-LED-%E7%81%AF%E4%B8%80%E7%9B%B4%E5%B8%B8%E4%BA%AE%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="这个问题无法通过设置 BIOS 来解决，目测是 ThinkPad 的适配工作没有做好，目前可以做的是，手动关闭这个灯 1$ echo 0 | sudo tee &#x2F;sys&#x2F;class&#x2F;leds&#x2F;platform\:\:micmute&#x2F;brightness 开启的命令则是： 1$ echo 1 | sudo tee &#x2F;sys&#x2F;class&#x2F;leds&#x2F;platform\:\:micmute&#x2F;brig">
+<meta property="og:description" content="这个问题无法通过设置 BIOS 来解决，目测是 ThinkPad 的适配工作没有做好，目前可以做的是，手动关闭这个灯 1$ echo 0 | sudo tee &#x2F;sys&#x2F;class&#x2F;leds&#x2F;platform\:\:micmute&#x2F;brightness 开启的命令则是： 1$ echo 1 | sudo tee &#x2F;sys&#x2F;class&#x2F;leds&#x2F;platform\:\:micmute&#x2F;bri">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527222637.png">
 <meta property="article:published_time" content="2021-05-07T15:27:29.000Z">
@@ -205,7 +205,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      196 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      2 分钟
     </span>
   
 
@@ -246,11 +246,13 @@
             <h1 style="display: none">ThinkPad X13 AMD Gen1 安装 Ubuntu20.04 之后 F4 键的 LED 灯一直常亮的问题</h1>
             
             <div class="markdown-body">
-              <p>这个问题无法通过设置 BIOS 来解决，目测是 ThinkPad 的适配工作没有做好，目前可以做的是，手动关闭这个灯</p>
+              <p>这个问题无法通过设置 BIOS 来解决，目测是 ThinkPad
+的适配工作没有做好，目前可以做的是，手动关闭这个灯</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">echo</span> 0 | sudo tee /sys/class/leds/platform\:\:micmute/brightness<br></code></pre></div></td></tr></table></figure>
 <p>开启的命令则是：</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">echo</span> 1 | sudo tee /sys/class/leds/platform\:\:micmute/brightness<br></code></pre></div></td></tr></table></figure>
-<p>参考：<a target="_blank" rel="noopener" href="https://askubuntu.com/questions/1291918/ubuntu-20-10-on-thinkpad-t14-amd-microphone-mute-led-always-stays-on-how-can#new-answer?newreg=fcf137424b8b41a495efbe900da6c722">askubuntu</a></p>
+<p>参考：<a
+target="_blank" rel="noopener" href="https://askubuntu.com/questions/1291918/ubuntu-20-10-on-thinkpad-t14-amd-microphone-mute-led-always-stays-on-how-can#new-answer?newreg=fcf137424b8b41a495efbe900da6c722">askubuntu</a></p>
 
             </div>
             <hr>

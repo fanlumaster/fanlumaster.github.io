@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      1.5k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      13 分钟
     </span>
   
 
@@ -246,22 +246,47 @@
             
             <div class="markdown-body">
               <h4 id="题目">题目</h4>
-<p>给定一个数组 arr，该数组无序，但每个值均为正数，再给定一个正数 k。求 arr 的所有子数组中所有元素相加和为 k 的最长子数组长度。例如，arr = [1，2，1，1，1]，k = 3。累加和为3的最长子数组为 [1，1，1]，所以结果返回 3。</p>
+<p>给定一个数组 arr，该数组无序，但每个值均为正数，再给定一个正数 k。求
+arr 的所有子数组中所有元素相加和为 k 的最长子数组长度。例如，arr =
+[1，2，1，1，1]，k = 3。累加和为3的最长子数组为 [1，1，1]，所以结果返回
+3。</p>
 <h4 id="解答">解答</h4>
-<p>这道题可以使用暴力求解的方法，直接来一个双循环即可，问题是，这显然不是好的解决方案。所以，我们需要借助双指针来求解。这里，我们使用 <code>left</code> 和 <code>right</code> 分别来代替左指针和右指针。用 <code>sum</code> 来代表从 <code>arr[left]</code> 到 <code>arr[right]</code> 的累加值。</p>
-<p>首先，它们的起始位置都是 <code>0</code> 这个索引，然后，移动的规则是：</p>
+<p>这道题可以使用暴力求解的方法，直接来一个双循环即可，问题是，这显然不是好的解决方案。所以，我们需要借助双指针来求解。这里，我们使用
+<code>left</code> 和 <code>right</code> 分别来代替左指针和右指针。用
+<code>sum</code> 来代表从 <code>arr[left]</code> 到
+<code>arr[right]</code> 的累加值。</p>
+<p>首先，它们的起始位置都是 <code>0</code>
+这个索引，然后，移动的规则是：</p>
 <ul>
-<li><p>1、如果 <code>sum &lt; k</code>，那么，<code>right</code> 指针向右移动一格。这一步很好理解，我们在作暴力破解时，第二层循环也是这么做的，这里 <code>right</code> 指针的作用就相当于暴力破解的第二层循环。</p></li>
-<li><p>2、如果 <code>sum == k</code>，那么，<code>left</code> 指针向右移动一格。类比暴力破解，这里就相当于 <code>left</code> 对应的在第二层循环中 <code>right</code> 指针后面的元素都直接被跳过了。为什么可以这样呢？原因就在于如果 <code>right</code> 指针向右移动的话，那么，这些所有被跳过的元素都是不符合情况的，因为无论怎么移动都会使得 <code>sum</code> 比 <code>k</code> 要大。所以只好是 <code>left</code> 指针向右移动一格了，这就相当于暴力循环中的第一层循环的索引加一。</p></li>
-<li><p>3、如果 <code>sum &gt; k</code>，那么，<code>left</code> 指针向右移动一格。这样做的原因是 <code>right</code> 指针后面的元素都不符合要求。那么，还有一个问题，就是我们 <code>left</code> 向右移动完一格之后，我们可以注意到，当前的 <code>left</code> 到 <code>right</code> 之间的元素都被跳过了（类比于暴力破解的话），为什么可以这样呢？这也是同样的道理，在当前 <code>left</code> 的情况下，无论 <code>right</code> 指向哪些被跳过元素中的哪一个，都是不合要求的，它们都会使 <code>sum</code> 小于 <code>k</code>。</p></li>
+<li><p>1、如果 <code>sum &lt; k</code>，那么，<code>right</code>
+指针向右移动一格。这一步很好理解，我们在作暴力破解时，第二层循环也是这么做的，这里
+<code>right</code> 指针的作用就相当于暴力破解的第二层循环。</p></li>
+<li><p>2、如果 <code>sum == k</code>，那么，<code>left</code>
+指针向右移动一格。类比暴力破解，这里就相当于 <code>left</code>
+对应的在第二层循环中 <code>right</code>
+指针后面的元素都直接被跳过了。为什么可以这样呢？原因就在于如果
+<code>right</code>
+指针向右移动的话，那么，这些所有被跳过的元素都是不符合情况的，因为无论怎么移动都会使得
+<code>sum</code> 比 <code>k</code> 要大。所以只好是 <code>left</code>
+指针向右移动一格了，这就相当于暴力循环中的第一层循环的索引加一。</p></li>
+<li><p>3、如果 <code>sum &gt; k</code>，那么，<code>left</code>
+指针向右移动一格。这样做的原因是 <code>right</code>
+指针后面的元素都不符合要求。那么，还有一个问题，就是我们
+<code>left</code> 向右移动完一格之后，我们可以注意到，当前的
+<code>left</code> 到 <code>right</code>
+之间的元素都被跳过了（类比于暴力破解的话），为什么可以这样呢？这也是同样的道理，在当前
+<code>left</code> 的情况下，无论 <code>right</code>
+指向哪些被跳过元素中的哪一个，都是不合要求的，它们都会使
+<code>sum</code> 小于 <code>k</code>。</p></li>
 </ul>
-<p>我们按照上面的规则，不断地进行移动，直到 <code>right</code> 指针到达了右边界为止。</p>
+<p>我们按照上面的规则，不断地进行移动，直到 <code>right</code>
+指针到达了右边界为止。</p>
 <p>代码</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getMaxLength</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] arr, <span class="hljs-keyword">int</span> k)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (arr == <span class="hljs-keyword">null</span> || arr.length == <span class="hljs-number">0</span> || k &lt;= <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> right = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> sum = arr[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">int</span> len = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (right &lt; arr.length) &#123;<br>        <span class="hljs-keyword">if</span> (sum == k) &#123; <span class="hljs-comment">// 等于 k 的情况，左指针向右移动格，因为 right 右面的情况已经可以全部排除</span><br>            len = Math.max(len, right - left + <span class="hljs-number">1</span>);<br>            sum -= arr[left++];<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (sum &lt; k) &#123; <span class="hljs-comment">// 小于 k 的情况，右指针向右移动一格，如果 right 到达了尽头，则说明接下来的所有情况都不符合，直接跳出循环即可</span><br>            right++;<br>            <span class="hljs-keyword">if</span> (right == arr.length) &#123;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>            sum += arr[right];<br>        &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// sum &gt; k 的情况</span><br>            sum -= arr[left--];<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> len;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <p>测试</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span>[] arr = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>&#125;;<br>    GetSubArrMaxLen_9 gsaml = <span class="hljs-keyword">new</span> GetSubArrMaxLen_9();<br>    <span class="hljs-keyword">int</span> res = gsaml.getMaxLength(arr, <span class="hljs-number">3</span>);<br>    System.out.println(res);<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <p>输出</p>
-<div class="hljs code-wrapper"><pre><code>3</code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs">3</code></pre></div>
 
             </div>
             <hr>

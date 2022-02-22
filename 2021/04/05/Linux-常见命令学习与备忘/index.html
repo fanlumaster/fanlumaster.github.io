@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      3.4k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      29 分钟
     </span>
   
 
@@ -247,44 +247,65 @@
             <div class="markdown-body">
               <h3 id="基础命令">基础命令</h3>
 <h4 id="cat-命令">cat 命令</h4>
-<p><code>cat</code>，即 concatenate，中文是连接的意思。因此，如果有多个文件的话，它会把这些文件的内容拼接起来显示。</p>
+<p><code>cat</code>，即
+concatenate，中文是连接的意思。因此，如果有多个文件的话，它会把这些文件的内容拼接起来显示。</p>
 <p>使用格式</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ cat file1 file2...<br></code></pre></div></td></tr></table></figure>
 <p>使用范例</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ cat _config.yml<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405185854.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405185854.png" srcset="/img/loading.gif" lazyload /></p>
 <h4 id="ls-命令">ls 命令</h4>
-<p><code>ls</code>，即 list，作用是显示指定目录的内容，默认参数为当前目录。</p>
+<p><code>ls</code>，即
+list，作用是显示指定目录的内容，默认参数为当前目录。</p>
 <p>选项参数说明</p>
 <ul>
-<li><code>-l</code>：list with long format，<code>l</code> 表示 long 的意思，作用是显示详细的列表</li>
-<li><code>-F</code>：add one char of "*/=&gt;@|" to entries，即在列出的文件名称后加一个符号，显示文件类型信息，例如可执行文档加 <code>*</code>，目录则加 <code>/</code></li>
-<li><code>-lh</code>：list long format with readable file size，即列出带有具有可读性的文件大小数据的信息</li>
+<li><code>-l</code>：list with long format，<code>l</code> 表示 long
+的意思，作用是显示详细的列表</li>
+<li><code>-F</code>：add one char of "*/=&gt;@|" to
+entries，即在列出的文件名称后加一个符号，显示文件类型信息，例如可执行文档加
+<code>*</code>，目录则加 <code>/</code></li>
+<li><code>-lh</code>：list long format with readable file
+size，即列出带有具有可读性的文件大小数据的信息</li>
 </ul>
 <p>使用范例</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ ls -l<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405193525.png" srcset="/img/loading.gif" lazyload /></p>
-<p>上面列出的文件中，第一列表示文件模式和权限，第二列表示链接数（即 link count，不过，这里的 link 是 hard link），第三列是文件的所有者，第四列是用户组，第五列是文件大小，后面是文件最后更改的日期、时间以及文件名。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405193525.png" srcset="/img/loading.gif" lazyload /></p>
+<p>上面列出的文件中，第一列表示文件模式和权限，第二列表示链接数（即 link
+count，不过，这里的 link 是 hard
+link），第三列是文件的所有者，第四列是用户组，第五列是文件大小，后面是文件最后更改的日期、时间以及文件名。</p>
 <h4 id="cp-命令">cp 命令</h4>
 <p><code>cp</code>，即 copy，用来复制文件。</p>
 <p>选项参数说明</p>
 <ul>
-<li><code>-r</code>：copy directories recursively。递归地复制文件夹。</li>
+<li><code>-r</code>：copy directories
+recursively。递归地复制文件夹。</li>
 </ul>
 <p>使用格式</p>
-<p>将文件 <code>file1</code> 复制到文件 <code>file2</code>，如果 <code>file2</code> 不存在，则会自动创建:</p>
+<p>将文件 <code>file1</code> 复制到文件 <code>file2</code>，如果
+<code>file2</code> 不存在，则会自动创建:</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ cp file1 file2<br></code></pre></div></td></tr></table></figure>
-<p>将多个文件（<code>file1 ... fileN</code>）复制到目录 <code>dir</code>：</p>
+<p>将多个文件（<code>file1 ... fileN</code>）复制到目录
+<code>dir</code>：</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ cp file1 ... fileN dir<br></code></pre></div></td></tr></table></figure>
 <p>使用范例</p>
-<p>将 <code>a.txt</code> 复制到 <code>b.txt</code> 中，<code>b.txt</code> 本来并不存在</p>
+<p>将 <code>a.txt</code> 复制到 <code>b.txt</code>
+中，<code>b.txt</code> 本来并不存在</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ cp a.txt b.txt<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406130519.png" srcset="/img/loading.gif" lazyload /></p>
-<p>将 <code>a.txt</code> 和 <code>b.txt</code> 复制到 <code>new</code> 这个新目录中，<code>new</code> 目录必须存在，因为 <code>cp</code> 命令不会自动创建它（如果它本来不存在的话）。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406130728.png" srcset="/img/loading.gif" lazyload /></p>
-<p>附：使用 <code>cp a.txt b.txt</code> 命令时，如果 <code>b.txt</code> 中原来有内容，那么，复制完之后，<code>b.txt</code> 中原来的内容将会被 <code>a.txt</code> 中的内容覆盖掉。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406130519.png" srcset="/img/loading.gif" lazyload /></p>
+<p>将 <code>a.txt</code> 和 <code>b.txt</code> 复制到 <code>new</code>
+这个新目录中，<code>new</code> 目录必须存在，因为 <code>cp</code>
+命令不会自动创建它（如果它本来不存在的话）。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406130728.png" srcset="/img/loading.gif" lazyload /></p>
+<p>附：使用 <code>cp a.txt b.txt</code> 命令时，如果 <code>b.txt</code>
+中原来有内容，那么，复制完之后，<code>b.txt</code> 中原来的内容将会被
+<code>a.txt</code> 中的内容覆盖掉。</p>
 <h4 id="mv-命令">mv 命令</h4>
-<p><code>mv</code>，即 move。<code>mv</code> 主要用来将一个或多个文件或者目录从一个地方移动到另一个地方。它有两个不同的功能：</p>
+<p><code>mv</code>，即 move。<code>mv</code>
+主要用来将一个或多个文件或者目录从一个地方移动到另一个地方。它有两个不同的功能：</p>
 <ul>
 <li><ol type="i">
 <li>重命名一个文件或者文件夹</li>
@@ -296,51 +317,69 @@
 <p>使用格式</p>
 <p>将文件名从 <code>file1</code> 重命名为 <code>file2</code>：</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ mv file1 file2<br></code></pre></div></td></tr></table></figure>
-<p>将多个文件（<code>file1 ... fileN</code>）移动到目录 <code>dir</code>：</p>
+<p>将多个文件（<code>file1 ... fileN</code>）移动到目录
+<code>dir</code>：</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ mv file1 ... fileN dir<br></code></pre></div></td></tr></table></figure>
 <p>使用范例</p>
 <p>将 <code>a.txt</code> 重命名为 <code>c.txt</code>：</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ mv a.txt c.txt<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406132001.png" srcset="/img/loading.gif" lazyload /></p>
-<p>将 <code>a.txt</code> 和 <code>c.txt</code> 移动到 <code>new</code> 目录中：</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406132001.png" srcset="/img/loading.gif" lazyload /></p>
+<p>将 <code>a.txt</code> 和 <code>c.txt</code> 移动到 <code>new</code>
+目录中：</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ mv a.txt c.txt new<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406132402.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406132402.png" srcset="/img/loading.gif" lazyload /></p>
 <h4 id="touch-命令">touch 命令</h4>
-<p><code>touch</code>，并不是缩写。<code>touch</code> 命令用来创建文件。如果文件已经存在，则该命令会更新文件的时间戳。</p>
+<p><code>touch</code>，并不是缩写。<code>touch</code>
+命令用来创建文件。如果文件已经存在，则该命令会更新文件的时间戳。</p>
 <p>使用格式</p>
 <p>创建一个新的文件，内容为空：</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ touch file<br></code></pre></div></td></tr></table></figure>
 <h4 id="rm-命令">rm 命令</h4>
-<p><code>rm</code>，即 remove here。<code>rm</code> 命令用来删除文件，文件一旦被删除通常无法恢复（也就是说，通过某种手段，是可以恢复的）。</p>
+<p><code>rm</code>，即 remove here。<code>rm</code>
+命令用来删除文件，文件一旦被删除通常无法恢复（也就是说，通过某种手段，是可以恢复的）。</p>
 <p>默认情况下，它不会删除目录。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406133409.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406133409.png" srcset="/img/loading.gif" lazyload /></p>
 <p>使用格式</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ rm file<br></code></pre></div></td></tr></table></figure>
 <p>选项参数说明</p>
 <ul>
 <li><code>-f</code>：force deletion。强制删除。</li>
-<li><code>-r</code>：recursive deletion。递归删除。当使用这个选项时，<code>rm</code> 可以删除目录。</li>
+<li><code>-r</code>：recursive
+deletion。递归删除。当使用这个选项时，<code>rm</code>
+可以删除目录。</li>
 </ul>
 <p>使用范例</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406133915.png" srcset="/img/loading.gif" lazyload /></p>
-<p>这里 <code>*</code> 表示通配符，表示匹配当前目录下的任意文件或者文件夹。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406133915.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这里 <code>*</code>
+表示通配符，表示匹配当前目录下的任意文件或者文件夹。</p>
 <h4 id="echo-命令">echo 命令</h4>
 <p><code>echo</code> 命令将它的参数显示到标准输出。</p>
 <p>使用范例</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406133206.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406133206.png" srcset="/img/loading.gif" lazyload /></p>
 <h4 id="cd-命令">cd 命令</h4>
-<p><code>cd</code>，即 change directory。<code>cd</code> 命令用来设置当前工作目录。当前工作目录是指我们的进程和 shell 当前所在的目录。</p>
+<p><code>cd</code>，即 change directory。<code>cd</code>
+命令用来设置当前工作目录。当前工作目录是指我们的进程和 shell
+当前所在的目录。</p>
 <p>使用格式</p>
 <p>进入目录 <code>dir</code>：</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> dir<br></code></pre></div></td></tr></table></figure>
-<p>如果不带 <code>dir</code> 参数，<code>cd</code> 命令会返回我们的个人主目录，即我们登录系统后进入的目录。</p>
+<p>如果不带 <code>dir</code> 参数，<code>cd</code>
+命令会返回我们的个人主目录，即我们登录系统后进入的目录。</p>
 <h4 id="mkdir-命令">mkdir 命令</h4>
-<p><code>mkdir</code>，即 make directory。<code>mkdir</code> 命令用来创建新目录。</p>
+<p><code>mkdir</code>，即 make directory。<code>mkdir</code>
+命令用来创建新目录。</p>
 <p>使用格式</p>
 <p>创建目录 <code>dir</code>：</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ mkdir dir<br></code></pre></div></td></tr></table></figure>
 <h4 id="rmdir-命令">rmdir 命令</h4>
-<p><code>rmdir</code>，即 remove directory。<code>rmdir</code> 命令用来删除目录（空目录）。如果要删除的目录里面有内容（文件和其他目录），命令会执行失败。我们可以使用 <code>rm -rf</code> 来删除一个目录以及其中的所有内容。</p>
+<p><code>rmdir</code>，即 remove directory。<code>rmdir</code>
+命令用来删除目录（空目录）。如果要删除的目录里面有内容（文件和其他目录），命令会执行失败。我们可以使用
+<code>rm -rf</code> 来删除一个目录以及其中的所有内容。</p>
 <p>使用格式</p>
 <p>删除目录 <code>dir</code>：</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ rmdir dir<br></code></pre></div></td></tr></table></figure>
@@ -350,10 +389,12 @@
 <p>使用范例</p>
 <p>显示文件 <code>/etc/passwd</code> 中包含文本 root 的所有行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ grep root /etc/passwd<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405153031.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405153031.png" srcset="/img/loading.gif" lazyload /></p>
 <p>查看目录 <code>/etc</code> 中所有包含 root 的文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ grep root /etc/*<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405153146.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405153146.png" srcset="/img/loading.gif" lazyload /></p>
 <p><code>grep</code> 有几个重要的选项：</p>
 <ul>
 <li><code>-i</code>：不区分大小写</li>
@@ -361,60 +402,79 @@
 <li><code>-r</code>：递归查找，意思是在当前目录下递归搜索某个内容</li>
 <li><code>-n</code>：在结果里显示行号</li>
 </ul>
-<p>我具体使用过的案例是在某一个文件夹下需要递归查找 <code>footer</code> 这个字符串，并且需要显示行号，所用命令如下</p>
+<p>我具体使用过的案例是在某一个文件夹下需要递归查找 <code>footer</code>
+这个字符串，并且需要显示行号，所用命令如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">grep footer ./themes/ -n -r<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405154002.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405154002.png" srcset="/img/loading.gif" lazyload /></p>
 <h4 id="less-命令">less 命令</h4>
-<p><code>less</code> 命令可以将内容分屏显示，按 <code>空格键</code> 可查看下一屏，<code>B</code> 键查看上一屏幕，<code>Q</code> 键退出。</p>
+<p><code>less</code> 命令可以将内容分屏显示，按 <code>空格键</code>
+可查看下一屏，<code>B</code> 键查看上一屏幕，<code>Q</code> 键退出。</p>
 <p>我们可以在 <code>less</code> 命令的输出结果中进行搜索。</p>
 <ul>
-<li>使用 <code>/word</code> 从当前位置向前（这里的向前，代表的是向下的意思）搜索 <code>word</code> 这个词</li>
-<li>使用 <code>?word</code> 从当前位置向后（这里的向后，代表的是向上的意思）搜索。当找到一个匹配时，按 <code>N</code> 键跳到下一个匹配，按 <code>B</code> 键跳到上一个匹配</li>
+<li>使用 <code>/word</code>
+从当前位置向前（这里的向前，代表的是向下的意思）搜索 <code>word</code>
+这个词</li>
+<li>使用 <code>?word</code>
+从当前位置向后（这里的向后，代表的是向上的意思）搜索。当找到一个匹配时，按
+<code>N</code> 键跳到下一个匹配，按 <code>B</code> 键跳到上一个匹配</li>
 </ul>
 <p>使用范例</p>
 <p>使用 <code>less</code> 查看输出结果</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ grep ie /usr/share/dict/words | less<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405160912.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405160831.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405160912.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405160831.png" srcset="/img/loading.gif" lazyload /></p>
 <h4 id="pwd-命令">pwd 命令</h4>
 <p><code>pwd</code>，即 Print Working Directory 的缩写。</p>
 <p>功能是打印当前的工作目录名。</p>
 <p>使用范例</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">pwd</span><br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405161309.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405161309.png" srcset="/img/loading.gif" lazyload /></p>
 <h4 id="diff-命令">diff 命令</h4>
 <p><code>diff</code> 命令用来查看两个文件之间的不同。</p>
 <p>使用范例</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ diff _config.yml _config.landscape.yml<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405161628.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405161628.png" srcset="/img/loading.gif" lazyload /></p>
 <h4 id="file-命令">file 命令</h4>
 <p><code>file</code> 命令用来查看一个文件的格式信息。</p>
 <p>使用范例</p>
 <p>查看文件 <code>_config.yml</code> 的格式信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ file _config.yml<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405162651.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405162651.png" srcset="/img/loading.gif" lazyload /></p>
 <h4 id="find-和-locate-命令">find 和 locate 命令</h4>
 <p><code>find</code> 命令用来在目录中寻找文件。</p>
 <p>使用格式</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ find dir -name filename -<span class="hljs-built_in">print</span><br></code></pre></div></td></tr></table></figure>
 <p>关于参数的说明</p>
 <ul>
-<li><code>-name filename</code>：表示查找名为 <code>filename</code> 的文件</li>
-<li><code>-print</code>：表示显示文件的路径名。注意，这个选项是默认存在的，也就是说，上面的命令其实是等价于 <code>find dir -name filename</code> 的</li>
+<li><code>-name filename</code>：表示查找名为 <code>filename</code>
+的文件</li>
+<li><code>-print</code>：表示显示文件的路径名。注意，这个选项是默认存在的，也就是说，上面的命令其实是等价于
+<code>find dir -name filename</code> 的</li>
 </ul>
 <p>使用范例</p>
 <p>查找当前目录下的 <code>_config.yml</code> 文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">find . -name _config.yml -<span class="hljs-built_in">print</span><br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405170544.png" srcset="/img/loading.gif" lazyload /></p>
-<p>这里的 <code>.</code> 和 <code>./</code> 等价，表示在当前目录下查找。注意，这个 <code>find</code> 命令是递归查找所有文件的。</p>
-<p><code>locate</code> 命令是另外一个用来查找的命令。只是，它是在系统创建的文件索引中查找文件（因此速度更快）。有时候可能查找不到新文件，因为系统还没有将新文件加入到索引中。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405170544.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这里的 <code>.</code> 和 <code>./</code>
+等价，表示在当前目录下查找。注意，这个 <code>find</code>
+命令是递归查找所有文件的。</p>
+<p><code>locate</code>
+命令是另外一个用来查找的命令。只是，它是在系统创建的文件索引中查找文件（因此速度更快）。有时候可能查找不到新文件，因为系统还没有将新文件加入到索引中。</p>
 <h4 id="head-和-tail-命令">head 和 tail 命令</h4>
 <p><code>head</code> 命令显示文件前 10 行内容。</p>
 <p><code>tail</code> 命令显示文件最后 10 行内容。</p>
 <p>使用范例</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ head /etc/passwd<br></code></pre></div></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ tail /etc/passwd<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405171404.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405171404.png" srcset="/img/loading.gif" lazyload /></p>
 <h4 id="sort-命令">sort 命令</h4>
 <p><code>sort</code> 命令将文件内所有行按照字典序快速排序。</p>
 <p>选项参数说明</p>
@@ -424,15 +484,18 @@
 </ul>
 <p>使用范例</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sort _config.yml<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405172428.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405172428.png" srcset="/img/loading.gif" lazyload /></p>
 <h3 id="进阶命令">进阶命令</h3>
 <h4 id="tar-命令">tar 命令</h4>
-<p><code>tar</code>，即 tape archive。<code>tar</code> 用来解压文件。</p>
+<p><code>tar</code>，即 tape archive。<code>tar</code>
+用来解压文件。</p>
 <p>选项参数说明</p>
 <ul>
 <li><code>-f</code>：确定要解压的文件名，即后面要有将被解压的文件的名称</li>
 <li><code>-v</code>：输出命令执行过程中的详细信息</li>
-<li><code>-x</code>：extract files from an archive file。提取一个压缩文件</li>
+<li><code>-x</code>：extract files from an archive
+file。提取一个压缩文件</li>
 <li><code>-J</code>：Use archive through <code>xz</code></li>
 </ul>
 <p>使用范例</p>
@@ -453,7 +516,8 @@
 <p>官方现在建议是使用 <code>apt</code>。</p>
 <h3 id="常用命令示例">常用命令示例</h3>
 <h4 id="locate-命令">locate 命令</h4>
-<p>用于定位某一个文件的位置，如，寻找 <code>sys/types.h</code> 这个文件</p>
+<p>用于定位某一个文件的位置，如，寻找 <code>sys/types.h</code>
+这个文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ locate sys/types.h<br></code></pre></div></td></tr></table></figure>
 <h4 id="whereis-命令">whereis 命令</h4>
 <p>寻找 stdio.h 的位置</p>

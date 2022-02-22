@@ -21,7 +21,6 @@
 <meta property="og:url" content="http://example.com/2021/03/29/Python-%E5%A4%87%E4%BB%BD%E6%88%96%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89%E5%BA%93%E7%9A%84%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210329233624.png">
 <meta property="article:published_time" content="2021-03-29T15:31:32.000Z">
 <meta property="article:modified_time" content="2021-03-30T13:45:42.887Z">
 <meta property="article:author" content="fanlumaster">
@@ -29,7 +28,6 @@
 <meta property="article:tag" content="pip">
 <meta property="article:tag" content="Python 命令行">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210329233624.png">
   
   
   <title>Python 备份或删除所有库的命令 - Fan Lu&#39;s Blog</title>
@@ -203,7 +201,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      undefined 字
+      465 字
     </span>
   
 
@@ -212,7 +210,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      NaN 分钟
+      4 分钟
     </span>
   
 
@@ -246,21 +244,31 @@
             <div class="markdown-body">
               <p>命令一</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">pip freeze <br></code></pre></div></td></tr></table></figure>
-<p>作用：查看 Python 通过 <code>pip</code> 安装的所有包（不包括 <code>pip</code> 包本身）。</p>
+<p>作用：查看 Python 通过 <code>pip</code> 安装的所有包（不包括
+<code>pip</code> 包本身）。</p>
 <p>命令二</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">pip freeze &gt; requirements.txt<br></code></pre></div></td></tr></table></figure>
-<p>作用：将当前的所有的库备份到当前目录下的 <code>requirements.txt</code>（如果没有则会自动新建一个）中。</p>
+<p>作用：将当前的所有的库备份到当前目录下的
+<code>requirements.txt</code>（如果没有则会自动新建一个）中。</p>
 <p>下面是我备份的示例</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210329233624.png" srcset="/img/loading.gif" lazyload alt="20210329233624" /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210329233624.png" srcset="/img/loading.gif" lazyload
+alt="20210329233624" /></p>
 <p>命令三</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">pip install -r requirements.txt<br></code></pre></div></td></tr></table></figure>
 <p>作用：安装 <code>requirements.txt</code> 文件中列出的包。</p>
-<p><code>-r</code>：与 <code>--requirements</code> 等价，表示安装 requirements 文件中列出的所有包，该选项可以重复添加，按照惯例，需求文件名为 requirements.txt。</p>
+<p><code>-r</code>：与 <code>--requirements</code> 等价，表示安装
+requirements
+文件中列出的所有包，该选项可以重复添加，按照惯例，需求文件名为
+requirements.txt。</p>
 <p>命令四</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">pip uninstall -r requirements.txt -y<br></code></pre></div></td></tr></table></figure>
 <p>作用：删除 <code>requirements.txt</code> 文件中列出的包。</p>
-<p><code>-r &lt;file&gt;</code>：与 <code>--requirements &lt;file&gt;</code> 等价，删除 requirements 文件中列出的所有包，该选项可以重复添加多次。</p>
-<p><code>-y</code>：与 <code>--yes</code> 等价，在卸载遇到确认的情况时，一律选择 <code>yes</code>。</p>
+<p><code>-r &lt;file&gt;</code>：与 <code>--requirements
+&lt;file&gt;</code> 等价，删除 requirements
+文件中列出的所有包，该选项可以重复添加多次。</p>
+<p><code>-y</code>：与 <code>--yes</code>
+等价，在卸载遇到确认的情况时，一律选择 <code>yes</code>。</p>
 
             </div>
             <hr>
