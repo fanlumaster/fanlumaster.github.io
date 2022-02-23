@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/nZ7w3Ou.png">
 <meta property="article:published_time" content="2022-02-14T08:11:13.000Z">
-<meta property="article:modified_time" content="2022-02-22T03:17:57.092Z">
+<meta property="article:modified_time" content="2022-02-23T08:28:18.361Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Django">
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      377 字
+      2.4k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4 分钟
+      20 分钟
     </span>
   
 
@@ -261,6 +261,24 @@ target="_blank" rel="noopener" href="https://stackoverflow.com/questions/6542543
 <p>这里使用的开发工具是 VSCode。</p>
 <p>我们在修改根目录名称和根目录下的同名文件夹之后，我们可以利用 VSCode
 的全局替换把所有的旧文件名给新文件名即可。</p>
+<h2 id="django-查询子类问题">Django 查询子类问题</h2>
+<p><code>models</code> 中的代码如下：</p>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Project</span>(<span class="hljs-params">models.Model</span>):</span><br>    <span class="hljs-comment"># owner = models.ForeignKey(&#x27;auth.User&#x27;, related_name=&#x27;projects&#x27;, on_delete=models.CASCADE)</span><br>    title = models.CharField(max_length=<span class="hljs-number">200</span>)<br>    description = models.TextField(null=<span class="hljs-literal">True</span>, blank=<span class="hljs-literal">True</span>)<br>    <span class="hljs-comment"># featured_image =</span><br>    demo_link = models.CharField(max_length=<span class="hljs-number">1000</span>, null=<span class="hljs-literal">True</span>, blank=<span class="hljs-literal">True</span>)<br>    source_link = models.CharField(max_length=<span class="hljs-number">1000</span>, null=<span class="hljs-literal">True</span>, blank=<span class="hljs-literal">True</span>)<br>    vote_totle = models.IntegerField(default=<span class="hljs-number">0</span>)<br>    vote_ratio = models.IntegerField(default=<span class="hljs-number">0</span>)<br>    tags = models.ManyToManyField(<span class="hljs-string">&#x27;Tag&#x27;</span>, blank=<span class="hljs-literal">True</span>)<br>    created = models.DateTimeField(auto_now_add=<span class="hljs-literal">True</span>)<br>    <span class="hljs-built_in">id</span> = models.UUIDField(default=uuid.uuid4, unique=<span class="hljs-literal">True</span>,<br>                          primary_key=<span class="hljs-literal">True</span>, editable=<span class="hljs-literal">False</span>)<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span>(<span class="hljs-params">self</span>) -&gt; <span class="hljs-built_in">str</span>:</span><br>        <span class="hljs-keyword">return</span> self.title<br><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Review</span>(<span class="hljs-params">models.Model</span>):</span><br><br>    VOTE_TYPE = (<br>        (<span class="hljs-string">&#x27;up&#x27;</span>, <span class="hljs-string">&#x27;up&#x27;</span>),<br>        (<span class="hljs-string">&#x27;down&#x27;</span>, <span class="hljs-string">&#x27;down&#x27;</span>),<br>    )<br><br>    <span class="hljs-comment"># owner</span><br>    project = models.ForeignKey(<br>        Project, on_delete=models.CASCADE, null=<span class="hljs-literal">True</span>, blank=<span class="hljs-literal">True</span>)<br>    body = models.TextField(null=<span class="hljs-literal">True</span>, blank=<span class="hljs-literal">True</span>)<br>    value = models.CharField(max_length=<span class="hljs-number">50</span>, choices=VOTE_TYPE)<br>    updated = models.DateTimeField(auto_now=<span class="hljs-literal">True</span>)<br>    created = models.DateTimeField(auto_now_add=<span class="hljs-literal">True</span>)<br>    <span class="hljs-built_in">id</span> = models.UUIDField(default=uuid.uuid4, unique=<span class="hljs-literal">True</span>,<br>                          primary_key=<span class="hljs-literal">True</span>, editable=<span class="hljs-literal">False</span>)<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span>(<span class="hljs-params">self</span>) -&gt; <span class="hljs-built_in">str</span>:</span><br>        <span class="hljs-keyword">return</span> self.value<br></code></pre></div></td></tr></table></figure>
+<p>这里是想要以 <code>Project</code> 来查询 <code>reveiw</code>，其实
+<code>Project</code> 是 <code>Review</code>
+的外键，这里查询的语法比较特殊，和 <code>tags</code>
+这种多对多的查询是不一样的，正确的语句如下：</p>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">project</span>(<span class="hljs-params">request, pk</span>):</span><br>    projectObj = Project.objects.get(<span class="hljs-built_in">id</span>=pk)<br>    tags = projectObj.tags.<span class="hljs-built_in">all</span>() <span class="hljs-comment"># 查询 tags</span><br>    reviews = projectObj.review_set.<span class="hljs-built_in">all</span>() <span class="hljs-comment"># 查询 reviews</span><br>    context = &#123;<span class="hljs-string">&#x27;project&#x27;</span>: projectObj, <span class="hljs-string">&#x27;tags&#x27;</span>: tags, <span class="hljs-string">&#x27;reviews&#x27;</span>: reviews&#125;<br>    <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&#x27;projects/single-project.html&#x27;</span>, context)<br></code></pre></div></td></tr></table></figure>
+<p>其实，我们可以设置一下外键的 <code>related_name</code>，就可以像查询
+<code>tags</code> 一样查询 <code>reviews</code> 了：</p>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">project = models.ForeignKey(<br>        Project, on_delete=models.CASCADE, null=<span class="hljs-literal">True</span>, blank=<span class="hljs-literal">True</span>, related_name=<span class="hljs-string">&#x27;reviews&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">reviews = projectObj.reviews.<span class="hljs-built_in">all</span>()<br></code></pre></div></td></tr></table></figure>
+<h1 id="some-知识点">Some 知识点</h1>
+<p>关于 <code>form</code> 表单，如果 <code>action</code>
+的值为空的话，那么 <code>POST</code> 提交的东西会被提交到当前的
+<code>URL</code>，即会被送到当前的 <code>URL</code> 对应的
+<code>views</code> 中的方法进行处理。</p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;POST&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
