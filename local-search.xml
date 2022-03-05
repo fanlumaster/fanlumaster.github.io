@@ -4,11 +4,233 @@
   
   
   <entry>
+    <title>LeetCode 46-50 记录</title>
+    <link href="/2022/03/05/LeetCode-46-50-%E8%AE%B0%E5%BD%95/"/>
+    <url>/2022/03/05/LeetCode-46-50-%E8%AE%B0%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="section">46</h1><p><a href="https://leetcode-cn.com/problems/permutations/"class="uri">https://leetcode-cn.com/problems/permutations/</a></p><p><img src="https://i.imgur.com/N43gvoL.png" /></p><figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span><br><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">permute</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:</span><br>        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">permutation</span>(<span class="hljs-params">nums</span>):</span><br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(nums) == <span class="hljs-number">1</span>:<br>                <span class="hljs-keyword">yield</span> nums[<span class="hljs-number">0</span>:<span class="hljs-number">1</span>]<br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">for</span> perm <span class="hljs-keyword">in</span> permutation(nums[<span class="hljs-number">1</span>:]):<br>                    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(perm) + <span class="hljs-number">1</span>):<br>                        <span class="hljs-keyword">yield</span> perm[:i] + nums[<span class="hljs-number">0</span>:<span class="hljs-number">1</span>] + perm[i:]<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">list</span>(permutation(nums))<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    s = Solution()<br>    <span class="hljs-built_in">print</span>(s.permute([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]))<br><br></code></pre></div></td></tr></table></figure><p>就是递归。想到了就是想到了。思路的话都好想，就是怎么转化成代码。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Python</tag>
+      
+      <tag>LeetCode</tag>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>递归算法题专项整理</title>
+    <link href="/2022/03/04/%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95%E9%A2%98%E4%B8%93%E9%A1%B9%E6%95%B4%E7%90%86/"/>
+    <url>/2022/03/04/%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95%E9%A2%98%E4%B8%93%E9%A1%B9%E6%95%B4%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+      <tag>工作</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>VSCode Markdown Preview Enhanced 无法渲染出 imgur 的图片</title>
+    <link href="/2022/03/03/VSCode-Markdown-Preview-Enhanced-%E6%97%A0%E6%B3%95%E6%B8%B2%E6%9F%93%E5%87%BA-imgur-%E7%9A%84%E5%9B%BE%E7%89%87/"/>
+    <url>/2022/03/03/VSCode-Markdown-Preview-Enhanced-%E6%97%A0%E6%B3%95%E6%B8%B2%E6%9F%93%E5%87%BA-imgur-%E7%9A%84%E5%9B%BE%E7%89%87/</url>
+    
+    <content type="html"><![CDATA[<p>最近一段时间，发现 VSCode 写 Markdown 无法预览我的 imgur图床的图片了，但是使用 Hexo 渲染好，到浏览器中访问却是正常的，然后去imgur的设置中看，也没有发现什么端倪。然后测试内网的图片链接能否正常显示，发现是可以的。</p><p>之后想到了应该是代理的原因，在 <code>settings.json</code>中设置代理如下：</p><figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json"><span class="hljs-string">&quot;http.proxy&quot;</span>: <span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span>,<br><span class="hljs-string">&quot;http.proxyStrictSSL&quot;</span>: <span class="hljs-literal">false</span>,<br><span class="hljs-string">&quot;https.proxy&quot;</span>: <span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span>,<br></code></pre></div></td></tr></table></figure><p>然后刷新一下，问题解决。</p><p>这个问题出现的原因，我猜测应该是 VSCode 更新的缘故。这个<code>1.64.2</code> 版本的 VSCode 应该有一些Bug，这个代理，在以往的版本中都是直接继承系统代理的。到这个版本突然就给我整了个失效，然后回退到之前的版本中竟然都没有解决。另外一个光标显示的Bug，即光标的顶部闪烁的时候显示有残影，如果回退到之前的版本，倒是解决了。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>工具</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Bugs</tag>
+      
+      <tag>工具</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Cannot resolve symbol &#39;validation&#39; 问题的解决</title>
+    <link href="/2022/03/02/Cannot-resolve-symbol-validation-%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/"/>
+    <url>/2022/03/02/Cannot-resolve-symbol-validation-%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/</url>
+    
+    <content type="html"><![CDATA[<p>问题描述：</p><p><img src="https://i.imgur.com/nJ6uRTI.png" /></p><p>问题解决：</p><p>直接到 maven repo 中找到相关的包，导入到 <code>pom.xml</code>中即可：</p><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/javax.validation/validation-api --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>javax.validation<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>validation-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.0.1.Final<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Spring</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Spring</tag>
+      
+      <tag>Bugs</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>spring-boot-maven-plugin 报红问题的解决</title>
+    <link href="/2022/03/02/spring-boot-maven-plugin-%E6%8A%A5%E7%BA%A2%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/"/>
+    <url>/2022/03/02/spring-boot-maven-plugin-%E6%8A%A5%E7%BA%A2%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/</url>
+    
+    <content type="html"><![CDATA[<p>问题描述：</p><p>在 <code>pom.xml</code> 中的</p><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br></code></pre></div></td></tr></table></figure><p>会报红。</p><p>解决：</p><p>根据 IDEA的提示，发现应该是没有声明版本号的原因，因此，在下面声明版本号即可：</p><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.6.4<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">excludes</span>&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">exclude</span>&gt;</span><br>                        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                    <span class="hljs-tag">&lt;/<span class="hljs-name">exclude</span>&gt;</span><br>                <span class="hljs-tag">&lt;/<span class="hljs-name">excludes</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Spring</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Spring</tag>
+      
+      <tag>Spring Boot</tag>
+      
+      <tag>Bugs</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IDEA tricks</title>
+    <link href="/2022/03/02/IDEA-tricks/"/>
+    <url>/2022/03/02/IDEA-tricks/</url>
+    
+    <content type="html"><![CDATA[<h1 id="搜索相关">搜索相关</h1><ul><li><code>Ctrl+Shift+N</code>：按文件名搜索文件，相当于 VSCode 中的<code>Ctrl + P</code>。</li></ul><h1 id="窗口操作相关">窗口操作相关</h1><ul><li><code>Ctrl + F4</code>：关闭当前的 Tab。</li></ul><h1 id="快捷键">快捷键</h1><ul><li><code>Ctrl + Alt + L</code>：格式化代码。</li><li><code>Alt + 1</code>：toggle 左边的侧边栏，相当于 VSCode 中的<code>Ctrl + B</code>。</li><li><code>Alt + F12</code>：toggle 命令行终端。</li><li><code>Ctrl + Shift + A</code>：然后输入<code>plugin</code>，就会召唤出插件窗口。</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>工具</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>IDEA</tag>
+      
+      <tag>工具</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>IDEA 配置自己的 maven</title>
+    <link href="/2022/03/02/IDEA-%E9%85%8D%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84-maven/"/>
+    <url>/2022/03/02/IDEA-%E9%85%8D%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84-maven/</url>
+    
+    <content type="html"><![CDATA[<p>开始复习 Java。</p><h1 id="下载">下载</h1><p>首先，去 maven <ahref="https://maven.apache.org/download.cgi">官网</a> 下载 maven的压缩包，</p><p><img src="https://i.imgur.com/pMaexBu.png" /></p><p>下载好之后解压缩，然后将 <code>bin</code> 目录添加到环境变量：</p><p><img src="https://i.imgur.com/woCHqyQ.png" /></p><p>然后在命令行测试一下：</p><figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">mvn <span class="hljs-literal">-v</span><br></code></pre></div></td></tr></table></figure><p><img src="https://i.imgur.com/MghlN1x.png" /></p><p>如果正常输出版本号，则初步配置成功。</p><h1 id="配置镜像">配置镜像</h1><p>打开 <code>conf</code> 目录下的 <code>settings.py</code></p><p><img src="https://i.imgur.com/clQYnDi.png" /></p><p><img src="https://i.imgur.com/UL7kdeo.png" /></p><p>修改镜像配置：</p><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">mirror</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>alimaven<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mirrorOf</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">mirrorOf</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>aliyun maven<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/repositories/central/<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mirror</span>&gt;</span><br></code></pre></div></td></tr></table></figure><p><img src="https://i.imgur.com/3obRfRa.png" /></p><p>添加本地仓库地址：</p><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">localRepository</span>&gt;</span>C:\FDisk\maven\repository<span class="hljs-tag">&lt;/<span class="hljs-name">localRepository</span>&gt;</span><br></code></pre></div></td></tr></table></figure><p><img src="https://i.imgur.com/gupN8nL.png" /></p><p>到这里，基本配置就完成了。</p><h1 id="在-idea-中的配置">在 IDEA 中的配置</h1><p>先配置 <code>New Projects Setup</code>，</p><p><img src="https://i.imgur.com/sJeofSf.png" /></p><p><img src="https://i.imgur.com/CIQDjSU.png" /></p><p>然后再在普通的设置里面再配置一次就可以了。</p><hr /><p>参考：</p><p>1、<a href="https://zhuanlan.zhihu.com/p/122429605"class="uri">https://zhuanlan.zhihu.com/p/122429605</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Spring</tag>
+      
+      <tag>Java</tag>
+      
+      <tag>Maven</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Java 笔试面试题目复习</title>
+    <link href="/2022/03/02/Java-%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E5%A4%8D%E4%B9%A0/"/>
+    <url>/2022/03/02/Java-%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E5%A4%8D%E4%B9%A0/</url>
+    
+    <content type="html"><![CDATA[<p>老师，我，我，我想面试 Python。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>工作</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>工作</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 41-45 记录</title>
     <link href="/2022/03/02/LeetCode-41-45-%E8%AE%B0%E5%BD%95/"/>
     <url>/2022/03/02/LeetCode-41-45-%E8%AE%B0%E5%BD%95/</url>
     
-    <content type="html"><![CDATA[<h1 id="section">41</h1><p><a href="https://leetcode-cn.com/problems/first-missing-positive/"class="uri">https://leetcode-cn.com/problems/first-missing-positive/</a></p><p><img src="https://i.imgur.com/GTw85J6.png" /></p><figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span><br><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">firstMissingPositive</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> nums:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>            <span class="hljs-keyword">if</span> nums[i] &lt;= <span class="hljs-number">0</span>:<br>                nums[i] = <span class="hljs-built_in">len</span>(nums) + <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>            num = <span class="hljs-built_in">abs</span>(nums[i])<br>            <span class="hljs-keyword">if</span> num &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> num &lt;= <span class="hljs-built_in">len</span>(nums):<br>                nums[num - <span class="hljs-number">1</span>] = -<span class="hljs-built_in">abs</span>(nums[num - <span class="hljs-number">1</span>])<br><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>            <span class="hljs-keyword">if</span> nums[i] &gt; <span class="hljs-number">0</span>:<br>                <span class="hljs-keyword">return</span> i + <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">len</span>(nums) + <span class="hljs-number">1</span><br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    s = Solution()<br>    <span class="hljs-built_in">print</span>(s.firstMissingPositive([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>]))<br>    <span class="hljs-built_in">print</span>(s.firstMissingPositive([<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">1</span>]))<br>    <span class="hljs-built_in">print</span>(s.firstMissingPositive([<span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>]))<br>    <span class="hljs-built_in">print</span>(s.firstMissingPositive([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>]))<br>    <span class="hljs-built_in">print</span>(s.firstMissingPositive([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]))<br>    <span class="hljs-built_in">print</span>(s.firstMissingPositive([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]))<br>    <span class="hljs-built_in">print</span>(s.firstMissingPositive([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]))<br><br></code></pre></div></td></tr></table></figure><p>这道题的主要思路是对数字进行标记。专业一点的说法，是哈希表。因此，最后的时间复杂度为<span class="math inline">\(O(N)\)</span>，空间复杂度为 <spanclass="math inline">\(O(1)\)</span>。</p><p>要注意在第二趟标记的时候，后面的数在被访问到之前可能会被修改为负数，因此，我们要加一点处理，即：</p><figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>    num = <span class="hljs-built_in">abs</span>(nums[i])<br>    <span class="hljs-keyword">if</span> num &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> num &lt;= <span class="hljs-built_in">len</span>(nums):<br>        nums[num - <span class="hljs-number">1</span>] = -<span class="hljs-built_in">abs</span>(nums[num - <span class="hljs-number">1</span>])<br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="section">41</h1><p><a href="https://leetcode-cn.com/problems/first-missing-positive/"class="uri">https://leetcode-cn.com/problems/first-missing-positive/</a></p><p><img src="https://i.imgur.com/GTw85J6.png" /></p><figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span><br><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">firstMissingPositive</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> nums:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>            <span class="hljs-keyword">if</span> nums[i] &lt;= <span class="hljs-number">0</span>:<br>                nums[i] = <span class="hljs-built_in">len</span>(nums) + <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>            num = <span class="hljs-built_in">abs</span>(nums[i])<br>            <span class="hljs-keyword">if</span> num &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> num &lt;= <span class="hljs-built_in">len</span>(nums):<br>                nums[num - <span class="hljs-number">1</span>] = -<span class="hljs-built_in">abs</span>(nums[num - <span class="hljs-number">1</span>])<br><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>            <span class="hljs-keyword">if</span> nums[i] &gt; <span class="hljs-number">0</span>:<br>                <span class="hljs-keyword">return</span> i + <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">len</span>(nums) + <span class="hljs-number">1</span><br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    s = Solution()<br>    <span class="hljs-built_in">print</span>(s.firstMissingPositive([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>]))<br>    <span class="hljs-built_in">print</span>(s.firstMissingPositive([<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">1</span>]))<br>    <span class="hljs-built_in">print</span>(s.firstMissingPositive([<span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>]))<br>    <span class="hljs-built_in">print</span>(s.firstMissingPositive([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>]))<br>    <span class="hljs-built_in">print</span>(s.firstMissingPositive([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]))<br>    <span class="hljs-built_in">print</span>(s.firstMissingPositive([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]))<br>    <span class="hljs-built_in">print</span>(s.firstMissingPositive([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]))<br><br></code></pre></div></td></tr></table></figure><p>这道题的主要思路是对数字进行标记。专业一点的说法，是哈希表。因此，最后的时间复杂度为<span class="math inline">\(O(N)\)</span>，空间复杂度为 <spanclass="math inline">\(O(1)\)</span>。</p><p>要注意在第二趟标记的时候，后面的数在被访问到之前可能会被修改为负数，因此，我们要加一点处理，即：</p><figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)):<br>    num = <span class="hljs-built_in">abs</span>(nums[i])<br>    <span class="hljs-keyword">if</span> num &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> num &lt;= <span class="hljs-built_in">len</span>(nums):<br>        nums[num - <span class="hljs-number">1</span>] = -<span class="hljs-built_in">abs</span>(nums[num - <span class="hljs-number">1</span>])<br></code></pre></div></td></tr></table></figure><h1 id="section-1">42</h1><p><a href="https://leetcode-cn.com/problems/trapping-rain-water/"class="uri">https://leetcode-cn.com/problems/trapping-rain-water/</a></p><p><img src="https://i.imgur.com/Dm8hrdS.png" /></p><figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span><br><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">trap</span>(<span class="hljs-params">self, height: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> height:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>        n = <span class="hljs-built_in">len</span>(height)<br>        left = [<span class="hljs-number">0</span>] * n<br>        right = [<span class="hljs-number">0</span>] * n<br>        left[<span class="hljs-number">0</span>] = height[<span class="hljs-number">0</span>]<br>        right[n-<span class="hljs-number">1</span>] = height[n-<span class="hljs-number">1</span>]<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n):<br>            left[i] = <span class="hljs-built_in">max</span>(left[i-<span class="hljs-number">1</span>], height[i])<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n-<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>):<br>            right[i] = <span class="hljs-built_in">max</span>(right[i+<span class="hljs-number">1</span>], height[i])<br>        res = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>            res += <span class="hljs-built_in">min</span>(left[i], right[i]) - height[i]<br>        <span class="hljs-keyword">return</span> res<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    s = Solution()<br>    <span class="hljs-built_in">print</span>(s.trap([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]))<br><br></code></pre></div></td></tr></table></figure><p>主要是理解这张图：</p><p><img src="https://i.imgur.com/kOEIqcC.png" /></p><p>以中间的最高的柱子为基准，然后左右开弓。结合代码和图形，解题是不算太难的。</p><h1 id="section-2">43</h1>]]></content>
     
     
     <categories>
