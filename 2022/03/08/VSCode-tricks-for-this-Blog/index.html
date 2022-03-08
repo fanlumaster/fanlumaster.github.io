@@ -16,19 +16,42 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="http://example.com/archives/2021/page/11/index.html">
+    <meta name="description" content="另一个博客上也有类似的文章，用来记录 VSCode 使用过程中的 tips。故取这个题目。 去掉 Java 的 main 函数上面的 run | debug 在设置里面搜索 debug，然后找到 Java Debugger 中的 Java&gt;Debug&gt;Settings: Enable Run Debug Code Lens，然后取消下面的勾选：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VSCode tricks for this Blog">
+<meta property="og:url" content="http://example.com/2022/03/08/VSCode-tricks-for-this-Blog/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
+<meta property="og:description" content="另一个博客上也有类似的文章，用来记录 VSCode 使用过程中的 tips。故取这个题目。 去掉 Java 的 main 函数上面的 run | debug 在设置里面搜索 debug，然后找到 Java Debugger 中的 Java&gt;Debug&gt;Settings: Enable Run Debug Code Lens，然后取消下面的勾选：">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/g9Mo3fB.png">
+<meta property="article:published_time" content="2022-03-08T09:34:11.000Z">
+<meta property="article:modified_time" content="2022-03-08T09:47:55.500Z">
 <meta property="article:author" content="fanlumaster">
+<meta property="article:tag" content="VSCode">
+<meta property="article:tag" content="工具">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/g9Mo3fB.png">
   
   
-  <title>归档 - Fan Lu&#39;s Blog</title>
+  <title>VSCode tricks for this Blog - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -59,7 +82,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -155,14 +178,48 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/arietty02.jpg') no-repeat center center;
+         style="background: url('https://i.imgur.com/g9Mo3fB.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="归档">
+            <span class="h2" id="subtitle" title="VSCode tricks for this Blog">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-08 17:34" pubdate>
+        2022年3月8日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      157 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      2 分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -175,100 +232,98 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 153 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2021</p>
-    
-    <a href="/2021/04/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E5%A4%87%E7%94%A8/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">二叉树生成测试备用</span>
-      <time style="float: right;">04-04</time>
-    </a>
-  
-    
-    <a href="/2021/04/03/%E5%85%B3%E4%BA%8E%E9%80%92%E5%BD%92%E7%9A%84%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">关于递归的一点思考</span>
-      <time style="float: right;">04-03</time>
-    </a>
-  
-    
-    <a href="/2021/04/02/%E5%85%B3%E4%BA%8E%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%BD%91%E7%BB%9C%E4%B8%8B-ssh-T-git-github-com-%E5%8F%AF%E8%83%BD%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5%E7%9A%84%E4%B8%80%E4%B8%AA-bug/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">关于使用不同网络下 ssh -T git@github.com 可能连接失败的一个 bug</span>
-      <time style="float: right;">04-02</time>
-    </a>
-  
-    
-    <a href="/2021/04/02/NexT-%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%94%B9%E9%A1%B5%E8%84%9A%E5%86%85%E5%AE%B9%E7%9A%84%E9%A2%9C%E8%89%B2%EF%BC%88%E7%94%B1-%E5%BC%BA%E5%8A%9B%E9%A9%B1%E5%8A%A8%EF%BC%89/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">NexT 主题更改页脚内容的颜色（由 ... 强力驱动）</span>
-      <time style="float: right;">04-02</time>
-    </a>
-  
-    
-    <a href="/2021/03/31/Ubuntu-18-%E5%AE%89%E8%A3%85%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Ubuntu 18 安装搜狗输入法</span>
-      <time style="float: right;">03-31</time>
-    </a>
-  
-    
-    <a href="/2021/03/31/Java-%E4%B8%AD%E9%80%9A%E8%BF%87-u-%E7%BB%99-char-%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%E8%B5%8B%E5%80%BC/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Java 中通过 &#39;\u&#39; 给 char 类型变量赋值</span>
-      <time style="float: right;">03-31</time>
-    </a>
-  
-    
-    <a href="/2021/03/31/Java-%E4%B8%AD%E7%9A%84-u0000/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Java 中的 &#39;\u0000&#39;</span>
-      <time style="float: right;">03-31</time>
-    </a>
-  
-    
-    <a href="/2021/03/30/Java-%E4%B8%AD%E7%9A%84-Block-%E4%BB%A3%E7%A0%81%E5%9D%97/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Java 中的 Block 代码块</span>
-      <time style="float: right;">03-30</time>
-    </a>
-  
-    
-    <a href="/2021/03/30/Java-%E4%B8%AD%E7%9A%84%E4%B8%89%E7%A7%8D%E5%8F%98%E9%87%8F/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Java 中的三种变量</span>
-      <time style="float: right;">03-30</time>
-    </a>
-  
-    
-    <a href="/2021/03/30/Java-%E4%B8%AD%E5%8F%98%E9%87%8F%E7%9A%84%E5%88%9D%E5%A7%8B%E5%80%BC/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Java 中变量的初始值</span>
-      <time style="float: right;">03-30</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">VSCode tricks for this Blog</h1>
+            
+            <div class="markdown-body">
+              <p>另一个博客上也有类似的文章，用来记录 VSCode 使用过程中的
+tips。故取这个题目。</p>
+<h3 id="去掉-java-的-main-函数上面的-run-debug">去掉 Java 的 main
+函数上面的 <code>run | debug</code></h3>
+<p>在设置里面搜索 <code>debug</code>，然后找到 <code>Java
+Debugger</code> 中的 <code>Java&gt;Debug&gt;Settings: Enable Run Debug
+Code Lens</code>，然后取消下面的勾选：</p>
+<p><img src="https://i.imgur.com/IJyFP8d.png" srcset="/img/loading.gif" lazyload /></p>
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/2021/page/10/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/2021/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2021/page/9/#board">9</a><a class="page-number" href="/archives/2021/page/10/#board">10</a><span class="page-number current">11</span><a class="page-number" href="/archives/2021/page/12/#board">12</a><a class="page-number" href="/archives/2021/page/13/#board">13</a><a class="extend next" rel="next" href="/archives/2021/page/12/#board"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
-
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/VSCode/">VSCode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/05/LeetCode-46-50-%E8%AE%B0%E5%BD%95/">
+                        <span class="hidden-mobile">LeetCode 46-50 记录</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -352,6 +407,19 @@
 
 
 
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
 
 
 
@@ -371,6 +439,48 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
 
 
 
