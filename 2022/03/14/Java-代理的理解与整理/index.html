@@ -1,0 +1,674 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="fanlumaster">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="大部分转载自： https:&#x2F;&#x2F;javaguide.cn&#x2F;java&#x2F;basis&#x2F;proxy.html 1、代理模式 代理模式是一种比较好理解的设计模式。简单来说就是 我们使用代理对象来代替对真实对象(real object)的访问，这样就可以在不修改原目标对象的前提下，提供额外的功能操作，扩展目标对象的功能。 代理模式的主要作用是扩展目标对象的功能，比如说在目标对象的某个方法执行前后你">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 代理的理解与整理">
+<meta property="og:url" content="http://example.com/2022/03/14/Java-%E4%BB%A3%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="Fan Lu&#39;s Blog">
+<meta property="og:description" content="大部分转载自： https:&#x2F;&#x2F;javaguide.cn&#x2F;java&#x2F;basis&#x2F;proxy.html 1、代理模式 代理模式是一种比较好理解的设计模式。简单来说就是 我们使用代理对象来代替对真实对象(real object)的访问，这样就可以在不修改原目标对象的前提下，提供额外的功能操作，扩展目标对象的功能。 代理模式的主要作用是扩展目标对象的功能，比如说在目标对象的某个方法执行前后你">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/W8WFFCG.png">
+<meta property="article:published_time" content="2022-03-14T15:33:31.000Z">
+<meta property="article:modified_time" content="2022-03-14T16:36:52.218Z">
+<meta property="article:author" content="fanlumaster">
+<meta property="article:tag" content="转载">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/W8WFFCG.png">
+  
+  
+  <title>Java 代理的理解与整理 - Fan Lu&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fan Lu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/W8WFFCG.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Java 代理的理解与整理">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-14 23:33" pubdate>
+        2022年3月14日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      7.9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      67 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java 代理的理解与整理</h1>
+            
+            <div class="markdown-body">
+              <p>大部分转载自：</p>
+<p><a target="_blank" rel="noopener" href="https://javaguide.cn/java/basis/proxy.html"
+class="uri">https://javaguide.cn/java/basis/proxy.html</a></p>
+<h1 id="代理模式">1、代理模式</h1>
+<p>代理模式是一种比较好理解的设计模式。简单来说就是
+我们使用代理对象来代替对真实对象(real
+object)的访问，这样就可以在不修改原目标对象的前提下，提供额外的功能操作，扩展目标对象的功能。</p>
+<p>代理模式的主要作用是扩展目标对象的功能，比如说在目标对象的某个方法执行前后你可以增加一些自定义的操作。</p>
+<p>举个例子：你找了小红来帮你问话，小红就可以看作是代理你的代理对象，代理的行为（方法）是问话。</p>
+<p>代理模式有静态代理和动态代理两种实现方式，我们先来看一下静态代理模式的实现。</p>
+<h1 id="静态代理">2、静态代理</h1>
+<p><strong>静态代理中，我们对目标对象的每个方法的增强都是手动完成的（<em>后面会具体演示代码</em>），非常不灵活（<em>比如接口一旦新增加方法，目标对象和代理对象都要进行修改</em>）且麻烦(<em>需要对每个目标类都单独写一个代理类</em>)。</strong>
+实际应用场景非常非常少，日常开发几乎看不到使用静态代理的场景。</p>
+<p>上面我们是从实现和应用角度来说的静态代理，从 JVM 层面来说，
+<strong>静态代理在编译时就将接口、实现类、代理类这些都变成了一个个实际的
+class 文件。</strong></p>
+<p>静态代理实现步骤:</p>
+<ol type="1">
+<li>定义一个接口及其实现类；</li>
+<li>创建一个代理类同样实现这个接口</li>
+<li>将目标对象注入进代理类，然后在代理类的对应方法调用目标类中的对应方法。这样的话，我们就可以通过代理类屏蔽对目标对象的访问，并且可以在目标方法执行前后做一些自己想做的事情。</li>
+</ol>
+<p>下面通过代码展示！</p>
+<p><strong>1.定义发送短信的接口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fan;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">SmsService</span> </span>&#123;<br>    <span class="hljs-function">String <span class="hljs-title">send</span><span class="hljs-params">(String message)</span></span>;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<p><strong>2.实现发送短信的接口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fan;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SmsServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">SmsService</span> </span>&#123;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">send</span><span class="hljs-params">(String message)</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;send message: &quot;</span> + message);<br>        <span class="hljs-keyword">return</span> message;<br>    &#125;<br><br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<p><strong>3.创建代理类并同样实现发送短信的接口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fan;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SmsProxy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">SmsService</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> SmsService smsService;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SmsProxy</span><span class="hljs-params">(SmsService smsService)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.smsService = smsService;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">send</span><span class="hljs-params">(String message)</span> </span>&#123;<br>        <span class="hljs-comment">// 调用方法之前，我们可以添加一点自己的操作</span><br>        System.out.println(<span class="hljs-string">&quot;before method send()&quot;</span>);<br>        smsService.send(message);<br>        <span class="hljs-comment">// 调用方法之后，我们同样可以添加自己的操作</span><br>        System.out.println(<span class="hljs-string">&quot;after method send()&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>    &#125;<br><br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<p><strong>4.实际使用</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 静态代理的理解</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        SmsService smsService = <span class="hljs-keyword">new</span> SmsServiceImpl();<br>        SmsProxy smsProxy = <span class="hljs-keyword">new</span> SmsProxy(smsService);<br>        smsProxy.send(<span class="hljs-string">&quot;Python&quot;</span>);<br>    &#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<p>运行上述代码之后，控制台打印出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">before method send()<br>send message: Python<br>after method send()<br></code></pre></div></td></tr></table></figure>
+<p>可以输出结果看出，我们已经增加了 <code>SmsServiceImpl</code> 的
+<code>send()</code> 方法。</p>
+<h1 id="动态代理">3、动态代理</h1>
+<p>相比于静态代理来说，动态代理更加灵活。我们不需要针对每个目标类都单独创建一个代理类，并且也不需要我们必须实现接口，我们可以直接代理实现类(<em>CGLIB
+动态代理机制</em>)。</p>
+<p><strong>从 JVM 角度来说，动态代理是在运行时动态生成类字节码，并加载到
+JVM 中的。</strong></p>
+<p>说到动态代理，Spring AOP、RPC
+框架应该是两个不得不提的，它们的实现都依赖了动态代理。</p>
+<p><strong>动态代理在我们日常开发中使用的相对较少，但是在框架中的几乎是必用的一门技术。学会了动态代理之后，对于我们理解和学习各种框架的原理也非常有帮助。</strong></p>
+<p>就 Java 来说，动态代理的实现方式有很多种，比如 <strong>JDK
+动态代理</strong>、<strong>CGLIB 动态代理</strong> 等等。</p>
+<h2 id="jdk-动态代理机制">3.1. JDK 动态代理机制</h2>
+<h3 id="介绍">3.1.1. 介绍</h3>
+<p><strong>在 Java 动态代理机制中 <code>InvocationHandler</code> 接口和
+<code>Proxy</code> 类是核心。</strong></p>
+<p><code>Proxy</code>
+类中使用频率最高的方法是：<code>newProxyInstance()</code>
+，这个方法主要用来生成一个代理对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object <span class="hljs-title">newProxyInstance</span><span class="hljs-params">(ClassLoader loader,</span></span><br><span class="hljs-params"><span class="hljs-function">                                      Class&lt;?&gt;[] interfaces,</span></span><br><span class="hljs-params"><span class="hljs-function">                                      InvocationHandler h)</span></span><br><span class="hljs-function">    <span class="hljs-keyword">throws</span> IllegalArgumentException </span><br><span class="hljs-function"></span>&#123;<br>    ......<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>这个方法一共有 3 个参数：</p>
+<ol type="1">
+<li><strong>loader</strong>: 类加载器，用于加载代理对象。</li>
+<li><strong>interfaces</strong>: 被代理类实现的一些接口；</li>
+<li><strong>h</strong>: 实现了 <code>InvocationHandler</code>
+接口的对象；</li>
+</ol>
+<p>要实现动态代理的话，还必须需要实现 <code>InvocationHandler</code>
+来自定义处理逻辑。
+当我们的动态代理对象调用一个方法时，这个方法的调用就会被转发到实现<code>InvocationHandler</code>
+接口类的 <code>invoke</code> 方法来调用。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">InvocationHandler</span> </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 当你使用代理对象调用方法的时候实际会调用到这个方法</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">invoke</span><span class="hljs-params">(Object proxy, Method method, Object[] args)</span></span><br><span class="hljs-function">        <span class="hljs-keyword">throws</span> Throwable</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p><code>invoke()</code> 方法有下面三个参数：</p>
+<ol type="1">
+<li><strong>proxy</strong>: 动态生成的代理类</li>
+<li><strong>method</strong>: 与代理类对象调用的方法相对应</li>
+<li><strong>args</strong>: 当前 method 方法的参数</li>
+</ol>
+<p>也就是说：<strong>你通过 <code>Proxy</code> 类的
+<code>newProxyInstance()</code>
+创建的代理对象在调用方法的时候，实际会调用到实现
+<code>InvocationHandler</code> 接口的类的 <code>invoke()</code>
+方法。</strong> 你可以在 <code>invoke()</code>
+方法中自定义处理逻辑，比如在方法执行前后做什么事情。</p>
+<h3 id="jdk-动态代理类使用步骤">3.1.2. JDK 动态代理类使用步骤</h3>
+<ol type="1">
+<li>定义一个接口及其实现类；</li>
+<li>自定义 <code>InvocationHandler</code>
+并重写<code>invoke</code>方法，在 <code>invoke</code>
+方法中我们会调用原生方法（被代理类的方法）并自定义一些处理逻辑；</li>
+<li>通过 <code>Proxy.newProxyInstance(ClassLoader
+loader,Class&lt;?&gt;[] interfaces,InvocationHandler h)</code>
+方法创建代理对象；</li>
+</ol>
+<h3 id="代码示例">3.1.3. 代码示例</h3>
+<p>这样说可能会有点空洞和难以理解，我上个例子，大家感受一下吧！</p>
+<p><strong>1. 定义发送短信的接口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fan;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">SmsService</span> </span>&#123;<br>    <span class="hljs-function">String <span class="hljs-title">send</span><span class="hljs-params">(String message)</span></span>;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<p><strong>2. 实现发送短信的接口</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fan;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SmsServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">SmsService</span> </span>&#123;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">send</span><span class="hljs-params">(String message)</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;send message: &quot;</span> + message);<br>        <span class="hljs-keyword">return</span> message;<br>    &#125;<br><br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<p><strong>3. 定义一个 JDK 动态代理类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fan;<br><br><span class="hljs-keyword">import</span> java.lang.reflect.InvocationHandler;<br><span class="hljs-keyword">import</span> java.lang.reflect.Method;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DebugInvocationHandler</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">InvocationHandler</span> </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 代理类中的真实对象</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Object target;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DebugInvocationHandler</span><span class="hljs-params">(Object target)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.target = target;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">invoke</span><span class="hljs-params">(Object proxy, Method method, Object[] args)</span> <span class="hljs-keyword">throws</span> Throwable </span>&#123;<br>        <span class="hljs-comment">// 调用方法之前，添加一点自己的操作</span><br>        System.out.println(<span class="hljs-string">&quot;before method: &quot;</span> + method.getName());<br>        Object result = method.invoke(target, args);<br>        <span class="hljs-comment">// 调用方法之后，我们同样可以添加自己的操作</span><br>        System.out.println(<span class="hljs-string">&quot;after method: &quot;</span> + method.getName());<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br><br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<p><code>invoke()</code> 方法:
+当我们的动态代理对象调用原生方法的时候，最终实际上调用到的是
+<code>invoke()</code> 方法，然后 <code>invoke()</code>
+方法代替我们去调用了被代理对象的原生方法。</p>
+<p><strong>4. 获取代理对象的工厂类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fan;<br><br><span class="hljs-keyword">import</span> java.lang.reflect.Proxy;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JdkProxyFactory</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object <span class="hljs-title">getProxy</span><span class="hljs-params">(Object target)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> Proxy.newProxyInstance(<br>                target.getClass().getClassLoader(), <span class="hljs-comment">// 目标类的类加载器</span><br>                target.getClass().getInterfaces(), <span class="hljs-comment">// 代理需要实现的接口，可以指定多个</span><br>                <span class="hljs-keyword">new</span> DebugInvocationHandler(target) <span class="hljs-comment">// 代理对象对应的自定义 InvocationHandler</span><br>        );<br>    &#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<p><code>getProxy()</code>：主要通过
+<code>Proxy.newProxyInstance()</code> 方法获取某个类的代理对象</p>
+<p><strong>5. 实际使用</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fan;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        SmsService smsService = (SmsService) JdkProxyFactory.getProxy(<span class="hljs-keyword">new</span> SmsServiceImpl());<br>        smsService.send(<span class="hljs-string">&quot;Python&quot;</span>);<br>    &#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<p>运行上述代码之后，控制台打印出：</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs oxygene">before <span class="hljs-function"><span class="hljs-keyword">method</span>:</span> send<br>send message: Python<br>after <span class="hljs-function"><span class="hljs-keyword">method</span>:</span> send<br></code></pre></div></td></tr></table></figure>
+<h2 id="cglib-动态代理机制">3.2. CGLIB 动态代理机制</h2>
+<h3 id="介绍-1">3.2.1. 介绍</h3>
+<p><strong>JDK
+动态代理有一个最致命的问题是其只能代理实现了接口的类。</strong></p>
+<p><strong>为了解决这个问题，我们可以用 CGLIB
+动态代理机制来避免。</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cglib/cglib">CGLIB</a>(<em>Code
+Generation Library</em>)是一个基于<a
+target="_blank" rel="noopener" href="http://www.baeldung.com/java-asm">ASM</a>的字节码生成库，它允许我们在运行时对字节码进行修改和动态生成。CGLIB
+通过继承方式实现代理。很多知名的开源框架都使用到了<a
+target="_blank" rel="noopener" href="https://github.com/cglib/cglib">CGLIB</a>， 例如 Spring 中的 AOP
+模块中：如果目标对象实现了接口，则默认采用 JDK 动态代理，否则采用 CGLIB
+动态代理。</p>
+<p><strong>在 CGLIB 动态代理机制中 <code>MethodInterceptor</code> 接口和
+<code>Enhancer</code> 类是核心。</strong></p>
+<p>你需要自定义 <code>MethodInterceptor</code> 并重写
+<code>intercept</code> 方法，<code>intercept</code>
+用于拦截增强被代理类的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">MethodInterceptor</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Callback</span></span>&#123;<br>    <span class="hljs-comment">// 拦截被代理类中的方法</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">intercept</span><span class="hljs-params">(Object obj, java.lang.reflect.Method method, Object[] args, MethodProxy proxy)</span> <span class="hljs-keyword">throws</span> Throwable</span>;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<ol type="1">
+<li><strong>obj</strong>: 被代理的对象（需要增强的对象）</li>
+<li><strong>method</strong>: 被拦截的方法（需要增强的方法）</li>
+<li><strong>args</strong>: 方法入参</li>
+<li><strong>proxy</strong>: 用于调用原始方法</li>
+</ol>
+<p>你可以通过
+<code>Enhancer</code>类来动态获取被代理类，当代理类调用方法的时候，实际调用的是
+<code>MethodInterceptor</code> 中的 <code>intercept</code> 方法。</p>
+<h3 id="cglib-动态代理类使用步骤">3.2.2. CGLIB 动态代理类使用步骤</h3>
+<ol type="1">
+<li>定义一个类；</li>
+<li>自定义 <code>MethodInterceptor</code> 并重写 <code>intercept</code>
+方法，<code>intercept</code> 用于拦截增强被代理类的方法，和 JDK
+动态代理中的 <code>invoke</code> 方法类似；</li>
+<li>通过 <code>Enhancer</code> 类的 <code>create()</code>
+创建代理类；</li>
+</ol>
+<h3 id="代码示例-1">3.2.3. 代码示例</h3>
+<p>不同于 JDK 动态代理不需要额外的依赖。<a
+target="_blank" rel="noopener" href="https://github.com/cglib/cglib">CGLIB</a>(<em>Code Generation
+Library</em>)
+实际是属于一个开源项目，如果你要使用它的话，需要手动添加相关依赖。</p>
+<figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>cglib<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>cglib<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.3.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p><strong>1.实现一个使用阿里云发送短信的类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fan;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AliSmsService</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">send</span><span class="hljs-params">(String message)</span> </span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;send message: &quot;</span> + message);<br>        <span class="hljs-keyword">return</span> message;<br>    &#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<p><strong>2.自定义
+<code>MethodInterceptor</code>（方法拦截器）</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fan;<br><br><span class="hljs-keyword">import</span> java.lang.reflect.Method;<br><br><span class="hljs-keyword">import</span> net.sf.cglib.proxy.MethodInterceptor;<br><span class="hljs-keyword">import</span> net.sf.cglib.proxy.MethodProxy;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DebugMethodInterceptor</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MethodInterceptor</span> </span>&#123;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> object      代理对象(增强的对象)</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> method      被拦截的方法(需要增强的方法)</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> argObjects  参数数组</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> methodProxy 用于调用原始方法</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">intercept</span><span class="hljs-params">(Object object, Method method, Object[] argObjects, MethodProxy methodProxy)</span></span><br><span class="hljs-function">            <span class="hljs-keyword">throws</span> Throwable </span>&#123;<br>        <span class="hljs-comment">// 调用方法之前，添加一点操作</span><br>        System.out.println(<span class="hljs-string">&quot;before method: &quot;</span> + method.getName());<br>        Object obj = methodProxy.invokeSuper(object, argObjects);<br>        <span class="hljs-comment">// 调用方法之后，添加一点操作</span><br>        System.out.println(<span class="hljs-string">&quot;after method: &quot;</span> + method.getName());<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>    &#125;<br><br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<p><strong>3.获取代理类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fan;<br><br><span class="hljs-keyword">import</span> net.sf.cglib.proxy.Enhancer;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CglibProxyFactory</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object <span class="hljs-title">getProxy</span><span class="hljs-params">(Class&lt;?&gt; class1)</span> </span>&#123;<br>        <span class="hljs-comment">// 创建动态代理对象</span><br>        Enhancer enhancer = <span class="hljs-keyword">new</span> Enhancer();<br>        <span class="hljs-comment">// 设置类加载器</span><br>        enhancer.setClassLoader(class1.getClassLoader());<br>        <span class="hljs-comment">// 设置被代理类</span><br>        enhancer.setSuperclass(class1);<br>        <span class="hljs-comment">// 设置方法拦截器</span><br>        enhancer.setCallback(<span class="hljs-keyword">new</span> DebugMethodInterceptor());<br>        <span class="hljs-comment">// 创建代理类</span><br>        <span class="hljs-keyword">return</span> enhancer.create();<br>    &#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<p><strong>4.实际使用</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.fan;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        AliSmsService aliSmsService = (AliSmsService) CglibProxyFactory.getProxy(AliSmsService.class);<br>        aliSmsService.send(<span class="hljs-string">&quot;Python&quot;</span>);<br>    &#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<p>运行上述代码之后，控制台打印出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">before method: send<br>send message: Python<br>after method: send<br></code></pre></div></td></tr></table></figure>
+<h2 id="jdk-动态代理和-cglib-动态代理对比">3.3. JDK 动态代理和 CGLIB
+动态代理对比</h2>
+<ol type="1">
+<li><strong>JDK 动态代理只能代理实现了接口的类或者直接代理接口，而 CGLIB
+可以代理未实现任何接口的类。</strong> 另外， CGLIB
+动态代理是通过生成一个被代理类的子类来拦截被代理类的方法调用，因此不能代理声明为
+final 类型的类和方法。</li>
+<li>就二者的效率来说，大部分情况都是 JDK 动态代理更优秀，随着 JDK
+版本的升级，这个优势更加明显。</li>
+</ol>
+<h1 id="静态代理和动态代理的对比">4、静态代理和动态代理的对比</h1>
+<ol type="1">
+<li><strong>灵活性</strong>
+：动态代理更加灵活，不需要必须实现接口，可以直接代理实现类，并且可以不需要针对每个目标类都创建一个代理类。另外，静态代理中，接口一旦新增加方法，目标对象和代理对象都要进行修改，这是非常麻烦的！</li>
+<li><strong>JVM 层面</strong>
+：静态代理在编译时就将接口、实现类、代理类这些都变成了一个个实际的 class
+文件。而动态代理是在运行时动态生成类字节码，并加载到 JVM 中的。</li>
+</ol>
+<h1 id="总结">5、总结</h1>
+<p>这篇文章中主要介绍了代理模式的两种实现：静态代理以及动态代理。涵盖了静态代理和动态代理实战、静态代理和动态代理的区别、JDK
+动态代理和 Cglib 动态代理区别等内容。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%BD%AC%E8%BD%BD/">转载</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%9D%A2%E8%AF%95/">面试</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/14/VSCode-Tricks-About-Java/">
+                        <span class="hidden-mobile">VSCode Tricks About Java</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
