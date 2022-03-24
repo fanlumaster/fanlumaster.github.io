@@ -193,6 +193,446 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/06/06/Ubuntu-18-%E7%94%A8-NASM-%E7%BC%96%E5%86%99-MBR-%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F%EF%BC%8C%E5%9C%A8-BOCHS-%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E6%B5%8B%E8%AF%95/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210606232013.png" srcset="/img/loading.gif" lazyload alt="Ubuntu 18 用 NASM 编写 MBR 引导程序，在 BOCHS 虚拟机中测试">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/06/06/Ubuntu-18-%E7%94%A8-NASM-%E7%BC%96%E5%86%99-MBR-%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F%EF%BC%8C%E5%9C%A8-BOCHS-%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E6%B5%8B%E8%AF%95/" target="_self">
+          Ubuntu 18 用 NASM 编写 MBR 引导程序，在 BOCHS 虚拟机中测试
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/06/Ubuntu-18-%E7%94%A8-NASM-%E7%BC%96%E5%86%99-MBR-%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F%EF%BC%8C%E5%9C%A8-BOCHS-%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD%E6%B5%8B%E8%AF%95/" target="_self">
+          
+          前言 这是一次 OS 实验的记录。 实验的要求是，编写 MBR 引导程序，在屏幕显示 &quot;Hello OS world!&quot;，然后原地停下。 由于实验的过程稍微有些曲折，这个任务难度不大，就是过程中的坑比较多。遂记录这一次实验过程，供个人以后复习及后来人参考。 本次实验的环境是  Ubuntu 18.04 Bochs-2.6.11  安装 Bochs 安装依赖 为了运行 Bo
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-06 21:58" pubdate>
+              2021-06-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">Linux</a>
+            
+              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+            
+              <a href="/tags/bochs/">bochs</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/06/01/%E8%A7%A3%E5%86%B3%E5%85%A8%E7%A8%8B%E5%AF%B9%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98%E7%9A%84-Floyd-Warshall-%E7%AE%97%E6%B3%95/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601164944.png" srcset="/img/loading.gif" lazyload alt="解决全程对最短路径问题的 Floyd-Warshall 算法(未竟)">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/06/01/%E8%A7%A3%E5%86%B3%E5%85%A8%E7%A8%8B%E5%AF%B9%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98%E7%9A%84-Floyd-Warshall-%E7%AE%97%E6%B3%95/" target="_self">
+          解决全程对最短路径问题的 Floyd-Warshall 算法(未竟)
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/01/%E8%A7%A3%E5%86%B3%E5%85%A8%E7%A8%8B%E5%AF%B9%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98%E7%9A%84-Floyd-Warshall-%E7%AE%97%E6%B3%95/" target="_self">
+          
+          算法思路 递归式 \[ d_{ij}^{(k)} &#x3D; \left\{ \begin{matrix} \begin{align} &amp; \omega_{ij} &amp;&amp; {if \quad k &#x3D; 0} \\ &amp; min(d_{ij}^{(k - 1)}, d_{ik}^{(k - 1)} + d_{kj}^{(i - 1)}) &amp;&amp; {i
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-01 16:25" pubdate>
+              2021-06-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%9C%AA%E7%AB%9F/">未竟</a>
+            
+              <a href="/tags/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/">《算法导论》</a>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/06/01/LaTex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%8A%B1%E6%8B%AC%E5%8F%B7%E5%8F%B3%E4%BE%A7%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%AF%8F%E8%A1%8C%E4%BF%9D%E6%8C%81%E5%B7%A6%E5%AF%B9%E9%BD%90(%E5%8F%8A%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9%E5%B7%A6%E5%AF%B9%E9%BD%90)/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601002118.png" srcset="/img/loading.gif" lazyload alt="LaTex 数学公式花括号右侧数学公式每行保持左对齐(及部分内容左对齐)">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/06/01/LaTex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%8A%B1%E6%8B%AC%E5%8F%B7%E5%8F%B3%E4%BE%A7%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%AF%8F%E8%A1%8C%E4%BF%9D%E6%8C%81%E5%B7%A6%E5%AF%B9%E9%BD%90(%E5%8F%8A%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9%E5%B7%A6%E5%AF%B9%E9%BD%90)/" target="_self">
+          LaTex 数学公式花括号右侧数学公式每行保持左对齐(及部分内容左对齐)
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/01/LaTex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%8A%B1%E6%8B%AC%E5%8F%B7%E5%8F%B3%E4%BE%A7%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%AF%8F%E8%A1%8C%E4%BF%9D%E6%8C%81%E5%B7%A6%E5%AF%B9%E9%BD%90(%E5%8F%8A%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9%E5%B7%A6%E5%AF%B9%E9%BD%90)/" target="_self">
+          
+          记录 LaTex 数学公式中多行公式保持左对齐的书写方法，方便用时备查。
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-01 00:23" pubdate>
+              2021-06-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/LaTex/">LaTex</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/LaTex/">LaTex</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/06/01/LaTex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%B0%86%E4%B8%8B%E6%A0%87%E6%94%BE%E5%9C%A8%E6%AD%A3%E4%B8%8B%E6%96%B9%EF%BC%88%E4%B8%8A%E6%A0%87%E6%94%BE%E5%9C%A8%E6%AD%A3%E4%B8%8A%E6%96%B9%EF%BC%89/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210601002015.png" srcset="/img/loading.gif" lazyload alt="LaTex 数学公式将下标放在正下方（上标放在正上方）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/06/01/LaTex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%B0%86%E4%B8%8B%E6%A0%87%E6%94%BE%E5%9C%A8%E6%AD%A3%E4%B8%8B%E6%96%B9%EF%BC%88%E4%B8%8A%E6%A0%87%E6%94%BE%E5%9C%A8%E6%AD%A3%E4%B8%8A%E6%96%B9%EF%BC%89/" target="_self">
+          LaTex 数学公式将下标放在正下方（上标放在正上方）
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/06/01/LaTex-%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%B0%86%E4%B8%8B%E6%A0%87%E6%94%BE%E5%9C%A8%E6%AD%A3%E4%B8%8B%E6%96%B9%EF%BC%88%E4%B8%8A%E6%A0%87%E6%94%BE%E5%9C%A8%E6%AD%A3%E4%B8%8A%E6%96%B9%EF%BC%89/" target="_self">
+          
+          使用 LaTex 的语法，关于把数学公式的下表放在正下方的方法，分两种情况。如下。 1、本身是数学符号 比如，$\sum$，行内数学公式默认的格式是 1$\sum_&amp;#123;i &#x3D; 0&amp;#125;^&amp;#123;n&amp;#125;$ 效果是：\(\sum_{i &#x3D; 0}^{n}\) 而如果我们要想将下标放在正下方，则需要使用 \limits 语法，书写格式如下 1$\sum\limit
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-06-01 00:17" pubdate>
+              2021-06-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/LaTex/">LaTex</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/LaTex/">LaTex</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/05/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E9%A1%B5%E9%9D%A2%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210531151202.png" srcset="/img/loading.gif" lazyload alt="操作系统之常用的页面淘汰算法(未竟)">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E9%A1%B5%E9%9D%A2%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/" target="_self">
+          操作系统之常用的页面淘汰算法(未竟)
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E9%A1%B5%E9%9D%A2%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/" target="_self">
+          
+          最佳算法(OPT 算法, Optimal) 思想  淘汰不再需要或最远将来才会用到的页面.  例子 分配 3 个页框. 页面序列: A, B, C, D, A, B, E, A, B, C, D, E. 分析其按照 OPT 算法淘汰页面的缺页情况.  缺页次数 &#x3D; 7　　　缺页率 &#x3D; 7 &#x2F; 12 &#x3D; 58% 特点 理论上最佳, 实践中该算法无法实现. 先进先出淘汰算法(F
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-31 14:48" pubdate>
+              2021-05-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%9C%AA%E7%AB%9F/">未竟</a>
+            
+              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/05/30/%E4%B8%BB%E5%AE%9A%E7%90%86%E4%B8%8E%E4%B8%BB%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527222847.png" srcset="/img/loading.gif" lazyload alt="主定理与主方法的使用">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/30/%E4%B8%BB%E5%AE%9A%E7%90%86%E4%B8%8E%E4%B8%BB%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
+          主定理与主方法的使用
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/30/%E4%B8%BB%E5%AE%9A%E7%90%86%E4%B8%8E%E4%B8%BB%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
+          
+          主定理 令 $a \geqslant 1$ 和 $b &gt; 1$ 是常数, $f(n)$ 是一个函数, $T(n)$ 是定义在非负整数上的递归式: \[T(n) &#x3D; aT(n&#x2F;b) + f(n)\] 其中我们将 $n&#x2F;b$ 解释为 $\left \lfloor n&#x2F;b \right \rfloor$ 或 $\left \lceil n&#x2F;b \right \rceil$. 那么 $
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-30 22:37" pubdate>
+              2021-05-30
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E3%80%8A%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E3%80%8B/">《算法导论》</a>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90/">算法设计与分析</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/05/28/Python-%E4%B8%AD%E7%9A%84-if-name-main-%E8%AF%A5%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527222736.png" srcset="/img/loading.gif" lazyload alt="Python 中的 if __name == &#39;__main__&#39; 该如何理解">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/28/Python-%E4%B8%AD%E7%9A%84-if-name-main-%E8%AF%A5%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3/" target="_self">
+          Python 中的 if __name == &#39;__main__&#39; 该如何理解
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/28/Python-%E4%B8%AD%E7%9A%84-if-name-main-%E8%AF%A5%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3/" target="_self">
+          
+          本文转载自: https:&#x2F;&#x2F;blog.konghy.cn&#x2F;2017&#x2F;04&#x2F;24&#x2F;python-entry-program&#x2F; 程序入口 对于很多编程语言来说，程序都必须要有一个入口，比如 C，C++，以及完全面向对象的编程语言 Java，C# 等。如果你接触过这些语言，对于程序入口这个概念应该很好理解，C 和 C++ 都需要有一个 main 函数来作为程序的入口，也就是程序的运行会从
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-28 13:58" pubdate>
+              2021-05-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%BD%AC%E8%BD%BD/">转载</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">Python</a>
+            
+              <a href="/tags/%E8%BD%AC%E8%BD%BD/">转载</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/05/20/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%89%8D%E9%9D%A2%E7%9A%84r%E7%9A%84%E5%90%AB%E4%B9%89/" target="_self">
+          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527222525.png" srcset="/img/loading.gif" lazyload alt="Python字符串前面的r的含义">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/20/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%89%8D%E9%9D%A2%E7%9A%84r%E7%9A%84%E5%90%AB%E4%B9%89/" target="_self">
+          Python字符串前面的r的含义
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/20/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%89%8D%E9%9D%A2%E7%9A%84r%E7%9A%84%E5%90%AB%E4%B9%89/" target="_self">
+          
+          r 代表 raw 的意思. 表示要将字符串中所有字符当成原始字符来看待. 比如 \n 在普通字符串里表示换行的意思, 而在带有 r 标识的字符串中, 它就是两个字符的组合. 示例代码 1234str &#x3D; r&amp;#x27;hello \n&amp;#x27;str2 &#x3D; &amp;#x27;hello \n hello&amp;#x27;print(str)print(str2) 输出 1234hello \nh
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-20 23:43" pubdate>
+              2021-05-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Python/">Python</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">Python</a>
+            
+              <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/">小知识</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/05/20/%E2%80%98%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F%E4%BB%A3%E7%A0%81%EF%BC%9A%E6%94%B9%E5%96%84Python%E4%BB%A3%E7%A0%81%E7%A8%8B%E5%BA%8F%E7%9A%8491%E4%B8%AA%E5%BB%BA%E8%AE%AE%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E2%80%99/" target="_self">
           <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527222401.png" srcset="/img/loading.gif" lazyload alt="‘编写高质量代码：改善Python代码程序的91个建议读书笔记’">
         </a>
@@ -297,455 +737,11 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/05/20/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E6%9C%AC%E8%BA%AB%E7%9A%84%E5%86%85%E7%9C%81/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527222559.png" srcset="/img/loading.gif" lazyload alt="对博客本身的内省">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/05/20/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E6%9C%AC%E8%BA%AB%E7%9A%84%E5%86%85%E7%9C%81/" target="_self">
-          对博客本身的内省
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/05/20/%E5%AF%B9%E5%8D%9A%E5%AE%A2%E6%9C%AC%E8%BA%AB%E7%9A%84%E5%86%85%E7%9C%81/" target="_self">
-          
-          记录我的博客一些相关的零零碎碎.
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-20 18:18" pubdate>
-              2021-05-20
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%9D%82%E6%84%9F/">杂感</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%9D%82%E6%84%9F/">杂感</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/05/20/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%EF%BC%88Lagrange%EF%BC%89%E6%8F%92%E5%80%BC%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E5%9F%BA%E5%87%BD%E6%95%B0%E6%9E%84%E9%80%A0%E6%B3%95/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527222616.png" srcset="/img/loading.gif" lazyload alt="拉格朗日（Lagrange）插值多项式的基函数构造法(详细推导)">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/05/20/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%EF%BC%88Lagrange%EF%BC%89%E6%8F%92%E5%80%BC%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E5%9F%BA%E5%87%BD%E6%95%B0%E6%9E%84%E9%80%A0%E6%B3%95/" target="_self">
-          拉格朗日（Lagrange）插值多项式的基函数构造法(详细推导)
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/05/20/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%EF%BC%88Lagrange%EF%BC%89%E6%8F%92%E5%80%BC%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E5%9F%BA%E5%87%BD%E6%95%B0%E6%9E%84%E9%80%A0%E6%B3%95/" target="_self">
-          
-          拉格朗日插值多项式的推导.
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-20 15:13" pubdate>
-              2021-05-20
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">计算方法</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">计算方法</a>
-            
-              <a href="/tags/%E6%8F%92%E5%80%BC%E6%B3%95/">插值法</a>
-            
-              <a href="/tags/%E6%95%B0%E5%80%BC%E7%A7%AF%E5%88%86/">数值积分</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/05/17/VSCode-%E7%9A%84-PicGo-%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527222627.png" srcset="/img/loading.gif" lazyload alt="VSCode 的 PicGo 插件配置">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/05/17/VSCode-%E7%9A%84-PicGo-%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/" target="_self">
-          VSCode 的 PicGo 插件配置
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/05/17/VSCode-%E7%9A%84-PicGo-%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/" target="_self">
-          
-          上传配置 因为要在另一台设备上继续使用我原来在 Github 上面搭建的图床，遂在这里记录一下安装 PicGo 插件之后需要做的配置，由于我之前配置过，所以我只需要将之前的配置参数给直接 copy 过去即可。结果发现果然如此哈哈。  然后就可以在另一台设备上面继续愉快地使用原来的图床了。 文件名设置 这是原来的设置，它会在 [] 内默认填充文件名，即 PicGo 自动给文件赋予的
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-17 22:54" pubdate>
-              2021-05-17
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/VSCode/">VSCode</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/VSCode/">VSCode</a>
-            
-              <a href="/tags/PicGo/">PicGo</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/05/07/ThinkPad-X13-AMD-Gen1-%E5%AE%89%E8%A3%85-Ubuntu20-04-%E4%B9%8B%E5%90%8E-F4-%E9%94%AE%E7%9A%84-LED-%E7%81%AF%E4%B8%80%E7%9B%B4%E5%B8%B8%E4%BA%AE%E7%9A%84%E9%97%AE%E9%A2%98/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527222637.png" srcset="/img/loading.gif" lazyload alt="ThinkPad X13 AMD Gen1 安装 Ubuntu20.04 之后 F4 键的 LED 灯一直常亮的问题">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/05/07/ThinkPad-X13-AMD-Gen1-%E5%AE%89%E8%A3%85-Ubuntu20-04-%E4%B9%8B%E5%90%8E-F4-%E9%94%AE%E7%9A%84-LED-%E7%81%AF%E4%B8%80%E7%9B%B4%E5%B8%B8%E4%BA%AE%E7%9A%84%E9%97%AE%E9%A2%98/" target="_self">
-          ThinkPad X13 AMD Gen1 安装 Ubuntu20.04 之后 F4 键的 LED 灯一直常亮的问题
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/05/07/ThinkPad-X13-AMD-Gen1-%E5%AE%89%E8%A3%85-Ubuntu20-04-%E4%B9%8B%E5%90%8E-F4-%E9%94%AE%E7%9A%84-LED-%E7%81%AF%E4%B8%80%E7%9B%B4%E5%B8%B8%E4%BA%AE%E7%9A%84%E9%97%AE%E9%A2%98/" target="_self">
-          
-          这个问题无法通过设置 BIOS 来解决，目测是 ThinkPad 的适配工作没有做好，目前可以做的是，手动关闭这个灯 1$ echo 0 | sudo tee &#x2F;sys&#x2F;class&#x2F;leds&#x2F;platform\:\:micmute&#x2F;brightness 开启的命令则是： 1$ echo 1 | sudo tee &#x2F;sys&#x2F;class&#x2F;leds&#x2F;platform\:\:micmute&#x2F;bri
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-07 23:27" pubdate>
-              2021-05-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Linux/">Linux</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Linux/">Linux</a>
-            
-              <a href="/tags/Ubuntu20/">Ubuntu20</a>
-            
-              <a href="/tags/ThinkPad/">ThinkPad</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/05/05/Linux-%E4%B8%8B%E7%9A%84-pthread-t/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527222649.png" srcset="/img/loading.gif" lazyload alt="Linux 下的 pthread_t">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/05/05/Linux-%E4%B8%8B%E7%9A%84-pthread-t/" target="_self">
-          Linux 下的 pthread_t
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/05/05/Linux-%E4%B8%8B%E7%9A%84-pthread-t/" target="_self">
-          
-          先由 pthread.h 文件推断一下 pthread_t 的位置， 然后 locate 一下位置  最后使用 VSCode 查看一下  发现，Linux 下的 pthread_t 其实是一个 unsigned long int 类型。
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-05 17:20" pubdate>
-              2021-05-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Linux/">Linux</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C/">C</a>
-            
-              <a href="/tags/Linux/">Linux</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/05/05/Linux-%E6%96%87%E6%A1%A3%EF%BC%88%E6%89%8B%E5%86%8C%EF%BC%89%E5%9C%A8%E6%8F%8F%E8%BF%B0%E5%87%BD%E6%95%B0%E6%97%B6%EF%BC%8C%E6%8B%AC%E5%8F%B7%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%97%E7%9A%84%E5%90%AB%E4%B9%89/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527222705.png" srcset="/img/loading.gif" lazyload alt="Linux 文档（手册）在描述函数时，括号中的数字的含义">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/05/05/Linux-%E6%96%87%E6%A1%A3%EF%BC%88%E6%89%8B%E5%86%8C%EF%BC%89%E5%9C%A8%E6%8F%8F%E8%BF%B0%E5%87%BD%E6%95%B0%E6%97%B6%EF%BC%8C%E6%8B%AC%E5%8F%B7%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%97%E7%9A%84%E5%90%AB%E4%B9%89/" target="_self">
-          Linux 文档（手册）在描述函数时，括号中的数字的含义
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/05/05/Linux-%E6%96%87%E6%A1%A3%EF%BC%88%E6%89%8B%E5%86%8C%EF%BC%89%E5%9C%A8%E6%8F%8F%E8%BF%B0%E5%87%BD%E6%95%B0%E6%97%B6%EF%BC%8C%E6%8B%AC%E5%8F%B7%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%97%E7%9A%84%E5%90%AB%E4%B9%89/" target="_self">
-          
-          前言 在阅读《Linux C 一站式编程》时，发现书中提到函数时，会在括号中加上数字。第一次遇到，不解。遂谷歌之，记录一下。  具体解释 Linux 下的一些说明 1 用户命令，可由任何人启动的 2 系统调用，即由内核提供的函数 3 例程，即库函数 4 设备，即 &#x2F;dev 目录下的特殊文件 5 文件格式描述，例如 &#x2F;etc&#x2F;passws 6 游戏，啊这 7 杂项，例如宏命令
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-05 17:02" pubdate>
-              2021-05-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Linux/">Linux</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C/">C</a>
-            
-              <a href="/tags/Linux/">Linux</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/05/05/Linux-C-pthread-create-%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527222716.png" srcset="/img/loading.gif" lazyload alt="Linux C pthread_create() 函数的理解与使用">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/05/05/Linux-C-pthread-create-%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_self">
-          Linux C pthread_create() 函数的理解与使用
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/05/05/Linux-C-pthread-create-%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_self">
-          
-          Linux C 创建线程.
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-05 16:35" pubdate>
-              2021-05-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/C/">C</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C/">C</a>
-            
-              <a href="/tags/%E3%80%8ALinux-C-%E4%B8%80%E7%AB%99%E5%BC%8F%E7%BC%96%E7%A8%8B%E3%80%8B/">《Linux C 一站式编程》</a>
-            
-              <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/05/05/C-%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8-typedef-%E5%A3%B0%E6%98%8E%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/" target="_self">
-          <img src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png" srcset="/img/loading.gif" lazyload alt="C 语言使用 typedef 声明函数指针">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/05/05/C-%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8-typedef-%E5%A3%B0%E6%98%8E%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/" target="_self">
-          C 语言使用 typedef 声明函数指针
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/05/05/C-%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8-typedef-%E5%A3%B0%E6%98%8E%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/" target="_self">
-          
-          转自我之前的博客园
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-05-05 16:32" pubdate>
-              2021-05-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/C/">C</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C/">C</a>
-            
-              <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%9B%AD%E8%AE%A9%E4%BA%BA%E5%A4%B1%E6%9C%9B/">博客园让人失望</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/9/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#board">8</a><a class="page-number" href="/page/9/#board">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/#board">11</a><a class="page-number" href="/page/12/#board">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/#board">17</a><a class="extend next" rel="next" href="/page/11/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/9/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#board">8</a><a class="page-number" href="/page/9/#board">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/#board">11</a><a class="page-number" href="/page/12/#board">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/#board">18</a><a class="extend next" rel="next" href="/page/11/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

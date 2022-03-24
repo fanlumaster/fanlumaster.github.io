@@ -1,0 +1,632 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="fanlumaster">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Spring 的 AOP 和 IOC？ AOP(Aspect-Oriented Programming), 即 面向切面编程, 它与 OOP( Object-Oriented Programming, 面向对象编程) 相辅相成, 提供了与 OOP 不同的抽象软件结构的视角. 在 OOP 中, 我们以类(class)作为我们的基本单元, 而 AOP 中的基本单元是 Aspect(切面)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试题整理">
+<meta property="og:url" content="http://example.com/2022/03/19/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="Fan Lu&#39;s Blog">
+<meta property="og:description" content="Spring 的 AOP 和 IOC？ AOP(Aspect-Oriented Programming), 即 面向切面编程, 它与 OOP( Object-Oriented Programming, 面向对象编程) 相辅相成, 提供了与 OOP 不同的抽象软件结构的视角. 在 OOP 中, 我们以类(class)作为我们的基本单元, 而 AOP 中的基本单元是 Aspect(切面)。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/8ifO1Pd.png">
+<meta property="article:published_time" content="2022-03-19T03:56:04.000Z">
+<meta property="article:modified_time" content="2022-03-24T08:52:31.207Z">
+<meta property="article:author" content="fanlumaster">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/8ifO1Pd.png">
+  
+  
+  <title>面试题整理 - Fan Lu&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fan Lu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/8ifO1Pd.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="面试题整理">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-19 11:56" pubdate>
+        2022年3月19日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.5k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      30 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">面试题整理</h1>
+            
+            <div class="markdown-body">
+              <h2 id="spring-的-aop-和-ioc">Spring 的 AOP 和 IOC？</h2>
+<p>AOP(Aspect-Oriented Programming), 即 面向切面编程, 它与 OOP(
+Object-Oriented Programming, 面向对象编程) 相辅相成, 提供了与 OOP
+不同的抽象软件结构的视角. 在 OOP 中, 我们以类(class)作为我们的基本单元,
+而 AOP 中的基本单元是 Aspect(切面)。</p>
+<p>IOC 就是控制反转。Spring 框架的核心是 Spring
+容器。容器创建对象，将它们装配在一起，配置它们并管理它们的完整生命周期。Spring
+容器使用依赖注入来管理组成应用程序的组件。容器通过读取提供的配置元数据来接收对象进行实例化，配置和组装的指令。该元数据可以通过
+XML，Java 注解或 Java 代码提供。</p>
+<h2 id="aop-有哪些实现方式">AOP 有哪些实现方式？</h2>
+<p>实现 AOP 的技术，主要分为两大类：</p>
+<ul>
+<li>静态代理 - 指使用 AOP 框架提供的命令进行编译，从而在编译阶段就可生成
+AOP 代理类，因此也称为编译时增强；
+<ul>
+<li>编译时编织（特殊编译器实现）</li>
+<li>类加载时编织（特殊的类加载器实现）。</li>
+</ul></li>
+<li>动态代理 - 在运行时在内存中“临时”生成 AOP
+动态代理类，因此也被称为运行时增强。
+<ul>
+<li>JDK
+动态代理：通过反射来接收被代理的类，并且要求被代理的类必须实现一个接口
+。JDK 动态代理的核心是 InvocationHandler 接口和 Proxy 类 。</li>
+<li>CGLIB动态代理： 如果目标类没有实现接口，那么 Spring AOP 会选择使用
+CGLIB 来动态代理目标类 。CGLIB （ Code Generation Library
+），是一个代码生成的类库，可以在运行时动态的生成某个类的子类，注意，
+CGLIB 是通过继承的方式做的动态代理，因此如果某个类被标记为 final
+，那么它是无法使用 CGLIB 做动态代理的。</li>
+</ul></li>
+</ul>
+<h2 id="spring-aop-和-aspectj-aop-有什么区别">Spring AOP 和 AspectJ AOP
+有什么区别？</h2>
+<p>Spring AOP是属于运行时增强，而AspectJ是编译时增强。Spring AOP基于代理
+（Proxying），而AspectJ基于字节码操作（Bytecode Manipulation）。</p>
+<p>Spring
+AOP已经集成了AspectJ，AspectJ应该算得上是Java生态系统中最完整的AOP框架
+了。AspectJ相比于Spring AOP功能更加强大，但是Spring
+AOP相对来说更简单。</p>
+<p>如果我们的切面比较少，那么两者性能差异不大。但是，当切面太多的话，最好选择
+AspectJ，它比SpringAOP快很多。</p>
+<h2 id="ioc-如何解决循环依赖">IOC 如何解决循环依赖？</h2>
+<p>最后来描述下就上面那个循环依赖 Spring
+解决的过程(A为person，B为car，C为money)：首先 A
+完成初始化第一步并将自己提前曝光出来（通过 ObjectFactory
+将自己提前曝光），在初始化的时候，发现自己依赖对象 B，此时就会去尝试
+get(B)，这个时候发现 B 还没有被创建出来，然后 B 就走创建流程，在 B
+初始化的时候，同样发现自己依赖 C，C 也没有被创建出来，这个时候 C
+又开始初始化进程，但是在初始化的过程中发现自己依赖 A，于是尝试
+get(A)，这个时候由于 A 已经添加至缓存中（一般都是添加至三级缓存
+singletonFactories ），通过 ObjectFactory 提前曝光，所以可以通过
+ObjectFactory.getObject() 拿到 A 对象，C 拿到 A
+对象后顺利完成初始化，然后将自己添加到一级缓存中，回到 B ，B 也可以拿到
+C 对象，完成初始化，A 可以顺利拿到 B
+完成初始化。到这里整个链路就已经完成了初始化过程了。</p>
+<h2 id="了解-fastjson-吗区别是什么用到了什么">了解 fastJson
+吗？区别是什么？用到了什么？</h2>
+<p>Fastjson是一个Java语言编写的高性能功能完善的JSON库。它采用一种“假定有序快速匹配”的算法，把JSON
+Parse的性能提升到极致，是目前Java语言中最快的JSON库。Fastjson接口简单易用，已经被广泛使用在缓存序列化、协议交互、Web输出、Android客户端等多种应用场景。</p>
+<p>fastjson 的兼容性比 jackson 要差一些。</p>
+<h2 id="前后端分离如何约束参数">前后端分离如何约束参数？</h2>
+<p>前端通过Ajax请求来访问后端的数据接口，将Model展示到View中即可。</p>
+<p>前后端开发者只需要提前约定好接口文档(URL、参数、数据类型.….)，然后分别独立开发即可，前端可以造假数据进行测试，完全不需要依赖于后端，最后完成前后端集成即可，真正实现了前后端应用的解耦合，极大地提升了开发效率。</p>
+<h2 id="mvvm-是什么">MVVM 是什么？</h2>
+<p>Model View View-Model.</p>
+<p>把Model和View关联起来的就是ViewModel。ViewModel负责把Model的数据同步到View显示出来，还负责把View的修改同步回Model。</p>
+<h2 id="如何设计接口">如何设计接口？</h2>
+<p>单一职责。</p>
+<p>开放封闭原则。对扩展开放，对修改封闭。</p>
+<p>里氏替换原则。子类型可以替换掉父类型。</p>
+<p>依赖倒置原则。抽象不应该依赖于细节。细节应该依赖抽象。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/193058932"
+class="uri">https://zhuanlan.zhihu.com/p/193058932</a></p>
+<h2 id="接口的安全性设计基于序列化">接口的安全性设计？基于序列化？</h2>
+<p>总的就是说安全性问题，假如没有一个接口（即没有Serializable来标记是否可以序列化），让所有对象都可以序列化。那么所有对象通过序列化存储到硬盘上后，都可以在序列化得到的文件中看到属性对应的值（后面将会通过代码展示）。所以最后为了安全性（即不让一些对象中私有属性的值被外露），不能让所有对象都可以序列化。要让用户自己来选择是否可以序列化，因此需要一个接口来标记该类是否可序列化。</p>
+<h2 id="对于集合类的了解">对于集合类的了解？</h2>
+<p>Java 集合类主要是由两个根接口 Collection 和 Map 派生出来的。</p>
+<p>Collection
+派生出了三个子接口：List、Set、Queue(Java5新增的队列)，因此Java集合大致可以分为
+List、Set、Queue四种接口体系。</p>
+<p>注意：Collections 是一个工具类。</p>
+<h2 id="讲一下-arraylist">讲一下 ArrayList？</h2>
+<p>不保证线程安全。</p>
+<p>ArrayList 只能包含对象类型。</p>
+<p>ArrayList 的底层使用了数组。</p>
+<p>ArrayList 可以动态扩容。</p>
+<p>ArrayList 扩容的本质就是计算出新的扩容数组的 size
+后进行实例化，并将原有数组内容复制到新数组中去。默认情况下，新的容量会是原容量的
+1.5 倍。</p>
+<h2 id="arraylist-和-vector-的区别">ArrayList 和 Vector 的区别？</h2>
+<ul>
+<li>Vector 是线程安全的。</li>
+<li>ArrayList 是线程不安全的。</li>
+</ul>
+<h2 id="讲下-hashmap">讲下 HashMap？</h2>
+<p>jdk1.8 中，由“数组+链表+红黑树”组成。</p>
+<p>hash冲突时，会链表处理。</p>
+<ul>
+<li>当链表超过8且数据总量超过64时才会转红黑树。</li>
+<li>将链表转换成红黑树前会判断，如果当前数组的长度小于
+64，那么会选择先进行数组扩容，而不是转换成红黑树，以减少搜索时间。</li>
+</ul>
+<h2 id="为什么不直接用红黑树">为什么不直接用红黑树？</h2>
+<p>因为红黑树要进行左旋、右旋、变色这些操作来保持平衡，而单链表不需要。</p>
+<p>当元素小于 8
+个的时候，此时做查询操作，链表结构已经能够保证查询性能。当元素大于8个的时候，红黑树搜索时间复杂度是O(logN)，而链表是O(N)，此时需要红黑树来加快查询速度。但是新增节点的效率变慢了。</p>
+<p>因此，如果一开始就用红黑树结构，元素太少，新增效率又比较慢，无疑这是浪费性能的。</p>
+<h2
+id="不用红黑树用二叉查找树可以吗">不用红黑树，用二叉查找树可以吗？</h2>
+<p>可以。但是二叉查找树在特殊情况下会变成一条线性结构。</p>
+<h2
+id="为什么链表改为红黑树的阈值是8">为什么链表改为红黑树的阈值是8？</h2>
+<p>因为泊松分布。</p>
+<h2 id="lambda-表达式用过吗举个例子for-循环和-foreach-的区别">lambda
+表达式用过吗？举个例子：for 循环和 foreach 的区别？</h2>
+<p>Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。</p>
+<p>Lambda 允许把函数作为一个方法的参数（函数作为参数传递进方法中）。</p>
+<p>使用 Lambda 表达式可以使代码变的更加简洁紧凑。</p>
+<p>for 循环和 foreach 的区别：</p>
+<p>一、区别</p>
+<ul>
+<li>1)for循环是基于下标（偏移量）来定位的循环。</li>
+<li>2)foreach是基于指针直接移动（地址运算）的循环。</li>
+<li>3)foreach与for循环的明显差别在于foreach循环时循环对象（数组、集合）被锁定，<strong>不能对循环对象中的内容进行增删改操作</strong>。</li>
+</ul>
+<p>二、两者效率比较 对于通过下标访问的数据结构。例如数组，ArrayList
+使用下标访问的for循环效率本身就很高。所以foreach这种指针直接移动的效率可能甚至不如通过下标访问，但差别不会太大，但对于链式结构LinkedList，for基于下标访问会每次从头查询，最好不要使用for。foreach循环使用指针直接偏移的高效的地址运算，效率会高非常多，差距也很大。链表循环超过10万次for循环可能会直接卡死，而foreach仍然只需要几毫秒。</p>
+<h2
+id="数据库的设计应该遵循什么原则">数据库的设计应该遵循什么原则？</h2>
+<p>一致性原则。</p>
+<p>完整性原则。</p>
+<p>安全性原则。</p>
+<p>可伸缩性与可扩展性。</p>
+<p>规范性原则。</p>
+<h2 id="volatile">volatile</h2>
+<p>只能保证可见性。</p>
+<p>不能保证原子性。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%9D%A2%E8%AF%95/">面试</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/20/LeetCode-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D%E7%B3%BB%E5%88%97%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">LeetCode 打家劫舍系列问题整理</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/15/Java-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0/">
+                        <span class="hidden-mobile">Java 多线程学习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
