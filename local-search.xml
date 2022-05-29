@@ -4,6 +4,143 @@
   
   
   <entry>
+    <title>计算机网络实验一 wireshark 抓包工具的使用</title>
+    <link href="/2022/05/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C%E4%B8%80-wireshark-%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <url>/2022/05/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C%E4%B8%80-wireshark-%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="实验一-wireshark-抓包工具使用">实验一 wireshark抓包工具使用</h1><ul><li>班级：软工 1902 班</li><li>姓名：</li><li>学号：</li></ul><h2 id="一实验目的">一、实验目的</h2><ul><li>学习wireshark抓包工具的使用</li><li>了解wireshark抓包工具的功能，明确抓包软件的功能。</li><li>通过学习，进一步理解协议及网络体系结构思想</li></ul><h2 id="二实验原理">二、实验原理</h2><p>Wireshark是网络包分析工具。网络包分析工具的主要作用是尝试捕获网络包，并尝试显示包的尽可能详细的情况。</p><p>主要应用：</p><ul><li>网络管理员用来解决网络问题</li><li>网络安全工程师用来检测安全隐患</li><li>开发人员用来测试协议执行情况</li><li>用来学习网络协议</li></ul><h2 id="三实验内容">三、实验内容</h2><p>下载 WIRESHARK，学习工具的使用和功能。</p><h2 id="四实验过程">四、实验过程</h2><h3 id="wireshark-的下载安装与配置">1、wireshark 的下载、安装与配置</h3><p>访问 wireshark 官网：<a href="https://www.wireshark.org/"class="uri">https://www.wireshark.org/</a></p><p><img src="https://i.imgur.com/ve6TkUX.png" /></p><p>下载并安装 Windows Installer (64-bit) 版本。</p><h3 id="初识-wireshark">2、初识 wireshark</h3><p>Wireshark的工作原理是捕获某一网卡的数据包，当配置多块网卡时，需要选择一块网卡进行抓包，此处选择WLAN，然后双击即可。</p><p><img src="https://i.imgur.com/LvgXfbw.png" /></p><p><img src="https://i.imgur.com/u2k1vbm.png" /></p><h3 id="查看网络环境">3、查看网络环境</h3><p>控制面板-网络和Internet-网络和共享中心-更改适配器设置-WLAN-状态-详细信息，得到了以下关键信息：</p><table><thead><tr class="header"><th style="text-align: center;">名称</th><th style="text-align: center;">地址</th></tr></thead><tbody><tr class="odd"><td style="text-align: center;">IPv4 地址</td><td style="text-align: center;">10.19.128.57</td></tr><tr class="even"><td style="text-align: center;">子网掩码</td><td style="text-align: center;">255.255.248.0</td></tr><tr class="odd"><td style="text-align: center;">默认网关</td><td style="text-align: center;">10.19.135.254</td></tr></tbody></table><p><img src="https://i.imgur.com/A412zBu.png" /></p><h3 id="启动抓包">4、启动抓包</h3><p>截图显示的是 wireshark 抓到的部分数据包，有TCP、UDP、ARP、MDNS、ICMPv6 等多种协议的数据包。</p><p><img src="https://i.imgur.com/u2k1vbm.png" /></p><table><thead><tr class="header"><th style="text-align: center;">名称</th><th style="text-align: center;">对应层次</th></tr></thead><tbody><tr class="odd"><td style="text-align: center;">Frame</td><td style="text-align: center;">物理层</td></tr><tr class="even"><td style="text-align: center;">Ethernet Ⅱ</td><td style="text-align: center;">数据链路层</td></tr><tr class="odd"><td style="text-align: center;">Internet Protocol Version 4</td><td style="text-align: center;">网络层</td></tr><tr class="even"><td style="text-align: center;">Transmission Control Protocol</td><td style="text-align: center;">传输层</td></tr><tr class="odd"><td style="text-align: center;">Hypertext Transfer Protocol</td><td style="text-align: center;">应用层</td></tr></tbody></table><h3 id="追踪打开一个网页时tcp-的三次握手">5、追踪打开一个网页时，TCP的三次握手</h3><p>以访问百度为例，首先，打开浏览器的一个无痕窗口，并确保电脑上的代理处于关闭状态，然后过滤出DNS 我们可以发现解析百度的包，找到解析后的真实 ip，</p><p><img src="https://i.imgur.com/5AnWH28.png" /></p><p>然后设置过滤规则：</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">ip</span>.src == <span class="hljs-number">182.61.200.7</span> or ip.dst == <span class="hljs-number">182.61.200.7</span><br></code></pre></div></td></tr></table></figure><p>将过滤出来的包按时间排序，开头的三个包是TCP 的三次握手，</p><p><img src="https://i.imgur.com/kzNoE38.png" /></p><ul><li>第一次握手：客户机(10.19.128.57)主动打开一条TCP连接，从客户机(10.19.128.57)发送报文段至服务器(182.61.200.7)：SYN=1，Seq=0，不携带数据，等待服务器确认。</li><li>第二次握手：服务器(182.61.200.7)返回确认报文至客户机(10.0.0.108)：SYN=1，ACK=1，Seq=0，不携带数据。</li><li>第三次握手：从客户机(10.19.128.57)发送报文段至服务器(182.61.200.7)：ACK=1，Seq=1，不携带数据，TCP连接正式建立。</li></ul><p>下图为第二次握手的报文段的详细分析：</p><p><img src="https://i.imgur.com/B7JxqjE.png" /></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>计网</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Python Socket 套接字编程学习</title>
+    <link href="/2022/03/26/Python-Socket-%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    <url>/2022/03/26/Python-Socket-%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TCP/UDP 学习与理解</title>
+    <link href="/2022/03/26/TCP-UDP-%E5%AD%A6%E4%B9%A0%E4%B8%8E%E7%90%86%E8%A7%A3/"/>
+    <url>/2022/03/26/TCP-UDP-%E5%AD%A6%E4%B9%A0%E4%B8%8E%E7%90%86%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>DNS 学习与理解</title>
+    <link href="/2022/03/26/DNS-%E5%AD%A6%E4%B9%A0%E4%B8%8E%E7%90%86%E8%A7%A3/"/>
+    <url>/2022/03/26/DNS-%E5%AD%A6%E4%B9%A0%E4%B8%8E%E7%90%86%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[<p>转载(参考): <ahref="https://www.ruanyifeng.com/blog/2016/06/dns.html"class="uri">https://www.ruanyifeng.com/blog/2016/06/dns.html</a></p><p>DNS(Domain Name System)，域名系统。就是根据域名查出 IP地址。我们可以把它看成一本巨大的电话本。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>网络</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>整理一下别人的面经</title>
+    <link href="/2022/03/26/%E6%95%B4%E7%90%86%E4%B8%80%E4%B8%8B%E5%88%AB%E4%BA%BA%E7%9A%84%E9%9D%A2%E7%BB%8F/"/>
+    <url>/2022/03/26/%E6%95%B4%E7%90%86%E4%B8%80%E4%B8%8B%E5%88%AB%E4%BA%BA%E7%9A%84%E9%9D%A2%E7%BB%8F/</url>
+    
+    <content type="html"><![CDATA[<h2 id="get-和-post-有什么区别">GET 和 POST 有什么区别？</h2><h3 id="一是什么">一、是什么</h3><p>GET 和 POST，两者都是 HTTP 协议中发送请求的方法。</p><p>GET</p><p>GET 方法请求一个指定资源的表示形式，使用 GET的请求应只被用于获取数据。</p><p>POST</p><p>POST方法用于将实体提交到指定的资源，通常会导致服务器上的状态变化或带来一定的副作用(sideeffect)。</p><p>本质上都是 TCP 连接，在这一点上并无差别。</p><p>但是由于 HTTP的规定和浏览器/服务器的限制，导致他们在应用过程中会体现一点区别。</p><h3 id="二区别">二、区别</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>面试</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>游密面试与携程笔试经验记录</title>
+    <link href="/2022/03/25/%E6%B8%B8%E5%AF%86%E9%9D%A2%E8%AF%95%E4%B8%8E%E6%90%BA%E7%A8%8B%E7%AC%94%E8%AF%95%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/"/>
+    <url>/2022/03/25/%E6%B8%B8%E5%AF%86%E9%9D%A2%E8%AF%95%E4%B8%8E%E6%90%BA%E7%A8%8B%E7%AC%94%E8%AF%95%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<p>六点钟是游密的面试。七点到九点是携程的笔试。</p><h1 id="游密">游密</h1><p>基本就是简历面。</p><h2 id="python-的装饰器">Python 的装饰器？</h2><p>Python的装饰器本质上是一个嵌套函数，它接受被装饰的函数(func)作为参数，并返回一个包装过的函数。这样我们可以在不改变被装饰函数的代码的情况下给被装饰函数或程序添加新的功能。Python的装饰器广泛应用于缓存、权限校验(如django中的@login_required和<spanclass="citation"data-cites="permission_required装饰器">@permission_required装饰器</span>)、性能测试(比如统计一段程序的运行时间)和插入日志等应用场景。有了装饰器，我们就可以抽离出大量与函数功能本身无关的代码，增加一个函数的重用性。</p><h2id="双重循环大循环放在外面还是小循环放在外面">双重循环大循环放在外面还是小循环放在外面？</h2><p>大循环应该放在里面。</p><h2 id="使用索引的属性">使用索引的属性？</h2><h2id="数据库中索引在连接表时应该如何使用">数据库中索引，在连接表时，应该如何使用？</h2><p><strong>应该好好学习一下索引应该如何使用。</strong></p><h1 id="携程">携程</h1><p>第二题，只需要看透窍门。</p><p>第三题，滑动窗口的题目。用 Python 做会超时。用 Java做可以。但是改的时候花费了不少时间。导致第四题没有时间做了。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>http 和 https 的理解</title>
+    <link href="/2022/03/24/http-%E5%92%8C-https-%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <url>/2022/03/24/http-%E5%92%8C-https-%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[<p>本文部分转载自 <a href="https://zhuanlan.zhihu.com/p/72616216"class="uri">https://zhuanlan.zhihu.com/p/72616216</a>。</p><h1 id="什么是协议">什么是协议？</h1><p>网络协议是计算机之间为了实现网络通信而达成的一种“约定”或者“规则”，有了这种“约定”，不同厂商生产的设备，以及不同的操作系统组成的计算机之间就可以实现通信。</p><h1 id="http-协议是什么">http 协议是什么？</h1><p>http 协议是<strong>超文本传输协议</strong>的缩写，英文是 Hyper TextTransfer Protocol。它是 web服务器传输超文本标记语言(html)到本地浏览器的传送协议。</p><p>设计 http 最初的目的是为了提供一种发布和接收 html 页面的方法。</p><p>http 有多个版本，目前广泛使用的是 http/1.1 版本。</p><p>问：http 不同的版本之间有什么区别？</p><h1 id="http-原理">http 原理</h1><p>http 是一个基于 tcp/ip 通信协议来传送数据的协议。传输的数据类型为html 文件、图片文件、查询结果等。</p><p>http 协议一般用于 B/S 架构。浏览器作为 http 客户端通过 url 向 http服务端即 web 服务器发送所有请求。</p><p>我们以访问百度为例：</p><p><img src="https://i.imgur.com/pnvlsV3.png" /></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+      <tag>网络</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 问题解决</title>
     <link href="/2022/03/24/OpenSSL-SSL-connect-SSL-ERROR-SYSCALL-in-connection-to-github-com-443-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
     <url>/2022/03/24/OpenSSL-SSL-connect-SSL-ERROR-SYSCALL-in-connection-to-github-com-443-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
