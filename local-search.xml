@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>浏览器控制台的一些 tricks</title>
+    <link href="/2022/06/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8E%A7%E5%88%B6%E5%8F%B0%E7%9A%84%E4%B8%80%E4%BA%9B-tricks/"/>
+    <url>/2022/06/25/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8E%A7%E5%88%B6%E5%8F%B0%E7%9A%84%E4%B8%80%E4%BA%9B-tricks/</url>
+    
+    <content type="html"><![CDATA[<h2id="取消控制台默认的折叠连续输出相同内容的消息">取消控制台默认的折叠连续输出相同内容的消息</h2><p>点击右上角的齿轮，然后取消勾选即可。</p><p><img src="https://i.imgur.com/1Xt16xq.png" /></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>tricks</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>计算机网络实验一 wireshark 抓包工具的使用</title>
     <link href="/2022/05/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C%E4%B8%80-wireshark-%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <url>/2022/05/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C%E4%B8%80-wireshark-%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
