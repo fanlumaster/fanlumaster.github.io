@@ -4,6 +4,50 @@
   
   
   <entry>
+    <title>Manjaro zsh 设置代理的问题</title>
+    <link href="/2022/08/07/Manjaro-zsh-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <url>/2022/08/07/Manjaro-zsh-%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p>Google Chrome 在 Linux 中真没有 Firefox好用啊。连系统的暗色模式都识别不出来。呵呵。</p><p>今天在安装 yay 时，由于需要用到curl，然后在我已经设置了代理的情况下，还给我疯狂报下面的错误，</p><figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">cur<span class="hljs-variable">l:</span> (<span class="hljs-number">35</span>) OpenSSL SSL_connec<span class="hljs-variable">t:</span> SSL_ERROR_SYSCALL in connection <span class="hljs-keyword">to</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">7890</span><br></code></pre></div></td></tr></table></figure><p>然后，可能是我设置得不对，所以就根据<ahref="https://zhuanlan.zhihu.com/p/518100454">这篇博客</a>修改了我的配置如下：</p><figure class="highlight zsh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs zsh"><span class="hljs-built_in">export</span> https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890<br></code></pre></div></td></tr></table></figure><p><img src="https://i.imgur.com/GF1ZzTI.png" /></p><p>修改完毕后，执行一下 <code>source ~/.zshrc</code>激活一下新的配置即可。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Manjaro</tag>
+      
+      <tag>zsh</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>中了 Manjaro KDE 的毒，魔怔了</title>
+    <link href="/2022/08/07/%E4%B8%AD%E4%BA%86-Manjaro-KDE-%E7%9A%84%E6%AF%92%EF%BC%8C%E9%AD%94%E6%80%94%E4%BA%86/"/>
+    <url>/2022/08/07/%E4%B8%AD%E4%BA%86-Manjaro-KDE-%E7%9A%84%E6%AF%92%EF%BC%8C%E9%AD%94%E6%80%94%E4%BA%86/</url>
+    
+    <content type="html"><![CDATA[<p>没有想到，实在忍受不了 windows 的 windowsterminal，主要是忍受不了在那个 WT 中使用neovim，实在是忍受不了了。所以今天就索性再安装一次 Manjaro KDE，和原来的Windows11 组成双系统吧。</p><p>安装完之后，嗯？时隔不到一年，也就是几个月的时间，Manjaro KDE变得这么好用啦？</p><p>I just cannot believe!</p><p>首先，肯定是变漂亮了。也和我个人的接受能力发生了一定的变化有关吧。然后是，今天在搜索时得知，ClashFor Windows 这个浓眉大眼的 clash 图形应用竟然也是支持 Linux的，呵呵，然后配置了一下，逆天，太方便了。</p><p><img src="https://i.imgur.com/3f7lICR.png" /></p><p>然后就是简单设置了一下图形界面，也没怎么美化。最重要的事情是把系统代理和zsh 的代理给配置了。Firefox在配置了系统代理的情况下，还需要单独到应用中设置一下。这个挺怪的。Chrome就不需要。但是，在 Linux 中，Firefox 比 Chrome 好用。</p><p>冇办法了嗷。</p><p>另外呢，这个 Manjaro的动画效果我觉得很好，切换虚拟桌面的时候，我觉得很顺滑。还有经典的拖动窗口时的果冻(形变)效果，呵呵。</p><p>然后呢，yay 也很好用。npm 安装包的时候不会报一些没有用的警告。</p><p>当然，也还是有问题的。</p><p>比如，有时候开机之后会卡住成黑屏。安装的 tg得拖动两次，因为第一次拖动之后鼠标会粘在上面。不过这个可能是 tg开发人员的锅，呵呵，最近可能有点缺钱了？一股脑子去搞 web3和区块链了？呵呵。</p><p><img src="https://i.imgur.com/mFCScyL.png" /></p><p>对了，今天读完了一本新的小说，《魔临》，还算是比较过瘾。嗯。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Manjaro</tag>
+      
+      <tag>随想</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>近来杂感小记</title>
     <link href="/2022/07/15/%E8%BF%91%E6%9D%A5%E6%9D%82%E6%84%9F%E5%B0%8F%E8%AE%B0/"/>
     <url>/2022/07/15/%E8%BF%91%E6%9D%A5%E6%9D%82%E6%84%9F%E5%B0%8F%E8%AE%B0/</url>
