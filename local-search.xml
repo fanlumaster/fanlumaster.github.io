@@ -27,7 +27,7 @@
     <link href="/2022/08/07/Manjaro-%E7%9A%84%E4%B8%80%E4%BA%9B%E9%9B%B6%E9%9B%B6%E7%A2%8E%E7%A2%8E%E7%9A%84%E9%85%8D%E7%BD%AE%E7%82%B9/"/>
     <url>/2022/08/07/Manjaro-%E7%9A%84%E4%B8%80%E4%BA%9B%E9%9B%B6%E9%9B%B6%E7%A2%8E%E7%A2%8E%E7%9A%84%E9%85%8D%E7%BD%AE%E7%82%B9/</url>
     
-    <content type="html"><![CDATA[<h2 id="manjaro-上外网的问题">Manjaro 上外网的问题</h2><p>其实吧，最直接的解决方法是使用 Clash For Windows。</p><p>别看这个玩意儿名字里面带了一个 Windows，其实它是一个跨平台软件。</p><p>所以我们直接像在 Windows 上使用这个软件一样，直接在 GitHub上下载，然后解压，找到里面的执行文件运行即可。</p><p>什么导入订阅，导入节点之类，就不用赘述啦。</p><p><img src="https://i.imgur.com/SBNXrLD.png" /></p><p>然后是设置系统代理：</p><p><img src="https://i.imgur.com/G7VXRXV.png" /></p><p>这个 7890 端口也是我们的老朋友啦。</p><p>然后就是设置 <code>.zshrc</code> 的代理设置了，</p><p><img src="https://i.imgur.com/xmNaAoI.png" /></p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890<br></code></pre></div></td></tr></table></figure><p>然后呢，我们肯定是要用到 git 的，所以 git当然也是要设置代理的，也就是设置 http 和 https 的 proxy，</p><p><img src="https://i.imgur.com/HXWofl4.png" /></p><h2 id="fctix5-的皮肤设置">fctix5 的皮肤设置</h2><p>主要是皮肤，这里这个暗色皮肤和整个系统很搭配：</p><p><img src="https://i.imgur.com/VCN7Rf8.png" /></p><p>这个是采用了 fcitx5-breeze 这个皮肤。</p><p>经过我的试验，下面标注的两个皮肤是可以直接使用 <code>yay -S</code>进行安装的。</p><p><img src="https://i.imgur.com/k6f4Byq.png" /></p><p>然后就是配置皮肤的入口，我是直接使用 fcitx5 默认的pinyin，可以在这里配置：</p><p><img src="https://i.imgur.com/mVfgBJR.png" /></p><p><img src="https://i.imgur.com/nlFHbiK.png" /></p><p><img src="https://i.imgur.com/FTQ1sE1.png" /></p><h2 id="manjaro-的-chrome-在开机后总会弹出-restore-pages-界面">Manjaro的 Chrome 在开机后总会弹出 restore pages 界面</h2><p>很烦，每次开机之后，如果启动 chrome，总是在右上角給我弹出一个那个restore pages 的玩意儿，而且即使我是正常关闭这个chrome，下一次开机之后启动 chrome 还是会給我弹这个弹窗，呵呵。</p><p>对于这个，我们可以修改 chrome 的 desktop文件，給它加一个启动参数关闭这个特性就可以了，</p><p><img src="https://i.imgur.com/e07O4Ex.png" /></p><p><img src="https://i.imgur.com/9EUmAe1.png" /></p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">--disable--session-crashed-bubble<br></code></pre></div></td></tr></table></figure><h2 id="manjaro-下-chrome-无法正确识别出系统的暗色模式">manjaro 下chrome 无法正确识别出系统的暗色模式</h2><p>呵呵。</p><p>参考<ahref="https://forum.manjaro.org/t/chrome-doesnt-see-dark-theme-and-displays-site-in-white/113409/8">这个链接</a>。</p><p><img src="https://i.imgur.com/mK32J5o.png" /></p><p>这里也是采用加启动参数的做法，只是这个更加的解耦，将启动参数单独放在了一个文件中。</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;--enable-features=WebUIDarkMode\n--force-dark-mode&quot;</span> &gt;&gt; ~/.config/&#123;chrome,chromium&#125;-flags.conf<br></code></pre></div></td></tr></table></figure><p>需要注意的是，像这种修改启动参数的变动，得重新启动系统才能够使之生效。我之前没有重启系统，发现不生效，还以为真的就不生效呢。</p><p>下面是生效后的界面，本来这个设置界面是呈现亮瞎人眼的大白色的，</p><p><img src="https://i.imgur.com/1JjHXTH.png" /></p><h2id="如何关闭右下角任务栏的大小写提示">如何关闭右下角任务栏的大小写提示</h2><p>每次切换大小写时，右下角的图标总是要出来整一下存在感。呵。直接右键configure，然后取消勾选即可，</p><p><img src="https://i.imgur.com/1HAhkEn.png" /></p><h2 id="manjaro-下的-.ssh-文件是放在哪里的">Manjaro 下的 .ssh文件是放在哪里的？</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">/home/fanyfull<br></code></pre></div></td></tr></table></figure><h2 id="manjaro-修改默认-shell-不生效">Manjaro 修改默认 shell不生效</h2><p>我在修改默认 SHELL 之后，使用 <code>echo $SEHLL</code> 查看当前的SHELL 是否修改成功，然后总是给我打印 not change 的消息。</p><p>然后 reboot 一下，发现已经修改过来了。呵呵。</p><h2 id="配置-oh-my-zsh-自动补全">配置 oh my zsh 自动补全</h2><p><a href="https://cangmang.xyz/articles/1642841384360">链接</a></p><h2 id="安装完-oh-my-zsh-之后发现-zsh-配置被覆写了">安装完 oh-my-zsh之后发现 zsh 配置被覆写了</h2><p>然后灰色提示没了，代理，别名配置都没了。呵呵。</p><p>关于灰色历史提示，就偷懒，直接使用了别人的脚本：</p><p><ahref="https://github.com/skywind3000/vim/blob/master/etc/zshrc.zsh">github</a></p><p><a href="https://www.zhihu.com/question/21418449">知乎链接</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="manjaro-上外网的问题">Manjaro 上外网的问题</h2><p>其实吧，最直接的解决方法是使用 Clash For Windows。</p><p>别看这个玩意儿名字里面带了一个 Windows，其实它是一个跨平台软件。</p><p>所以我们直接像在 Windows 上使用这个软件一样，直接在 GitHub上下载，然后解压，找到里面的执行文件运行即可。</p><p>什么导入订阅，导入节点之类，就不用赘述啦。</p><p><img src="https://i.imgur.com/SBNXrLD.png" /></p><p>然后是设置系统代理：</p><p><img src="https://i.imgur.com/G7VXRXV.png" /></p><p>这个 7890 端口也是我们的老朋友啦。</p><p>然后就是设置 <code>.zshrc</code> 的代理设置了，</p><p><img src="https://i.imgur.com/xmNaAoI.png" /></p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890<br></code></pre></div></td></tr></table></figure><p>然后呢，我们肯定是要用到 git 的，所以 git当然也是要设置代理的，也就是设置 http 和 https 的 proxy，</p><p><img src="https://i.imgur.com/HXWofl4.png" /></p><h2 id="fctix5-的皮肤设置">fctix5 的皮肤设置</h2><p>主要是皮肤，这里这个暗色皮肤和整个系统很搭配：</p><p><img src="https://i.imgur.com/VCN7Rf8.png" /></p><p>这个是采用了 fcitx5-breeze 这个皮肤。</p><p>经过我的试验，下面标注的两个皮肤是可以直接使用 <code>yay -S</code>进行安装的。</p><p><img src="https://i.imgur.com/k6f4Byq.png" /></p><p>然后就是配置皮肤的入口，我是直接使用 fcitx5 默认的pinyin，可以在这里配置：</p><p><img src="https://i.imgur.com/mVfgBJR.png" /></p><p><img src="https://i.imgur.com/nlFHbiK.png" /></p><p><img src="https://i.imgur.com/FTQ1sE1.png" /></p><h2 id="manjaro-的-chrome-在开机后总会弹出-restore-pages-界面">Manjaro的 Chrome 在开机后总会弹出 restore pages 界面</h2><p>很烦，每次开机之后，如果启动 chrome，总是在右上角給我弹出一个那个restore pages 的玩意儿，而且即使我是正常关闭这个chrome，下一次开机之后启动 chrome 还是会給我弹这个弹窗，呵呵。</p><p>对于这个，我们可以修改 chrome 的 desktop文件，給它加一个启动参数关闭这个特性就可以了，</p><p><img src="https://i.imgur.com/e07O4Ex.png" /></p><p><img src="https://i.imgur.com/9EUmAe1.png" /></p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">--disable--session-crashed-bubble<br></code></pre></div></td></tr></table></figure><h2 id="manjaro-下-chrome-无法正确识别出系统的暗色模式">manjaro 下chrome 无法正确识别出系统的暗色模式</h2><p>呵呵。</p><p>参考<ahref="https://forum.manjaro.org/t/chrome-doesnt-see-dark-theme-and-displays-site-in-white/113409/8">这个链接</a>。</p><p><img src="https://i.imgur.com/mK32J5o.png" /></p><p>这里也是采用加启动参数的做法，只是这个更加的解耦，将启动参数单独放在了一个文件中。</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;--enable-features=WebUIDarkMode\n--force-dark-mode&quot;</span> &gt;&gt; ~/.config/&#123;chrome,chromium&#125;-flags.conf<br></code></pre></div></td></tr></table></figure><p>需要注意的是，像这种修改启动参数的变动，得重新启动系统才能够使之生效。我之前没有重启系统，发现不生效，还以为真的就不生效呢。</p><p>下面是生效后的界面，本来这个设置界面是呈现亮瞎人眼的大白色的，</p><p><img src="https://i.imgur.com/1JjHXTH.png" /></p><h2id="如何关闭右下角任务栏的大小写提示">如何关闭右下角任务栏的大小写提示</h2><p>每次切换大小写时，右下角的图标总是要出来整一下存在感。呵。直接右键configure，然后取消勾选即可，</p><p><img src="https://i.imgur.com/1HAhkEn.png" /></p><h2 id="manjaro-下的-.ssh-文件是放在哪里的">Manjaro 下的 .ssh文件是放在哪里的？</h2><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">/home/fanyfull<br></code></pre></div></td></tr></table></figure><h2 id="manjaro-修改默认-shell-不生效">Manjaro 修改默认 shell不生效</h2><p>我在修改默认 SHELL 之后，使用 <code>echo $SEHLL</code> 查看当前的SHELL 是否修改成功，然后总是给我打印 not change 的消息。</p><p>然后 reboot 一下，发现已经修改过来了。呵呵。</p><h2 id="配置-oh-my-zsh-自动补全">配置 oh my zsh 自动补全</h2><p><a href="https://cangmang.xyz/articles/1642841384360">链接</a></p><h2 id="安装完-oh-my-zsh-之后发现-zsh-配置被覆写了">安装完 oh-my-zsh之后发现 zsh 配置被覆写了</h2><p>然后灰色提示没了，代理，别名配置都没了。呵呵。</p><p>关于灰色历史提示，就偷懒，直接使用了别人的脚本：</p><p><ahref="https://github.com/skywind3000/vim/blob/master/etc/zshrc.zsh">github</a></p><p><a href="https://www.zhihu.com/question/21418449">知乎链接</a></p><h2 id="窗口拖动特效">窗口拖动特效</h2><p>主要是果冻的效果。然后专业术语叫做 deform，形变，呵。</p><p>wobbly，摇摇晃晃，摇头晃脑，不太用心。呵。</p><p><img src="https://i.imgur.com/qdmkHPx.png" /></p>]]></content>
     
     
     
@@ -646,7 +646,7 @@
     <link href="/2022/03/08/VSCode-tricks-for-this-Blog/"/>
     <url>/2022/03/08/VSCode-tricks-for-this-Blog/</url>
     
-    <content type="html"><![CDATA[<p>另一个博客上也有类似的文章，用来记录 VSCode 使用过程中的tips。故取这个题目。</p><h3 id="vscode-设置某一个特定编程语言的缩进">VSCode设置某一个特定编程语言的缩进</h3><p>比如设置 vue 文件的缩进：</p><p><img src="https://i.imgur.com/1fxmybl.png" /></p><p>然后，我按 <code>Alt + Shift + F</code>会让我配置默认的代码格式化的工具，我选择的就是 vue官方的语言支持插件：Volar.</p><p><img src="https://i.imgur.com/gLbPa1r.png" /></p><h3 id="去掉-java-的-main-函数上面的-run-debug">去掉 Java 的 main函数上面的 <code>run | debug</code></h3><p>在设置里面搜索 <code>debug</code>，然后找到<code>Java Debugger</code> 中的<code>Java&gt;Debug&gt;Settings: Enable Run Debug Code Lens</code>，然后取消下面的勾选：</p><p><img src="https://i.imgur.com/IJyFP8d.png" /></p><h3 id="vscode-的-quick-fix快速修复快捷键不生效">VSCode 的 quickfix(快速修复)快捷键不生效</h3><p>原因：与微软输入法的切换中英文标点的快捷键冲突。</p><p>解决方法：</p><p>找到微软输入法的设置，然后取消 <code>Ctrl + .</code>的快捷键即可。</p><p><img src="https://i.imgur.com/Fw0Kfu8.png" /></p><h3 id="vscode-中解决-maven-的-pom.xml-依赖问题">VSCode 中解决 maven 的pom.xml 依赖问题</h3><p>要么在命令行执行：</p><figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">mvn dependency:sources<br></code></pre></div></td></tr></table></figure><p>要么，用 maven 进行 build 一下：</p><p><img src="https://i.imgur.com/6ClXPDn.png" /></p>]]></content>
+    <content type="html"><![CDATA[<p>另一个博客上也有类似的文章，用来记录 VSCode 使用过程中的tips。故取这个题目。</p><h3 id="vscode-设置某一个特定编程语言的缩进">VSCode设置某一个特定编程语言的缩进</h3><p>比如设置 vue 文件的缩进：</p><p><img src="https://i.imgur.com/1fxmybl.png" /></p><p>然后，我按 <code>Alt + Shift + F</code>会让我配置默认的代码格式化的工具，我选择的就是 vue官方的语言支持插件：Volar.</p><p><img src="https://i.imgur.com/gLbPa1r.png" /></p><h3 id="去掉-java-的-main-函数上面的-run-debug">去掉 Java 的 main函数上面的 <code>run | debug</code></h3><p>在设置里面搜索 <code>debug</code>，然后找到<code>Java Debugger</code> 中的<code>Java&gt;Debug&gt;Settings: Enable Run Debug Code Lens</code>，然后取消下面的勾选：</p><p><img src="https://i.imgur.com/IJyFP8d.png" /></p><h3 id="vscode-的-quick-fix快速修复快捷键不生效">VSCode 的 quickfix(快速修复)快捷键不生效</h3><p>原因：与微软输入法的切换中英文标点的快捷键冲突。</p><p>解决方法：</p><p>找到微软输入法的设置，然后取消 <code>Ctrl + .</code>的快捷键即可。</p><p><img src="https://i.imgur.com/Fw0Kfu8.png" /></p><h3 id="vscode-中解决-maven-的-pom.xml-依赖问题">VSCode 中解决 maven 的pom.xml 依赖问题</h3><p>要么在命令行执行：</p><figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">mvn dependency:sources<br></code></pre></div></td></tr></table></figure><p>要么，用 maven 进行 build 一下：</p><p><img src="https://i.imgur.com/6ClXPDn.png" /></p><h3 id="vscode-如何改变整体的-scale">VSCode 如何改变整体的 scale</h3><p><code>view-&gt;appearence-&gt;zoom in/out</code>。</p><p><img src="%5BImgur%5D(https://i.imgur.com/6RSZJMq.png)" /></p><p>或者使用快捷键 <code>Ctrl +</code> 或者 <code>Ctrl -</code>。</p>]]></content>
     
     
     <categories>
@@ -768,9 +768,9 @@
     
     <tags>
       
-      <tag>Bugs</tag>
-      
       <tag>Spring</tag>
+      
+      <tag>Bugs</tag>
       
     </tags>
     
@@ -795,11 +795,11 @@
     
     <tags>
       
-      <tag>Bugs</tag>
-      
       <tag>Spring</tag>
       
       <tag>Spring Boot</tag>
+      
+      <tag>Bugs</tag>
       
     </tags>
     
@@ -2136,9 +2136,9 @@
     
     <tags>
       
-      <tag>Bugs</tag>
-      
       <tag>Java</tag>
+      
+      <tag>Bugs</tag>
       
     </tags>
     
@@ -4565,9 +4565,9 @@
     
     <tags>
       
-      <tag>Bugs</tag>
-      
       <tag>Java</tag>
+      
+      <tag>Bugs</tag>
       
       <tag>IDEA</tag>
       
