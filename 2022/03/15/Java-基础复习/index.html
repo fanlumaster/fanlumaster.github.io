@@ -16,19 +16,19 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="转载自：https:&#x2F;&#x2F;javaguide.cn&#x2F;java&#x2F;basis&#x2F;java-basic-questions-01.html 基础概念与常识 Java 语言有哪些特点?  简单易学； 面向对象（封装，继承，多态）； 平台无关性（Java 虚拟机实现平台无关性）； 支持多线程（C++ 语言没有内置的多线程机制，因此必须调用操作系统的多线程功能来进行多线程程序设计，而 Java">
+    <meta name="description" content="转载自：https:&#x2F;&#x2F;javaguide.cn&#x2F;java&#x2F;basis&#x2F;java-basic-questions-01.html 基础概念与常识 Java 语言有哪些特点?  简单易学； 面向对象（封装，继承，多态）； 平台无关性（Java 虚拟机实现平台无关性）； 支持多线程（C++ 语言没有内置的多线程机制，因此必须调用操作系统的多线程功能来进行多线程程序设计，而 Java 语言却提供了多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 基础复习">
 <meta property="og:url" content="http://example.com/2022/03/15/Java-%E5%9F%BA%E7%A1%80%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="转载自：https:&#x2F;&#x2F;javaguide.cn&#x2F;java&#x2F;basis&#x2F;java-basic-questions-01.html 基础概念与常识 Java 语言有哪些特点?  简单易学； 面向对象（封装，继承，多态）； 平台无关性（Java 虚拟机实现平台无关性）； 支持多线程（C++ 语言没有内置的多线程机制，因此必须调用操作系统的多线程功能来进行多线程程序设计，而 Java">
+<meta property="og:description" content="转载自：https:&#x2F;&#x2F;javaguide.cn&#x2F;java&#x2F;basis&#x2F;java-basic-questions-01.html 基础概念与常识 Java 语言有哪些特点?  简单易学； 面向对象（封装，继承，多态）； 平台无关性（Java 虚拟机实现平台无关性）； 支持多线程（C++ 语言没有内置的多线程机制，因此必须调用操作系统的多线程功能来进行多线程程序设计，而 Java 语言却提供了多线程">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/mg6lphw.png">
 <meta property="article:published_time" content="2022-03-15T03:21:51.000Z">
 <meta property="article:modified_time" content="2022-03-24T08:48:35.223Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="Java">
 <meta property="article:tag" content="面试">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://i.imgur.com/mg6lphw.png">
   
@@ -1056,8 +1056,8 @@ Java 程序比用其他大多数语言编写的程序更具可移植性的原因
 <ol type="1">
 <li>Java 里使用 <code>long</code> 类型的数据一定要在数值后面加上
 <strong>L</strong>，否则将作为整型解析。</li>
-<li><code>char a = 'h'</code>char :单引号，<code>String a =
-"hello"</code> :双引号。</li>
+<li><code>char a = 'h'</code>char
+:单引号，<code>String a = "hello"</code> :双引号。</li>
 </ol>
 <p>这八种基本类型都有对应的包装类分别为：<code>Byte</code>、<code>Short</code>、<code>Integer</code>、<code>Long</code>、<code>Float</code>、<code>Double</code>、<code>Character</code>、<code>Boolean</code>
 。</p>
@@ -1094,8 +1094,8 @@ Java 程序比用其他大多数语言编写的程序更具可移植性的原因
 <code>false</code> 呢？</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">Integer i1 = <span class="hljs-number">40</span>;<br>Integer i2 = <span class="hljs-keyword">new</span> Integer(<span class="hljs-number">40</span>);<br>System.out.println(i1==i2);<br></code></pre></div></td></tr></table></figure>
 <p><code>Integer i1=40</code>
-这一行代码会发生装箱，也就是说这行代码等价于 <code>Integer
-i1=Integer.valueOf(40)</code> 。因此，<code>i1</code>
+这一行代码会发生装箱，也就是说这行代码等价于
+<code>Integer i1=Integer.valueOf(40)</code> 。因此，<code>i1</code>
 直接使用的是常量池中的对象。而<code>Integer i2 = new Integer(40)</code>
 会直接创建新的对象。</p>
 <p>因此，答案是 <code>false</code> 。你答对了吗？</p>
@@ -1117,10 +1117,10 @@ id="自动装箱与拆箱了解吗原理是什么">自动装箱与拆箱了解�
 <code>xxxValue()</code>方法。</p>
 <p>因此，</p>
 <ul>
-<li><code>Integer i = 10</code> 等价于 <code>Integer i =
-Integer.valueOf(10)</code></li>
-<li><code>int n = i</code> 等价于 <code>int n =
-i.intValue()</code>;</li>
+<li><code>Integer i = 10</code> 等价于
+<code>Integer i = Integer.valueOf(10)</code></li>
+<li><code>int n = i</code> 等价于
+<code>int n = i.intValue()</code>;</li>
 </ul>
 <p>注意：<strong>如果频繁拆装箱的话，也会严重影响系统的性能。我们应该尽量避免不必要的拆装箱操作。</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">long</span> <span class="hljs-title">sum</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">// 应该使用 long 而不是 Long</span><br>    Long sum = <span class="hljs-number">0L</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">long</span> i = <span class="hljs-number">0</span>; i &lt;= Integer.MAX_VALUE; i++)<br>        sum += i;<br>    <span class="hljs-keyword">return</span> sum;<br>&#125;<br></code></pre></div></td></tr></table></figure>
@@ -1397,9 +1397,9 @@ class="uri">https://stackoverflow.com/questions/22358071/differences-between-ora
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
-                    
                       <a class="hover-with-bg" href="/tags/%E9%9D%A2%E8%AF%95/">面试</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
                     
                   </div>
                 

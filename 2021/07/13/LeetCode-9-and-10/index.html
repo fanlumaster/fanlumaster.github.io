@@ -16,12 +16,12 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一、LeetCode 9 Palindrome Number 1.1 题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;palindrome-number&#x2F; 1.2 解答 此题比较简单，直接放代码 123456789class Solution:    def isPalindrome(self, x: int) -&gt; bool:        if x &amp;l">
+    <meta name="description" content="一、LeetCode 9 Palindrome Number 1.1 题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;palindrome-number&#x2F; 1.2 解答 此题比较简单，直接放代码 123456789class Solution:    def isPalindrome(self, x: int) -&gt; bool:        if x &lt; 0:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 9 and 10">
 <meta property="og:url" content="http://example.com/2021/07/13/LeetCode-9-and-10/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="一、LeetCode 9 Palindrome Number 1.1 题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;palindrome-number&#x2F; 1.2 解答 此题比较简单，直接放代码 123456789class Solution:    def isPalindrome(self, x: int) -&gt; bool:        if x &amp;l">
+<meta property="og:description" content="一、LeetCode 9 Palindrome Number 1.1 题目链接 https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;palindrome-number&#x2F; 1.2 解答 此题比较简单，直接放代码 123456789class Solution:    def isPalindrome(self, x: int) -&gt; bool:        if x &lt; 0:">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210713231433.png">
 <meta property="article:published_time" content="2021-07-13T14:17:48.000Z">
@@ -268,8 +268,7 @@ class="uri">https://leetcode.com/problems/regular-expression-matching/</a></p>
 <p>时间复杂度：</p>
 <ul>
 <li>这里只给出关系式，因为计算最后的结果有点复杂，对于目前阶段的我没有什么意义。</li>
-<li>关系式为：<code>$T(M, N) = T(M, N - 2) + T(M - 1,
-N)$</code>（这个式子有点问题，先按下不表）。</li>
+<li>关系式为：<code>$T(M, N) = T(M, N - 2) + T(M - 1, N)$</code>（这个式子有点问题，先按下不表）。</li>
 <li>最坏的情况可能是 p 的形式为 <code>".*.*.*.*..."</code>。</li>
 </ul>
 <p>空间复杂度：有点复杂，按下不表。</p>

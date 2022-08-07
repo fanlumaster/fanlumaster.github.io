@@ -16,12 +16,12 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="第 1 章 程序的基本概念  编写程序可以说就是这样一个过程：把复杂的任务分解成子任务，把子任务再分解成更简单的任务，层层分解，直到最后简单得可以用以上指令来完成。  按：这里所谓的指令是指如下的几种指令：  输入（Input） 输出（Output） 基本运算 测试和分支 循环   一个语句的三种表示，该如何理解？   对于汇编指令转换到机器指令，这个过程由来汇编器">
+    <meta name="description" content="第 1 章 程序的基本概念  编写程序可以说就是这样一个过程：把复杂的任务分解成子任务，把子任务再分解成更简单的任务，层层分解，直到最后简单得可以用以上指令来完成。  按：这里所谓的指令是指如下的几种指令：  输入（Input） 输出（Output） 基本运算 测试和分支 循环   一个语句的三种表示，该如何理解？   对于汇编指令转换到机器指令，这个过程由来汇编器来完成，例如，在第一条指令中，把">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《一站式学习 C 编程》阅读札记">
 <meta property="og:url" content="http://example.com/2021/11/01/%E3%80%8A%E4%B8%80%E7%AB%99%E5%BC%8F%E5%AD%A6%E4%B9%A0-C-%E7%BC%96%E7%A8%8B%E3%80%8B%E9%98%85%E8%AF%BB%E6%9C%AD%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="第 1 章 程序的基本概念  编写程序可以说就是这样一个过程：把复杂的任务分解成子任务，把子任务再分解成更简单的任务，层层分解，直到最后简单得可以用以上指令来完成。  按：这里所谓的指令是指如下的几种指令：  输入（Input） 输出（Output） 基本运算 测试和分支 循环   一个语句的三种表示，该如何理解？   对于汇编指令转换到机器指令，这个过程由来汇编器">
+<meta property="og:description" content="第 1 章 程序的基本概念  编写程序可以说就是这样一个过程：把复杂的任务分解成子任务，把子任务再分解成更简单的任务，层层分解，直到最后简单得可以用以上指令来完成。  按：这里所谓的指令是指如下的几种指令：  输入（Input） 输出（Output） 基本运算 测试和分支 循环   一个语句的三种表示，该如何理解？   对于汇编指令转换到机器指令，这个过程由来汇编器来完成，例如，在第一条指令中，把">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/UsVe1zq.png">
 <meta property="article:published_time" content="2021-11-01T14:16:54.000Z">
@@ -607,8 +607,9 @@ Character），<code>'\11'</code> 或 <code>'\x9'</code> 表示 Tab
 <li>将 main 函数写成 <code>main()&#123;...&#125;</code> 的形式，这是 Old Style C
 的风格，Old Style C 规定不写返回值就表示返回 int
 型，不写参数列表就表示参数类型和个数没有明确指出。然而现在绝对不推荐这种写法。</li>
-<li>main 函数最标准的写法是 <code>int main(int argc, char
-*argv[])</code>，C 标准也允许 <code>int main(void)</code>
+<li>main 函数最标准的写法是
+<code>int main(int argc, char *argv[])</code>，C 标准也允许
+<code>int main(void)</code>
 这种写法，如果不使用系统传进来的两个参数也可以写成这种形式。</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">newline</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;First Line.\n&quot;</span>);<br>    newline();<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Second Line.\n&quot;</span>);<br>    newline();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
@@ -642,8 +643,8 @@ Second Line.</code></pre></div>
 再 main 的顺序定义。</p>
 <blockquote>
 <p>由于有 Old Style C
-语法的存在，并非所有函数声明都包含完整的函数原型。例如 <code>void
-threelines();</code>
+语法的存在，并非所有函数声明都包含完整的函数原型。例如
+<code>void threelines();</code>
 这个声明并没有明确指出参数类型和个数，所以不算函数原型。</p>
 </blockquote>
 <blockquote>

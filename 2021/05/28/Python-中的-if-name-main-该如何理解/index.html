@@ -16,12 +16,12 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="本文转载自: https:&#x2F;&#x2F;blog.konghy.cn&#x2F;2017&#x2F;04&#x2F;24&#x2F;python-entry-program&#x2F; 程序入口 对于很多编程语言来说，程序都必须要有一个入口，比如 C，C++，以及完全面向对象的编程语言 Java，C# 等。如果你接触过这些语言，对于程序入口这个概念应该很好理解，C 和 C++ 都需要有一个 main 函数来作为程序的入口，也就是程序的运行会从">
+    <meta name="description" content="本文转载自: https:&#x2F;&#x2F;blog.konghy.cn&#x2F;2017&#x2F;04&#x2F;24&#x2F;python-entry-program&#x2F; 程序入口 对于很多编程语言来说，程序都必须要有一个入口，比如 C，C++，以及完全面向对象的编程语言 Java，C# 等。如果你接触过这些语言，对于程序入口这个概念应该很好理解，C 和 C++ 都需要有一个 main 函数来作为程序的入口，也就是程序的运行会从 main 函">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 中的 if __name &#x3D;&#x3D; &#39;__main__&#39; 该如何理解">
 <meta property="og:url" content="http://example.com/2021/05/28/Python-%E4%B8%AD%E7%9A%84-if-name-main-%E8%AF%A5%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="本文转载自: https:&#x2F;&#x2F;blog.konghy.cn&#x2F;2017&#x2F;04&#x2F;24&#x2F;python-entry-program&#x2F; 程序入口 对于很多编程语言来说，程序都必须要有一个入口，比如 C，C++，以及完全面向对象的编程语言 Java，C# 等。如果你接触过这些语言，对于程序入口这个概念应该很好理解，C 和 C++ 都需要有一个 main 函数来作为程序的入口，也就是程序的运行会从">
+<meta property="og:description" content="本文转载自: https:&#x2F;&#x2F;blog.konghy.cn&#x2F;2017&#x2F;04&#x2F;24&#x2F;python-entry-program&#x2F; 程序入口 对于很多编程语言来说，程序都必须要有一个入口，比如 C，C++，以及完全面向对象的编程语言 Java，C# 等。如果你接触过这些语言，对于程序入口这个概念应该很好理解，C 和 C++ 都需要有一个 main 函数来作为程序的入口，也就是程序的运行会从 main 函">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527222736.png">
 <meta property="article:published_time" content="2021-05-28T05:58:42.000Z">
@@ -274,8 +274,8 @@ area.py 中：</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">PI: <span class="hljs-number">3.14</span><br><span class="hljs-built_in">round</span> area:  <span class="hljs-number">12.56</span><br></code></pre></div></td></tr></table></figure>
 <p>可以看到，const 中的 main
 函数也被运行了，实际上我们是不希望它被运行，提供 main
-也只是为了对常量定义进行下测试。这时，<code>if __name__ ==
-'__main__'</code> 就派上了用场。把 const.py 改一下：</p>
+也只是为了对常量定义进行下测试。这时，<code>if __name__ == '__main__'</code>
+就派上了用场。把 const.py 改一下：</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">PI = <span class="hljs-number">3.14</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>():</span><br>    <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;PI:&quot;</span>, PI<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    main()<br></code></pre></div></td></tr></table></figure>
 <p>然后再运行 area.py，输出如下：</p>
 <figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">round</span> area:  <span class="hljs-number">12</span>.<span class="hljs-number">56</span><br></code></pre></div></td></tr></table></figure>
@@ -312,8 +312,8 @@ a/b/c.py），输出结果如下：</p>
 <p>Python 的 <code>-m</code>
 参数用于将一个模块或者包作为一个脚本运行，而 <code>__main__.py</code>
 文件则相当于是一个包的“入口程序”。</p>
-<p>首先我们需要来看看 <code>python xxx.py</code> 与 <code>python -m
-xxx.py</code> 的区别。两种运行 Python
+<p>首先我们需要来看看 <code>python xxx.py</code> 与
+<code>python -m xxx.py</code> 的区别。两种运行 Python
 程序的方式的不同点在于，一种是直接运行，一种是当做模块来运行。</p>
 <p>先来看一个简单的例子，假设有一个 Python 文件 run.py，其内容如下：</p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">import</span> sys<br><span class="hljs-built_in">print</span> sys.path<br></code></pre></div></td></tr></table></figure>
@@ -325,11 +325,12 @@ run.py），输出结果(为了说明问题，输出结果只截取了重要部�
 <p>由于输出结果只列出了关键的部分，应该很容易看出他们之间的差异。直接运行是把
 run.py 文件所在的目录放到了 sys.path
 属性中。以模块方式运行是把你输入命令的目录（也就是当前工作路径），放到了
-sys.path 属性中。以模块方式运行还有一个不同的地方是，多出了一行 <code>No
-module named run.py</code> 的错误。实际上以模块方式运行时，Python 先对
-run.py 执行一遍 import，所以 <code>print sys.path</code>
-被成功执行，然后 Python 才尝试运行 run.py 模块，但是，在 path
-变量中并没有 run.py 这个模块，所以报错。而正确的运行方式，应该是
+sys.path 属性中。以模块方式运行还有一个不同的地方是，多出了一行
+<code>No module named run.py</code>
+的错误。实际上以模块方式运行时，Python 先对 run.py 执行一遍 import，所以
+<code>print sys.path</code> 被成功执行，然后 Python 才尝试运行 run.py
+模块，但是，在 path 变量中并没有 run.py
+这个模块，所以报错。而正确的运行方式，应该是
 <code>python -m run</code>.</p>
 <p>这个例子并不能明显的说明问题。接着我们来看看 <code>__main__.py</code>
 的作用。</p>
@@ -354,8 +355,8 @@ run.py 执行一遍 import，所以 <code>print sys.path</code>
 <li>2、 <strong>加上 -m 参数时 Python
 会先将模块或者包导入，然后再执行。</strong></li>
 <li>3、 <strong><code>__main__.py</code>
-文件是一个包或者目录的入口程序。</strong>不管是用 <code>python
-package</code> 还是用 <code>python -m package</code>
+文件是一个包或者目录的入口程序。</strong>不管是用
+<code>python package</code> 还是用 <code>python -m package</code>
 运行时，<code>__main__.py</code> 文件总是被执行。</li>
 </ul>
 <h2 id="参考资料">参考资料</h2>
