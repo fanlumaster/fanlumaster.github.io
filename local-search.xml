@@ -8,7 +8,7 @@
     <link href="/2022/08/07/Manjaro-%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%B0%E5%BD%95/"/>
     <url>/2022/08/07/Manjaro-%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%B0%E5%BD%95/</url>
     
-    <content type="html"><![CDATA[<blockquote><p>首先是对应 Windows 的 Win + Tab。</p></blockquote><p>本来是 <code>Ctrl + F8</code>，我把它修改成了<code>Win + Tab</code>。</p><blockquote><p>切换虚拟桌面的快捷键。</p></blockquote><p>本来其实就有，但是开关没有打开。</p><p>我们把它打开就行。</p><p><img src="https://i.imgur.com/34Z8FLO.png" /></p><p>和 Windows 中的类似，也就是 <code>Ctrl + Win + 方向键</code>。</p><p>如果还想折腾的话，可以把这个快捷键换成主键盘区域的，方向键换成 vim对应的方向键就成。哼哼。</p><blockquote><p>将一个窗口最大话和最小化的快捷键。</p></blockquote><p><code>Win + PageUp</code> 和 <code>Win + PageDown</code>。</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>首先是对应 Windows 的 Win + Tab。</p></blockquote><p>本来是 <code>Ctrl + F8</code>，我把它修改成了<code>Win + Tab</code>。</p><blockquote><p>切换虚拟桌面的快捷键。</p></blockquote><p>本来其实就有，但是开关没有打开。</p><p>我们把它打开就行。</p><p><img src="https://i.imgur.com/34Z8FLO.png" /></p><p>和 Windows 中的类似，也就是 <code>Ctrl + Win + 方向键</code>。</p><p>如果还想折腾的话，可以把这个快捷键换成主键盘区域的，方向键换成 vim对应的方向键就成。哼哼。</p><blockquote><p>将一个窗口最大话和最小化的快捷键。</p></blockquote><p><code>Win + PageUp</code> 和 <code>Win + PageDown</code>。</p><blockquote><p>展示出所有窗口的快捷键。</p></blockquote><p>一共有三个,</p><ul><li>一个是展示当前应用的所有窗口：<code>Ctrl + F7</code>。</li><li>一个是展示当前桌面的所有窗口：<code>Ctrl + F9</code>。</li><li>一个是展示所有桌面的所有窗口：<code>Ctrl + F10</code>。</li></ul><p>展示所有窗口还可以将鼠标移动到左上角的点，一定要抵达精确的左上角的点才可以。</p><p><img src="https://i.imgur.com/dbrksgB.png" /></p>]]></content>
     
     
     
