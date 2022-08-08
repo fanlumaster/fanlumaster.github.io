@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/lT8atDH.png">
 <meta property="article:published_time" content="2022-08-07T09:37:43.000Z">
-<meta property="article:modified_time" content="2022-08-07T14:20:13.391Z">
+<meta property="article:modified_time" content="2022-08-08T16:16:42.875Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="Manjaro">
 <meta name="twitter:card" content="summary_large_image">
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.4k 字
+      1.8k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12 分钟
+      16 分钟
     </span>
   
 
@@ -319,6 +319,24 @@ target="_blank" rel="noopener" href="https://github.com/skywind3000/vim/blob/mas
 <p>主要是果冻的效果。然后专业术语叫做 deform，形变，呵。</p>
 <p>wobbly，摇摇晃晃，摇头晃脑，不太用心。呵。</p>
 <p><img src="https://i.imgur.com/qdmkHPx.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="manjaro-下-git-更改-commit-的编辑器为-neovim">manjaro 下 git
+更改 commit 的编辑器为 neovim</h2>
+<p>当然，前提得是系统安装了 neovim 才行，然后在 shell 中执行：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs zsh">git config --global core.editor <span class="hljs-string">&quot;nvim&quot;</span> <br></code></pre></div></td></tr></table></figure>
+<p>注意，是 <code>nvim</code>，不是 <code>neovim</code>。</p>
+<h2 id="manjaro-下-vscode-vim-没有中文输入法的问题">manjaro 下 vscode
+vim 没有中文输入法的问题</h2>
+<p>不会像在 Windows 和 mac 下一样，字符闪烁个不停，烦人。</p>
+<p>看来，在 manjaro 上写博客可继续使用我的 VSCode 了。好耶。</p>
+<p>分析了一下，应该是 fctix5 的原因。嗯，很好。之前装旧版 fctix
+使用谷歌输入法在 VSCode 里面打字也会出现闪烁的问题。</p>
+<p>唉，来之不易呀。VSCode 都 1.70 版本了，还是不去修复在 Windows
+上的这个 Bug。我呵呵。</p>
+<h2 id="manjaro-为什么配置了-github-ssh-公钥还是无法-push-呢">Manjaro
+为什么配置了 github ssh 公钥还是无法 push 呢</h2>
+<p>我个人的原因，是 clone 我自己项目的时候直接选用了第一个 https
+的链接，应该选用第二个 ssh 的链接进行克隆的。</p>
+<p>之后就可以了。</p>
 
             </div>
             <hr>
