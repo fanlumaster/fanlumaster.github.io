@@ -77,7 +77,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
 <body>
@@ -258,11 +258,11 @@ target="_blank" rel="noopener" href="https://bugs.launchpad.net/ubuntu/+source/g
 <p>大家不响，我也不响。</p>
 <p>不响半天，算了，给自己设置一个快捷命令吧。</p>
 <p>于是，</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> vi ~/.bashsrc</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">vi ~/.bashsrc</span><br></code></pre></div></td></tr></table></figure>
 <p>然后，来到文件末尾，加上如下代码</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> resize the window to 80x24 shortcut</span><br>alias rss=&#x27;resize -s 24 80 &gt;/dev/null&#x27;<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">resize the window to 80x24 shortcut</span><br>alias rss=&#x27;resize -s 24 80 &gt;/dev/null&#x27;<br></code></pre></div></td></tr></table></figure>
 <p>然后，激活脚本：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">source</span> ~/.bashrc</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">source</span> ~/.bashrc</span><br></code></pre></div></td></tr></table></figure>
 <p>然后我们就可以在命令行中使用 <code>rss</code> 命令来快速让窗口恢复到
 <code>80 x 24</code> 的尺寸了。</p>
 <p>解释一下这行脚本的含义：</p>

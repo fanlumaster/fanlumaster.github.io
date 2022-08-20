@@ -74,7 +74,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
 <body>
@@ -271,7 +271,7 @@ alt="20210413200431" /></p>
 </ul>
 <p>然后我们需要在 <code>views.py</code> 文件中编写 <code>index()</code>
 函数</p>
-<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">from</span> django.shortcuts <span class="hljs-keyword">import</span> render<br><br><span class="hljs-comment"># Create your views here.</span><br><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> HttpResponse<br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span>(<span class="hljs-params">request</span>):</span><br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;Hello World!&quot;</span>)<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">from</span> django.shortcuts <span class="hljs-keyword">import</span> render<br><br><span class="hljs-comment"># Create your views here.</span><br><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> HttpResponse<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">index</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;Hello World!&quot;</span>)<br></code></pre></div></td></tr></table></figure>
 <p>注释下面的代码即后加的代码。</p>
 <p>最后，我们可以运行项目，然后在浏览器中打开
 <code>http://127.0.0.1:8000/</code> 测试一下了</p>
@@ -286,7 +286,7 @@ alt="20210413200846" /></p>
 <h4 id="普通写法">普通写法</h4>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path, re_path<br><span class="hljs-keyword">from</span> . <span class="hljs-keyword">import</span> views<br>urlpatterns = [<br>    path(<span class="hljs-string">&#x27;&#x27;</span>, views.index),<br>    <span class="hljs-comment"># 添加带有字符类型、整型和 slug 的 URL</span><br>    path(<span class="hljs-string">&#x27;&lt;year&gt;/&lt;int:month&gt;/&lt;slug:day&gt;&#x27;</span>, views.mydate), <span class="hljs-comment"># 这里的 year </span><br>]<br></code></pre></div></td></tr></table></figure>
 <p>然后编写 <code>mydate()</code> 函数</p>
-<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mydate</span>(<span class="hljs-params">request, year, month, day</span>):</span><br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-built_in">str</span>(year) + <span class="hljs-string">&#x27;/&#x27;</span> + <span class="hljs-built_in">str</span>(month) + <span class="hljs-string">&#x27;/&#x27;</span> + <span class="hljs-built_in">str</span>(day))<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">def</span> <span class="hljs-title function_">mydate</span>(<span class="hljs-params">request, year, month, day</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-built_in">str</span>(year) + <span class="hljs-string">&#x27;/&#x27;</span> + <span class="hljs-built_in">str</span>(month) + <span class="hljs-string">&#x27;/&#x27;</span> + <span class="hljs-built_in">str</span>(day))<br></code></pre></div></td></tr></table></figure>
 <p>接下来的操作没什么不同。</p>
 <h4 id="正则表达式写法">正则表达式写法</h4>
 <p>这也是我踩坑的写法。</p>
@@ -298,7 +298,7 @@ alt="20210413200846" /></p>
 <code>.html</code> 后面输入无限长的字符串程序也能正常访问。</li>
 </ul>
 <p>然后编写 <code>mydate()</code> 函数</p>
-<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mydate</span>(<span class="hljs-params">request, year, month, day</span>):</span><br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-built_in">str</span>(year) + <span class="hljs-string">&#x27;/&#x27;</span> + <span class="hljs-built_in">str</span>(month) + <span class="hljs-string">&#x27;/&#x27;</span> + <span class="hljs-built_in">str</span>(day))<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">def</span> <span class="hljs-title function_">mydate</span>(<span class="hljs-params">request, year, month, day</span>):<br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-built_in">str</span>(year) + <span class="hljs-string">&#x27;/&#x27;</span> + <span class="hljs-built_in">str</span>(month) + <span class="hljs-string">&#x27;/&#x27;</span> + <span class="hljs-built_in">str</span>(day))<br></code></pre></div></td></tr></table></figure>
 <p>然后运行，</p>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210413201701.png" srcset="/img/loading.gif" lazyload

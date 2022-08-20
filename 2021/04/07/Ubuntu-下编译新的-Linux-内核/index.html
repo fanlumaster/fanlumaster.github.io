@@ -75,7 +75,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
 <body>
@@ -280,7 +280,7 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
 alt="20210407164541" /></p>
 <p>这里可以给虚拟机拍一个快照。这是为了后续出错时，可以回到这个点。（如果不知道快照，可以自行搜索引擎搜索，这个真的很方便）</p>
 <h4 id="使用现存内核的配置文件">使用现存内核的配置文件</h4>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo cp /boot/config-5.11.7 .config<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo <span class="hljs-built_in">cp</span> /boot/config-5.11.7 .config<br></code></pre></div></td></tr></table></figure>
 <h4 id="应用现存配置文件">应用现存配置文件</h4>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo make oldconfig<br></code></pre></div></td></tr></table></figure>
 <p>这个命令的作用是，读取现有的
@@ -312,7 +312,7 @@ alt="20210407171823" /></p>
 <h4
 id="返回上一级目录然后将文件夹移动到-src-目录">返回上一级目录，然后将文件夹移动到
 src 目录</h4>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> ..<br>$ sudo mv linux-5.11.11/ /usr/src/<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> ..<br>$ sudo <span class="hljs-built_in">mv</span> linux-5.11.11/ /usr/src/<br></code></pre></div></td></tr></table></figure>
 <h4 id="进入新目录然后安装-modules">进入新目录，然后安装 modules</h4>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> /usr/src/linux-5.11.11/<br></code></pre></div></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo make modules_install<br></code></pre></div></td></tr></table></figure>
@@ -328,7 +328,7 @@ alt="20210407172707" /></p>
 <p>以上表示新内核安装完成。</p>
 <h3 id="检验安装成果">检验安装成果</h3>
 <p>执行以下命令检查内核版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ uname -r<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">uname</span> -r<br></code></pre></div></td></tr></table></figure>
 <p>之前是 <code>5.11.7</code></p>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210407172819.png" srcset="/img/loading.gif" lazyload

@@ -79,7 +79,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
 <body>
@@ -252,13 +252,13 @@
 <h2 id="操作步骤">操作步骤</h2>
 <p>1、下载</p>
 <p>第一种方法，直接在命令行获取文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> wget http://bochs.sourceforge.net/guestos/freedos-img.tar.gz</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">wget http://bochs.sourceforge.net/guestos/freedos-img.tar.gz</span><br></code></pre></div></td></tr></table></figure>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210613172921.png" srcset="/img/loading.gif" lazyload /></p>
 <p>也可以到 bochs 官网下载 freedos 软盘映像文件，这里不作赘述。</p>
 <p>2、然后把这个文件移动到别的文件夹里面进行解压，我这里是移动到了
 <code>~/Downloads/freedos/</code> 下面，然后解压</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> tar -xzf freedos-img.tar.gz</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">tar -xzf freedos-img.tar.gz</span><br></code></pre></div></td></tr></table></figure>
 <p>解压之后是一个文件夹</p>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210613173424.png" srcset="/img/loading.gif" lazyload /></p>
@@ -274,15 +274,15 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
 <p>书上的没有 .exe 后缀，那是不对的。</p>
 <p>6、然后将代码 3.1(见原书) 的第 8 行中的 07c00h 改为
 0100h，并重新编译：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> nasm pmtest1.asm -o pmtest1.com</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">nasm pmtest1.asm -o pmtest1.com</span><br></code></pre></div></td></tr></table></figure>
 <p>7、将 pmtest1.com 复制到虚拟软盘 pm.img 上：</p>
 <p>如果是首次复制，则先要创建一个目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> sudo mkdir /mnt/floppy</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sudo <span class="hljs-built_in">mkdir</span> /mnt/floppy</span><br></code></pre></div></td></tr></table></figure>
 <p>执行以下命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> sudo mount -o loop pm.img /mnt/floppy</span><br><span class="hljs-meta">$</span><span class="bash"> sudo cp pmtest1.com /mnt/floppy/</span><br><span class="hljs-meta">$</span><span class="bash"> sudo umount /mnt/floppy</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sudo mount -o loop pm.img /mnt/floppy</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">sudo <span class="hljs-built_in">cp</span> pmtest1.com /mnt/floppy/</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">sudo umount /mnt/floppy</span><br></code></pre></div></td></tr></table></figure>
 <p>书上省略了 <code>mkdir /mnt/floppy</code> 这一步，要注意。</p>
 <p>8、到 FreeDos 中执行如下命令</p>
-<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">B</span>:\pmtest<span class="hljs-number">1</span>.com<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight avrasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs avrasm"><span class="hljs-symbol">B:</span>\pmtest1.com<br></code></pre></div></td></tr></table></figure>
 <p>这样 pmtest1.com 就运行起来了，如下图所示</p>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210613175153.png" srcset="/img/loading.gif" lazyload /></p>

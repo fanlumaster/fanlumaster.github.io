@@ -79,7 +79,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
 <body>
@@ -301,7 +301,7 @@ bochsrc.bxrc(仅对 Windows 有效)</code></pre></div>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607000942.png" srcset="/img/loading.gif" lazyload /></p>
 <p>在这里，我们选择在自己的目录下新建一个 bochsrc 配置文件，如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> FirstOS<br>$ touch bochsrc<br>$ gedit bochsrc<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> FirstOS<br>$ <span class="hljs-built_in">touch</span> bochsrc<br>$ gedit bochsrc<br></code></pre></div></td></tr></table></figure>
 <p>bochsrc 中的文件内容如下</p>
 <figure class="highlight clean"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs clean">#################################################################<br># Configuration file for Bochs<br>#################################################################<br><br># how much memory the emulated machine will have<br>megs: <span class="hljs-number">32</span><br><br># filenameof ROM images<br>romimage:file=/usr/local/share/bochs/BIOS-bochs-latest<br>vgaromimage:file=/usr/local/share/bochs/VGABIOS-lgpl-latest<br><br># which disk image will be used 这个是启动软盘，我们虚拟出来的那个a.img<br>floppya:<span class="hljs-number">1</span>_44=a.img, status=inserted<br><br># choose the boot disk 确定启动方式<br>boot: floppy<br><br># <span class="hljs-keyword">where</span> do we send log messages?<br>log: bochsout.txt<br><br># disable the mouse<br>mouse: enabled=<span class="hljs-number">0</span><br><br># enable key mapping ,using US layout <span class="hljs-keyword">as</span> default<br>keyboard:keymap=/usr/local/share/bochs/keymaps/x11-pc-us.map<br></code></pre></div></td></tr></table></figure>
 <p><img
@@ -343,7 +343,7 @@ fd，之后一直默认回车即可</p>
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607185713.png" srcset="/img/loading.gif" lazyload /></p>
 <h3 id="将引导扇区写入软盘">将引导扇区写入软盘</h3>
 <p>执行如下命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ dd <span class="hljs-keyword">if</span>=boot.bin of=a.img bs=512 count=1 conv=notrunc<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">dd</span> <span class="hljs-keyword">if</span>=boot.bin of=a.img bs=512 count=1 conv=notrunc<br></code></pre></div></td></tr></table></figure>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210607190246.png" srcset="/img/loading.gif" lazyload /></p>
 <p>这里简单介绍一下 dd 命令。</p>

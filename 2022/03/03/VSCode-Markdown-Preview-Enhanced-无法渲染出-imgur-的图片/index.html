@@ -78,7 +78,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
 <body>
@@ -251,7 +251,7 @@ imgur
 的设置中看，也没有发现什么端倪。然后测试内网的图片链接能否正常显示，发现是可以的。</p>
 <p>之后想到了应该是代理的原因，在 <code>settings.json</code>
 中设置代理如下：</p>
-<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json"><span class="hljs-string">&quot;http.proxy&quot;</span>: <span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span>,<br><span class="hljs-string">&quot;http.proxyStrictSSL&quot;</span>: <span class="hljs-literal">false</span>,<br><span class="hljs-string">&quot;https.proxy&quot;</span>: <span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span>,<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json"><span class="hljs-attr">&quot;http.proxy&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;http.proxyStrictSSL&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;https.proxy&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span><span class="hljs-punctuation">,</span><br></code></pre></div></td></tr></table></figure>
 <p>然后刷新一下，问题解决。</p>
 <p>这个问题出现的原因，我猜测应该是 VSCode 更新的缘故。这个
 <code>1.64.2</code> 版本的 VSCode 应该有一些

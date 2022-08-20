@@ -79,7 +79,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
 <body>
@@ -270,14 +270,14 @@ Python 解释器相比，使用虚拟环境还有个好处，那就是不需要�
 <p>如何使用 Ubuntu 系统预装的 Python3 来创建虚拟环境？</p>
 </blockquote>
 <p>需要先安装 <code>python3-venv</code> 包：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> sudo apt-get install python3-venv</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">sudo apt-get install python3-venv</span><br></code></pre></div></td></tr></table></figure>
 <p>然后创建：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> python3 -m venv venv</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">python3 -m venv venv</span><br></code></pre></div></td></tr></table></figure>
 <p>按：最后一个 <code>venv</code> 是虚拟环境的名称，可以自由更改。</p>
 <blockquote>
 <p>如何激活虚拟环境？</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">source</span> venv/bin/activate</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">source</span> venv/bin/activate</span><br></code></pre></div></td></tr></table></figure>
 <blockquote>
 <p>需要安装哪些包？</p>
 </blockquote>
@@ -309,10 +309,10 @@ interface，读作“wiz-ghee”）的协议，把接收自客户端的所有请
 <p>在 Flask 应用中如何定义路由？</p>
 </blockquote>
 <p>最简便的方式是使用应用实例提供的 <code>app.route</code> 装饰器。</p>
-<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/&#x27;</span></span>)</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span>():</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&lt;h1&gt;Hello World!&lt;/h1&gt;&#x27;</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/&#x27;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">index</span>():<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&lt;h1&gt;Hello World!&lt;/h1&gt;&#x27;</span><br></code></pre></div></td></tr></table></figure>
 <p>还有一种更传统的方式：使用 <code>app.add_url_rule()</code>
 方法。这个方式最简单的形式接受 3 个参数：URL、端点名和视图函数。</p>
-<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span>():</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&lt;h1&gt;Hello World!&lt;/h1&gt;&#x27;</span><br><br>app.add_url_rule(<span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-string">&#x27;index&#x27;</span>, index)<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">def</span> <span class="hljs-title function_">index</span>():<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&lt;h1&gt;Hello World!&lt;/h1&gt;&#x27;</span><br><br>app.add_url_rule(<span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-string">&#x27;index&#x27;</span>, index)<br></code></pre></div></td></tr></table></figure>
 <p>按：这个和前面使用装饰器的代码达到的效果相同。</p>
 
             </div>

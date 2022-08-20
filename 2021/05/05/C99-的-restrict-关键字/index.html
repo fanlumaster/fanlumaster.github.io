@@ -75,7 +75,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
 <body>
@@ -244,7 +244,7 @@
             <div class="markdown-body">
               <p>我们来看一个跟 <code>memcpy/memmove</code>
 类似的问题。下面的函数将两个数组中对应的元素相加，结果保存在第三个数组中。</p>
-<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">vector_add</span><span class="hljs-params">(<span class="hljs-keyword">float</span> *x, <span class="hljs-keyword">float</span> *y, <span class="hljs-keyword">float</span> *result)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> i;<br>    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">64</span>; ++i)<br>        result[i] = x[i] + y[i];<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-type">void</span> <span class="hljs-title function_">vector_add</span><span class="hljs-params">(<span class="hljs-type">float</span> *x, <span class="hljs-type">float</span> *y, <span class="hljs-type">float</span> *result)</span><br>&#123;<br>    <span class="hljs-type">int</span> i;<br>    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">64</span>; ++i)<br>        result[i] = x[i] + y[i];<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <p>如果这个函数要在多处理器的计算机上执行，编译器可以做这样的优化：把这一个循环拆成两个循环，一个处理器计算
 i 值从 0 到 31 的循环，另一个处理器计算 i 值从 32 到 63
 的循环，这样两个处理器可以同时工作，使计算时间缩短一半。但是这样的编译优化能保证得出正确结果吗？假如

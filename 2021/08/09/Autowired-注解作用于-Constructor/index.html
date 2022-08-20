@@ -79,7 +79,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
 <body>
@@ -250,14 +250,14 @@
 注解，一般情况下的使用是用其来注解一个变量，比如</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">private</span> UserDao userDao;<br></code></pre></div></td></tr></table></figure>
 <p>但是，这个用法有时候会导致问题，比如，下面的代码</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">private</span> User user;<br><br><span class="hljs-keyword">private</span> String school;<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UserAccountServiceImpl</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">this</span>.school = user.getSchool();<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">private</span> User user;<br><br><span class="hljs-keyword">private</span> String school;<br><br><span class="hljs-keyword">public</span> <span class="hljs-title function_">UserAccountServiceImpl</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-built_in">this</span>.school = user.getSchool();<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <p>这里在执行时，程序的执行顺序是先执行构造方法，然后再对加了 <span
 class="citation" data-cites="Autowired">@Autowired</span> 注解的 user
 变量进行自动装配（即注入），所以，这段代码在执行时是会报错的。</p>
 <p>所以，官方建议不要使用这种变量注入的方法，在 IDEA 中，给变量加 <span
 class="citation" data-cites="Autowired">@Autowired</span>
 注解会产生一个警告。官方建议使用的方法是<strong>构造器(Constructor)注入</strong>，代码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> User user;<br><span class="hljs-keyword">private</span> String school;<br><br><span class="hljs-meta">@Autowired</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UserAccountServiceImpl</span><span class="hljs-params">(User user)</span> </span>&#123;<br>    <span class="hljs-keyword">this</span>.user = user;<br>    <span class="hljs-keyword">this</span>.school = user.getSchool();<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> User user;<br><span class="hljs-keyword">private</span> String school;<br><br><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">public</span> <span class="hljs-title function_">UserAccountServiceImpl</span><span class="hljs-params">(User user)</span> &#123;<br>    <span class="hljs-built_in">this</span>.user = user;<br>    <span class="hljs-built_in">this</span>.school = user.getSchool();<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <p>这样一来，程序在执行构造器方法时，就会自动注入 user。</p>
 <hr />
 <p>参考：</p>

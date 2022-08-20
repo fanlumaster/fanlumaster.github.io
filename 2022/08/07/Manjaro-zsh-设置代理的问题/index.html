@@ -78,7 +78,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
 <body>
@@ -249,10 +249,10 @@
 好用啊。连系统的暗色模式都识别不出来。呵呵。</p>
 <p>今天在安装 yay 时，由于需要用到
 curl，然后在我已经设置了代理的情况下，还给我疯狂报下面的错误，</p>
-<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">cur<span class="hljs-variable">l:</span> (<span class="hljs-number">35</span>) OpenSSL SSL_connec<span class="hljs-variable">t:</span> SSL_ERROR_SYSCALL in connection <span class="hljs-keyword">to</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">7890</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">curl</span>: (<span class="hljs-number">35</span>) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to <span class="hljs-number">127.0.0.1:7890</span><br></code></pre></div></td></tr></table></figure>
 <p>然后，可能是我设置得不对，所以就根据<a
 target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/518100454">这篇博客</a>修改了我的配置如下：</p>
-<figure class="highlight zsh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs zsh"><span class="hljs-built_in">export</span> https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs zsh">export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890<br></code></pre></div></td></tr></table></figure>
 <p><img src="https://i.imgur.com/GF1ZzTI.png" srcset="/img/loading.gif" lazyload /></p>
 <p>修改完毕后，执行一下 <code>source ~/.zshrc</code>
 激活一下新的配置即可。</p>

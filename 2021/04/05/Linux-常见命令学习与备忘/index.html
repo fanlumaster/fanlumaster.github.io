@@ -78,7 +78,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
 <body>
@@ -250,9 +250,9 @@
 <p><code>cat</code>，即
 concatenate，中文是连接的意思。因此，如果有多个文件的话，它会把这些文件的内容拼接起来显示。</p>
 <p>使用格式</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ cat file1 file2...<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cat</span> file1 file2...<br></code></pre></div></td></tr></table></figure>
 <p>使用范例</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ cat _config.yml<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cat</span> _config.yml<br></code></pre></div></td></tr></table></figure>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405185854.png" srcset="/img/loading.gif" lazyload /></p>
 <h4 id="ls-命令">ls 命令</h4>
@@ -269,7 +269,7 @@ entries，即在列出的文件名称后加一个符号，显示文件类型信�
 size，即列出带有具有可读性的文件大小数据的信息</li>
 </ul>
 <p>使用范例</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ ls -l<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">ls</span> -l<br></code></pre></div></td></tr></table></figure>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405193525.png" srcset="/img/loading.gif" lazyload /></p>
 <p>上面列出的文件中，第一列表示文件模式和权限，第二列表示链接数（即 link
@@ -285,14 +285,14 @@ recursively。递归地复制文件夹。</li>
 <p>使用格式</p>
 <p>将文件 <code>file1</code> 复制到文件 <code>file2</code>，如果
 <code>file2</code> 不存在，则会自动创建:</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ cp file1 file2<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cp</span> file1 file2<br></code></pre></div></td></tr></table></figure>
 <p>将多个文件（<code>file1 ... fileN</code>）复制到目录
 <code>dir</code>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ cp file1 ... fileN dir<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cp</span> file1 ... fileN <span class="hljs-built_in">dir</span><br></code></pre></div></td></tr></table></figure>
 <p>使用范例</p>
 <p>将 <code>a.txt</code> 复制到 <code>b.txt</code>
 中，<code>b.txt</code> 本来并不存在</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ cp a.txt b.txt<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cp</span> a.txt b.txt<br></code></pre></div></td></tr></table></figure>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406130519.png" srcset="/img/loading.gif" lazyload /></p>
 <p>将 <code>a.txt</code> 和 <code>b.txt</code> 复制到 <code>new</code>
@@ -316,18 +316,18 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
 </ul>
 <p>使用格式</p>
 <p>将文件名从 <code>file1</code> 重命名为 <code>file2</code>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ mv file1 file2<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">mv</span> file1 file2<br></code></pre></div></td></tr></table></figure>
 <p>将多个文件（<code>file1 ... fileN</code>）移动到目录
 <code>dir</code>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ mv file1 ... fileN dir<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">mv</span> file1 ... fileN <span class="hljs-built_in">dir</span><br></code></pre></div></td></tr></table></figure>
 <p>使用范例</p>
 <p>将 <code>a.txt</code> 重命名为 <code>c.txt</code>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ mv a.txt c.txt<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">mv</span> a.txt c.txt<br></code></pre></div></td></tr></table></figure>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406132001.png" srcset="/img/loading.gif" lazyload /></p>
 <p>将 <code>a.txt</code> 和 <code>c.txt</code> 移动到 <code>new</code>
 目录中：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ mv a.txt c.txt new<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">mv</span> a.txt c.txt new<br></code></pre></div></td></tr></table></figure>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406132402.png" srcset="/img/loading.gif" lazyload /></p>
 <h4 id="touch-命令">touch 命令</h4>
@@ -335,7 +335,7 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
 命令用来创建文件。如果文件已经存在，则该命令会更新文件的时间戳。</p>
 <p>使用格式</p>
 <p>创建一个新的文件，内容为空：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ touch file<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">touch</span> file<br></code></pre></div></td></tr></table></figure>
 <h4 id="rm-命令">rm 命令</h4>
 <p><code>rm</code>，即 remove here。<code>rm</code>
 命令用来删除文件，文件一旦被删除通常无法恢复（也就是说，通过某种手段，是可以恢复的）。</p>
@@ -343,7 +343,7 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210406133409.png" srcset="/img/loading.gif" lazyload /></p>
 <p>使用格式</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ rm file<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">rm</span> file<br></code></pre></div></td></tr></table></figure>
 <p>选项参数说明</p>
 <ul>
 <li><code>-f</code>：force deletion。强制删除。</li>
@@ -367,7 +367,7 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
 当前所在的目录。</p>
 <p>使用格式</p>
 <p>进入目录 <code>dir</code>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> dir<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> <span class="hljs-built_in">dir</span><br></code></pre></div></td></tr></table></figure>
 <p>如果不带 <code>dir</code> 参数，<code>cd</code>
 命令会返回我们的个人主目录，即我们登录系统后进入的目录。</p>
 <h4 id="mkdir-命令">mkdir 命令</h4>
@@ -375,14 +375,14 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
 命令用来创建新目录。</p>
 <p>使用格式</p>
 <p>创建目录 <code>dir</code>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ mkdir dir<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">mkdir</span> <span class="hljs-built_in">dir</span><br></code></pre></div></td></tr></table></figure>
 <h4 id="rmdir-命令">rmdir 命令</h4>
 <p><code>rmdir</code>，即 remove directory。<code>rmdir</code>
 命令用来删除目录（空目录）。如果要删除的目录里面有内容（文件和其他目录），命令会执行失败。我们可以使用
 <code>rm -rf</code> 来删除一个目录以及其中的所有内容。</p>
 <p>使用格式</p>
 <p>删除目录 <code>dir</code>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ rmdir dir<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">rmdir</span> <span class="hljs-built_in">dir</span><br></code></pre></div></td></tr></table></figure>
 <h3 id="中级命令">中级命令</h3>
 <h4 id="grep-命令">grep 命令</h4>
 <p><code>grep</code>，即 global regular expression print 的缩写。</p>
@@ -449,7 +449,7 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
 <h4 id="find-和-locate-命令">find 和 locate 命令</h4>
 <p><code>find</code> 命令用来在目录中寻找文件。</p>
 <p>使用格式</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ find dir -name filename -<span class="hljs-built_in">print</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ find <span class="hljs-built_in">dir</span> -name filename -<span class="hljs-built_in">print</span><br></code></pre></div></td></tr></table></figure>
 <p>关于参数的说明</p>
 <ul>
 <li><code>-name filename</code>：表示查找名为 <code>filename</code>
@@ -471,8 +471,8 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
 <p><code>head</code> 命令显示文件前 10 行内容。</p>
 <p><code>tail</code> 命令显示文件最后 10 行内容。</p>
 <p>使用范例</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ head /etc/passwd<br></code></pre></div></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ tail /etc/passwd<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">head</span> /etc/passwd<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">tail</span> /etc/passwd<br></code></pre></div></td></tr></table></figure>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405171404.png" srcset="/img/loading.gif" lazyload /></p>
 <h4 id="sort-命令">sort 命令</h4>
@@ -483,7 +483,7 @@ src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/2021
 <li><code>-r</code>：反向排序</li>
 </ul>
 <p>使用范例</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sort _config.yml<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sort</span> _config.yml<br></code></pre></div></td></tr></table></figure>
 <p><img
 src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405172428.png" srcset="/img/loading.gif" lazyload /></p>
 <h3 id="进阶命令">进阶命令</h3>
@@ -503,9 +503,9 @@ file。提取一个压缩文件</li>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ tar -Jxvf linux-5.11.11.tar.xz<br></code></pre></div></td></tr></table></figure>
 <p>下面是各种类型文件的解压示例，这里用 file 表示文件名。</p>
 <p>解压 tar 文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> tar -xvf file.tar</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">tar -xvf file.tar</span><br></code></pre></div></td></tr></table></figure>
 <p>解压 tar.gz 文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> tar -xzf file.tar.gz</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">tar -xzf file.tar.gz</span><br></code></pre></div></td></tr></table></figure>
 <h3 id="其他命令">其他命令</h3>
 <h4 id="apt-命令相关">apt 命令相关</h4>
 <p><code>apt</code>，即 advanced package tool。</p>

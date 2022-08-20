@@ -77,7 +77,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.2"></head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
 <body>
@@ -297,7 +297,7 @@ class="uri">https://www.baeldung.com/linux/vim-registers</a></p>
 <h1 id="系统剪贴板">系统剪贴板</h1>
 <p>vim 支持系统剪贴板，需要打开 clipboard
 功能。使用下面的命令，检查当前版本的 vim 是否支持 clipboard，</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> vim --version | grep <span class="hljs-string">&quot;clipboard&quot;</span></span><br>+clipboard         +keymap            +printer           +vertsplit<br>+emacs_tags        +mouse_gpm         -sun_workshop      +xterm_clipboard<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">vim --version | grep <span class="hljs-string">&quot;clipboard&quot;</span></span><br>+clipboard         +keymap            +printer           +vertsplit<br>+emacs_tags        +mouse_gpm         -sun_workshop      +xterm_clipboard<br></code></pre></div></td></tr></table></figure>
 <p><code>+clipboard</code> 代表支持，<code>-clipboard</code>
 代表不支持。</p>
 <p>如果不支持的话，需要重新安装别的版本的
@@ -306,7 +306,7 @@ vim，这个在网上也有相关的教程，暂时不再赘述。</p>
 <p>我们只需要设置 vim 默认使用系统剪贴板即可。在确定 vim 支持
 <code>+clipboard</code> 之后，如果想 <code>y/p</code>
 直接和系统剪贴板打通，可以在 <code>~/.vimrc</code> 中加上如下配置：</p>
-<figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros"><span class="hljs-builtin-name">set</span> clipboard^=unnamed,unnamedplus<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros"><span class="hljs-built_in">set</span> clipboard^=unnamed,unnamedplus<br></code></pre></div></td></tr></table></figure>
 <p>还有其他的方法，这里暂时不去研究。用到的时候再说。</p>
 
             </div>
