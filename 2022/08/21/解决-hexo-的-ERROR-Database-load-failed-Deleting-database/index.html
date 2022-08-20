@@ -16,24 +16,23 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="今天面试一个远程实习，国外做旅游的。沾一点 web3。 前面无非是那一套，然后最后肯定是一个经典的算法环节，给的是白板编程环境。连代码提示都没有，说实话，还好是写这道经典题，不然有些库函数写不出来还是有点尴尬的。 我也是用递归来写的，不过是我自己想的尾递归，不是网上流传很广的先递归进去的那种版本。所以之后就还和面试官讨论了一下，显然他熟悉的是那一种递归。 最后 battle 的结果是他认同了">
+    <meta name="description" content="相信很多人最近都出现了这个问题。 最新版本的 nodejs 18.6.0，每次一来一回——每两次 hexo g -d 必然有一次要报一个这样的错，然后下一次执行这个 hexo g -d 命令时就会变得巨慢。 那么，如何解决这个问题呢？ GitHub 上有这个 issue，其状态已经是 closed 了。 我提炼出来的方法是这个，  然后我试完了之后发现不行，去查看 warehou">
 <meta property="og:type" content="article">
-<meta property="og:title" content="经典永流传之反转链表">
-<meta property="og:url" content="http://example.com/2022/08/20/%E7%BB%8F%E5%85%B8%E6%B0%B8%E6%B5%81%E4%BC%A0%E4%B9%8B%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/index.html">
+<meta property="og:title" content="解决 hexo 的 ERROR Database load failed. Deleting database.">
+<meta property="og:url" content="http://example.com/2022/08/21/%E8%A7%A3%E5%86%B3-hexo-%E7%9A%84-ERROR-Database-load-failed-Deleting-database/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="今天面试一个远程实习，国外做旅游的。沾一点 web3。 前面无非是那一套，然后最后肯定是一个经典的算法环节，给的是白板编程环境。连代码提示都没有，说实话，还好是写这道经典题，不然有些库函数写不出来还是有点尴尬的。 我也是用递归来写的，不过是我自己想的尾递归，不是网上流传很广的先递归进去的那种版本。所以之后就还和面试官讨论了一下，显然他熟悉的是那一种递归。 最后 battle 的结果是他认同了">
+<meta property="og:description" content="相信很多人最近都出现了这个问题。 最新版本的 nodejs 18.6.0，每次一来一回——每两次 hexo g -d 必然有一次要报一个这样的错，然后下一次执行这个 hexo g -d 命令时就会变得巨慢。 那么，如何解决这个问题呢？ GitHub 上有这个 issue，其状态已经是 closed 了。 我提炼出来的方法是这个，  然后我试完了之后发现不行，去查看 warehou">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/FYyH9QD.jpg">
-<meta property="article:published_time" content="2022-08-20T15:24:36.000Z">
-<meta property="article:modified_time" content="2022-08-20T16:08:55.965Z">
+<meta property="og:image" content="https://i.imgur.com/ubtDpwb.jpg">
+<meta property="article:published_time" content="2022-08-20T16:10:50.000Z">
+<meta property="article:modified_time" content="2022-08-20T16:22:58.764Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="面试">
-<meta property="article:tag" content="算法">
+<meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/FYyH9QD.jpg">
+<meta name="twitter:image" content="https://i.imgur.com/ubtDpwb.jpg">
   
   
-  <title>经典永流传之反转链表 - Fan Lu&#39;s Blog</title>
+  <title>解决 hexo 的 ERROR Database load failed. Deleting database. - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -178,12 +177,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/FYyH9QD.jpg') no-repeat center center;
+         style="background: url('https://i.imgur.com/ubtDpwb.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="经典永流传之反转链表">
+            <span class="h2" id="subtitle" title="解决 hexo 的 ERROR Database load failed. Deleting database.">
               
             </span>
 
@@ -193,8 +192,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-08-20 23:24" pubdate>
-        2022年8月20日 晚上
+      <time datetime="2022-08-21 00:10" pubdate>
+        2022年8月21日 凌晨
       </time>
     </span>
   
@@ -204,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      982 字
+      410 字
     </span>
   
 
@@ -213,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9 分钟
+      4 分钟
     </span>
   
 
@@ -242,17 +241,31 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">经典永流传之反转链表</h1>
+            <h1 style="display: none">解决 hexo 的 ERROR Database load failed. Deleting database.</h1>
             
             <div class="markdown-body">
-              <p>今天面试一个远程实习，国外做旅游的。沾一点 web3。</p>
-<p>前面无非是那一套，然后最后肯定是一个经典的算法环节，给的是白板编程环境。连代码提示都没有，说实话，还好是写这道经典题，不然有些库函数写不出来还是有点尴尬的。</p>
-<p>我也是用递归来写的，不过是我自己想的尾递归，不是网上流传很广的先递归进去的那种版本。所以之后就还和面试官讨论了一下，显然他熟悉的是那一种递归。</p>
-<p>最后 battle 的结果是他认同了我的做法，毕竟我平时也是在 VSCode
-中验证过的嘛。</p>
-<p>贴一下我的思路。</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">reverseList</span><span class="hljs-params">(ListNode head)</span> &#123;<br>        <span class="hljs-keyword">if</span> (head == <span class="hljs-literal">null</span> || head.next == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> head;<br>        &#125;<br><br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> recurse(head, head.next);<br>        head.next = <span class="hljs-literal">null</span>;<br><br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> ListNode <span class="hljs-title function_">recurse</span><span class="hljs-params">(ListNode cur, ListNode next)</span> &#123;<br>        <span class="hljs-keyword">if</span> (next == <span class="hljs-literal">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> cur;<br>        &#125;<br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">tmp</span> <span class="hljs-operator">=</span> next.next;<br>        next.next = cur;<br>        <span class="hljs-keyword">return</span> recurse(next, tmp);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">var</span> <span class="hljs-variable">solu</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Solution</span>();<br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">head</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ListNode</span>(<span class="hljs-number">1</span>);<br>        head.next = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ListNode</span>(<span class="hljs-number">2</span>);<br>        head.next.next = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ListNode</span>(<span class="hljs-number">3</span>);<br>        head.next.next.next = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ListNode</span>(<span class="hljs-number">4</span>);<br>        <span class="hljs-type">var</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> solu.reverseList(head);<br>        <span class="hljs-keyword">while</span> (res != <span class="hljs-literal">null</span>) &#123;<br>            System.out.println(res.val);<br>            res = res.next;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<p>当然，最简单的方法肯定是直接模拟。直接上两个指针，不过，如果对递归比较熟悉的话，写这个递归的版本呢肯定是要更加快一点的。</p>
+              <p>相信很多人最近都出现了这个问题。</p>
+<p>最新版本的 nodejs <code>18.6.0</code>，每次一来一回——每两次
+<code>hexo g -d</code> 必然有一次要报一个这样的错，然后下一次执行这个
+<code>hexo g -d</code> 命令时就会变得巨慢。</p>
+<p>那么，如何解决这个问题呢？</p>
+<p>GitHub 上有这个 <a
+target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues/5022">issue</a>，其状态已经是
+<code>closed</code> 了。</p>
+<p>我提炼出来的方法是这个，</p>
+<p><img src="https://i.imgur.com/Ys2LakE.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后我试完了之后发现不行，去查看 <code>warehouse</code>
+的版本，发现没变，升级完 hexo 也不行。</p>
+<p>经过试验，发现需要修改博客根目录下的 <code>package.json</code> 中的
+hexo 版本，</p>
+<p><img src="https://i.imgur.com/S9U85zJ.png" srcset="/img/loading.gif" lazyload /></p>
+<p>我之前没动过，一直是
+<code>5.0.0</code>，然后修改完之后，再把这个根目录下的
+<code>node_modules</code> 和 <code>package-lock.json</code>
+给删掉，再执行一下 <code>npm install</code>，之后发现问题得到解决。</p>
+<p>再去到 <code>package-lock.json</code> 中看 warehouse 的版本，发现变成
+<code>^4.0.1</code> 了，但是也可以看到，这个文件里面使用
+<code>warehouse-4.0.2</code> 版本的身影的。</p>
 
             </div>
             <hr>
@@ -263,9 +276,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E9%9D%A2%E8%AF%95/">面试</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
                     
                   </div>
                 
@@ -282,18 +293,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/21/%E8%A7%A3%E5%86%B3-hexo-%E7%9A%84-ERROR-Database-load-failed-Deleting-database/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">解决 hexo 的 ERROR Database load failed. Deleting database.</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/20/neovim-%E5%A6%82%E4%BD%95%E4%BB%8E-swp-%E6%96%87%E4%BB%B6%E4%B8%AD%E6%81%A2%E5%A4%8D/">
-                        <span class="hidden-mobile">neovim 如何从 swp 文件中恢复</span>
+                      <a href="/2022/08/20/%E7%BB%8F%E5%85%B8%E6%B0%B8%E6%B5%81%E4%BC%A0%E4%B9%8B%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">
+                        <span class="hidden-mobile">经典永流传之反转链表</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

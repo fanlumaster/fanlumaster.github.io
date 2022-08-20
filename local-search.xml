@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>解决 hexo 的 ERROR Database load failed. Deleting database.</title>
+    <link href="/2022/08/21/%E8%A7%A3%E5%86%B3-hexo-%E7%9A%84-ERROR-Database-load-failed-Deleting-database/"/>
+    <url>/2022/08/21/%E8%A7%A3%E5%86%B3-hexo-%E7%9A%84-ERROR-Database-load-failed-Deleting-database/</url>
+    
+    <content type="html"><![CDATA[<p>相信很多人最近都出现了这个问题。</p><p>最新版本的 nodejs <code>18.6.0</code>，每次一来一回——每两次<code>hexo g -d</code> 必然有一次要报一个这样的错，然后下一次执行这个<code>hexo g -d</code> 命令时就会变得巨慢。</p><p>那么，如何解决这个问题呢？</p><p>GitHub 上有这个 <ahref="https://github.com/hexojs/hexo/issues/5022">issue</a>，其状态已经是<code>closed</code> 了。</p><p>我提炼出来的方法是这个，</p><p><img src="https://i.imgur.com/Ys2LakE.png" /></p><p>然后我试完了之后发现不行，去查看 <code>warehouse</code>的版本，发现没变，升级完 hexo 也不行。</p><p>经过试验，发现需要修改博客根目录下的 <code>package.json</code> 中的hexo 版本，</p><p><img src="https://i.imgur.com/S9U85zJ.png" /></p><p>我之前没动过，一直是<code>5.0.0</code>，然后修改完之后，再把这个根目录下的<code>node_modules</code> 和 <code>package-lock.json</code>给删掉，再执行一下 <code>npm install</code>，之后发现问题得到解决。</p><p>再去到 <code>package-lock.json</code> 中看 warehouse 的版本，发现变成<code>^4.0.1</code> 了，但是也可以看到，这个文件里面使用<code>warehouse-4.0.2</code> 版本的身影的。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>经典永流传之反转链表</title>
     <link href="/2022/08/20/%E7%BB%8F%E5%85%B8%E6%B0%B8%E6%B5%81%E4%BC%A0%E4%B9%8B%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/"/>
     <url>/2022/08/20/%E7%BB%8F%E5%85%B8%E6%B0%B8%E6%B5%81%E4%BC%A0%E4%B9%8B%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</url>
