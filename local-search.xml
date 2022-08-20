@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>neovim 如何从 swp 文件中恢复</title>
+    <link href="/2022/08/20/neovim-%E5%A6%82%E4%BD%95%E4%BB%8E-swp-%E6%96%87%E4%BB%B6%E4%B8%AD%E6%81%A2%E5%A4%8D/"/>
+    <url>/2022/08/20/neovim-%E5%A6%82%E4%BD%95%E4%BB%8E-swp-%E6%96%87%E4%BB%B6%E4%B8%AD%E6%81%A2%E5%A4%8D/</url>
+    
+    <content type="html"><![CDATA[<p>今天遇到了一个这样的问题，电脑在重启的时候没有保存 nvim当前的界面，然后，重启之后再用 nvim 打开这个文件的话，会报警告。</p><p>优雅的方法当然是得从其相应的 <code>.swp</code>文件中进行恢复，因此，可以执行下面这个命令：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">nvim -r filename<br></code></pre></div></td></tr></table></figure><p>然后，还需要将提示的 <code>.swap</code>给删除掉。然后再编辑就没有问题了。</p><p>如果想更加保险的话，可以在恢复界面出来的时候把里面的内容拷贝出来备份一下。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>neovim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>neovim 的目录操作</title>
     <link href="/2022/08/20/neovim-%E7%9A%84%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/"/>
     <url>/2022/08/20/neovim-%E7%9A%84%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/</url>
@@ -340,9 +359,9 @@
     
     <tags>
       
-      <tag>数据结构</tag>
-      
       <tag>面试</tag>
+      
+      <tag>数据结构</tag>
       
     </tags>
     
@@ -793,9 +812,9 @@
     
     <tags>
       
-      <tag>工具</tag>
-      
       <tag>VSCode</tag>
+      
+      <tag>工具</tag>
       
     </tags>
     
@@ -2325,9 +2344,9 @@
     
     <tags>
       
-      <tag>软件</tag>
-      
       <tag>安装</tag>
+      
+      <tag>软件</tag>
       
     </tags>
     
@@ -2352,11 +2371,11 @@
     
     <tags>
       
-      <tag>安装</tag>
+      <tag>Windows</tag>
       
       <tag>MySQL</tag>
       
-      <tag>Windows</tag>
+      <tag>安装</tag>
       
     </tags>
     
@@ -3542,9 +3561,9 @@
     
     <tags>
       
-      <tag>Bugs</tag>
-      
       <tag>Windows</tag>
+      
+      <tag>Bugs</tag>
       
       <tag>C 语言</tag>
       
