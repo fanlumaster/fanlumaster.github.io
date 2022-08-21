@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>how to set git editor to neovim</title>
+    <link href="/2022/08/21/how-to-set-git-editor-to-neovim/"/>
+    <url>/2022/08/21/how-to-set-git-editor-to-neovim/</url>
+    
+    <content type="html"><![CDATA[<p>Quite simple, just execute this in command line:</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git config --global core.editor &quot;nvim&quot;<br></code></pre></div></td></tr></table></figure><p>reference: <ahref="https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-editing-commit-messages">stackoverflow</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>如何给 hexo-fluid 主题添加 disqus 评论</title>
     <link href="/2022/08/21/%E5%A6%82%E4%BD%95%E7%BB%99-hexo-fluid-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0-disqus-%E8%AF%84%E8%AE%BA/"/>
     <url>/2022/08/21/%E5%A6%82%E4%BD%95%E7%BB%99-hexo-fluid-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0-disqus-%E8%AF%84%E8%AE%BA/</url>
