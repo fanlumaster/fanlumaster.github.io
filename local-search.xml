@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>如何给 hexo-fluid 主题添加 disqus 评论</title>
+    <link href="/2022/08/21/%E5%A6%82%E4%BD%95%E7%BB%99-hexo-fluid-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0-disqus-%E8%AF%84%E8%AE%BA/"/>
+    <url>/2022/08/21/%E5%A6%82%E4%BD%95%E7%BB%99-hexo-fluid-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0-disqus-%E8%AF%84%E8%AE%BA/</url>
+    
+    <content type="html"><![CDATA[<p>其实在 Hexo 中设置这个 disqus评论还有有点复杂的，也有可能是我使用过的 <code>fluid</code> 和<code>butterfly</code> 这两个主题没有设置好配置项，然后呢，disqus本身也没有给好配置的文档。倒不是英文的缘故，属实是文档写得不太行。</p><p>总体看来，如果有一篇好的文档来指导的话，配置起来是很容易的，也很方便。遗憾的是，我在搜索引擎中并没有搜索到。</p><p>所以的话，这件事情还是由我来亲自，亲自解决吧。</p><p>首先，来到下面这个 disqus 的 api 入口：</p><p><a href="https://disqus.com/api/applications/"class="uri">https://disqus.com/api/applications/</a></p><p><img src="https://i.imgur.com/QGdTBv5.png" /></p><p>然后来到下一步，</p><p><img src="https://i.imgur.com/y0QMcrk.png" /></p><p><img src="https://i.imgur.com/U0RquOj.png" /></p><p><img src="https://i.imgur.com/NWG8lJU.png" /></p><p>然后 savechanges，这里有些东西不用填的，看我的截图自行选择，然后再点击一下这个<code>Applications</code>，</p><p><img src="https://i.imgur.com/kgjRYO0.png" /></p><p>把 public key 整到这里，</p><p><img src="https://i.imgur.com/2KIEXkT.png" /></p><p>最后我们还需要把这个 shortname 给填上，看看下面我的操作，</p><p><img src="https://i.imgur.com/gRSQmox.png" /></p><p><img src="https://i.imgur.com/jJL7Q4I.png" /></p><p><img src="https://i.imgur.com/PTAlGXw.png" /></p><p><img src="https://i.imgur.com/bc0x8ke.png" /></p><p>到这里其实就 ok 了。</p><p>最后提一嘴，要把评论的开关给打开，这一点就可以参考 hexo相应的主题的官方文档了。</p><p>以上。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>如何给 PowerShell 设置命令别名</title>
     <link href="/2022/08/21/%E5%A6%82%E4%BD%95%E7%BB%99-PowerShell-%E8%AE%BE%E7%BD%AE%E5%91%BD%E4%BB%A4%E5%88%AB%E5%90%8D/"/>
     <url>/2022/08/21/%E5%A6%82%E4%BD%95%E7%BB%99-PowerShell-%E8%AE%BE%E7%BD%AE%E5%91%BD%E4%BB%A4%E5%88%AB%E5%90%8D/</url>
