@@ -16,16 +16,16 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这个 win11 怎么说呢，之前还记得怎么修改系统的语言设置来使得这个 windows terminal 的中文显示是可以保持为微软雅黑的，现在已经忘掉了。 然后在 v2ex 上看到有人提议去修改系统注册表中的 fontlink，我试了一下，发现改完之后在 wt 里面根本不生效，但是 powershell 窗口里面却可以正常运作。 这微软的开发人员很有问题啊，这个问题单已经存了好久了呀，">
+    <meta name="description" content="使用了一点时间之后来更新： 这个字体一旦用过一点时间，习惯起来还是很容易的。主要整体的协调性是不差的。但是原来的没有设置过的中文字体确实是不敢恭维。 原文： 这个 win11 怎么说呢，之前还记得怎么修改系统的语言设置来使得这个 windows terminal 的中文显示是可以保持为微软雅黑的，现在已经忘掉了。 然后在 v2ex 上看到有人提议去修改系统注册表中的 fontlink，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决 windows terminal 中文字体过丑的问题">
 <meta property="og:url" content="http://example.com/2022/08/20/%E8%A7%A3%E5%86%B3-windows-terminal-%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93%E8%BF%87%E4%B8%91%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="这个 win11 怎么说呢，之前还记得怎么修改系统的语言设置来使得这个 windows terminal 的中文显示是可以保持为微软雅黑的，现在已经忘掉了。 然后在 v2ex 上看到有人提议去修改系统注册表中的 fontlink，我试了一下，发现改完之后在 wt 里面根本不生效，但是 powershell 窗口里面却可以正常运作。 这微软的开发人员很有问题啊，这个问题单已经存了好久了呀，">
+<meta property="og:description" content="使用了一点时间之后来更新： 这个字体一旦用过一点时间，习惯起来还是很容易的。主要整体的协调性是不差的。但是原来的没有设置过的中文字体确实是不敢恭维。 原文： 这个 win11 怎么说呢，之前还记得怎么修改系统的语言设置来使得这个 windows terminal 的中文显示是可以保持为微软雅黑的，现在已经忘掉了。 然后在 v2ex 上看到有人提议去修改系统注册表中的 fontlink，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/Usb6okz.jpg">
 <meta property="article:published_time" content="2022-08-20T13:25:04.000Z">
-<meta property="article:modified_time" content="2022-08-20T15:20:48.790Z">
+<meta property="article:modified_time" content="2022-08-21T07:16:25.467Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="Windows">
 <meta name="twitter:card" content="summary_large_image">
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      339 字
+      430 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      4 分钟
     </span>
   
 
@@ -244,7 +244,10 @@
             <h1 style="display: none">解决 windows terminal 中文字体过丑的问题</h1>
             
             <div class="markdown-body">
-              <p>这个 win11 怎么说呢，之前还记得怎么修改系统的语言设置来使得这个
+              <p>使用了一点时间之后来更新：</p>
+<p>这个字体一旦用过一点时间，习惯起来还是很容易的。主要整体的协调性是不差的。但是原来的没有设置过的中文字体确实是不敢恭维。</p>
+<p>原文：</p>
+<p>这个 win11 怎么说呢，之前还记得怎么修改系统的语言设置来使得这个
 windows terminal 的中文显示是可以保持为微软雅黑的，现在已经忘掉了。</p>
 <p>然后在 v2ex 上看到有人提议去修改系统注册表中的
 fontlink，我试了一下，发现改完之后在 wt 里面根本不生效，但是 powershell
@@ -254,7 +257,7 @@ fontlink，我试了一下，发现改完之后在 wt 里面根本不生效，�
 的字体为"更纱"字体，还能有什么办法呢？只有捏着鼻子认了，这个字体的汉字风格是日系的。好在总算是解决了整体的协调性。真正在代码编辑器里面，肯定还是用其他的字体的。</p>
 <p>我目前用的字体是这个：</p>
 <p><img src="https://i.imgur.com/dXLUWtW.png" srcset="/img/loading.gif" lazyload /></p>
-<p>Sarasa Mono Slab HC.</p>
+<p>Sarasa Mono Slab HC.(这个字体相对来说没那么日系)</p>
 
             </div>
             <hr>
@@ -303,6 +306,34 @@ fontlink，我试了一下，发现改完之后在 wt 里面根本不生效，�
               
             </div>
 
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://example.com/2022/08/20/%E8%A7%A3%E5%86%B3-windows-terminal-%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93%E8%BF%87%E4%B8%91%E7%9A%84%E9%97%AE%E9%A2%98/';
+          this.page.identifier = '/2022/08/20/%E8%A7%A3%E5%86%B3-windows-terminal-%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93%E8%BF%87%E4%B8%91%E7%9A%84%E9%97%AE%E9%A2%98/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'Fanlumaster Blog' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
             
           </article>
         </div>

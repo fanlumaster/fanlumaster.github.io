@@ -16,25 +16,23 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="对于 @Autowired 注解，一般情况下的使用是用其来注解一个变量，比如 12@Autowiredprivate UserDao userDao; 但是，这个用法有时候会导致问题，比如，下面的代码 12345678@Autowiredprivate User user;private String school;public UserAccountServiceImpl() &amp;#123">
+    <meta name="description" content="主要参考微软的官方文档，然后还有涉及到其他的关于这个 alias 的操作，文档的底部也有相应的 Related Links:  主要的需求是给 nvim 设置别名为 vim，所以直接执行执行以下命令即可： 1New-Alias -Name &quot;vim&quot; nvim 之后就可以使用 vim 这个别名了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="@Autowired 注解作用于 Constructor">
-<meta property="og:url" content="http://example.com/2021/08/09/Autowired-%E6%B3%A8%E8%A7%A3%E4%BD%9C%E7%94%A8%E4%BA%8E-Constructor/index.html">
+<meta property="og:title" content="如何给 PowerShell 设置命令别名">
+<meta property="og:url" content="http://example.com/2022/08/21/%E5%A6%82%E4%BD%95%E7%BB%99-PowerShell-%E8%AE%BE%E7%BD%AE%E5%91%BD%E4%BB%A4%E5%88%AB%E5%90%8D/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="对于 @Autowired 注解，一般情况下的使用是用其来注解一个变量，比如 12@Autowiredprivate UserDao userDao; 但是，这个用法有时候会导致问题，比如，下面的代码 12345678@Autowiredprivate User user;private String school;public UserAccountServiceImpl() &amp;#123">
+<meta property="og:description" content="主要参考微软的官方文档，然后还有涉及到其他的关于这个 alias 的操作，文档的底部也有相应的 Related Links:  主要的需求是给 nvim 设置别名为 vim，所以直接执行执行以下命令即可： 1New-Alias -Name &quot;vim&quot; nvim 之后就可以使用 vim 这个别名了。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210809061657.png">
-<meta property="article:published_time" content="2021-08-08T22:03:01.000Z">
-<meta property="article:modified_time" content="2021-08-08T22:21:42.000Z">
+<meta property="og:image" content="https://i.imgur.com/6tQhiES.jpg">
+<meta property="article:published_time" content="2022-08-21T05:56:11.000Z">
+<meta property="article:modified_time" content="2022-08-21T07:13:42.435Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="Spring">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="Spring Boot">
+<meta property="article:tag" content="neovim">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210809061657.png">
+<meta name="twitter:image" content="https://i.imgur.com/6tQhiES.jpg">
   
   
-  <title>@Autowired 注解作用于 Constructor - Fan Lu&#39;s Blog</title>
+  <title>如何给 PowerShell 设置命令别名 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -179,12 +177,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210809061657.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/6tQhiES.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="@Autowired 注解作用于 Constructor">
+            <span class="h2" id="subtitle" title="如何给 PowerShell 设置命令别名">
               
             </span>
 
@@ -194,8 +192,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-08-09 06:03" pubdate>
-        2021年8月9日 早上
+      <time datetime="2022-08-21 13:56" pubdate>
+        2022年8月21日 下午
       </time>
     </span>
   
@@ -205,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      681 字
+      143 字
     </span>
   
 
@@ -214,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      2 分钟
     </span>
   
 
@@ -243,48 +241,28 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">@Autowired 注解作用于 Constructor</h1>
+            <h1 style="display: none">如何给 PowerShell 设置命令别名</h1>
             
             <div class="markdown-body">
-              <p>对于 <span class="citation" data-cites="Autowired">@Autowired</span>
-注解，一般情况下的使用是用其来注解一个变量，比如</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">private</span> UserDao userDao;<br></code></pre></div></td></tr></table></figure>
-<p>但是，这个用法有时候会导致问题，比如，下面的代码</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">private</span> User user;<br><br><span class="hljs-keyword">private</span> String school;<br><br><span class="hljs-keyword">public</span> <span class="hljs-title function_">UserAccountServiceImpl</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-built_in">this</span>.school = user.getSchool();<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<p>这里在执行时，程序的执行顺序是先执行构造方法，然后再对加了 <span
-class="citation" data-cites="Autowired">@Autowired</span> 注解的 user
-变量进行自动装配（即注入），所以，这段代码在执行时是会报错的。</p>
-<p>所以，官方建议不要使用这种变量注入的方法，在 IDEA 中，给变量加 <span
-class="citation" data-cites="Autowired">@Autowired</span>
-注解会产生一个警告。官方建议使用的方法是<strong>构造器(Constructor)注入</strong>，代码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> User user;<br><span class="hljs-keyword">private</span> String school;<br><br><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">public</span> <span class="hljs-title function_">UserAccountServiceImpl</span><span class="hljs-params">(User user)</span> &#123;<br>    <span class="hljs-built_in">this</span>.user = user;<br>    <span class="hljs-built_in">this</span>.school = user.getSchool();<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<p>这样一来，程序在执行构造器方法时，就会自动注入 user。</p>
-<hr />
-<p>参考：</p>
-<p>1、https://www.cnblogs.com/acm-bingzi/p/springAutowired.html
-2、https://www.ramostear.com/blog/2020/03/23/9guzql5w.html</p>
+              <p>主要参考微软的<a
+target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-7.2">官方文档</a>，然后还有涉及到其他的关于这个
+alias 的操作，文档的底部也有相应的 Related Links:</p>
+<p><img src="https://i.imgur.com/aGIdvUv.png" srcset="/img/loading.gif" lazyload /></p>
+<p>主要的需求是给 <code>nvim</code> 设置别名为
+<code>vim</code>，所以直接执行执行以下命令即可：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">New-Alias -Name &quot;vim&quot; nvim<br></code></pre></div></td></tr></table></figure>
+<p>之后就可以使用 vim 这个别名了。</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
-                    
-                  </div>
-                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Spring/">Spring</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Spring-Boot/">Spring Boot</a>
+                      <a class="hover-with-bg" href="/tags/neovim/">neovim</a>
                     
                   </div>
                 
@@ -301,18 +279,12 @@ class="citation" data-cites="Autowired">@Autowired</span>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E5%92%8C%E8%A1%A5%E7%A0%81/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">计算机原码、反码和补码</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/07/14/IDEA-%E6%96%B0%E9%85%8D%E7%BD%AE%E4%B8%80%E4%B8%AA-Thymeleaf-Template-%E6%96%87%E4%BB%B6/">
-                        <span class="hidden-mobile">IDEA 新配置一个 Thymeleaf Template 文件</span>
+                      <a href="/2022/08/21/%E8%A7%A3%E5%86%B3-hexo-%E7%9A%84-ERROR-Database-load-failed-Deleting-database/">
+                        <span class="hidden-mobile">解决 hexo 的 ERROR Database load failed. Deleting database.</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -334,8 +306,8 @@ class="citation" data-cites="Autowired">@Autowired</span>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2021/08/09/Autowired-%E6%B3%A8%E8%A7%A3%E4%BD%9C%E7%94%A8%E4%BA%8E-Constructor/';
-          this.page.identifier = '/2021/08/09/Autowired-%E6%B3%A8%E8%A7%A3%E4%BD%9C%E7%94%A8%E4%BA%8E-Constructor/';
+          this.page.url = 'http://example.com/2022/08/21/%E5%A6%82%E4%BD%95%E7%BB%99-PowerShell-%E8%AE%BE%E7%BD%AE%E5%91%BD%E4%BB%A4%E5%88%AB%E5%90%8D/';
+          this.page.identifier = '/2022/08/21/%E5%A6%82%E4%BD%95%E7%BB%99-PowerShell-%E8%AE%BE%E7%BD%AE%E5%91%BD%E4%BB%A4%E5%88%AB%E5%90%8D/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');

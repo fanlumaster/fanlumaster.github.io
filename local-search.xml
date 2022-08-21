@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>如何给 PowerShell 设置命令别名</title>
+    <link href="/2022/08/21/%E5%A6%82%E4%BD%95%E7%BB%99-PowerShell-%E8%AE%BE%E7%BD%AE%E5%91%BD%E4%BB%A4%E5%88%AB%E5%90%8D/"/>
+    <url>/2022/08/21/%E5%A6%82%E4%BD%95%E7%BB%99-PowerShell-%E8%AE%BE%E7%BD%AE%E5%91%BD%E4%BB%A4%E5%88%AB%E5%90%8D/</url>
+    
+    <content type="html"><![CDATA[<p>主要参考微软的<ahref="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-7.2">官方文档</a>，然后还有涉及到其他的关于这个alias 的操作，文档的底部也有相应的 Related Links:</p><p><img src="https://i.imgur.com/aGIdvUv.png" /></p><p>主要的需求是给 <code>nvim</code> 设置别名为<code>vim</code>，所以直接执行执行以下命令即可：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">New-Alias -Name &quot;vim&quot; nvim<br></code></pre></div></td></tr></table></figure><p>之后就可以使用 vim 这个别名了。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>neovim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>解决 hexo 的 ERROR Database load failed. Deleting database.</title>
     <link href="/2022/08/21/%E8%A7%A3%E5%86%B3-hexo-%E7%9A%84-ERROR-Database-load-failed-Deleting-database/"/>
     <url>/2022/08/21/%E8%A7%A3%E5%86%B3-hexo-%E7%9A%84-ERROR-Database-load-failed-Deleting-database/</url>
@@ -67,7 +86,7 @@
     <link href="/2022/08/20/neovim-%E7%9A%84%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/"/>
     <url>/2022/08/20/neovim-%E7%9A%84%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/</url>
     
-    <content type="html"><![CDATA[<p>自从使用 neovim 来写 hexo博客之后，就有了一个需求，或者说问题。之前使用 vscode来写博客的时候，我可以 <code>Ctrl + P</code> 来呼出查找文件的面板，然后vsocde是可以模糊搜索的，这个功能是很好用的，尤其是当我有未完成的最近的博客想要来快速定位到它进行继续撰写的时候。</p><p>然后我就想在使用 neovim的时候实现同样的功能，之前一直在实习，白天上班，晚上就不想动电脑了。现在是因为整了一台新的电脑，然后换上了64GB的内存条，这让我觉得她真的是非常地性感。简直像是一个我梦中才会出现并与我约会的高高胖胖的女郎一样，很有原始本能方面的冲动。</p><p>然后今晚到 YT上看了一支影片，简单地看了一眼，就发现，原来这个操作竟然这么简单！！</p><p>举个例子：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">nvim ./<br></code></pre></div></td></tr></table></figure><p>执行上面这个命令，我们就可以使用 neovim 打开这个界面，</p><p><img src="https://i.imgur.com/O8MVj3y.png" /></p><p>然后我们可以执行与普通的 nvim 界面的一样的操作！！</p><p>选中一个条目，然后 <code>Enter</code> 即可。</p><p>如果想退回这个界面，只需要执行 <code>:e ./</code> 即可。</p><p>真是非常方便呀。</p><p>然后就是，写博客的动力更加强烈了！！！</p>]]></content>
+    <content type="html"><![CDATA[<p>自从使用 neovim 来写 hexo博客之后，就有了一个需求，或者说问题。之前使用 vscode来写博客的时候，我可以 <code>Ctrl + P</code> 来呼出查找文件的面板，然后vsocde是可以模糊搜索的，这个功能是很好用的，尤其是当我有未完成的最近的博客想要来快速定位到它进行继续撰写的时候。</p><p>然后我就想在使用 neovim的时候实现同样的功能，之前一直在实习，白天上班，晚上就不想动电脑了。现在是因为整了一台新的电脑，然后换上了64GB的内存条，这让我觉得她真的是非常地性感。简直像是一个我梦中才会出现并与我约会的高高胖胖的女郎一样，很有原始本能方面的冲动。</p><p>然后今晚到 YT上看了一支影片，简单地看了一眼，就发现，原来这个操作竟然这么简单！！</p><p>举个例子：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">nvim ./<br></code></pre></div></td></tr></table></figure><p>执行上面这个命令，我们就可以使用 neovim 打开这个界面，</p><p><img src="https://i.imgur.com/O8MVj3y.png" /></p><p>然后我们可以执行与普通的 nvim 界面的一样的操作！！</p><p>选中一个条目，然后 <code>Enter</code> 即可。</p><p>如果想退回这个界面，只需要执行 <code>:e ./</code> 即可。</p><p>真是非常方便呀。</p><p>然后就是，写博客的动力更加强烈了！！！</p><p>现在还有一个感受，就是，感觉能够把 neovim的自有功能给摸透都不是一件容易的事情。插件什么的暂时不用去折腾。或许以后都不用去折腾。如果能够对neovim的自由功能很熟练的话，那么，效率已经可以得到相当程度的提高了。</p>]]></content>
     
     
     
@@ -86,7 +105,7 @@
     <link href="/2022/08/20/%E8%A7%A3%E5%86%B3-windows-terminal-%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93%E8%BF%87%E4%B8%91%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <url>/2022/08/20/%E8%A7%A3%E5%86%B3-windows-terminal-%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93%E8%BF%87%E4%B8%91%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     
-    <content type="html"><![CDATA[<p>这个 win11 怎么说呢，之前还记得怎么修改系统的语言设置来使得这个windows terminal 的中文显示是可以保持为微软雅黑的，现在已经忘掉了。</p><p>然后在 v2ex 上看到有人提议去修改系统注册表中的fontlink，我试了一下，发现改完之后在 wt 里面根本不生效，但是 powershell窗口里面却可以正常运作。</p><p>这微软的开发人员很有问题啊，这个问题单已经存了好久了呀，到现在还不解决，真是有够怠惰的。</p><p>我的一个暂时捏住鼻子的做法呢，是设置 windows terminal的字体为"更纱"字体，还能有什么办法呢？只有捏着鼻子认了，这个字体的汉字风格是日系的。好在总算是解决了整体的协调性。真正在代码编辑器里面，肯定还是用其他的字体的。</p><p>我目前用的字体是这个：</p><p><img src="https://i.imgur.com/dXLUWtW.png" /></p><p>Sarasa Mono Slab HC.</p>]]></content>
+    <content type="html"><![CDATA[<p>使用了一点时间之后来更新：</p><p>这个字体一旦用过一点时间，习惯起来还是很容易的。主要整体的协调性是不差的。但是原来的没有设置过的中文字体确实是不敢恭维。</p><p>原文：</p><p>这个 win11 怎么说呢，之前还记得怎么修改系统的语言设置来使得这个windows terminal 的中文显示是可以保持为微软雅黑的，现在已经忘掉了。</p><p>然后在 v2ex 上看到有人提议去修改系统注册表中的fontlink，我试了一下，发现改完之后在 wt 里面根本不生效，但是 powershell窗口里面却可以正常运作。</p><p>这微软的开发人员很有问题啊，这个问题单已经存了好久了呀，到现在还不解决，真是有够怠惰的。</p><p>我的一个暂时捏住鼻子的做法呢，是设置 windows terminal的字体为"更纱"字体，还能有什么办法呢？只有捏着鼻子认了，这个字体的汉字风格是日系的。好在总算是解决了整体的协调性。真正在代码编辑器里面，肯定还是用其他的字体的。</p><p>我目前用的字体是这个：</p><p><img src="https://i.imgur.com/dXLUWtW.png" /></p><p>Sarasa Mono Slab HC.(这个字体相对来说没那么日系)</p>]]></content>
     
     
     
