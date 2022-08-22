@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>Java 流式编程的一些小 Snippets</title>
+    <link href="/2022/08/23/Java-%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F-Snippets/"/>
+    <url>/2022/08/23/Java-%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F-Snippets/</url>
+    
+    <content type="html"><![CDATA[<p>关于 Java的流式编程，学起来容易理解，但是用起来的话，还是得多用，一天不用就很容易忘掉。</p><p>整理一下常用的 snippets，以免隔一段时间就要去 stackoverflow去重新看一遍。</p><p>将 String 类型的 List 转成 String 类型的数组。</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">List&lt;String&gt; list = Arrays.asList(<span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-string">&quot;test&quot;</span>, <span class="hljs-string">&quot;what&quot;</span>);<br>System.out.println(list);<br>String[] strings = list.toArray(String[]::<span class="hljs-keyword">new</span>);<br>System.out.println(Arrays.toString(strings));<br></code></pre></div></td></tr></table></figure><p>将 Integer 类型的 List 转成 String 类型的数组。</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">List&lt;Integer&gt; integerList = Arrays.asList(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>);<br>System.out.println(integerList);<br>String[] intStrings = integerList.stream().map(a -&gt; a.toString()).toArray(String[]::<span class="hljs-keyword">new</span>);<br>System.out.println(Arrays.toString(intStrings));<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>neovim(vim) 的搜索和替换</title>
     <link href="/2022/08/21/neovim-vim-%E7%9A%84%E6%90%9C%E7%B4%A2%E5%92%8C%E6%9B%BF%E6%8D%A2/"/>
     <url>/2022/08/21/neovim-vim-%E7%9A%84%E6%90%9C%E7%B4%A2%E5%92%8C%E6%9B%BF%E6%8D%A2/</url>
