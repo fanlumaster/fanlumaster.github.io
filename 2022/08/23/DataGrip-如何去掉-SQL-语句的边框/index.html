@@ -16,23 +16,24 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="记录一些 Java 中的常用的操作，我来到，我看见，我学习，我记录，我掌握。嗯，大概是这个样子。">
+    <meta name="description" content="这个绿色的边框，怎么说呢，效果其实还可以，就是反应有点老年痴呆，算是有点鸡肋吧。不要这个装饰也罢。 以前好像搜索过这个设置，但是没有搜索到，现在英文的水平有所提高，一下子就在 Google 上搜索到了。 Settings &gt; Editor &gt; Color Scheme &gt; Database。  说起来，把代码警告和这个绿色边框以及拼写检查之类的去掉之后，不考虑内存的使用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 中的集合的常用操作(个人)">
-<meta property="og:url" content="http://example.com/2022/08/23/Java-%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-%E4%B8%AA%E4%BA%BA/index.html">
+<meta property="og:title" content="DataGrip 如何去掉 SQL 语句的边框">
+<meta property="og:url" content="http://example.com/2022/08/23/DataGrip-%E5%A6%82%E4%BD%95%E5%8E%BB%E6%8E%89-SQL-%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BE%B9%E6%A1%86/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="记录一些 Java 中的常用的操作，我来到，我看见，我学习，我记录，我掌握。嗯，大概是这个样子。">
+<meta property="og:description" content="这个绿色的边框，怎么说呢，效果其实还可以，就是反应有点老年痴呆，算是有点鸡肋吧。不要这个装饰也罢。 以前好像搜索过这个设置，但是没有搜索到，现在英文的水平有所提高，一下子就在 Google 上搜索到了。 Settings &gt; Editor &gt; Color Scheme &gt; Database。  说起来，把代码警告和这个绿色边框以及拼写检查之类的去掉之后，不考虑内存的使用">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/EClDDOP.jpg">
-<meta property="article:published_time" content="2022-08-22T17:17:33.000Z">
-<meta property="article:modified_time" content="2022-08-22T17:21:52.804Z">
+<meta property="og:image" content="https://i.imgur.com/6Dr81su.jpg">
+<meta property="article:published_time" content="2022-08-23T12:50:33.000Z">
+<meta property="article:modified_time" content="2022-08-23T13:00:30.591Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="Jetbrains">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/EClDDOP.jpg">
+<meta name="twitter:image" content="https://i.imgur.com/6Dr81su.jpg">
   
   
-  <title>Java 中的集合的常用操作(个人) - Fan Lu&#39;s Blog</title>
+  <title>DataGrip 如何去掉 SQL 语句的边框 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -177,12 +178,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/EClDDOP.jpg') no-repeat center center;
+         style="background: url('https://i.imgur.com/6Dr81su.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Java 中的集合的常用操作(个人)">
+            <span class="h2" id="subtitle" title="DataGrip 如何去掉 SQL 语句的边框">
               
             </span>
 
@@ -192,8 +193,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-08-23 01:17" pubdate>
-        2022年8月23日 凌晨
+      <time datetime="2022-08-23 20:50" pubdate>
+        2022年8月23日 晚上
       </time>
     </span>
   
@@ -203,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      204 字
+      226 字
     </span>
   
 
@@ -241,15 +242,17 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Java 中的集合的常用操作(个人)</h1>
+            <h1 style="display: none">DataGrip 如何去掉 SQL 语句的边框</h1>
             
             <div class="markdown-body">
-              <p>反转一个 List，</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">List&lt;String&gt; list = ...;<br>Collections.reverse(list);<br></code></pre></div></td></tr></table></figure>
-<p>这里是原地修改。</p>
-<p>如果想整一个 <code>copy</code> 出来，由于 List 无法访问
-<code>clone()</code> 方法，那么，我们可以这样做，</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">List&lt;?&gt; shallowCopy = list.subList(<span class="hljs-number">0</span>, list.size());<br>Collections.reverse(shallowCopy);<br></code></pre></div></td></tr></table></figure>
+              <p>这个绿色的边框，怎么说呢，效果其实还可以，就是反应有点老年痴呆，算是有点鸡肋吧。不要这个装饰也罢。</p>
+<p>以前好像搜索过这个设置，但是没有搜索到，现在英文的水平有所提高，一下子就在
+Google 上搜索到了。</p>
+<p><code>Settings &gt; Editor &gt; Color Scheme &gt; Database</code>。</p>
+<p><img src="https://i.imgur.com/brphJ3Z.png" srcset="/img/loading.gif" lazyload /></p>
+<p>说起来，把代码警告和这个绿色边框以及拼写检查之类的去掉之后，不考虑内存的使用，这个
+DataGrip 的功能性还是很符合我的需求的。比起 Navicat
+肯定是要更好的啦。</p>
 
             </div>
             <hr>
@@ -260,7 +263,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                      <a class="hover-with-bg" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Jetbrains/">Jetbrains</a>
                     
                   </div>
                 
@@ -277,18 +282,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/23/DataGrip-%E5%A6%82%E4%BD%95%E5%8E%BB%E6%8E%89-SQL-%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BE%B9%E6%A1%86/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">DataGrip 如何去掉 SQL 语句的边框</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/23/Java-%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F-Snippets/">
-                        <span class="hidden-mobile">Java 流式编程的一些小 Snippets</span>
+                      <a href="/2022/08/23/Java-%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-%E4%B8%AA%E4%BA%BA/">
+                        <span class="hidden-mobile">Java 中的集合的常用操作(个人)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -310,8 +309,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2022/08/23/Java-%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-%E4%B8%AA%E4%BA%BA/';
-          this.page.identifier = '/2022/08/23/Java-%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-%E4%B8%AA%E4%BA%BA/';
+          this.page.url = 'http://example.com/2022/08/23/DataGrip-%E5%A6%82%E4%BD%95%E5%8E%BB%E6%8E%89-SQL-%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BE%B9%E6%A1%86/';
+          this.page.identifier = '/2022/08/23/DataGrip-%E5%A6%82%E4%BD%95%E5%8E%BB%E6%8E%89-SQL-%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BE%B9%E6%A1%86/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
