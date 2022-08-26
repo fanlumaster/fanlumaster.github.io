@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>Visual Studio 2022 如何设置 vim 插件的系统剪贴板</title>
+    <link href="/2022/08/27/Visual-Studio-2022-%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE-vim-%E6%8F%92%E4%BB%B6%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%89%AA%E8%B4%B4%E6%9D%BF/"/>
+    <url>/2022/08/27/Visual-Studio-2022-%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE-vim-%E6%8F%92%E4%BB%B6%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%89%AA%E8%B4%B4%E6%9D%BF/</url>
+    
+    <content type="html"><![CDATA[<p>问题的起因是，在将 Java 版本的二叉树的工具类转移到 C#中时，有些符号需要从 VSCode 中复制到 VS 中去，由于两个 IDE 我都使用了vim 插件，所以打通系统剪贴板很有必要。</p><p>好吧，其实，对于每一个使用 vim 插件的 IDE 来说，开启 vim的系统剪贴板都是有必要的。</p><p>我们打开 VS 的 vim 配置，看一下配置文件的规则，</p><p><img src="https://i.imgur.com/wKN4b4F.png" /></p><p>然后，我们再在 VS 中执行 <code>:set</code> 命令看一下<code>.vimrc</code> 文件需要放在哪里，</p><p><img src="https://i.imgur.com/rnNSY2J.png" /></p><p>之后我们在相应的目录下创建 <code>.vimrc</code>文件，然后加上下面的语句即可，</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">set</span> clipboard=unnamed<br></code></pre></div></td></tr></table></figure><p>注意，由于这个 VS 插件所支持的 vim 版本比较低，所以，不可以使用<code>unnamedplus</code> 这个值。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>VS</tag>
+      
+      <tag>IDE</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>如何关掉 Visual Studio 烦人的提示音？</title>
     <link href="/2022/08/25/%E5%A6%82%E4%BD%95%E5%85%B3%E6%8E%89-Visual-Studio-%E7%83%A6%E4%BA%BA%E7%9A%84%E6%8F%90%E7%A4%BA%E9%9F%B3%EF%BC%9F/"/>
     <url>/2022/08/25/%E5%A6%82%E4%BD%95%E5%85%B3%E6%8E%89-Visual-Studio-%E7%83%A6%E4%BA%BA%E7%9A%84%E6%8F%90%E7%A4%BA%E9%9F%B3%EF%BC%9F/</url>
