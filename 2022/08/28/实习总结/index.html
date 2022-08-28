@@ -16,23 +16,24 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="直接在 IDEA 里面创建 .ideavimrc 就可以了。这个配置文件也是默认放在 home 目录下的。 然后，其实这个配置文件我们就可以像在我们自己的 vim 中一样来进行配置了。这里我们只需要设置一下剪贴板， 12set clipboard&#x3D;unnamedset clipboard+&#x3D;ideaput">
+    <meta name="description" content="从时间上来讲，这一次实习刚好是两个月。 要说还想继续实习下去，其实是有点不想了，但是实习这段经历却让我感觉很有收获。应该和小组的氛围有关，我所在的这个小组，同事之间相处的氛围是比较好的。 我的师父显然不是年轻人了，虽然外表看上去是比较年轻的。不过，由于他们十几年前也都是和我们一样在大学里逍遥的大学生，所以交流起来一点障碍都没有，心态很年轻。 总共感觉也没有实习多长时间。在实习的那些时间里，我">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IDEA vim 打通系统剪贴板">
-<meta property="og:url" content="http://example.com/2022/08/28/IDEA-vim-%E6%89%93%E9%80%9A%E7%B3%BB%E7%BB%9F%E5%89%AA%E8%B4%B4%E6%9D%BF/index.html">
+<meta property="og:title" content="实习总结">
+<meta property="og:url" content="http://example.com/2022/08/28/%E5%AE%9E%E4%B9%A0%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="直接在 IDEA 里面创建 .ideavimrc 就可以了。这个配置文件也是默认放在 home 目录下的。 然后，其实这个配置文件我们就可以像在我们自己的 vim 中一样来进行配置了。这里我们只需要设置一下剪贴板， 12set clipboard&#x3D;unnamedset clipboard+&#x3D;ideaput">
+<meta property="og:description" content="从时间上来讲，这一次实习刚好是两个月。 要说还想继续实习下去，其实是有点不想了，但是实习这段经历却让我感觉很有收获。应该和小组的氛围有关，我所在的这个小组，同事之间相处的氛围是比较好的。 我的师父显然不是年轻人了，虽然外表看上去是比较年轻的。不过，由于他们十几年前也都是和我们一样在大学里逍遥的大学生，所以交流起来一点障碍都没有，心态很年轻。 总共感觉也没有实习多长时间。在实习的那些时间里，我">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/owuCj3H.jpg">
-<meta property="article:published_time" content="2022-08-28T04:05:38.000Z">
-<meta property="article:modified_time" content="2022-08-28T04:14:38.175Z">
+<meta property="og:image" content="https://i.imgur.com/KP3lm0l.jpg">
+<meta property="article:published_time" content="2022-08-28T14:38:41.000Z">
+<meta property="article:modified_time" content="2022-08-28T17:29:58.936Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="IDEA">
+<meta property="article:tag" content="工作">
+<meta property="article:tag" content="生活">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/owuCj3H.jpg">
+<meta name="twitter:image" content="https://i.imgur.com/KP3lm0l.jpg">
   
   
-  <title>IDEA vim 打通系统剪贴板 - Fan Lu&#39;s Blog</title>
+  <title>实习总结 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -177,12 +178,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/owuCj3H.jpg') no-repeat center center;
+         style="background: url('https://i.imgur.com/KP3lm0l.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="IDEA vim 打通系统剪贴板">
+            <span class="h2" id="subtitle" title="实习总结">
               
             </span>
 
@@ -192,8 +193,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-08-28 12:05" pubdate>
-        2022年8月28日 中午
+      <time datetime="2022-08-28 22:38" pubdate>
+        2022年8月28日 晚上
       </time>
     </span>
   
@@ -203,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      141 字
+      3k 字
     </span>
   
 
@@ -212,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2 分钟
+      25 分钟
     </span>
   
 
@@ -241,17 +242,62 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">IDEA vim 打通系统剪贴板</h1>
+            <h1 style="display: none">实习总结</h1>
             
             <div class="markdown-body">
-              <p>直接在 IDEA 里面创建 .ideavimrc 就可以了。这个配置文件也是默认放在
-home 目录下的。</p>
-<p>然后，其实这个配置文件我们就可以像在我们自己的 vim
-中一样来进行配置了。这里我们只需要设置一下剪贴板，</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">set</span> clipboard=unnamed<br><span class="hljs-built_in">set</span> clipboard+=ideaput<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://i.imgur.com/o1IE8Ml.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img src="https://i.imgur.com/ei6uHES.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img src="https://i.imgur.com/eQ98JgD.png" srcset="/img/loading.gif" lazyload /></p>
+              <p>从时间上来讲，这一次实习刚好是两个月。</p>
+<p>要说还想继续实习下去，其实是有点不想了，但是实习这段经历却让我感觉很有收获。应该和小组的氛围有关，我所在的这个小组，同事之间相处的氛围是比较好的。</p>
+<p>我的师父显然不是年轻人了，虽然外表看上去是比较年轻的。不过，由于他们十几年前也都是和我们一样在大学里逍遥的大学生，所以交流起来一点障碍都没有，心态很年轻。</p>
+<p>总共感觉也没有实习多长时间。在实习的那些时间里，我与公司的电脑是比较亲近的。公司发配的电脑是联想的一台
+mini 主机，内存是
+16GB，说实话不够用，隔壁的承峰哥帮我调试问题的时候，就嫌弃我的电脑太卡，毕竟他们的电脑都是
+32GB 内存起步的。好在固态是 1T 大小，这一点用起来还算是比较舒心。</p>
+<p>在公司的主旋律呢，我觉得是学习。第一周基本上是熟悉办公环境，配置一下工作的环境，然后就按照自己的节奏来。从一开始我的师父就比较忙，谁让他是架构师呢，虽然是架构师，但是感觉比学校软件体系结构的长清老师要更有亲和力，嗯，在技术方面也更加有说服力。好在实习生的优先级不是很高，
+大体上就按照师父的安排来进行学习即可。一开始是学习小组的整体业务，然后按照师父的安排去学习微服务相关的知识。再到后面就是学习和公司实际生产相关的技术，比如
+k8s，比如
+docker，但是由于公司对于虚拟机的设置，以及实习生的权限比较低，在 k8s
+这一块其实没有进行充分的学习。</p>
+<p>顺带着讲一下我个人的情况，在计算机这一块，我算是比较着迷的一类人，闲下来没有事情的时候，总是想要对着计算机敲几下，逛一逛程序员论坛，去看一下我了解的一些技术的最新新闻，关注一下各个领域的最新技术等等，我还记得在实习的主管面的时候，面试官问我有没有关注什么最新的技术，我就回答了
+Python 的新框架，Mozilla
+的新技术等等，在实习这段时间里，由于白天基本上都是待在公司里，晚上回到住处基本上就直接休息了，所以这两个月来对于新技术是没有什么关注了，顶多是保持着逛一逛技术论坛的习惯，不过呢，我认为实习的收获当然是相当大的，比起我自己在网上瞎逛八逛那是不知道要好到了哪里去了。说起来，我在上个周末面试一个公司的远程实习，然后面试官也问了我最近有没有关注什么新技术呀，这一次我当然就没什么可说了，因为我在工作呀(笑)。</p>
+<p>说起来，在工作或者说学习这一块，我师父很细心地把我安排在了承峰哥的旁边，他是入职刚满一年的新员工，和我的年龄相仿，在遇到问题时，我也可以先向其请教，这一点真的很方便。承峰哥自封“maven
+大师”，这一点我承认，一开始跑公司的项目时，我在 maven
+这一块对于多模块的项目不是很熟悉，因为以前自己搞的多是单体应用，然后呼唤承峰哥，三下两下就解决了，真是让人感叹，这就是经验的力量呀。如果是我自己在那里一个人搞，指不定就要花上数倍的时间。后面在处理问题单的时候，承峰哥也给了我很大的帮助，最后还带着我走了一下出包的流程，真的可以说是手把手教学，我愿称之为“正义的伙伴”，有求必应。</p>
+<p>整体看来，小组给我的感觉是扁平化管理，大概是因为大家都是搞技术的，每天的关注点都是如何去解决实际问题，所以，所有人相处起来都很舒适。当然，小组的年轻人还比较多，他们相处起来就更加轻松了。在熟悉公司的工作流程这一块，玉程哥给我的帮助也很大，从零到一教会了我如何去改问题单。关于这一点，我专门在
+3ms 上写了一篇博客。然后说一下我对这个问题单的感想，其实这个就是
+issues，因为我以前没有实习过，所以真正见识到公司的代码管理解决方案，这还是头一次，这个第一次就给了我很好的体验，我平时用
+GitHub 比较多，我们公司的话，用的是 GitLab 的定制版，在 issues 这一块和
+GitHub
+是很像的。一开始听同事们说问题单我不能理解，什么问题单？测试提问题单还要专门搞一个格式吗？后来才知道原来就是
+issues，这么一说就柳暗花明了嘛。还有公司的合并代码叫做
+<code>Merge Request</code>，即 <code>MR</code>，而 GitHub 上用的是
+<code>PR</code>，一开始也让我觉得有点新奇，但就这个问题而言，我是觉得
+<code>MR</code> 更加合适。</p>
+<p>经过两个月的实习，我认为我的收获是比较大的。首先是公司对于实习生的限制不是很多，这里的限制不是指公司的内部的权限之类，而是公司对实习生的任务安排，对于实习生，公司并不会安排很多事情，在一定程度上，公司的大部分实习生都是比较自由的，至少大部分小组是这个样子的，这一点从整个实习生的
+welink
+群里也可以看出来，大家一开始基本上都是在导师的安排下进行学习，然后因为实习的性质，也不会去参加到很重要的公司的项目的代码的实际开发过程中去，从这里可以看出来，公司对于安全这一块做得可以说是相当的谨慎以及严密。而且，在学习公司项目之前，是要先学习公司的代码规范，这个规范在我看来是十分细致的，比起学校里面教的内容和自己平时所学的内容，多了很多相当于"Best
+Practice"的规范，这个在实际的工程中是能够大大提高代码的鲁棒性的。然后就是公司的统一异常处理，在异常里面设置的信息这个是不能够自己随意写的，而是要去找产品经理设计，然后英文的提示语句还要发邮件给翻译部去作专业的翻译。然后是代码的
+review，这个 review
+有严谨的打分机制，代码的评审也有很多规范，经过这些道程序，我想，代码中的坏味道应该是被消灭得不剩多少了吧。</p>
+<p>除了这些，我认为我的最大的收获就是利用这一次的实习机会，掌握了 vim
+的基本用法。以前在学校也偶尔萌生过学习的想法，可是由于种种原因，还是去学习
+IDE
+的快捷键去了。由于实习的前两周，没什么具体的任务，我就利用这段时间强迫自己使用
+vim(nvim)，先是在 VSCode 中使用 vim 插件，然后再在 IDEA 中使用 vim
+插件，再转到
+neovim，当然，只是学习了它的编辑的用法和一些其他方面的提升效率的操作，并没有在插件这一块折磨，也是因为看了公司的国柱大佬的博客——用
+vim 漫游代码，了解到 vim
+的基本操作对于我们日常的工作已经足矣，于是就潜心学习 vim
+的用法，经过两个星期的磨合，这一次总算是可以说掌握了 vim 的基本用法，用
+vim 漫游代码是可以熟练做到了。以及，现在使用主流的编辑器已经离不开 vim
+插件了。</p>
+<p>其他的方面，公司的周三和周五属于活动日，也有各种各样的活动可以参加。我本身对于乒乓球是比较爱好的，所以会经常在下班之后去百草园去和同事打一会儿乒乓球。同事们都比较友好，这一点和在学校里面打乒乓球没什么区别，唯一的缺点就是百草园的乒乓球馆没有空调，而且收费很贵，要
+25 元一小时，在学校，最贵的乒乓球馆也只要 6
+块钱，空调还是免费开放的。当然啦，这里打球的氛围是比学校里要浓厚的，在这里，我会经常和另一位实习生切磋，最后，他教会了我反手的弧圈。我曾经在一个论坛的招聘帖子里面看到，招聘者对应聘者有一点期待，就是有一门业余的爱好，并且达到
+top 级别，我想，经过此番的磨练，我大概可以达到这个要求了。</p>
+<p>小组的其他同事给我的感觉也都非常友好。玉程哥，西银哥，世创哥，还有祥华、耿明、灿哥以及新入职的林伟和奕醇哥，当然，最热情的肯定是我师父，还有承峰哥了，而且他们都会请我吃饭(笑)。</p>
+<p>在这里，我感受到了团队的氛围非常地友好，总之，这一次的实习经历让我感到非常幸运，也非常感激小组所有人的热情与帮助。希望日后有机会能够一起共事。</p>
+<p>以上。</p>
 
             </div>
             <hr>
@@ -262,7 +308,9 @@ home 目录下的。</p>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/IDEA/">IDEA</a>
+                      <a class="hover-with-bg" href="/tags/%E5%B7%A5%E4%BD%9C/">工作</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a>
                     
                   </div>
                 
@@ -279,18 +327,12 @@ home 目录下的。</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/28/%E5%AE%9E%E4%B9%A0%E6%80%BB%E7%BB%93/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">实习总结</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/27/how-to-add-gitignore-file-for-c-project/">
-                        <span class="hidden-mobile">how to add gitignore file for c# project</span>
+                      <a href="/2022/08/28/IDEA-vim-%E6%89%93%E9%80%9A%E7%B3%BB%E7%BB%9F%E5%89%AA%E8%B4%B4%E6%9D%BF/">
+                        <span class="hidden-mobile">IDEA vim 打通系统剪贴板</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -312,8 +354,8 @@ home 目录下的。</p>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2022/08/28/IDEA-vim-%E6%89%93%E9%80%9A%E7%B3%BB%E7%BB%9F%E5%89%AA%E8%B4%B4%E6%9D%BF/';
-          this.page.identifier = '/2022/08/28/IDEA-vim-%E6%89%93%E9%80%9A%E7%B3%BB%E7%BB%9F%E5%89%AA%E8%B4%B4%E6%9D%BF/';
+          this.page.url = 'http://example.com/2022/08/28/%E5%AE%9E%E4%B9%A0%E6%80%BB%E7%BB%93/';
+          this.page.identifier = '/2022/08/28/%E5%AE%9E%E4%B9%A0%E6%80%BB%E7%BB%93/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
