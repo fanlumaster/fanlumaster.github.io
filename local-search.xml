@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>IDEA vim 打通系统剪贴板</title>
+    <link href="/2022/08/28/IDEA-vim-%E6%89%93%E9%80%9A%E7%B3%BB%E7%BB%9F%E5%89%AA%E8%B4%B4%E6%9D%BF/"/>
+    <url>/2022/08/28/IDEA-vim-%E6%89%93%E9%80%9A%E7%B3%BB%E7%BB%9F%E5%89%AA%E8%B4%B4%E6%9D%BF/</url>
+    
+    <content type="html"><![CDATA[<p>直接在 IDEA 里面创建 .ideavimrc 就可以了。这个配置文件也是默认放在home 目录下的。</p><p>然后，其实这个配置文件我们就可以像在我们自己的 vim中一样来进行配置了。这里我们只需要设置一下剪贴板，</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">set</span> clipboard=unnamed<br><span class="hljs-built_in">set</span> clipboard+=ideaput<br></code></pre></div></td></tr></table></figure><p><img src="https://i.imgur.com/o1IE8Ml.png" /></p><p><img src="https://i.imgur.com/ei6uHES.png" /></p><p><img src="https://i.imgur.com/eQ98JgD.png" /></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>IDEA</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>how to add gitignore file for c# project</title>
     <link href="/2022/08/27/how-to-add-gitignore-file-for-c-project/"/>
     <url>/2022/08/27/how-to-add-gitignore-file-for-c-project/</url>
@@ -3954,7 +3973,7 @@
     <link href="/2021/04/21/%E9%9A%90%E8%97%8F%EF%BC%88%E5%8E%BB%E6%8E%89%EF%BC%89Hexo-%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%A7%E8%A1%8C-hexo-d-%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84-warning-LF-will-be-replaced-by-CRLF-%E8%AD%A6%E5%91%8A%E4%BF%A1%E6%81%AF/"/>
     <url>/2021/04/21/%E9%9A%90%E8%97%8F%EF%BC%88%E5%8E%BB%E6%8E%89%EF%BC%89Hexo-%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%A7%E8%A1%8C-hexo-d-%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84-warning-LF-will-be-replaced-by-CRLF-%E8%AD%A6%E5%91%8A%E4%BF%A1%E6%81%AF/</url>
     
-    <content type="html"><![CDATA[<h3 id="问题描述">问题描述</h3><p>Hexo 在部署到 Github 上时，即执行 <code>hexo d</code>命令时，命令行出现这样的警告</p><p><imgsrc="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210421221511.png"alt="20210421221511" /></p><p>这个警告表示 Git 会把 <code>LF</code> 替换为<code>CRLF</code>，这个警告并没有什么不好的影响，所以我决定把它给隐藏掉。</p><h3 id="解决方法">解决方法</h3><p>Git 命令行输入以下命令</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ git config --global core.autocrlf <span class="hljs-literal">false</span><br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h3 id="问题描述">问题描述</h3><p>Hexo 在部署到 Github 上时，即执行 <code>hexo d</code>命令时，命令行出现这样的警告</p><p><imgsrc="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210421221511.png" /></p><p>这个警告表示 Git 会把 <code>LF</code> 替换为<code>CRLF</code>，这个警告并没有什么不好的影响，所以我决定把它给隐藏掉。</p><h3 id="解决方法">解决方法</h3><p>Git 命令行输入以下命令</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ git config --global core.autocrlf <span class="hljs-literal">false</span><br></code></pre></div></td></tr></table></figure>]]></content>
     
     
     <categories>
