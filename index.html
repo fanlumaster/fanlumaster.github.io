@@ -248,6 +248,146 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/08/29/Windows-Terminal-%E5%A6%82%E4%BD%95%E5%8F%96%E6%B6%88%E8%BF%99%E4%B8%AA-Ctrl-v-%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
+          <img src="https://i.imgur.com/94iNohv.jpg" srcset="/img/loading.gif" lazyload alt="Windows Terminal 如何取消这个 Ctrl + v 的快捷键">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/08/29/Windows-Terminal-%E5%A6%82%E4%BD%95%E5%8F%96%E6%B6%88%E8%BF%99%E4%B8%AA-Ctrl-v-%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
+          Windows Terminal 如何取消这个 Ctrl + v 的快捷键
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/08/29/Windows-Terminal-%E5%A6%82%E4%BD%95%E5%8F%96%E6%B6%88%E8%BF%99%E4%B8%AA-Ctrl-v-%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
+          
+          为什么会有这个需求呢？因为我的 vim 需要使用 Ctrl + v 这个操作，在 normal 模式下，我需要使用 Ctrl + v 来进入列的 visual 模式。然后，其实这个 Ctrl + c 也是有点多余，所以也一并修改了吧，做法其实很简单，就是在配置文件中将相应的快捷键给注释掉就可以了，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-29 17:49" pubdate>
+              2022-08-29
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Windows-Terminal/">Windows Terminal</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/08/29/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9-VSCode-%E4%B8%AD-vim-%E6%8F%92%E4%BB%B6%E7%9A%84%E6%92%A4%E9%94%80%E7%9A%84%E8%A1%8C%E4%B8%BA%EF%BC%8C%E4%BD%BF%E5%85%B6%E5%92%8C-VSCode-%E9%BB%98%E8%AE%A4%E7%9A%84%E6%92%A4%E9%94%80%E4%B8%80%E8%87%B4/" target="_self">
+          <img src="https://i.imgur.com/a3i0YSx.jpg" srcset="/img/loading.gif" lazyload alt="如何修改 VSCode 中 vim 插件的撤销的行为，使其和 VSCode 默认的撤销一致">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/08/29/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9-VSCode-%E4%B8%AD-vim-%E6%8F%92%E4%BB%B6%E7%9A%84%E6%92%A4%E9%94%80%E7%9A%84%E8%A1%8C%E4%B8%BA%EF%BC%8C%E4%BD%BF%E5%85%B6%E5%92%8C-VSCode-%E9%BB%98%E8%AE%A4%E7%9A%84%E6%92%A4%E9%94%80%E4%B8%80%E8%87%B4/" target="_self">
+          如何修改 VSCode 中 vim 插件的撤销的行为，使其和 VSCode 默认的撤销一致
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/08/29/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9-VSCode-%E4%B8%AD-vim-%E6%8F%92%E4%BB%B6%E7%9A%84%E6%92%A4%E9%94%80%E7%9A%84%E8%A1%8C%E4%B8%BA%EF%BC%8C%E4%BD%BF%E5%85%B6%E5%92%8C-VSCode-%E9%BB%98%E8%AE%A4%E7%9A%84%E6%92%A4%E9%94%80%E4%B8%80%E8%87%B4/" target="_self">
+          
+          要想达到这个目标，其实我们可以这样做——给 vim 插件单独配置一份 vimrc 配置，然后将 vim 的撤销操作重新映射一下，使其一个单词一个单词的撤销。但是，经过我的试验，发现 vim 插件不能够正确地读取并应用这个配置。 因此，采用了另一种思路，就是直接利用这个 vim 插件在 settings.json 文件中可以设置的配置，将 normal 模式下的 u 给重新映射一下，映射
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-29 17:36" pubdate>
+              2022-08-29
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/VSCode/">VSCode</a>
+            
+              <a href="/tags/vim/">vim</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/08/29/vim-%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%92%A4%E9%94%80%E7%9A%84%E7%B2%92%E5%BA%A6/" target="_self">
+          <img src="https://i.imgur.com/KbvMwq1.jpg" srcset="/img/loading.gif" lazyload alt="vim 如何设置撤销的粒度">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/08/29/vim-%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%92%A4%E9%94%80%E7%9A%84%E7%B2%92%E5%BA%A6/" target="_self">
+          vim 如何设置撤销的粒度
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/08/29/vim-%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%92%A4%E9%94%80%E7%9A%84%E7%B2%92%E5%BA%A6/" target="_self">
+          
+          我们知道，vim 的撤销是分块的，每一次撤销，就撤销掉一个块，而这个块是什么呢？简单来讲，就是两次 Esc 之间的修改，也就是说，vim 撤销的序列是以 Esc 这个操作为分割的，至少，在 insert 模式下是这个样子。 然后，我们会发现，我们在使用 u 进行撤销的时候，很多时候会直接撤销掉一整行，或者好几行，而在 VSCode 这样的 IDE 中，一般我们一次撤销只会撤销掉一个
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-29 17:27" pubdate>
+              2022-08-29
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/vim/">vim</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2022/08/28/%E5%AE%9E%E4%B9%A0%E6%80%BB%E7%BB%93/" target="_self">
           <img src="https://i.imgur.com/KP3lm0l.jpg" srcset="/img/loading.gif" lazyload alt="实习总结">
         </a>
@@ -517,146 +657,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/Visual-Studio/">Visual Studio</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/08/24/VSCode-%E5%AE%9A%E5%88%B6-nodejs-%E8%BF%90%E8%A1%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
-          <img src="https://i.imgur.com/djkEiqV.jpg" srcset="/img/loading.gif" lazyload alt="VSCode 定制 nodejs 运行快捷键">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/24/VSCode-%E5%AE%9A%E5%88%B6-nodejs-%E8%BF%90%E8%A1%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
-          VSCode 定制 nodejs 运行快捷键
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/08/24/VSCode-%E5%AE%9A%E5%88%B6-nodejs-%E8%BF%90%E8%A1%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
-          
-          问题的场景呢，是想借着使用 js 同时刷一下算法题，然后学习一下 js 的基本使用。然后在 VSCode 中配置一下最方便。 首先是要安装 multi-command 这个插件的。然后定制快捷键即可。 123456789101112131415161718192021222324&amp;#123;    &quot;key&quot;: &quot;ctrl+f5&quot;,    &amp;quot
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-24 01:48" pubdate>
-              2022-08-24
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/VSCode/">VSCode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/08/23/DataGrip-%E5%A6%82%E4%BD%95%E5%8E%BB%E6%8E%89-SQL-%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BE%B9%E6%A1%86/" target="_self">
-          <img src="https://i.imgur.com/6Dr81su.jpg" srcset="/img/loading.gif" lazyload alt="DataGrip 如何去掉 SQL 语句的边框">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/23/DataGrip-%E5%A6%82%E4%BD%95%E5%8E%BB%E6%8E%89-SQL-%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BE%B9%E6%A1%86/" target="_self">
-          DataGrip 如何去掉 SQL 语句的边框
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/08/23/DataGrip-%E5%A6%82%E4%BD%95%E5%8E%BB%E6%8E%89-SQL-%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BE%B9%E6%A1%86/" target="_self">
-          
-          这个绿色的边框，怎么说呢，效果其实还可以，就是反应有点老年痴呆，算是有点鸡肋吧。不要这个装饰也罢。 以前好像搜索过这个设置，但是没有搜索到，现在英文的水平有所提高，一下子就在 Google 上搜索到了。 Settings &gt; Editor &gt; Color Scheme &gt; Database。  说起来，把代码警告和这个绿色边框以及拼写检查之类的去掉之后，不考虑内存的使用
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-23 20:50" pubdate>
-              2022-08-23
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
-            
-              <a href="/tags/Jetbrains/">Jetbrains</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/08/23/Java-%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-%E4%B8%AA%E4%BA%BA/" target="_self">
-          <img src="https://i.imgur.com/EClDDOP.jpg" srcset="/img/loading.gif" lazyload alt="Java 中的集合的常用操作(个人)">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/23/Java-%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-%E4%B8%AA%E4%BA%BA/" target="_self">
-          Java 中的集合的常用操作(个人)
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/08/23/Java-%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88%E7%9A%84%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-%E4%B8%AA%E4%BA%BA/" target="_self">
-          
-          记录一些 Java 中的常用的操作，我来到，我看见，我学习，我记录，我掌握。嗯，大概是这个样子。
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-23 01:17" pubdate>
-              2022-08-23
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Java/">Java</a>
             
           </div>
         

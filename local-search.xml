@@ -4,6 +4,65 @@
   
   
   <entry>
+    <title>Windows Terminal 如何取消这个 Ctrl + v 的快捷键</title>
+    <link href="/2022/08/29/Windows-Terminal-%E5%A6%82%E4%BD%95%E5%8F%96%E6%B6%88%E8%BF%99%E4%B8%AA-Ctrl-v-%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <url>/2022/08/29/Windows-Terminal-%E5%A6%82%E4%BD%95%E5%8F%96%E6%B6%88%E8%BF%99%E4%B8%AA-Ctrl-v-%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    
+    <content type="html"><![CDATA[<p>为什么会有这个需求呢？因为我的 vim 需要使用 <code>Ctrl + v</code>这个操作，在 normal 模式下，我需要使用 <code>Ctrl + v</code> 来进入列的<code>visual</code> 模式。然后，其实这个 <code>Ctrl + c</code>也是有点多余，所以也一并修改了吧，做法其实很简单，就是在配置文件中将相应的快捷键给注释掉就可以了，</p><p><img src="https://i.imgur.com/r05qdCG.png" /></p><p><img src="https://i.imgur.com/4kbXvo8.png" /></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Windows Terminal</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>如何修改 VSCode 中 vim 插件的撤销的行为，使其和 VSCode 默认的撤销一致</title>
+    <link href="/2022/08/29/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9-VSCode-%E4%B8%AD-vim-%E6%8F%92%E4%BB%B6%E7%9A%84%E6%92%A4%E9%94%80%E7%9A%84%E8%A1%8C%E4%B8%BA%EF%BC%8C%E4%BD%BF%E5%85%B6%E5%92%8C-VSCode-%E9%BB%98%E8%AE%A4%E7%9A%84%E6%92%A4%E9%94%80%E4%B8%80%E8%87%B4/"/>
+    <url>/2022/08/29/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9-VSCode-%E4%B8%AD-vim-%E6%8F%92%E4%BB%B6%E7%9A%84%E6%92%A4%E9%94%80%E7%9A%84%E8%A1%8C%E4%B8%BA%EF%BC%8C%E4%BD%BF%E5%85%B6%E5%92%8C-VSCode-%E9%BB%98%E8%AE%A4%E7%9A%84%E6%92%A4%E9%94%80%E4%B8%80%E8%87%B4/</url>
+    
+    <content type="html"><![CDATA[<p>要想达到这个目标，其实我们可以这样做——给 vim 插件单独配置一份 vimrc配置，然后将 vim的撤销操作重新映射一下，使其一个单词一个单词的撤销。但是，经过我的试验，发现vim 插件不能够正确地读取并应用这个配置。</p><p>因此，采用了另一种思路，就是直接利用这个 vim 插件在<code>settings.json</code> 文件中可以设置的配置，将 <code>normal</code>模式下的 <code>u</code> 给重新映射一下，映射成 VSCode本身的撤销操作，这样就可以了，</p><figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json"><span class="hljs-attr">&quot;vim.normalModeKeyBindingsNonRecursive&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;before&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>            <span class="hljs-string">&quot;u&quot;</span><br>        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;commands&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>            <span class="hljs-string">&quot;undo&quot;</span><br>        <span class="hljs-punctuation">]</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;before&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>            <span class="hljs-string">&quot;C-r&quot;</span><br>        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;commands&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>            <span class="hljs-string">&quot;redo&quot;</span><br>        <span class="hljs-punctuation">]</span><br>    <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">]</span><br></code></pre></div></td></tr></table></figure><hr /><p>参考；</p><p>1、<a href="https://github.com/vscodevim/vim/issues/1490"class="uri">https://github.com/vscodevim/vim/issues/1490</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>VSCode</tag>
+      
+      <tag>vim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vim 如何设置撤销的粒度</title>
+    <link href="/2022/08/29/vim-%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%92%A4%E9%94%80%E7%9A%84%E7%B2%92%E5%BA%A6/"/>
+    <url>/2022/08/29/vim-%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%92%A4%E9%94%80%E7%9A%84%E7%B2%92%E5%BA%A6/</url>
+    
+    <content type="html"><![CDATA[<p>我们知道，vim的撤销是分块的，每一次撤销，就撤销掉一个块，而这个块是什么呢？简单来讲，就是两次<code>Esc</code> 之间的修改，也就是说，vim 撤销的序列是以<code>Esc</code> 这个操作为分割的，至少，在 insert模式下是这个样子。</p><p>然后，我们会发现，我们在使用 <code>u</code>进行撤销的时候，很多时候会直接撤销掉一整行，或者好几行，而在 VSCode这样的 IDE中，一般我们一次撤销只会撤销掉一个单词。当然，中文的撤销其实还是不是那么智能，但是对于我们写代码来讲，做到这种程度已经足够了。</p><p>所以，我们如何将 vim的撤销的粒度给修改成为类似于一个单词一个单词的撤销呢？</p><p>很简单，只需要在 vim 的配置文件中添加一个映射即可，</p><figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vimrc">:inoremap &lt;Space&gt; &lt;Space&gt;&lt;C-g&gt;u<br></code></pre></div></td></tr></table></figure><p>当然，也可以选择一个字符一个字符的撤销，但是那样就和 <code>x</code>的功能重复了。所以我的方案就暂且是这个样子。</p><hr /><p>参考：</p><p>1、<ahref="https://stackoverflow.com/questions/2895551/how-do-i-get-fine-grained-undo-in-vim"class="uri">https://stackoverflow.com/questions/2895551/how-do-i-get-fine-grained-undo-in-vim</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>vim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>实习总结</title>
     <link href="/2022/08/28/%E5%AE%9E%E4%B9%A0%E6%80%BB%E7%BB%93/"/>
     <url>/2022/08/28/%E5%AE%9E%E4%B9%A0%E6%80%BB%E7%BB%93/</url>
