@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>vim 设置 tab 为 4 个空格</title>
+    <link href="/2022/08/30/vim-%E8%AE%BE%E7%BD%AE-tab-%E4%B8%BA-4-%E4%B8%AA%E7%A9%BA%E6%A0%BC/"/>
+    <url>/2022/08/30/vim-%E8%AE%BE%E7%BD%AE-tab-%E4%B8%BA-4-%E4%B8%AA%E7%A9%BA%E6%A0%BC/</url>
+    
+    <content type="html"><![CDATA[<p>这是一个老生常谈的问题，也设置过不止一次，但是就是没有记录过！该死。</p><p>还是记录一下吧。这是比较简单的配置，配置项的具体理解也比较简单，对照着文档来看的话是不难理解的。所以这里就直接记录一下我的设置，方便以后再次配置这个的时候能够快速在自己的笔记里面找到这个内容，</p><figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vimrc">:set tabstop=4<br>:set softtabstop=4<br>:set shiftwidth=4<br>:set expandtab<br></code></pre></div></td></tr></table></figure><p>其实还有一个选项可以配置，</p><figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vimrc">:set autoindent<br></code></pre></div></td></tr></table></figure><p>但是，我不太想设置这个自动缩进，因为它其实是不太智能的。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>vim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>裁剪图片的简易工具？</title>
     <link href="/2022/08/29/%E8%A3%81%E5%89%AA%E5%9B%BE%E7%89%87%E7%9A%84%E7%AE%80%E6%98%93%E5%B7%A5%E5%85%B7%EF%BC%9F/"/>
     <url>/2022/08/29/%E8%A3%81%E5%89%AA%E5%9B%BE%E7%89%87%E7%9A%84%E7%AE%80%E6%98%93%E5%B7%A5%E5%85%B7%EF%BC%9F/</url>
