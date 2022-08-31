@@ -1,0 +1,644 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="fanlumaster">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="该死，第四题 0 1 背包忘掉了，明明数据结构课程可算法设计与分析课程里面都讲过，当时没有仔细下去看，该死。 第一题 题目描述 小美在摆弄她的字符串。最近小团送了小美一个特殊字符 &#39;*&#39;，这个字符可以和其他所有字符匹配，除了这个字符外，其他字符只能自己和自己匹配。小美先前有一个字符串 S，长度为 n，现在她又新组合了一个可有特殊字符 &#39;*&#39; 的字符串 s，长度为 n。小美想知道有多">
+<meta property="og:type" content="article">
+<meta property="og:title" content="0827 美团笔试总结">
+<meta property="og:url" content="http://example.com/2022/08/31/0827-%E7%BE%8E%E5%9B%A2%E7%AC%94%E8%AF%95%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Fan Lu&#39;s Blog">
+<meta property="og:description" content="该死，第四题 0 1 背包忘掉了，明明数据结构课程可算法设计与分析课程里面都讲过，当时没有仔细下去看，该死。 第一题 题目描述 小美在摆弄她的字符串。最近小团送了小美一个特殊字符 &#39;*&#39;，这个字符可以和其他所有字符匹配，除了这个字符外，其他字符只能自己和自己匹配。小美先前有一个字符串 S，长度为 n，现在她又新组合了一个可有特殊字符 &#39;*&#39; 的字符串 s，长度为 n。小美想知道有多">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/O4ebqyb.png">
+<meta property="article:published_time" content="2022-08-31T14:58:38.000Z">
+<meta property="article:modified_time" content="2022-08-31T15:18:58.270Z">
+<meta property="article:author" content="fanlumaster">
+<meta property="article:tag" content="工作">
+<meta property="article:tag" content="笔试">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/O4ebqyb.png">
+  
+  
+  <title>0827 美团笔试总结 - Fan Lu&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fan Lu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/O4ebqyb.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="0827 美团笔试总结">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-08-31 22:58" pubdate>
+        2022年8月31日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      48 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">0827 美团笔试总结</h1>
+            
+            <div class="markdown-body">
+              <p>该死，第四题 0 1
+背包忘掉了，明明数据结构课程可算法设计与分析课程里面都讲过，当时没有仔细下去看，该死。</p>
+<h1 id="第一题">第一题</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>小美在摆弄她的字符串。最近小团送了小美一个特殊字符
+<code>'*'</code>，这个字符可以和其他所有字符匹配，除了这个字符外，其他字符只能自己和自己匹配。小美先前有一个字符串
+<code>S</code>，长度为 <code>n</code>，现在她又新组合了一个可有特殊字符
+<code>'*'</code> 的字符串 <code>s</code>，长度为
+<code>n</code>。小美想知道有多少个位置 <code>i</code>，使得
+<code>S[i+j]</code> 与 <code>s[j]</code> 对于 <span
+class="math inline">\(1 \leqslant j \leqslant m\)</span>
+均能匹配上？其中 <code>X[y]</code> 代表字符串 <code>X</code> 中第
+<code>y</code> 位的字符。</p>
+<h2 id="输入描述">输入描述</h2>
+<p>第一行两个空格隔开的整数 <code>n</code> 和
+<code>m</code>，分别表示字符串 <code>S</code> 和字符串 <code>s</code>
+的长度。<br />
+接下来一行长度为 <code>n</code> 的仅包含小写英文字母的字符串
+<code>S</code>。<br />
+接下来一行长度为 <code>m</code> 的包含小写英文字母以及特殊字符
+<code>'*'</code> 的字符串。<br />
+对于所有数据，<span class="math inline">\(1 \leqslant n \leqslant m
+\leqslant 2000\)</span>。</p>
+<h2 id="输出描述">输出描述</h2>
+<p>输出一行一个整数，表示满足要求的位置数量。</p>
+<h2 id="样例输入">样例输入</h2>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">7</span> <span class="hljs-number">3</span><br><span class="hljs-attribute">abcaacc</span><br><span class="hljs-attribute">a</span>*c<br></code></pre></div></td></tr></table></figure>
+<h2 id="样例输出">样例输出</h2>
+<figure class="highlight"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs">3<br></code></pre></div></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getAllCount</span><span class="hljs-params">(String S, String s, <span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt;= n - m; i++) &#123;<br>            res += isEqual(s, S.substring(i, i + m));<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">isEqual</span><span class="hljs-params">(String str1, String str2)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> str1.length();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>            <span class="hljs-keyword">if</span> (str1.charAt(i) != <span class="hljs-string">&#x27;*&#x27;</span> &amp;&amp; str1.charAt(i) != str2.charAt(i)) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Main</span> <span class="hljs-variable">main</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Main</span>();<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-keyword">while</span> (sc.hasNext()) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> sc.nextInt();<br>            <span class="hljs-type">int</span> <span class="hljs-variable">m</span> <span class="hljs-operator">=</span> sc.nextInt();<br>            <span class="hljs-type">String</span> <span class="hljs-variable">S</span> <span class="hljs-operator">=</span> sc.next();<br>            <span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> sc.next();<br><br>            <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> main.getAllCount(S, s, n, m);<br>            System.out.println(res);<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h1 id="第二题">第二题</h1>
+<h2 id="代码-1">代码</h2>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-keyword">while</span> (sc.hasNext()) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> sc.nextInt();<br>            <span class="hljs-type">int</span> <span class="hljs-variable">m</span> <span class="hljs-operator">=</span> sc.nextInt();<br>            <span class="hljs-type">int</span>[] operations = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[m];<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>                operations[i] = sc.nextInt();<br>            &#125;<br>            Map&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>                map.put(i + <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);<br>            &#125;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>                map.put(operations[i], -(++count));<br>            &#125;<br>            List&lt;Map.Entry&lt;Integer, Integer&gt;&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(map.entrySet());<br>            Collections.sort(list, (o1, o2) -&gt; o1.getValue() - o2.getValue());<br>            <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>                sb.append(list.get(i).getKey().toString());<br>                <span class="hljs-keyword">if</span> (i == n - <span class="hljs-number">1</span>) &#123;<br>                    <span class="hljs-keyword">break</span>;<br>                &#125;<br>                sb.append(<span class="hljs-string">&quot; &quot;</span>);<br>            &#125;<br>            System.out.println(sb);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h1 id="第三题">第三题</h1>
+<h2 id="题目描述-1">题目描述</h2>
+<p>小团最近获得了美美团团国的裁缝资格证，成为了一个裁缝！现在小团有一个长度为
+n 的大布料
+S(在这个国家布料其实是一个仅包含小写英文字母的字符串)，小团可以将布料在任意位置剪切，例如布料
+<code>abcd</code> 可以被裁剪为 <code>a</code> 与 <code>bcd</code> 或
+<code>ab</code> 与 <code>cd</code> 或 <code>abc</code> 与
+<code>d</code>，不过，裁剪完之后是不能拼接起来的，因为小团还不是很擅长拼接布料。现在小团想知道能不能有一种裁剪方式能让她把布料恰好裁剪成客人要求的小布料。<br />
+形式化地，有一个串 S，问是否能将其划分成 m
+个不相交的连续字串，使得这些连续字串可以要求的连续字串可以与要求的连续子串一一对应。两个串相对应是指这两个串完全相等。例如
+<code>"aab"="aab"</code> 但 <code>"aab"≠"baa"</code>。</p>
+<h2 id="输入描述-1">输入描述</h2>
+<p>第一行两个空格隔开的正整数 n 和 m，分别表示大布料 S
+长度和客人要求的小布料数量。<br />
+接下来一行一个长度为 n 的仅包含小写英文字母的串
+S，表示大布料的组成。<br />
+接下来一行 m 个空格隔开的数 <span class="math inline">\(x_1, x_2, \dots,
+x_m\)</span>，依次表示所要求的小布料长度。<br />
+接下来开始 m 行，每行一个长度为 <span class="math inline">\(x_i\)</span>
+的仅包含小写字母的串 <span class="math inline">\(s_i\)</span>，表示第 i
+个小布料的组成。<br />
+对于所有数据，<span class="math inline">\(1 \leq m \leq 9, \; 1 \leq n
+\leq 20, \; 1 \leq x_i \leq n\)</span> 且 <span
+class="math inline">\(\sum_{i = 1}^{m} x_i = n\)</span>。</p>
+<h2 id="输出描述-1">输出描述</h2>
+<p>如果存在这样的方案，输出方案总数。如果不存在任何方案，输出
+0。两个方案 A、B 不相同当且仅当方案 A
+中存在一个相对于原始长布料的裁剪位置 i，而方案 B 中并未在该位置 i
+裁剪。<br />
+例如 <code>aaaaaa</code> 裁剪方案 <code>aaa|aaa</code>
+是相同的方案。而方案 <code>aa|aaaa</code> 与方案 <code>aaaa|aa</code>
+是不同的方案，虽然划分出的结果都是 <code>aa</code> 与
+<code>aaaa</code>，但前者在第二个 a
+进行了裁剪，后者并没有在这里进行裁剪，所以视为不同的裁剪方案。</p>
+<h2 id="样例输入-1">样例输入</h2>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">6</span> <span class="hljs-number">2</span><br><span class="hljs-attribute">aaaaaa</span><br><span class="hljs-attribute">4</span> <span class="hljs-number">2</span><br><span class="hljs-attribute">aaaa</span><br><span class="hljs-attribute">aa</span><br></code></pre></div></td></tr></table></figure>
+<h2 id="样例输出-1">样例输出</h2>
+<figure class="highlight"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs">2<br></code></pre></div></td></tr></table></figure>
+<h2 id="提示">提示</h2>
+<p>有两种解决方案，第一种是 <code>aaaa|aa</code>，第二种是
+<code>aa|aaaa</code>，代表一次裁剪。</p>
+<h2 id="代码-2">代码</h2>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Arrays;<br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-keyword">import</span> java.util.Scanner;<br><span class="hljs-keyword">import</span> java.util.stream.Collectors;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getRes</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, String S, <span class="hljs-type">int</span>[] x, String[] s)</span> &#123;<br>        List&lt;String&gt; sList = Arrays.stream(s).collect(Collectors.toList());<br>        dfs(S, sList);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.count;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">dfs</span><span class="hljs-params">(String S, List&lt;String&gt; sList)</span> &#123;<br>        <span class="hljs-keyword">if</span> (S.length() == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-built_in">this</span>.count++;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; sList.size(); i++) &#123;<br>            <span class="hljs-keyword">if</span> (S.startsWith(sList.get(i))) &#123;<br>                <span class="hljs-type">String</span> <span class="hljs-variable">cur</span> <span class="hljs-operator">=</span> sList.get(i);<br>                sList.remove(i);<br>                dfs(S.substring(cur.length()), sList);<br>                sList.add(i, cur);<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-keyword">while</span> (sc.hasNext()) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> sc.nextInt();<br>            <span class="hljs-type">int</span> <span class="hljs-variable">m</span> <span class="hljs-operator">=</span> sc.nextInt();<br>            <span class="hljs-type">String</span> <span class="hljs-variable">S</span> <span class="hljs-operator">=</span> sc.next();<br>            <span class="hljs-type">int</span>[] x = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[m];<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>                x[i] = sc.nextInt();<br>            &#125;<br>            String[] s = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[m];<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>                s[i] = sc.next();<br>            &#125;<br><br>            <span class="hljs-type">Main</span> <span class="hljs-variable">solu</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Main</span>();<br>            <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> solu.getRes(n, m, S, x, s);<br>            System.out.println(res);<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h1 id="第四题">第四题</h1>
+<h2 id="题目描述-2">题目描述</h2>
+<p>小团正忙着用机器人收衣服！因为快要下雨了，小团找来了不少机器人帮忙收衣服。他有
+n 件衣服从左到右成一行排列，所在位置分别为
+1~n，在每个位置上已经有一个就绪的机器人可以帮忙收衣服，但第 i
+个位置上的机器人需要 <span class="math inline">\(p_i\)</span>
+的电量来启动，然后这个机器人会用 <span
+class="math inline">\(t_i\)</span>
+的时间来收衣服，当它收完当前衣服后，会尝试去收紧邻的右边的一件衣服(如果存在的话)，即
+i + 1 处的衣服，如果 i + 1
+处的衣服已经被其他机器人收了或者其他机器人正在收，这个机器人就会进入休眠状态，不再收衣服。不过如果机器人没有休眠，它会同样以
+<span class="math inline">\(t_i\)</span> 时间来收这件 i + 1
+处的衣服(注意，不是 <span class="math inline">\(t_{i + 1}\)</span>
+的时间，收衣服的时间为每个机器人固有属性)，然后它会做同样的检测来看能否继续收
+i + 2
+处的衣服，一直直到它进入休眠状态或者右边没有衣服可以收了。形象地来说，机器人会一直尝试往右边收衣服，收
+k 件的话就耗费 <span class="math inline">\(k * t_i\)</span>
+的时间，但是当它遇见其他机器人工作的痕迹，就会认为后面的事情它不用管了，开始摸鱼，进入休眠状态。<br />
+小团手里总共有电量 b，他准备在 0
+时刻的时候将所有他想启动的机器人全部一起启动，过后不再启动新的机器人，并且启动的机器人的电量之和不大于
+b。他想知道在最佳选择的情况下，最快多久能收完衣服。若无论如何怎样都收不完衣服，输出
+-1。</p>
+<h2 id="输入描述-2">输入描述</h2>
+<p>第一行两个正整数 n 和 b，分别表示衣服数量和小团持有电量。<br />
+接下来一行 n 个数 <span class="math inline">\(p_1, p_2, \dots,
+p_n\)</span>，含义如题所述，为机器人唤醒需求电量。<br />
+接下来一行 n 个数 <span class="math inline">\(t_1, t_2, \dots,
+t_n\)</span>，含义如题所述，为机器人收衣服所需时间。<br />
+数字间两两有空格隔开。<br />
+对于所有数据，<span class="math inline">\(1 \leq n \leq 1000, 1 \leq p_i
+\leq 100, 1 \leq t_i, b \leq 10^5\)</span>。</p>
+<h2 id="输出描述-2">输出描述</h2>
+<p>输出最短所需时间。</p>
+<h2 id="样例输入-2">样例输入</h2>
+<figure class="highlight basic"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs basic"><span class="hljs-symbol">3 </span><span class="hljs-number">5</span><br><span class="hljs-symbol">1 </span><span class="hljs-number">2</span> <span class="hljs-number">3</span><br><span class="hljs-symbol">7 </span><span class="hljs-number">5</span> <span class="hljs-number">3</span><br></code></pre></div></td></tr></table></figure>
+<h2 id="样例输出-2">样例输出</h2>
+<figure class="highlight"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs">10<br></code></pre></div></td></tr></table></figure>
+<h2 id="提示-1">提示</h2>
+<p>样例解释 1：</p>
+<p>可以同时启动第一个机器人和第二个机器人，耗电量为
+<code>1 + 2 = 3</code>，这样花费时间为
+<code>max(7, 5 * 2) = 10</code>。<br />
+也可以同时启动第一个机器人和第三个机器人，耗电量为
+<code>1 + 3 = 4</code>，这样花费时间为
+<code>max(7 * 2, 3) = 14</code>。</p>
+<p>输入样例 2：</p>
+<figure class="highlight basic"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs basic"><span class="hljs-symbol">3 </span><span class="hljs-number">5</span><br><span class="hljs-symbol">6 </span><span class="hljs-number">2</span> <span class="hljs-number">3</span><br><span class="hljs-symbol">7 </span><span class="hljs-number">5</span> <span class="hljs-number">3</span><br></code></pre></div></td></tr></table></figure>
+<p>输出样例 2：</p>
+<figure class="highlight diff"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs diff"><span class="hljs-deletion">-1</span><br></code></pre></div></td></tr></table></figure>
+<p>样例解释 2：</p>
+<p>因为必须要启动第一个机器人，耗电量至少为 6， 但是持有电量只有
+5，因此无法收完所有衣服，输出 -1。</p>
+<h1 id="第五题">第五题</h1>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.PriorityQueue;<br><span class="hljs-keyword">import</span> java.util.Queue;<br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        <span class="hljs-keyword">while</span> (sc.hasNext()) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> sc.nextInt();<br>            <span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> sc.nextInt();<br>            <span class="hljs-type">int</span> <span class="hljs-variable">T</span> <span class="hljs-operator">=</span> sc.nextInt();<br><br>            <span class="hljs-type">int</span>[] t = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[k];<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; k; i++) &#123;<br>                t[i] = sc.nextInt();<br>            &#125;<br><br>            <span class="hljs-type">int</span>[] e = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>                e[i] = sc.nextInt();<br>            &#125;<br><br>            Queue&lt;Integer&gt; queue = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PriorityQueue</span>&lt;&gt;();<br>            <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>                <span class="hljs-keyword">if</span> (e[i] == <span class="hljs-number">0</span>) &#123;<br>                    <span class="hljs-keyword">if</span> (queue.size() == <span class="hljs-number">0</span>) &#123;<br>                        res += T;<br>                    &#125; <span class="hljs-keyword">else</span> &#123;<br>                        <span class="hljs-keyword">if</span> (queue.peek() &lt; T) &#123;<br>                            res += queue.poll();<br>                        &#125; <span class="hljs-keyword">else</span> &#123;<br>                            res += T;<br>                        &#125;<br>                    &#125;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    queue.offer(t[e[i] - <span class="hljs-number">1</span>]);<br>                &#125;<br>            &#125;<br>            System.out.println(res);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%B7%A5%E4%BD%9C/">工作</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AC%94%E8%AF%95/">笔试</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/08/31/%E6%9A%91%E6%9C%9F%E5%AE%9E%E8%AE%AD%E6%8A%A5%E5%91%8A/">
+                        <span class="hidden-mobile">暑期实训报告</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://example.com/2022/08/31/0827-%E7%BE%8E%E5%9B%A2%E7%AC%94%E8%AF%95%E6%80%BB%E7%BB%93/';
+          this.page.identifier = '/2022/08/31/0827-%E7%BE%8E%E5%9B%A2%E7%AC%94%E8%AF%95%E6%80%BB%E7%BB%93/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'https-fanlumaster-github-io' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
