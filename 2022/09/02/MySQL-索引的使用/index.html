@@ -1,0 +1,662 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="fanlumaster">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="原文链接：https:&#x2F;&#x2F;www.mysqltutorial.org&#x2F;mysql-index&#x2F; 文中使用的示例的数据库也是来自于这个网站，可以到这个网站进行下载。 MySQL 使用索引来方便快速地查找具有特定的列属性值的行。没有索引的话，MySQL 必须扫描整张表去定位相关的行。表的规模越大，查找的速度越慢。 在这个章节，你将学习 MySQL 的索引相关，包括创建索引、移除索引、列出一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL 索引的使用">
+<meta property="og:url" content="http://example.com/2022/09/02/MySQL-%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Fan Lu&#39;s Blog">
+<meta property="og:description" content="原文链接：https:&#x2F;&#x2F;www.mysqltutorial.org&#x2F;mysql-index&#x2F; 文中使用的示例的数据库也是来自于这个网站，可以到这个网站进行下载。 MySQL 使用索引来方便快速地查找具有特定的列属性值的行。没有索引的话，MySQL 必须扫描整张表去定位相关的行。表的规模越大，查找的速度越慢。 在这个章节，你将学习 MySQL 的索引相关，包括创建索引、移除索引、列出一">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/uIze7bF.jpg">
+<meta property="article:published_time" content="2022-09-02T09:40:14.000Z">
+<meta property="article:modified_time" content="2022-09-02T19:08:09.558Z">
+<meta property="article:author" content="fanlumaster">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="翻译">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/uIze7bF.jpg">
+  
+  
+  <title>MySQL 索引的使用 - Fan Lu&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fan Lu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/uIze7bF.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="MySQL 索引的使用">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-09-02 17:40" pubdate>
+        2022年9月2日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      26 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">MySQL 索引的使用</h1>
+            
+            <div class="markdown-body">
+              <p>原文链接：<a target="_blank" rel="noopener" href="https://www.mysqltutorial.org/mysql-index/"
+class="uri">https://www.mysqltutorial.org/mysql-index/</a></p>
+<p>文中使用的示例的数据库也是来自于这个网站，可以到这个网站进行下载。</p>
+<p>MySQL
+使用索引来方便快速地查找具有特定的列属性值的行。没有索引的话，MySQL
+必须扫描整张表去定位相关的行。表的规模越大，查找的速度越慢。</p>
+<p>在这个章节，你将学习 MySQL
+的索引相关，包括创建索引、移除索引、列出一张表的所有索引和其他 MySQL
+中的索引的重要特性。</p>
+<h1 id="创建索引">创建索引</h1>
+<p>导言：在这部分的教程，你将学习何为索引和如何使用 MySQL 的
+<code>CREATE INDEX</code> 语句来向一张表添加索引。</p>
+<h2 id="电话簿的类比">电话簿的类比</h2>
+<p>假设你有一个包含了一个城市的所有的人的姓名和电话号码的电话簿。让我们假定一下你想查找
+Bob Cat 的电话号码。已知，姓名是按字母表的顺序有序排列的，你首先查找
+last name <code>Cat</code> 在哪，然后你查找 <code>Bob</code>
+和他的电话号码。</p>
+<p>现在，如果这个电话簿中的名字没有按照字母表的顺序来排列，你将需要浏览整个电话簿的所有页，浏览每个名字直到你找到
+<code>Bob Cat</code>。这就是所谓的顺序查找(Sequential
+Searching)。你翻遍所有的条目知道你找到你需要查找的那个人的电话号码。</p>
+<p>从电话簿联系到数据库中的表，如果你有一张名为 <code>phonebooks</code>
+的表，然后你需要查找 <code>Bob Cat</code>
+的电话号码，你将执行下面的查询：</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span><br>    phone_number<br><span class="hljs-keyword">FROM</span> <br>    phonebooks<br><span class="hljs-keyword">WHERE</span> <br>    first_name <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Bob&#x27;</span> <span class="hljs-keyword">AND</span> <br>    last_name <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Cat&#x27;</span>;<br></code></pre></div></td></tr></table></figure>
+<p>这很简单。尽管这个查询很快，数据库查询的过程还是必须去扫描整张表直到它找到了那一行。如果数据表有几百万行，没有索引的话，这个取出数据的操作将会花费很长的时间来返回结果。</p>
+<h2 id="索引的介绍">索引的介绍</h2>
+<p>索引是一种类似于 B
+树的数据结构，它的作用是用于提到取出数据的速度，当然，它要花费额外的写操作以及内存空间来维持这个数据结构。</p>
+<p>对于一个特定的查询来说，查询优化器可能会使用索引来快速定位数据，而不需要扫描整张表。</p>
+<p>当你使用 <code>primary key</code> 或 <code>unique key</code>
+创建一张表时，MySQL 会自动创建一个名为 <code>PRIMARY</code>
+的索引。这个索引叫做聚簇索引(clustered index)。</p>
+<p>这个 <code>PRIMARY</code>
+索引是比较特别的，因为这个索引是和表中的数据存放在同一张表里面的。聚簇索引确保了表中的行的顺序。</p>
+<p>其他的除了 <code>PRIMARY</code>
+的索引被称为第二类索引，或者非聚簇索引。</p>
+<h2 id="mysql-create-index-语句">MySQL CREATE INDEX 语句</h2>
+<p>一般来说，你可以在创建表时创建索引。例如，下面的语句创建了一个带有索引的数据表，这个索引由列
+<code>c2</code> 和 <code>c3</code> 组成。</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> t(<br>   c1 <span class="hljs-type">INT</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br>   c2 <span class="hljs-type">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>   c3 <span class="hljs-type">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>   c4 <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">10</span>),<br>   INDEX (c2,c3) <br>);<br></code></pre></div></td></tr></table></figure>
+<p>要想给一列或者说几列的集合添加一个索引，你可以使用
+<code>CREATE INDEX</code> 语句，如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> INDEX index_name <span class="hljs-keyword">ON</span> table_name (column_list)<br></code></pre></div></td></tr></table></figure>
+<p>要想为一列或者几列的集合创建一个索引，你需要指明索引的名称、索引所属的表的名称和列的集合。</p>
+<p>例如，想要为列 c4 添加一个新的索引，你可以使用下面的语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> INDEX idx_c4 <span class="hljs-keyword">ON</span> t(c4);<br></code></pre></div></td></tr></table></figure>
+<p>默认情况下，MySQL 会创建 B
+树索引，如果你不声明索引类型的话。下面展示了不同的存储引擎所允许的索引类型：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">存储引擎</th>
+<th style="text-align: center;">允许的索引类型</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">InnoDB</td>
+<td style="text-align: center;">B 树</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">MyISAM</td>
+<td style="text-align: center;">B 树</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">MEMORY/HEAP</td>
+<td style="text-align: center;">HASH, B 树</td>
+</tr>
+</tbody>
+</table>
+<p>注意，上面的 <code>CREATE INDEX</code> 语句是 MySQL 中的
+<code>CREATE INDEX</code>
+的简化版本。我们将会在接下来的教程中介绍更多的选项。</p>
+<h2 id="mysql-create-index-范例">MySQL CREATE INDEX 范例</h2>
+<p>下面的语句是用来查询 job title 为 <code>Sales Rep</code> 的员工：</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> employeeNumber,<br>       lastName,<br>       firstName<br><span class="hljs-keyword">FROM</span> employees<br><span class="hljs-keyword">WHERE</span> jobTitle <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Sales Rep&#x27;</span>;<br></code></pre></div></td></tr></table></figure>
+<p>这里是输出：</p>
+<p><img src="https://i.imgur.com/FKNSYg8.png" srcset="/img/loading.gif" lazyload /></p>
+<p>我们查找到了 17 行，表明有 17 个员工的 job title 为 Sales Rep。</p>
+<p>想要了解 MySQL 的内部是如何执行这个查询的，你可以在
+<code>SELECT</code> 语句的开头添加 <code>EXPLAIN</code>
+子句，如下所示：</p>
+<p><img src="https://i.imgur.com/lL3IveZ.png" srcset="/img/loading.gif" lazyload /></p>
+<p>正如你所看到的，MySQL 必须扫描包含了 23 行的整张表来查找 job title 为
+<code>Sales Rep</code> 的员工。</p>
+<p>现在，让我们使用 <code>CREATE INDEX</code> 语句为
+<code>jobTitle</code> 这一列创建一个索引：</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> INDEX jobTitle <span class="hljs-keyword">ON</span> employees (jobTitle);<br></code></pre></div></td></tr></table></figure>
+<p>然后，再次执行之前的语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql">EXPLAIN<br><span class="hljs-keyword">SELECT</span> employeeNumber,<br>       lastName,<br>       firstName<br><span class="hljs-keyword">FROM</span> employees<br><span class="hljs-keyword">WHERE</span> jobTitle <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Sales Rep&#x27;</span>;<br></code></pre></div></td></tr></table></figure>
+<p>输出如下：</p>
+<p><img src="https://i.imgur.com/pjCPCRh.png" srcset="/img/loading.gif" lazyload /></p>
+<p>如您所见，MySQL 只需按照 <code>key</code> 这一列中的指示从 jobTitle
+索引中定位 17 行，而无需扫描整个表。</p>
+<p>如果想要展示表中所有的索引，你可以使用 <code>SHOW INDEXES</code>
+语句，例如：</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">SHOW</span> INDEXES <span class="hljs-keyword">FROM</span> employees;<br></code></pre></div></td></tr></table></figure>
+<p>这里是输出：</p>
+<p><img src="https://i.imgur.com/khHVgLK.png" srcset="/img/loading.gif" lazyload /></p>
+<p>在这一节的教程中，你已经学习了 MySQL
+以及如何为表中的一列创建索引。</p>
+<h1 id="mysql-drop-index">MySQL DROP INDEX</h1>
+<p>导言：在这一节的教程中，你将学习如何使用 <code>DROP INDEX</code>
+语句来移除表中已经存在的索引。</p>
+<h2 id="mysql-drop-index-语句的语法">MySQL DROP INDEX 语句的语法</h2>
+<p>若要移除一个表中存在的索引，你可以使用 <code>DROP INDEX</code>
+语句，如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> INDEX index_name <span class="hljs-keyword">ON</span> table_name<br>[algorithm_option <span class="hljs-operator">|</span> lock_option];<br></code></pre></div></td></tr></table></figure>
+<p>在这个语法中：</p>
+<ul>
+<li>首先，要在 <code>DROP INDEX</code>
+关键字后面指明你想删除的索引的名字。</li>
+<li>然后，指明索引所属的表的名称。</li>
+</ul>
+<h3 id="algorithm">Algorithm</h3>
+<p>这个 <code>algorithm_option</code>
+允许你去指明一个特定的用于移除索引的算法。下面是
+<code>algorithm_option</code> 从句的语法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql">ALGORITHM [<span class="hljs-operator">=</span>] &#123;<span class="hljs-keyword">DEFAULT</span><span class="hljs-operator">|</span>INPLACE<span class="hljs-operator">|</span><span class="hljs-keyword">COPY</span>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>对于移除索引的操作，下面是受支持的算法：</p>
+<ul>
+<li><code>copy</code>：当前表会被一行一行地复制到新表，然后
+<code>DROP INDEX</code> 是在原表的复制品中执行。并发的数据操作语句，比如
+<code>INSERT</code> 和 <code>UPDATE</code> 是不被允许的。</li>
+<li><code>INPLACE</code>：当前表会在原地被重新构建，而不是复制到新的表中。MySQL
+在索引删除操作的准备和执行阶段对表发出独占元数据锁。这个算法允许并发的数据操作语句。</li>
+</ul>
+<p>注意，<code>ALGORITHM</code> 子句是可选的。如果你跳过了它，MySQL
+会默认使用 <code>INPLACE</code>。在 <code>INPLACE</code>
+不受支持的情况下，MySQL 会使用 <code>COPY</code>。</p>
+<p>使用 <code>DEFAULT</code> 的效果和省略 <code>ALGORITHM</code>
+子句的效果是一样的。</p>
+<h3 id="lock">Lock</h3>
+<p>这个 <code>lock_option</code>
+是用来控制索引被移除过程中的并发读写的级别。</p>
+<p>下面是 <code>lock_option</code> 的语法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql">LOCK [<span class="hljs-operator">=</span>] &#123;<span class="hljs-keyword">DEFAULT</span><span class="hljs-operator">|</span><span class="hljs-keyword">NONE</span><span class="hljs-operator">|</span>SHARED<span class="hljs-operator">|</span>EXCLUSIVE&#125;<br></code></pre></div></td></tr></table></figure>
+<p>下面是受支持的锁的模式：</p>
+<ul>
+<li><code>DEFAULT</code>：对于给定的
+algorithm，这个选项允许你拥有最大的并发等级。首先，在允许的情况下，它允许并发的读写。否则，允许并发读。否则，只能强制独占。</li>
+<li><code>NONE</code>：</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/MySQL/">MySQL</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BF%BB%E8%AF%91/">翻译</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/09/03/01-%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">01 背包问题</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/08/31/0827-%E7%BE%8E%E5%9B%A2%E7%AC%94%E8%AF%95%E6%80%BB%E7%BB%93/">
+                        <span class="hidden-mobile">0827 美团笔试总结</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://example.com/2022/09/02/MySQL-%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BD%BF%E7%94%A8/';
+          this.page.identifier = '/2022/09/02/MySQL-%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BD%BF%E7%94%A8/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'https-fanlumaster-github-io' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
