@@ -211,7 +211,7 @@
       <p class="index-excerpt">
         <a href="/2022/03/01/%E5%85%B3%E4%BA%8E%E6%9C%AC%E5%8D%9A%E5%AE%A2%E8%AE%BF%E9%97%AE%E7%9A%84%E4%B8%80%E7%82%B9%E8%AF%B4%E6%98%8E/" target="_self">
           
-          限于经济原因，本博客的大部分图片(除了较早的博客)采用的图床为 imgur，因此，访客需要连接代理(VPN)方可完整加载出本博客的图片。
+          限于经济原因，本博客的大部分图片(除了较早的博客)采用的图床为 imgur，因此，访客需要连接代理(VPN)方可完整加载出本博客的图片。 另，记录一下我目前解决不了的问题。2022.09.08 开始。  1、为什么 HashMap 的负载因子是 0.75？  别跟我说去看原码的注释，源码的注释你要是真的看过就不会说这句话。我想要的是严谨的数学方面的解释或者说，证明。我目前在网上没有看到一
         </a>
       </p>
 
@@ -237,6 +237,52 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/%E6%9D%82/">杂</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/09/08/StringBuilder-%E5%92%8C-StringBuffer-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/" target="_self">
+          <img src="https://i.imgur.com/m4uWhqd.png" srcset="/img/loading.gif" lazyload alt="StringBuilder 和 StringBuffer 之间的区别">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/09/08/StringBuilder-%E5%92%8C-StringBuffer-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/" target="_self">
+          StringBuilder 和 StringBuffer 之间的区别
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/09/08/StringBuilder-%E5%92%8C-StringBuffer-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB/" target="_self">
+          
+          其实，主要了解哪一个是多线程安全的就可以了。 StringBuffer 是多线程安全的。 这两个字符串类所拥有的 api 都是类似的。 性能的话，肯定是线程不安全的 StringBuilder 更加安全。 就用别人的代码测试一下： 123456789101112131415161718192021222324public class Main &amp;#123;    public stati
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-09-08 14:23" pubdate>
+              2022-09-08
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">Java</a>
             
           </div>
         
@@ -613,52 +659,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/08/29/Windows-Terminal-%E5%A6%82%E4%BD%95%E5%8F%96%E6%B6%88%E8%BF%99%E4%B8%AA-Ctrl-v-%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
-          <img src="https://i.imgur.com/vcYpIJP.png" srcset="/img/loading.gif" lazyload alt="Windows Terminal 如何取消这个 Ctrl + v 的快捷键">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/08/29/Windows-Terminal-%E5%A6%82%E4%BD%95%E5%8F%96%E6%B6%88%E8%BF%99%E4%B8%AA-Ctrl-v-%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
-          Windows Terminal 如何取消这个 Ctrl + v 的快捷键
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/08/29/Windows-Terminal-%E5%A6%82%E4%BD%95%E5%8F%96%E6%B6%88%E8%BF%99%E4%B8%AA-Ctrl-v-%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
-          
-          为什么会有这个需求呢？因为我的 vim 需要使用 Ctrl + v 这个操作，在 normal 模式下，我需要使用 Ctrl + v 来进入列的 visual 模式。然后，其实这个 Ctrl + c 也是有点多余，所以也一并修改了吧，做法其实很简单，就是在配置文件中将相应的快捷键给注释掉就可以了，
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-29 17:49" pubdate>
-              2022-08-29
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Windows-Terminal/">Windows Terminal</a>
             
           </div>
         
