@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/lT8atDH.png">
 <meta property="article:published_time" content="2022-08-07T09:37:43.000Z">
-<meta property="article:modified_time" content="2022-09-09T07:14:44.826Z">
+<meta property="article:modified_time" content="2022-09-09T14:03:22.218Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="Manjaro">
 <meta name="twitter:card" content="summary_large_image">
@@ -356,8 +356,8 @@ vim 没有中文输入法的问题</h2>
 class="uri">https://pinyin.sogou.com/dict/</a>
 中下载相应的词库之后，我们可以打开
 <code>fcitx5 configuratoin-&gt;pinyin configuration-&gt;dictionaries-&gt;import</code>。</p>
-<h2 id="manjaro-如何更新某一个具体的包呢">Manjaro
-如何更新某一个具体的包呢？</h2>
+<h2 id="manjaro-如何使用-yay-更新某一个具体的包呢">Manjaro 如何使用 yay
+更新某一个具体的包呢？</h2>
 <p>比如说 VSCode。</p>
 <p>首先，执行一下 <code>yay</code>，这是 <code>yay -Syu</code> 的
 alias，<code>Syu</code> 即 sysupgrade 的意思。</p>
@@ -365,6 +365,8 @@ alias，<code>Syu</code> 即 sysupgrade 的意思。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs zsh">yay -S visual-studio-code-bin<br></code></pre></div></td></tr></table></figure>
 <p>不过，我这里是在执行 <code>yay</code> 之后就给我提示 vscode
 有新的包的，因此我就顺着它直接更新了。</p>
+<p>好吧，其实可以直接执行
+<code>yay -S visual-studio-code-bin</code>，再安装一遍就可以了。</p>
 <h2
 id="记录一下当前的一个字体的尺寸配置">记录一下当前的一个字体的尺寸配置</h2>
 <p>算是有效解决了 Manjaro
