@@ -4,6 +4,59 @@
   
   
   <entry>
+    <title>python 虚拟环境的另一种创建方法</title>
+    <link href="/2022/09/14/python-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%9A%84%E5%8F%A6%E4%B8%80%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95/"/>
+    <url>/2022/09/14/python-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%9A%84%E5%8F%A6%E4%B8%80%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<p>以前写过用 python 自带的 venv 模块创建虚拟环境的<ahref="https://fanyfull.github.io/2021/06/02/Python-3-8-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3(Windows10)">博客</a>，然后就是个人其实更加偏爱另一种方式，那个是在youtube 的一个 django 的教程中看到的，用的是 virtualenv模块，需要我们自己安装，</p><figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py">pip install virtualenv<br></code></pre></div></td></tr></table></figure><p>然后我们想创建虚拟环境的化，就使用如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">virtualenv env_name<br></code></pre></div></td></tr></table></figure><p><code>env_name</code> 就是我们自己取的名字，随便取。</p><p>之后就可以愉快地开发了。</p><p>需要注意的是，激活虚拟环境：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">env_name/Scripts/activate<br></code></pre></div></td></tr></table></figure><p>退出虚拟环境：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">deactivate<br></code></pre></div></td></tr></table></figure><p>然后是在虚拟环境下安装包的命令必须得使用下面的格式：</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">python -m pip install package_name<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>fcitx5 如何设置数字和英文键后面不要自动跟上半角字符</title>
+    <link href="/2022/09/14/fcitx5-%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%95%B0%E5%AD%97%E5%92%8C%E8%8B%B1%E6%96%87%E9%94%AE%E5%90%8E%E9%9D%A2%E4%B8%8D%E8%A6%81%E8%87%AA%E5%8A%A8%E8%B7%9F%E4%B8%8A%E5%8D%8A%E8%A7%92%E5%AD%97%E7%AC%A6/"/>
+    <url>/2022/09/14/fcitx5-%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%95%B0%E5%AD%97%E5%92%8C%E8%8B%B1%E6%96%87%E9%94%AE%E5%90%8E%E9%9D%A2%E4%B8%8D%E8%A6%81%E8%87%AA%E5%8A%A8%E8%B7%9F%E4%B8%8A%E5%8D%8A%E8%A7%92%E5%AD%97%E7%AC%A6/</url>
+    
+    <content type="html"><![CDATA[<p>首先呢，我们要找到 fcitx5 的配置文件。在<code>~/.config/ftitx5</code> 下面。</p><p>在 fcitx4 中，我们可以直接修改这个 config 文件，但是在这个 fcitx5 的config 文件中，我们似乎无法直接在 config文件中修改这个数字和英文后面自动跟上半角符号的设置。</p><p>所以，我们可以在 <code>~/.config/fcitx5/conf</code> 这个目录下找到<code>punctuation.conf</code> 这个配置文件，修改：</p><figure class="highlight txt"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs txt"># Half width punctuation after latin letter or number<br>HalfWidthPuncAfterLetterOrNumber=False<br></code></pre></div></td></tr></table></figure><p>这个选项默认是 True 的，我们改一下就可以了。</p><p>注意，修改这个配置的时候必须先把 fcitx5退出掉，否则这个配置会被运行中的 fcitx5 覆写为默认的情况。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Git 本地空仓库与远程仓库建立连接</title>
+    <link href="/2022/09/14/Git-%E6%9C%AC%E5%9C%B0%E7%A9%BA%E4%BB%93%E5%BA%93%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5/"/>
+    <url>/2022/09/14/Git-%E6%9C%AC%E5%9C%B0%E7%A9%BA%E4%BB%93%E5%BA%93%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5/</url>
+    
+    <content type="html"><![CDATA[<p>今天遇到了一个需求，我的其中一个博客需要在两个电脑之间进行同步，由于用的是Hexo，所以想利用 GitHub进行同步，这样我在两台设备之间就可以进行同步了。</p><p>如果一台电脑的话，无非是创建一个私有仓库，然后把本地的仓库和远程仓库建立连接，然后push 一下就可以了。</p><p><img src="https://i.imgur.com/Khvu75Z.png" /></p><p>但是这里涉及到另一台电脑，步骤基本还是一样的，我是先把这台电脑的文件夹下的内容给清空，然后再执行以下操作，</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git init<br></code></pre></div></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git remote add origin + // 远程仓库地址<br></code></pre></div></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git pull origin master --allow-unrelated-histories<br></code></pre></div></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git branch --set-upstream-to=origin/master<br></code></pre></div></td></tr></table></figure><p>之后我们就可以执行 <code>git pull</code>命令把这个当前的空仓库给填充满了。</p><p>今天还发现了另外一个有趣的事情，两台电脑，一个是 Win11，另一个是Manjaro Linux，如果把 Windows 上的 git 仓库复制到 Linux 中，在 ssh相同的情况下，可以直接 push 到 GitHub 上面。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>git</tag>
+      
+      <tag>github</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>vim 使用 vimgrep 在当前文件夹下搜索所有文件</title>
     <link href="/2022/09/12/vim-%E4%BD%BF%E7%94%A8-vimgrep-%E5%9C%A8%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E6%90%9C%E7%B4%A2%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6/"/>
     <url>/2022/09/12/vim-%E4%BD%BF%E7%94%A8-vimgrep-%E5%9C%A8%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E6%90%9C%E7%B4%A2%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6/</url>
@@ -558,7 +611,7 @@
     <link href="/2022/08/21/neovim-vim-%E7%9A%84%E6%90%9C%E7%B4%A2%E5%92%8C%E6%9B%BF%E6%8D%A2/"/>
     <url>/2022/08/21/neovim-vim-%E7%9A%84%E6%90%9C%E7%B4%A2%E5%92%8C%E6%9B%BF%E6%8D%A2/</url>
     
-    <content type="html"><![CDATA[<p>有时候 copy 别人的代码，这个搜索替换的功能还是挺实用的。</p><p>主要是面向实用。先拣几个常用的指令记录一下。</p><p>全局搜索替换所有符合条件的字串：</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">:%s/foo/bar/g<br></code></pre></div></td></tr></table></figure><p>foo 是待替换的字符串，bar 是替换后的字符串。</p><p>如果想确认每一个替换，那么，可以在结尾加一个 <code>c</code>选项：</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">:%s/foo/bar/gc<br></code></pre></div></td></tr></table></figure><p>如果是当前行而非全局替换的话，那么，把 <code>%</code> 去掉即可。</p><p>复杂一点的通配符的话，下次再学。</p><p>2022.09.11 更新</p><p>来学一点多样化操作。</p><p>批量替换的操作。</p><p>语法：</p><figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">:[addr]s/source_string/dest_string/[option]<br></code></pre></div></td></tr></table></figure><p>其中，<code>[addr]</code> 表示范围，省略时表示当前行。</p><ul><li><code>1,20</code>：表示从 1 到 20 行。</li><li><code>%</code>：表示整个文件，这个应该不用多说了吧。同<code>1,$</code>。</li><li><code>.,$</code>：从当前行到文件末尾。</li></ul><p><code>[option]</code> 表示操作类型。</p><ul><li><code>g</code>：表示进行全局替换。</li><li><code>c</code>：表示替换时需要我们一个一个确认。</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>有时候 copy 别人的代码，这个搜索替换的功能还是挺实用的。</p><p>主要是面向实用。先拣几个常用的指令记录一下。</p><p>全局搜索替换所有符合条件的字串：</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">:%s/foo/bar/g<br></code></pre></div></td></tr></table></figure><p>foo 是待替换的字符串，bar 是替换后的字符串。</p><p>如果想确认每一个替换，那么，可以在结尾加一个 <code>c</code>选项：</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">:%s/foo/bar/gc<br></code></pre></div></td></tr></table></figure><p>如果是当前行而非全局替换的话，那么，把 <code>%</code> 去掉即可。</p><p>复杂一点的通配符的话，下次再学。</p><p>2022.09.11 更新</p><p>来学一点多样化操作。</p><p>批量替换的操作。</p><p>语法：</p><figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">:[addr]s/source_string/dest_string/[option]<br></code></pre></div></td></tr></table></figure><p>其中，<code>[addr]</code> 表示范围，省略时表示当前行。</p><ul><li><code>1,20</code>：表示从 1 到 20 行。</li><li><code>%</code>：表示整个文件，这个应该不用多说了吧。同<code>1,$</code>。</li><li><code>.,$</code>：从当前行到文件末尾。</li></ul><p><code>[option]</code> 表示操作类型。</p><ul><li><code>g</code>：表示进行全局替换。</li><li><code>c</code>：表示替换时需要我们一个一个确认。</li></ul><p>2022.09.20 更新</p><p>对于特殊字符的处理，我们需要加上转义符：</p><p><code>^</code>、<code>$</code>、<code>*</code>、<code>/</code>、<code>\</code>和 <code>.</code> 都需要转义，前面加上 <code>\</code>。</p>]]></content>
     
     
     
