@@ -16,24 +16,21 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="老师，我，我，我想面试 Python。">
+    <meta name="description" content="其实是利用了 Python 调用 PowerShell 的命令 tasklist，然后手动计算。 所以，这篇博客的关键词还可以是如何在 Python 中执行 PowerShell 的命令。 代码是比较简单的，也是想放在 Gist 上的本来，可惜，不太方便呀。 12345678910111213141516171819202122232425262728293031323334import">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 笔试面试题目复习">
-<meta property="og:url" content="http://example.com/2022/03/02/Java-%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:title" content="利用 Python 详细计算 Windows 的内存占用情况">
+<meta property="og:url" content="http://example.com/2022/09/29/%E5%88%A9%E7%94%A8-Python-%E8%AF%A6%E7%BB%86%E8%AE%A1%E7%AE%97-Windows-%E7%9A%84%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="老师，我，我，我想面试 Python。">
+<meta property="og:description" content="其实是利用了 Python 调用 PowerShell 的命令 tasklist，然后手动计算。 所以，这篇博客的关键词还可以是如何在 Python 中执行 PowerShell 的命令。 代码是比较简单的，也是想放在 Gist 上的本来，可惜，不太方便呀。 12345678910111213141516171819202122232425262728293031323334import">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/Q0ep89m.png">
-<meta property="article:published_time" content="2022-03-02T08:24:55.000Z">
-<meta property="article:modified_time" content="2022-03-05T04:06:48.000Z">
+<meta property="article:published_time" content="2022-09-29T10:09:59.000Z">
+<meta property="article:modified_time" content="2022-09-29T10:12:28.356Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="工作">
+<meta property="article:tag" content="Windows">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/Q0ep89m.png">
   
   
-  <title>Java 笔试面试题目复习 - Fan Lu&#39;s Blog</title>
+  <title>利用 Python 详细计算 Windows 的内存占用情况 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -178,12 +175,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/Q0ep89m.png') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Java 笔试面试题目复习">
+            <span class="h2" id="subtitle" title="利用 Python 详细计算 Windows 的内存占用情况">
               
             </span>
 
@@ -193,8 +190,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-03-02 16:24" pubdate>
-        2022年3月2日 下午
+      <time datetime="2022-09-29 18:09" pubdate>
+        2022年9月29日 晚上
       </time>
     </span>
   
@@ -204,7 +201,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      18 字
+      1k 字
     </span>
   
 
@@ -213,7 +210,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      9 分钟
     </span>
   
 
@@ -242,30 +239,26 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Java 笔试面试题目复习</h1>
+            <h1 style="display: none">利用 Python 详细计算 Windows 的内存占用情况</h1>
             
             <div class="markdown-body">
-              <p>老师，我，我，我想面试 Python。</p>
+              <p>其实是利用了 Python 调用 PowerShell 的命令
+<code>tasklist</code>，然后手动计算。</p>
+<p>所以，这篇博客的关键词还可以是如何在 Python 中执行 PowerShell
+的命令。</p>
+<p>代码是比较简单的，也是想放在 Gist 上的本来，可惜，不太方便呀。</p>
+<figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">import</span> locale<br><span class="hljs-keyword">import</span> subprocess<br><span class="hljs-keyword">import</span> sys<br><br>p = subprocess.Popen([<span class="hljs-string">&#x27;C:\\Program Files\\PowerShell\\7\\pwsh&#x27;</span>, <span class="hljs-string">&#x27;-Command&#x27;</span>, <span class="hljs-string">&#x27;tasklist &gt; tmp.txt&#x27;</span>],<br>                     stdout=sys.stdout, encoding=<span class="hljs-string">&#x27;utf8&#x27;</span>)<br>p.communicate()<br><br>locale.setlocale(locale.LC_ALL, <span class="hljs-string">&#x27;en_US.UTF-8&#x27;</span>)<br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;./tmp.txt&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf8&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>    lines = f.readlines()<br><br>numsList = []<br>index = <span class="hljs-number">0</span><br>totalSize = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines:<br>    <span class="hljs-keyword">if</span> (index &lt; <span class="hljs-number">3</span>):<br>        index += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">continue</span><br>    curLine = line.split()<br>    numsList.append(curLine[-<span class="hljs-number">2</span>])<br>    curNum = locale.atoi(curLine[-<span class="hljs-number">2</span>])<br>    totalSize += curNum<br>    index += <span class="hljs-number">1</span><br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;The memory usesage:&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;  &#x27;</span> + <span class="hljs-built_in">str</span>(totalSize) + <span class="hljs-string">&quot; KB&quot;</span>)<br>totalSizeMB = totalSize / <span class="hljs-number">1024</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;  &#x27;</span> + <span class="hljs-built_in">str</span>(totalSizeMB) + <span class="hljs-string">&quot; MB&quot;</span>)<br>totalSizeGB = totalSize / (<span class="hljs-number">1024</span> * <span class="hljs-number">1024</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;  &#x27;</span> + <span class="hljs-built_in">str</span>(totalSizeGB) + <span class="hljs-string">&quot; GB&quot;</span>)<br>percentage = totalSizeGB / <span class="hljs-number">64</span> * <span class="hljs-number">100</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;  &#x27;</span> + <span class="hljs-built_in">str</span>(percentage) + <span class="hljs-string">&quot;%&quot;</span>)<br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E5%B7%A5%E4%BD%9C/">工作</a>
-                    
-                  </div>
-                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E5%B7%A5%E4%BD%9C/">工作</a>
+                      <a class="hover-with-bg" href="/tags/Windows/">Windows</a>
                     
                   </div>
                 
@@ -282,18 +275,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/02/IDEA-%E9%85%8D%E7%BD%AE%E8%87%AA%E5%B7%B1%E7%9A%84-maven/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">IDEA 配置自己的 maven</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/02/LeetCode-41-45-%E8%AE%B0%E5%BD%95/">
-                        <span class="hidden-mobile">LeetCode 41-45 记录</span>
+                      <a href="/2022/09/29/%E6%8F%90%E5%8D%87%E5%B9%B8%E7%A6%8F%E6%84%9F%E7%9A%84%E4%B8%80%E4%BA%9B-PowerShell-%E5%B0%8F%E5%91%BD%E4%BB%A4/">
+                        <span class="hidden-mobile">提升幸福感的一些 PowerShell 小命令</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -315,8 +302,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2022/03/02/Java-%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E5%A4%8D%E4%B9%A0/';
-          this.page.identifier = '/2022/03/02/Java-%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%E5%A4%8D%E4%B9%A0/';
+          this.page.url = 'http://example.com/2022/09/29/%E5%88%A9%E7%94%A8-Python-%E8%AF%A6%E7%BB%86%E8%AE%A1%E7%AE%97-Windows-%E7%9A%84%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/';
+          this.page.identifier = '/2022/09/29/%E5%88%A9%E7%94%A8-Python-%E8%AF%A6%E7%BB%86%E8%AE%A1%E7%AE%97-Windows-%E7%9A%84%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');

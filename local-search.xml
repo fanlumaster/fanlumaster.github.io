@@ -4,6 +4,46 @@
   
   
   <entry>
+    <title>利用 Python 详细计算 Windows 的内存占用情况</title>
+    <link href="/2022/09/29/%E5%88%A9%E7%94%A8-Python-%E8%AF%A6%E7%BB%86%E8%AE%A1%E7%AE%97-Windows-%E7%9A%84%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/"/>
+    <url>/2022/09/29/%E5%88%A9%E7%94%A8-Python-%E8%AF%A6%E7%BB%86%E8%AE%A1%E7%AE%97-Windows-%E7%9A%84%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/</url>
+    
+    <content type="html"><![CDATA[<p>其实是利用了 Python 调用 PowerShell 的命令<code>tasklist</code>，然后手动计算。</p><p>所以，这篇博客的关键词还可以是如何在 Python 中执行 PowerShell的命令。</p><p>代码是比较简单的，也是想放在 Gist 上的本来，可惜，不太方便呀。</p><figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">import</span> locale<br><span class="hljs-keyword">import</span> subprocess<br><span class="hljs-keyword">import</span> sys<br><br>p = subprocess.Popen([<span class="hljs-string">&#x27;C:\\Program Files\\PowerShell\\7\\pwsh&#x27;</span>, <span class="hljs-string">&#x27;-Command&#x27;</span>, <span class="hljs-string">&#x27;tasklist &gt; tmp.txt&#x27;</span>],<br>                     stdout=sys.stdout, encoding=<span class="hljs-string">&#x27;utf8&#x27;</span>)<br>p.communicate()<br><br>locale.setlocale(locale.LC_ALL, <span class="hljs-string">&#x27;en_US.UTF-8&#x27;</span>)<br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;./tmp.txt&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf8&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>    lines = f.readlines()<br><br>numsList = []<br>index = <span class="hljs-number">0</span><br>totalSize = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> lines:<br>    <span class="hljs-keyword">if</span> (index &lt; <span class="hljs-number">3</span>):<br>        index += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">continue</span><br>    curLine = line.split()<br>    numsList.append(curLine[-<span class="hljs-number">2</span>])<br>    curNum = locale.atoi(curLine[-<span class="hljs-number">2</span>])<br>    totalSize += curNum<br>    index += <span class="hljs-number">1</span><br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;The memory usesage:&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;  &#x27;</span> + <span class="hljs-built_in">str</span>(totalSize) + <span class="hljs-string">&quot; KB&quot;</span>)<br>totalSizeMB = totalSize / <span class="hljs-number">1024</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;  &#x27;</span> + <span class="hljs-built_in">str</span>(totalSizeMB) + <span class="hljs-string">&quot; MB&quot;</span>)<br>totalSizeGB = totalSize / (<span class="hljs-number">1024</span> * <span class="hljs-number">1024</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;  &#x27;</span> + <span class="hljs-built_in">str</span>(totalSizeGB) + <span class="hljs-string">&quot; GB&quot;</span>)<br>percentage = totalSizeGB / <span class="hljs-number">64</span> * <span class="hljs-number">100</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;  &#x27;</span> + <span class="hljs-built_in">str</span>(percentage) + <span class="hljs-string">&quot;%&quot;</span>)<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Windows</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>提升幸福感的一些 PowerShell 小命令</title>
+    <link href="/2022/09/29/%E6%8F%90%E5%8D%87%E5%B9%B8%E7%A6%8F%E6%84%9F%E7%9A%84%E4%B8%80%E4%BA%9B-PowerShell-%E5%B0%8F%E5%91%BD%E4%BB%A4/"/>
+    <url>/2022/09/29/%E6%8F%90%E5%8D%87%E5%B9%B8%E7%A6%8F%E6%84%9F%E7%9A%84%E4%B8%80%E4%BA%9B-PowerShell-%E5%B0%8F%E5%91%BD%E4%BB%A4/</url>
+    
+    <content type="html"><![CDATA[<p>好吧，本来是想利用那个 GitHub Gist来记录一下这个零碎的知识点的，因为这些知识点就是纯粹的肌肉记忆罢了，但是，那个Gist 它做得不好呀。检索很不方便。</p><p>额，其实也是我没有看过它是否有自己的 api提供。这个之后再说吧，先解决当下的问题。</p><p>第一个命令，从 Windows Terminal 中打开回收站，</p><figure class="highlight ps1"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ps1"><span class="hljs-built_in">start</span> shell:RecycleBinFolder<br></code></pre></div></td></tr></table></figure><p>这个 <code>start</code> 的作用和 <code>explorer.exe</code>的作用是类似的。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Windows</tag>
+      
+      <tag>PowerShell</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode04</title>
     <link href="/2022/09/27/leetcode04/"/>
     <url>/2022/09/27/leetcode04/</url>
