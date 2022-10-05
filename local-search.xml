@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>Python 导入自己定义的包</title>
+    <link href="/2022/10/05/Python-%E5%AF%BC%E5%85%A5%E8%87%AA%E5%B7%B1%E5%AE%9A%E4%B9%89%E7%9A%84%E5%8C%85/"/>
+    <url>/2022/10/05/Python-%E5%AF%BC%E5%85%A5%E8%87%AA%E5%B7%B1%E5%AE%9A%E4%B9%89%E7%9A%84%E5%8C%85/</url>
+    
+    <content type="html"><![CDATA[<p>他娘的，今天又遇到了这个问题。</p><p>stackoverflow 上有这个<ahref="https://stackoverflow.com/questions/43728431/relative-imports-modulenotfounderror-no-module-named-x">question</a>，该死，像是设置环境变量的的方法在PowerShell中竟然不管用，那个命令执行不了，浪费了不少时间，没有时间去仔细查看那个命令的文档，所以就采用了py代码中解决的方式，思路是一样的，就是把相关的模块给添加到系统的环境变量中去，使得可以获得类似于Python 自带的包一样的效果。</p><figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> sys<br>sys.path.insert(<span class="hljs-number">0</span>, os.path.abspath(<br>    os.path.join(os.path.dirname(__file__), <span class="hljs-string">&#x27;..&#x27;</span>))) <span class="hljs-comment"># 这里的路径要根据实际需求来改，主要是把当前项目的根路径要添加到 path 中去</span><br></code></pre></div></td></tr></table></figure><p>我的测试包的引入的文件结构如下：</p><figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus">C:.<br>│  functionality<span class="hljs-selector-class">.py</span><br>│  <span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.py</span><br>│  <br>├─anothermodule<br>│      test<span class="hljs-selector-class">.py</span><br>│      __init__<span class="hljs-selector-class">.py</span><br>│      <br>└─othermodule<br>    │  second<span class="hljs-selector-class">.py</span><br>    │  third<span class="hljs-selector-class">.py</span><br>    │  __init__<span class="hljs-selector-class">.py</span><br>    │  <br>    └─submodule<br>            fouth.py<br></code></pre></div></td></tr></table></figure><p>以上是解决我今天遇到问题的方法，其实这个问题就是运行别人的代码给我提示找不到module，真是该死。</p><p>今天更新了 22H2，果然有不少bug，最难以忍受的一个是一个视频或者音乐暂停一会儿之后再去播放会出现很刺耳的一个电流声。</p><p>然后就是复习一下 Python 中的自定义的包的引用了。</p><p>主要是两个点，一个点上面已经说过了，另一个基础的点就是<code>__init__.py</code> 文件的使用。</p><figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><br><span class="hljs-comment"># first approach</span><br>__all__ = [<span class="hljs-string">&quot;second&quot;</span>, <span class="hljs-string">&quot;third&quot;</span>]<br><br><span class="hljs-comment"># second approach</span><br><span class="hljs-keyword">from</span> .second <span class="hljs-keyword">import</span> myfunction<br><span class="hljs-keyword">from</span> .third <span class="hljs-keyword">import</span> another_function<br></code></pre></div></td></tr></table></figure><p>想让别的文件夹下的 py 文件引入某一个文件夹下的某个 py文件下的代码，我们就要定义这个 <code>__init__.py</code>。</p><p>如果是根目录下的代码想要引入模块，直接引入就可以了，如果是其他的目录下的代码想要引入模块，那么就得想上面那样，先将项目的根路径添加到系统的环境变量中。</p><p><img src="https://i.imgur.com/K3KoEtv.png" /></p><p><img src="https://i.imgur.com/NoZAbyn.png" /></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Java Exception 中的序列化问题</title>
+    <link href="/2022/10/03/Java-Exception-%E4%B8%AD%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E9%97%AE%E9%A2%98/"/>
+    <url>/2022/10/03/Java-Exception-%E4%B8%AD%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p>最近在看 GitHub 上的一个解析 epub 的库，然后再次遇到这个<code>serialVersionUID</code>，是在自定义的异常类里面，每一个自定义的异常类里面都会有一个静态的final 变量<code>serialVersionUID</code>，这是用来标记类的版本的，方便在存储类的时候序列化和反序列化，方便向下兼容。</p><p>对于继承了 Exception的来说，有这个变量并不奇怪，因为它的一层父类是实现了 Serializable接口的。但是这里需要我们自己声明这个变量就感觉很奇怪，网上看到的博客也是说我们自定义的异常类要声明这个变量。</p><p>暂时就当这个是一个规范吧。我们自己需要定义这个变量的时机其实我还是没有搞懂。</p><p>然后还有一个问题，这个值我们应该怎么给呢？我们可以看到很多别人的代码中的这个变量都是很长的一串long 类型的数字，这是他们自己想出来的吗？当然不是，这个是利用 IDE生成的。我们可以在 IDEA 中进行设置，</p><p>首先把这个警告勾选上，</p><p><img src="https://i.imgur.com/xLDRO0g.png" /></p><p>然后我们就可以在警告的地方使用 IDEA的自动建议来给我们自动生成这个变量了。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>利用 Python 详细计算 Windows 的内存占用情况</title>
     <link href="/2022/09/29/%E5%88%A9%E7%94%A8-Python-%E8%AF%A6%E7%BB%86%E8%AE%A1%E7%AE%97-Windows-%E7%9A%84%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/"/>
     <url>/2022/09/29/%E5%88%A9%E7%94%A8-Python-%E8%AF%A6%E7%BB%86%E8%AE%A1%E7%AE%97-Windows-%E7%9A%84%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/</url>
