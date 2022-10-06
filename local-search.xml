@@ -4,6 +4,38 @@
   
   
   <entry>
+    <title>微软商店的网络问题</title>
+    <link href="/2022/10/06/%E5%BE%AE%E8%BD%AF%E5%95%86%E5%BA%97%E7%9A%84%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/"/>
+    <url>/2022/10/06/%E5%BE%AE%E8%BD%AF%E5%95%86%E5%BA%97%E7%9A%84%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p>以前只是单纯地认为微软的网络真 TM 地差，微软的开发人员怎么不去 hell呢？</p><p>现在是找到了差的原因。比如这个微软应用商店，使用那个该死的 UWP开发的，所以对于本地的 <code>127.0.0.1</code>的网络回环是默认不支持的。</p><p>然后我平时使用的 cfw(clash forwindows)，这个是使用本地的网络回环来代理的，因此，也就是说，这该死的微软商店是不走这个代理的，然后就需要把梯子关掉？呵，关掉，不扶墙你想使用国外的网络服务？那不是笑话嘛。</p><p>所以还是得想个办法让软件的网络走代理才行呀。</p><p>好在 cfw 是提供了这个选项的，虽然它是用的 fidder 的技术。</p><p><img src="https://i.imgur.com/ZV064bh.png" /></p><p><img src="https://i.imgur.com/eTsmGjj.png" /></p><p>这里全部勾选上或者选择你需要解除回环限制的软件将其勾选上都可以的。</p><hr /><p>参考：</p><p><a href="https://hk.v2ex.com/t/824125"class="uri">https://hk.v2ex.com/t/824125</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vim 如何在多个 tab 标签页之间快速切换</title>
+    <link href="/2022/10/05/vim-%E5%A6%82%E4%BD%95%E5%9C%A8%E5%A4%9A%E4%B8%AA-tab-%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E9%97%B4%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2/"/>
+    <url>/2022/10/05/vim-%E5%A6%82%E4%BD%95%E5%9C%A8%E5%A4%9A%E4%B8%AA-tab-%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E9%97%B4%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2/</url>
+    
+    <content type="html"><![CDATA[<p>如果只是会使用 <code>gt</code> 和 <code>gT</code>的话，效率还是太低了。</p><p>在这两个命令的基础之上，我们可以使用 <code>ngt</code>的方式来跳转到指定顺序的标签页，比如 <code>1gt</code>就是跳转到第一个标签页，<code>5gt</code> 就是跳转到第五个标签页。</p><p>如果是 <code>ngT</code> 这种命令，就是往前跳转 <code>n</code>个标签页。比如 <code>3gT</code> 是往前跳转 3 个标签页。</p><p>还有两个快捷命令，分别是跳转到所有标签页开头和结尾的：<code>:tabfirst</code>和 <code>:tablast</code>，它们的缩写分别是 <code>:tabr</code> 和<code>:tabm</code>。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>vim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Python 导入自己定义的包</title>
     <link href="/2022/10/05/Python-%E5%AF%BC%E5%85%A5%E8%87%AA%E5%B7%B1%E5%AE%9A%E4%B9%89%E7%9A%84%E5%8C%85/"/>
     <url>/2022/10/05/Python-%E5%AF%BC%E5%85%A5%E8%87%AA%E5%B7%B1%E5%AE%9A%E4%B9%89%E7%9A%84%E5%8C%85/</url>
