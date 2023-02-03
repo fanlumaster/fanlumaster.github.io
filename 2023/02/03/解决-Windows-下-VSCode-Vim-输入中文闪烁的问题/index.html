@@ -16,16 +16,16 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这个问题呢，可以说得上是由来已久呀。如果是 arch linux 下，kde 的桌面环境下的 fcitx5 输入法在 VSCode 中的表现是没有问题的。Mac 设备的话，我没有，但是它也是有问题的，具体详情可以看这个 issue， https:&#x2F;&#x2F;github.com&#x2F;VSCodeVim&#x2F;Vim&#x2F;issues&#x2F;7496 大概就是这个问题，类似的 issue 还有几个，这里就不放了，都不">
+    <meta name="description" content="首先，看一下输入的效果吧，这里我没有录制 gif，但是，输入法的候选框确实是不闪的，  这个问题呢，可以说得上是由来已久呀。如果是 arch linux 下，kde 的桌面环境下的 fcitx5 输入法在 VSCode 中的表现是没有问题的。Mac 设备的话，我没有，但是它也是有问题的，具体详情可以看这个 issue， https:&#x2F;&#x2F;github.com&#x2F;VSCodeVim&#x2F;Vim&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决 Windows 下 VSCode Vim 输入中文闪烁的问题">
 <meta property="og:url" content="http://example.com/2023/02/03/%E8%A7%A3%E5%86%B3-Windows-%E4%B8%8B-VSCode-Vim-%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E9%97%AA%E7%83%81%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="这个问题呢，可以说得上是由来已久呀。如果是 arch linux 下，kde 的桌面环境下的 fcitx5 输入法在 VSCode 中的表现是没有问题的。Mac 设备的话，我没有，但是它也是有问题的，具体详情可以看这个 issue， https:&#x2F;&#x2F;github.com&#x2F;VSCodeVim&#x2F;Vim&#x2F;issues&#x2F;7496 大概就是这个问题，类似的 issue 还有几个，这里就不放了，都不">
+<meta property="og:description" content="首先，看一下输入的效果吧，这里我没有录制 gif，但是，输入法的候选框确实是不闪的，  这个问题呢，可以说得上是由来已久呀。如果是 arch linux 下，kde 的桌面环境下的 fcitx5 输入法在 VSCode 中的表现是没有问题的。Mac 设备的话，我没有，但是它也是有问题的，具体详情可以看这个 issue， https:&#x2F;&#x2F;github.com&#x2F;VSCodeVim&#x2F;Vim&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/38ScglI.jpg">
 <meta property="article:published_time" content="2023-02-03T15:13:33.000Z">
-<meta property="article:modified_time" content="2023-02-03T17:11:16.016Z">
+<meta property="article:modified_time" content="2023-02-03T17:13:21.845Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="VSCode">
 <meta property="article:tag" content="Bugs">
@@ -245,7 +245,10 @@
             <h1 style="display: none">解决 Windows 下 VSCode Vim 输入中文闪烁的问题</h1>
             
             <div class="markdown-body">
-              <p>这个问题呢，可以说得上是由来已久呀。如果是 arch linux 下，kde
+              <p>首先，看一下输入的效果吧，这里我没有录制
+gif，但是，输入法的候选框确实是不闪的，</p>
+<p><img src="https://i.imgur.com/TuBcJpq.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这个问题呢，可以说得上是由来已久呀。如果是 arch linux 下，kde
 的桌面环境下的 fcitx5 输入法在 VSCode 中的表现是没有问题的。Mac
 设备的话，我没有，但是它也是有问题的，具体详情可以看这个 issue，</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/VSCodeVim/Vim/issues/7496"
