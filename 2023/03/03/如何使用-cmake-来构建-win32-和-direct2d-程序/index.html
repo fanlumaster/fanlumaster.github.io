@@ -1,0 +1,540 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="fanlumaster">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="我还是舍不得离开 VSCode 的 vim 环境呀。本来，这个是可以直接使用 Visual Studio 的，但是 VS 这个 IDE 用起来实在是不顺手，然后，我们知道，本身在命令行编译和运行 win32 + direct2d 编写的程序是没有问题的，所以，使用 cmake 来构建当然是没有问题的，问题就在于能不能把 lib 文件给链接对，网上现有的资料还挺少的，所以我在这里记录一下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用 cmake 来构建 win32 和 direct2d 程序">
+<meta property="og:url" content="http://example.com/2023/03/03/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-cmake-%E6%9D%A5%E6%9E%84%E5%BB%BA-win32-%E5%92%8C-direct2d-%E7%A8%8B%E5%BA%8F/index.html">
+<meta property="og:site_name" content="Fan Lu&#39;s Blog">
+<meta property="og:description" content="我还是舍不得离开 VSCode 的 vim 环境呀。本来，这个是可以直接使用 Visual Studio 的，但是 VS 这个 IDE 用起来实在是不顺手，然后，我们知道，本身在命令行编译和运行 win32 + direct2d 编写的程序是没有问题的，所以，使用 cmake 来构建当然是没有问题的，问题就在于能不能把 lib 文件给链接对，网上现有的资料还挺少的，所以我在这里记录一下。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/ATp8Hdf.png">
+<meta property="article:published_time" content="2023-03-03T15:54:24.000Z">
+<meta property="article:modified_time" content="2023-03-03T16:05:54.013Z">
+<meta property="article:author" content="fanlumaster">
+<meta property="article:tag" content="VSCode">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="cmake">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/ATp8Hdf.png">
+  
+  
+  <title>如何使用 cmake 来构建 win32 和 direct2d 程序 - Fan Lu&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fan Lu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/ATp8Hdf.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="如何使用 cmake 来构建 win32 和 direct2d 程序">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-03-03 23:54" pubdate>
+        2023年3月3日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      49 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">如何使用 cmake 来构建 win32 和 direct2d 程序</h1>
+            
+            <div class="markdown-body">
+              <p>我还是舍不得离开 VSCode 的 vim 环境呀。本来，这个是可以直接使用
+Visual Studio 的，但是 VS 这个 IDE
+用起来实在是不顺手，然后，我们知道，本身在命令行编译和运行 win32 +
+direct2d 编写的程序是没有问题的，所以，使用 cmake
+来构建当然是没有问题的，问题就在于能不能把 lib
+文件给链接对，网上现有的资料还挺少的，所以我在这里记录一下。</p>
+<p>主要在于这个 CMakeLists.txt 文件，</p>
+<figure class="highlight cmake"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cmake"><span class="hljs-keyword">cmake_minimum_required</span>(VERSION <span class="hljs-number">3.0</span>.<span class="hljs-number">0</span>)<br><span class="hljs-keyword">project</span>(fullcpp VERSION <span class="hljs-number">0.1</span>.<span class="hljs-number">0</span>)<br><br><span class="hljs-keyword">add_compile_options</span>(<span class="hljs-string">&quot;$&lt;$&lt;C_COMPILER_ID:MSVC&gt;:/utf-8&gt;&quot;</span>)<br><span class="hljs-keyword">add_compile_options</span>(<span class="hljs-string">&quot;$&lt;$&lt;CXX_COMPILER_ID:MSVC&gt;:/utf-8&gt;&quot;</span>)<br><br><span class="hljs-comment"># Use unicode versions of functions</span><br><span class="hljs-comment"># add_definitions(-DUNICODE=1 -D_UNICODE=1)</span><br><br><span class="hljs-comment"># Don&#x27;t include unneccessary things in &lt;Windows.h&gt;</span><br><span class="hljs-keyword">add_definitions</span>(-DWIN32_LEAN_AND_MEAN)<br><br><span class="hljs-keyword">include_directories</span>(.)<br><span class="hljs-comment"># link_directories(&quot;C:/Program Files (x86)/Windows Kits/10/Lib/10.0.22621.0/um/x64&quot;)</span><br><br><span class="hljs-comment"># 开启了 dpi 感知的设定</span><br><span class="hljs-keyword">add_executable</span>(fullcpp WIN32 <span class="hljs-string">&quot;main.cpp&quot;</span> <span class="hljs-string">&quot;DeclareDPIAware.manifest&quot;</span>)<br><span class="hljs-comment"># target_link_libraries(fullcpp &quot;C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.22621.0\\um\\x64\\d2d1.lib&quot;)</span><br><span class="hljs-comment"># set(LIBS d2d1 d3d9 d3d11 d3dcompiler)</span><br><span class="hljs-keyword">set</span>(LIBS d2d1)<br><span class="hljs-keyword">target_link_libraries</span>(fullcpp <span class="hljs-variable">$&#123;LIBS&#125;</span>)<br><br></code></pre></div></td></tr></table></figure>
+<p>主要注意这里，</p>
+<figure class="highlight scss"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs scss"># <span class="hljs-built_in">set</span>(LIBS d2d1 d3d9 d3d11 d3dcompiler)<br><span class="hljs-built_in">set</span>(LIBS d2d1)<br><span class="hljs-built_in">target_link_libraries</span>(fullcpp $&#123;LIBS&#125;)<br></code></pre></div></td></tr></table></figure>
+<p>这里的写法是这个样子的，如果是使用 d2d1 的 lib
+文件的绝对路径，这里反而会出错。原因暂时不详。</p>
+<p>这里把 DeclareDPIAware.manifest 文件也记录一下，</p>
+<figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">assembly</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;urn:schemas-microsoft-com:asm.v1&quot;</span> <span class="hljs-attr">manifestVersion</span>=<span class="hljs-string">&quot;1.0&quot;</span> <span class="hljs-attr">xmlns:asmv3</span>=<span class="hljs-string">&quot;urn:schemas-microsoft-com:asm.v3&quot;</span> &gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">asmv3:application</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">asmv3:windowsSettings</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://schemas.microsoft.com/SMI/2005/WindowsSettings&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">dpiAware</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">dpiAware</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">asmv3:windowsSettings</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">asmv3:application</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">assembly</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p>我的 main.cpp，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-comment">/*</span><br><span class="hljs-comment">    有 dpi 感知</span><br><span class="hljs-comment">*/</span><br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> UNICODE</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> UNICODE</span><br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;windows.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;d2d1.h&gt;</span></span><br><span class="hljs-comment">// #include &quot;main.h&quot;</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> SAFE_RELEASE(P) \</span><br><span class="hljs-meta">    <span class="hljs-keyword">if</span> (P)              \</span><br><span class="hljs-meta">    &#123;                   \</span><br><span class="hljs-meta">        P-&gt;Release();   \</span><br><span class="hljs-meta">        P = NULL;       \</span><br><span class="hljs-meta">    &#125;</span><br><br><span class="hljs-comment">// 这是资源的声明</span><br>ID2D1Factory *g_pD2DFactory = <span class="hljs-literal">NULL</span>;            <span class="hljs-comment">// Direct2D factory</span><br>ID2D1HwndRenderTarget *g_pRenderTarget = <span class="hljs-literal">NULL</span>; <span class="hljs-comment">// Render target</span><br>ID2D1SolidColorBrush *g_pBlackBrush = <span class="hljs-literal">NULL</span>;    <span class="hljs-comment">// A black brush, reflect the line color</span><br>ID2D1SolidColorBrush *g_pRedBrush = <span class="hljs-literal">NULL</span>;    <span class="hljs-comment">// A red brush, reflect the line color</span><br><br><span class="hljs-function">VOID <span class="hljs-title">CreateD2DResource</span><span class="hljs-params">(HWND hWnd)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (!g_pRenderTarget)<br>    &#123;<br>        HRESULT hr;<br><br>        hr = <span class="hljs-built_in">D2D1CreateFactory</span>(D2D1_FACTORY_TYPE_SINGLE_THREADED, &amp;g_pD2DFactory);<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">FAILED</span>(hr))<br>        &#123;<br>            <span class="hljs-built_in">MessageBox</span>(hWnd, <span class="hljs-string">L&quot;Create D2D factory failed!&quot;</span>, <span class="hljs-string">L&quot;Error&quot;</span>, <span class="hljs-number">0</span>);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// Obtain the size of the drawing area</span><br>        RECT rc; <span class="hljs-comment">// Render area</span><br>        <span class="hljs-built_in">GetClientRect</span>(hWnd, &amp;rc);<br><br>        <span class="hljs-comment">// Create a Direct2D render target</span><br>        hr = g_pD2DFactory-&gt;<span class="hljs-built_in">CreateHwndRenderTarget</span>(<br>            D2D1::<span class="hljs-built_in">RenderTargetProperties</span>(),<br>            D2D1::<span class="hljs-built_in">HwndRenderTargetProperties</span>(<br>                hWnd,<br>                D2D1::<span class="hljs-built_in">SizeU</span>(rc.right - rc.left, rc.bottom - rc.top)),<br>            &amp;g_pRenderTarget);<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">FAILED</span>(hr))<br>        &#123;<br>            <span class="hljs-built_in">MessageBox</span>(hWnd, <span class="hljs-string">L&quot;Create render target failed!&quot;</span>, <span class="hljs-string">L&quot;Error&quot;</span>, <span class="hljs-number">0</span>);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// Create a black brush</span><br>        hr = g_pRenderTarget-&gt;<span class="hljs-built_in">CreateSolidColorBrush</span>(D2D1::<span class="hljs-built_in">ColorF</span>(D2D1::ColorF::Black), &amp;g_pBlackBrush);<br>        <span class="hljs-comment">// fany: Create a red brush</span><br>        g_pRenderTarget-&gt;<span class="hljs-built_in">CreateSolidColorBrush</span>(D2D1::<span class="hljs-built_in">ColorF</span>(D2D1::ColorF::Red), &amp;g_pRedBrush);<br><br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">FAILED</span>(hr))<br>        &#123;<br>            <span class="hljs-built_in">MessageBox</span>(hWnd, <span class="hljs-string">L&quot;Create brush failed!&quot;</span>, <span class="hljs-string">L&quot;Error&quot;</span>, <span class="hljs-number">0</span>);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-function">VOID <span class="hljs-title">DrawRectangle</span><span class="hljs-params">(HWND hwnd)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">CreateD2DResource</span>(hwnd);<br><br>    g_pRenderTarget-&gt;<span class="hljs-built_in">BeginDraw</span>();<br><br>    <span class="hljs-comment">// Clear background color to White</span><br>    g_pRenderTarget-&gt;<span class="hljs-built_in">Clear</span>(D2D1::<span class="hljs-built_in">ColorF</span>(D2D1::ColorF::White));<br><br>    <span class="hljs-comment">// Draw Black Rectangle</span><br>    <span class="hljs-comment">// g_pRenderTarget-&gt;DrawRectangle(D2D1::RectF(100.f, 100.f, 500.f, 500.f), g_pBlackBrush);</span><br>    <span class="hljs-comment">// fany: Draw Red Rectangle</span><br>    g_pRenderTarget-&gt;<span class="hljs-built_in">DrawRectangle</span>(D2D1::<span class="hljs-built_in">RectF</span>(<span class="hljs-number">100.f</span>, <span class="hljs-number">100.f</span>, <span class="hljs-number">500.f</span>, <span class="hljs-number">500.f</span>), g_pRedBrush);<br><br>    HRESULT hr = g_pRenderTarget-&gt;<span class="hljs-built_in">EndDraw</span>();<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">FAILED</span>(hr))<br>    &#123;<br>        <span class="hljs-built_in">MessageBox</span>(<span class="hljs-literal">NULL</span>, <span class="hljs-string">L&quot;Draw failed!&quot;</span>, <span class="hljs-string">L&quot;Error&quot;</span>, <span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-function">VOID <span class="hljs-title">Cleanup</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">SAFE_RELEASE</span>(g_pRenderTarget);<br>    <span class="hljs-built_in">SAFE_RELEASE</span>(g_pBlackBrush);<br>    <span class="hljs-built_in">SAFE_RELEASE</span>(g_pD2DFactory);<br>&#125;<br><br><span class="hljs-function">LRESULT CALLBACK <span class="hljs-title">WndProc</span><span class="hljs-params">(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">switch</span> (message)<br>    &#123;<br>    <span class="hljs-keyword">case</span> WM_PAINT:<br>        <span class="hljs-built_in">DrawRectangle</span>(hwnd);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>    <span class="hljs-keyword">case</span> WM_KEYDOWN:<br>    &#123;<br>        <span class="hljs-keyword">switch</span> (wParam)<br>        &#123;<br>        <span class="hljs-keyword">case</span> VK_ESCAPE:<br>            <span class="hljs-built_in">SendMessage</span>(hwnd, WM_CLOSE, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">default</span>:<br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">break</span>;<br><br>    <span class="hljs-keyword">case</span> WM_DESTROY:<br>        <span class="hljs-built_in">Cleanup</span>();<br>        <span class="hljs-built_in">PostQuitMessage</span>(<span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">DefWindowProc</span>(hwnd, message, wParam, lParam);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> WINAPI <span class="hljs-title">WinMain</span><span class="hljs-params">(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine, <span class="hljs-type">int</span> iCmdShow)</span></span><br><span class="hljs-function"></span>&#123;<br><br>    WNDCLASSEX winClass;<br><br>    winClass.lpszClassName = <span class="hljs-string">L&quot;Direct2D&quot;</span>;<br>    winClass.cbSize = <span class="hljs-built_in">sizeof</span>(WNDCLASSEX);<br>    winClass.style = CS_HREDRAW | CS_VREDRAW;<br>    winClass.lpfnWndProc = WndProc;<br>    winClass.hInstance = hInstance;<br>    winClass.hIcon = <span class="hljs-literal">NULL</span>;<br>    winClass.hIconSm = <span class="hljs-literal">NULL</span>;<br>    winClass.hCursor = <span class="hljs-built_in">LoadCursor</span>(<span class="hljs-literal">NULL</span>, IDC_ARROW);<br>    winClass.hbrBackground = <span class="hljs-literal">NULL</span>;<br>    winClass.lpszMenuName = <span class="hljs-literal">NULL</span>;<br>    winClass.cbClsExtra = <span class="hljs-number">0</span>;<br>    winClass.cbWndExtra = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">RegisterClassEx</span>(&amp;winClass))<br>    &#123;<br>        <span class="hljs-built_in">MessageBox</span>(<span class="hljs-literal">NULL</span>, <span class="hljs-built_in">TEXT</span>(<span class="hljs-string">&quot;This program requires Windows NT!&quot;</span>), <span class="hljs-string">L&quot;error&quot;</span>, MB_ICONERROR);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br><br>    HWND hwnd = <span class="hljs-built_in">CreateWindowEx</span>(<span class="hljs-literal">NULL</span>,<br>                               <span class="hljs-string">L&quot;Direct2D&quot;</span>,         <span class="hljs-comment">// window class name</span><br>                               <span class="hljs-string">L&quot;Draw Rectangle&quot;</span>,   <span class="hljs-comment">// window caption</span><br>                               WS_OVERLAPPEDWINDOW, <span class="hljs-comment">// window style</span><br>                               CW_USEDEFAULT,       <span class="hljs-comment">// initial x position</span><br>                               CW_USEDEFAULT,       <span class="hljs-comment">// initial y position</span><br>                               <span class="hljs-number">938</span>,                 <span class="hljs-comment">// initial x size</span><br>                               <span class="hljs-number">1000</span>,                <span class="hljs-comment">// initial y size</span><br>                               <span class="hljs-literal">NULL</span>,                <span class="hljs-comment">// parent window handle</span><br>                               <span class="hljs-literal">NULL</span>,                <span class="hljs-comment">// window menu handle</span><br>                               hInstance,           <span class="hljs-comment">// program instance handle</span><br>                               <span class="hljs-literal">NULL</span>);               <span class="hljs-comment">// creation parameters</span><br><br>    <span class="hljs-built_in">ShowWindow</span>(hwnd, iCmdShow);<br>    <span class="hljs-built_in">UpdateWindow</span>(hwnd);<br><br>    MSG msg;<br>    <span class="hljs-built_in">ZeroMemory</span>(&amp;msg, <span class="hljs-built_in">sizeof</span>(msg));<br><br>    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">GetMessage</span>(&amp;msg, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>))<br>    &#123;<br>        <span class="hljs-built_in">TranslateMessage</span>(&amp;msg);<br>        <span class="hljs-built_in">DispatchMessage</span>(&amp;msg);<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> msg.wParam;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+<p>这个就是 win32 的经典写法了。</p>
+<hr />
+<p>参考，</p>
+<p>1、<a target="_blank" rel="noopener" href="https://www.cnblogs.com/h2zZhou/p/6295455.html"
+class="uri">https://www.cnblogs.com/h2zZhou/p/6295455.html</a><br />
+2、<a
+target="_blank" rel="noopener" href="https://github.com/holy-shit/clion-directx-example/blob/master/CMakeLists.txt"
+class="uri">https://github.com/holy-shit/clion-directx-example/blob/master/CMakeLists.txt</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/VSCode/">VSCode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                      <a class="hover-with-bg" href="/tags/cmake/">cmake</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/02/07/p8597-%E5%92%8C-p8615/">
+                        <span class="hidden-mobile">p8597 和 p8615</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://example.com/2023/03/03/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-cmake-%E6%9D%A5%E6%9E%84%E5%BB%BA-win32-%E5%92%8C-direct2d-%E7%A8%8B%E5%BA%8F/';
+          this.page.identifier = '/2023/03/03/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-cmake-%E6%9D%A5%E6%9E%84%E5%BB%BA-win32-%E5%92%8C-direct2d-%E7%A8%8B%E5%BA%8F/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'https-fanlumaster-github-io' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
