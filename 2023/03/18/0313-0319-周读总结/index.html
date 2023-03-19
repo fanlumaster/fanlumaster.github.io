@@ -16,23 +16,24 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在使用 vim 过程中遇到的一个奇怪的问题">
+    <meta name="description" content="张承志的小说我是第一次读。读的机缘是在看 B 站的一个视频，叫作“可可托海的牧羊人”，其实是一首音乐，歌声很真挚动人，视频所用的背景是电影《黑骏马》，蒙古的，其原作小说便是张承志所创作的中篇小说《黑骏马》。于是，这一周的两本书之一，就落在了张承志的作品上。 读的集子是《北方的河》，书中给的张承志的图像是一个典型的新中国的老式人物，面相很粗粝。我想，他的作品应该也是带有明显的北方的特色的吧，干燥">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一个怪异的 Bug：Press ENTER or type command to continue">
-<meta property="og:url" content="http://example.com/2021/04/05/%E4%B8%80%E4%B8%AA%E6%80%AA%E5%BC%82%E7%9A%84-Bug%EF%BC%9APress-ENTER-or-type-command-to-continue/index.html">
+<meta property="og:title" content="0313-0319 周读总结">
+<meta property="og:url" content="http://example.com/2023/03/18/0313-0319-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="在使用 vim 过程中遇到的一个奇怪的问题">
+<meta property="og:description" content="张承志的小说我是第一次读。读的机缘是在看 B 站的一个视频，叫作“可可托海的牧羊人”，其实是一首音乐，歌声很真挚动人，视频所用的背景是电影《黑骏马》，蒙古的，其原作小说便是张承志所创作的中篇小说《黑骏马》。于是，这一周的两本书之一，就落在了张承志的作品上。 读的集子是《北方的河》，书中给的张承志的图像是一个典型的新中国的老式人物，面相很粗粝。我想，他的作品应该也是带有明显的北方的特色的吧，干燥">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-05T15:44:50.000Z">
-<meta property="article:modified_time" content="2021-04-05T15:48:10.000Z">
+<meta property="og:image" content="https://imgur.com/lCMQY11.png">
+<meta property="article:published_time" content="2023-03-18T05:01:55.000Z">
+<meta property="article:modified_time" content="2023-03-19T15:44:00.192Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="Bugs">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Vim">
+<meta property="article:tag" content="马拉松">
+<meta property="article:tag" content="阅读">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://imgur.com/lCMQY11.png">
   
   
-  <title>一个怪异的 Bug：Press ENTER or type command to continue - Fan Lu&#39;s Blog</title>
+  <title>0313-0319 周读总结 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -177,12 +178,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png') no-repeat center center;
+         style="background: url('https://imgur.com/lCMQY11.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="一个怪异的 Bug：Press ENTER or type command to continue">
+            <span class="h2" id="subtitle" title="0313-0319 周读总结">
               
             </span>
 
@@ -192,8 +193,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-05 23:44" pubdate>
-        2021年4月5日 晚上
+      <time datetime="2023-03-18 13:01" pubdate>
+        2023年3月18日 下午
       </time>
     </span>
   
@@ -203,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      85 字
+      1.4k 字
     </span>
   
 
@@ -212,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      12 分钟
     </span>
   
 
@@ -241,39 +242,36 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">一个怪异的 Bug：Press ENTER or type command to continue</h1>
+            <h1 style="display: none">0313-0319 周读总结</h1>
             
             <div class="markdown-body">
-              <p><img
-src="https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210405234503.png" srcset="/img/loading.gif" lazyload
-alt="20210405234503" /></p>
-<p>问题就是，我进入了这个 vim
-的配置文件之后，敲了几下键盘，然后就陷入了出不来的死循环之中。</p>
-<p>然而，最后，根据 vim 的命令行的提示，是使用了如下的命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">:qa!<br></code></pre></div></td></tr></table></figure>
-<p>才成功退出来。</p>
+              <p>张承志的小说我是第一次读。读的机缘是在看 B
+站的一个视频，叫作“可可托海的牧羊人”，其实是一首音乐，歌声很真挚动人，视频所用的背景是电影《黑骏马》，蒙古的，其原作小说便是张承志所创作的中篇小说《黑骏马》。于是，这一周的两本书之一，就落在了张承志的作品上。</p>
+<p>读的集子是《北方的河》，书中给的张承志的图像是一个典型的新中国的老式人物，面相很粗粝。我想，他的作品应该也是带有明显的北方的特色的吧，干燥的风，直来直去的性子，火急火燎的做事风格。事实上，他的小说在我读完后，给我留下的印象和之前的猜测基本贴合。没有技巧，没有太多的弯弯肠子，是什么就是什么，明白畅快，燕赵之地的人本该如此。</p>
+<p>我并不是从他的《黑骏马》开始读的。这部集子里主要收录只有两篇作品——《北方的河》和《黑骏马》。先读《北方的河》，以为会不尽兴，不料，所写的内容正合我的心思。心中似乎随时都揣着一股子火气儿，这一点和我自身都有点像，大河，北方的大河，黄河，湟河，永定河，黑龙江，一股子北方的气质洋溢其中，硬汉，用硬汉来形容此人是一点也不为过的。上山下乡，去的是鄂尔多斯，回来，回的是北京，不愿服从安排去计划生育办，偏要去考研究生，黄河，幼年游过去一次，如今再游，凭借心中的不甘与激荡，再次证明自己是河的儿子，黄河的儿子。大江大河的气质，不愿服输地去学习外语，去大河调研，又因母亲和家里的责任放弃去黑龙江实地考查，爱情，爱情又算得了什么，就让给徐华北好了。那些歌词唱得是很入心的，</p>
+<p>说多了反而似乎有点不太自然。那，这里就仅仅谈一谈我的浮光掠影。以下的涓涓细流都是随心所欲。</p>
+<p>张承志此人，深得我心。那个时代的人，怎能不合我的心意呢？我们的生活环境大体上是不会差很多的，小时候，我们都是在乡村的环境中。性格，那自然是乡下的环境所赐予的，这是很多城里长大的我们这一代的同志所不能体会的。</p>
+<p>大河，大河的品质。冈林信康的歌，我一开始还以为信康此人是一个蒙古人的名字，今天搜索了一下这个歌手，原来是日本人，承志是会日语的，也在日本生活学习过，还在日本出过书，他俩还是好朋友，这是我之前没有了解过的背景所带来的一系列效应。</p>
+<p>“我”没有名字，有的只是令我印象深刻的品质。集子后面，承志在访谈中也提到自己没有写小说的那个天才的特质，这一点我也感受到了，事实上确实是如此的。本周读的另一本书是严歌苓的，严歌苓的技巧是相当强的。承志兄的小说，很散，但是其中的精神，却是很饱满地撑起了这一部小说。</p>
+<p>黑骏马，没有令我惊艳，从小说的赏析层面来讲，这部小说的描写、技巧都不是一部我们说比较经典，或者说是一部大师之作。其精神内核却是令人感动，蒙古的古老旧俗一样的东西，也有一定的自由在里面，这个是当然的，草原的生活，我们中原人是不容易想象的。悲剧，也像是打不破的循环，一次又一次地在这个广袤的区域演绎。</p>
+<p>多少还是令我攒聚了一些泪的。这是男人阅读男人的眼泪，与阅读严歌苓是不一样的。</p>
+<p>另一部作品，严歌苓的《角儿》，也是一部小说集子，短篇小说。</p>
+<p>第一篇令我感受最深。写国外的不太喜欢。那个黄毛女的背叛，前面的诡谲铺垫的太多，匠气太重。</p>
+<p>有一个新鲜的题材，九十年代的四川山里的姑娘被拐卖的悲剧。谁家有女初长成。和这个名字完全不搭干。立意是好的，揭露社会现实。说实话，看完之后，结合之前去过深圳遇到过路上的混混，深圳依然可怕得紧。</p>
+<p>严歌苓的文笔，这个我是很喜欢的。很细腻。随着阅历的加深，读起来还是另有一番味道的。</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Bugs/">Bugs</a>
-                    
-                  </div>
-                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Bugs/">Bugs</a>
+                      <a class="hover-with-bg" href="/tags/%E9%A9%AC%E6%8B%89%E6%9D%BE/">马拉松</a>
                     
-                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Vim/">Vim</a>
+                      <a class="hover-with-bg" href="/tags/%E9%98%85%E8%AF%BB/">阅读</a>
                     
                   </div>
                 
@@ -290,18 +288,12 @@ alt="20210405234503" /></p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/06/%E6%9C%AA%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%B4%AF%E5%8A%A0%E5%92%8C%E5%B0%8F%E4%BA%8E%E6%88%96%E7%AD%89%E4%BA%8E%E7%BB%99%E5%AE%9A%E5%80%BC%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">未排序数组中累加和小于或等于给定值的最长子数组长度</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/04/05/Linux-ls-l-%E5%91%BD%E4%BB%A4%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C%E4%B8%AD%E7%9A%84-total-%E7%9A%84%E5%90%AB%E4%B9%89/">
-                        <span class="hidden-mobile">Linux ls -l 命令输出结果中的 total 的含义</span>
+                      <a href="/2023/03/03/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-cmake-%E6%9D%A5%E6%9E%84%E5%BB%BA-win32-%E5%92%8C-direct2d-%E7%A8%8B%E5%BA%8F/">
+                        <span class="hidden-mobile">如何使用 cmake 来构建 win32 和 direct2d 程序</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -323,8 +315,8 @@ alt="20210405234503" /></p>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2021/04/05/%E4%B8%80%E4%B8%AA%E6%80%AA%E5%BC%82%E7%9A%84-Bug%EF%BC%9APress-ENTER-or-type-command-to-continue/';
-          this.page.identifier = '/2021/04/05/%E4%B8%80%E4%B8%AA%E6%80%AA%E5%BC%82%E7%9A%84-Bug%EF%BC%9APress-ENTER-or-type-command-to-continue/';
+          this.page.url = 'http://example.com/2023/03/18/0313-0319-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/';
+          this.page.identifier = '/2023/03/18/0313-0319-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
