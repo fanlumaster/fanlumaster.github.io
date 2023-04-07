@@ -4,6 +4,50 @@
   
   
   <entry>
+    <title>如何证明两个数的最大公因数和最小公倍数的乘积等于这两个数的乘积</title>
+    <link href="/2023/04/07/%E5%A6%82%E4%BD%95%E8%AF%81%E6%98%8E%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%9A%84%E6%9C%80%E5%A4%A7%E5%85%AC%E5%9B%A0%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0%E7%9A%84%E4%B9%98%E7%A7%AF%E7%AD%89%E4%BA%8E%E8%BF%99%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%9A%84%E4%B9%98%E7%A7%AF/"/>
+    <url>/2023/04/07/%E5%A6%82%E4%BD%95%E8%AF%81%E6%98%8E%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%9A%84%E6%9C%80%E5%A4%A7%E5%85%AC%E5%9B%A0%E6%95%B0%E5%92%8C%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0%E7%9A%84%E4%B9%98%E7%A7%AF%E7%AD%89%E4%BA%8E%E8%BF%99%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%9A%84%E4%B9%98%E7%A7%AF/</url>
+    
+    <content type="html"><![CDATA[<p>这个可以算是初等数论里面的知识的。</p><p>我是在给家里的小同志讲小学奥数的时候遇到的。老师告诉他会用就行，我作为一个长辈，有必要给他讲一讲其中的原理。</p><p>这个问题给我来证明，得分为两点。</p><h2 id="主体">主体</h2><blockquote><p>求证：两个自然数的最大公因数和最小公倍数的乘积等于这两个数的乘积。</p></blockquote><p><strong>证明：</strong></p><p>不妨设两个自然数分别为 <spanclass="math inline">\(M、N\)</span>，</p><p>易证，任意一个自然数 <span class="math inline">\(N\)</span>可以被分解成多个质数因子的乘积，且这样的分解唯一，所以，</p><p><span class="math display">\[M = p_1^{i_1} p_2^{i_2} \dots p_k^{i_k} \dots p_m^{0} \dots\]</span></p><p><span class="math display">\[N = p_1^{j_1} p_2^{j_2} \dots p_k^{j_k} \dots p_n^{0} \dots\]</span></p><p>我们把 <span class="math inline">\(M\)</span> 和 <spanclass="math inline">\(N\)</span> 分别记作，</p><p><span class="math display">\[M = (i_1, i_2, i_3, \dots, i_m, 0, \dots)\]</span></p><p><span class="math display">\[N = (j_1, j_2, j_3, \dots, j_n, 0, \dots)\]</span></p><p>则，最大公因数和最小公倍数分别为，</p><p><span class="math display">\[gcd(M, N) = (min\{i_1, j_1\}, min\{i_2, j_2\}, min\{i_3, j_3\}, \dots)\]</span></p><p><span class="math display">\[lcm(M, N) = (max\{i_1, j_1\}, max\{i_2, j_2\}, max\{i_3, j_3\}, \dots)\]</span></p><p>而，</p><p><span class="math display">\[min\{i, j\} + max\{i, j\} = i + j\]</span></p><p>因此，得证。</p><h2 id="附加">附加</h2><p>关于 gcd 和 lcm 我没有证过上面的形式，所以这里证明一下。</p><p>不妨设，</p><p><span class="math display">\[M = p_1^{i_1} p_2^{i_2} \dots p_k^{i_k}\]</span></p><p><span class="math display">\[N = p_1^{j_1} p_2^{j_2} \dots p_k^{j_k}\]</span></p><blockquote><p>求证：</p></blockquote><p><span class="math display">\[g = gcd(M, N) = (min\{i_1, j_1\}, min\{i_2, j_2\}, min\{i_3, j_3\},\dots, min\{i_k, j_k\})\]</span></p><p>注：这里借用了上面的形式。</p><p><strong>证明：</strong></p><p>先证必要性：显然，<span class="math inline">\(g \mid a\)</span> 且<span class="math inline">\(g \mid b\)</span>。</p><p>再证充分性：</p><p>不妨假设设 <span class="math inline">\(m = g \timesp_n\)</span>，其中，<span class="math inline">\(p_n\)</span>是上面任意一个质数，</p><p>再不妨设 <span class="math inline">\(i_n &lt; j_n\)</span>，</p><p>因此，<span class="math inline">\(min(i_n, j_n) = i_n\)</span>，</p><p>所以 <span class="math inline">\(m\)</span> 中由 <spanclass="math inline">\(i_n + 1\)</span> 个质因子，</p><p>故 <span class="math inline">\(m \nmid a\)</span> 不为 <spanclass="math inline">\(M, N\)</span> 公因数。</p><p>原命题得证。</p><hr /><p>参考：</p><p>1、<a href="https://www.zhihu.com/question/326472814"class="uri">https://www.zhihu.com/question/326472814</a><br />2、<a href="https://www.cnblogs.com/JustinRochester/p/12355660.html"class="uri">https://www.cnblogs.com/JustinRochester/p/12355660.html</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>数学</tag>
+      
+      <tag>数论</tag>
+      
+      <tag>小学</tag>
+      
+      <tag>离散数学</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>VSCode 一个代码提示上屏的问题</title>
+    <link href="/2023/04/06/VSCode-%E4%B8%80%E4%B8%AA%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E4%B8%8A%E5%B1%8F%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <url>/2023/04/06/VSCode-%E4%B8%80%E4%B8%AA%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E4%B8%8A%E5%B1%8F%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p>所遇到的问题：在引号里面的代码提示出现时，如果按下<code>/</code>，那么，代码提示框中的第一个选项会自动上屏。</p><p>我的需求：取消这种行为。</p><p>解决：经过询问 chatgpt，发现这个是 Intellisense的问题，我们只需要在设置中把<code>Editor: Accept Suggestion On Commit Character</code>给取消勾选即可，</p><p><img src="https://i.imgur.com/FNLXsPy.png" /></p><p>如果是直接在 <code>settings.json</code>中修改的话，配置是这个样子的，</p><figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json"><span class="hljs-attr">&quot;editor.acceptSuggestionOnCommitCharacter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span><br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>VSCode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>0327-0402 周读总结</title>
     <link href="/2023/04/02/0327-0402-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/"/>
     <url>/2023/04/02/0327-0402-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/</url>
