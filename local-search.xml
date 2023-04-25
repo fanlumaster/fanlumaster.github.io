@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>VSCode 的 black-formatter 插件吊诡的错误</title>
+    <link href="/2023/04/25/VSCode-%E7%9A%84-black-formatter-%E6%8F%92%E4%BB%B6%E5%90%8A%E8%AF%A1%E7%9A%84%E9%94%99%E8%AF%AF/"/>
+    <url>/2023/04/25/VSCode-%E7%9A%84-black-formatter-%E6%8F%92%E4%BB%B6%E5%90%8A%E8%AF%A1%E7%9A%84%E9%94%99%E8%AF%AF/</url>
+    
+    <content type="html"><![CDATA[<p>问题的描述：在 VSCode 中想要给 python格式化代码，如果使用微软提供的这个 <code>Black Formatter</code>插件，那么，我们大概率会得到一个报错，导致不能够正常地把代码给格式化，而我，是不需要使用VSCode 里面的这个 black 格式化插件的，我直接调用 Python的库——black，就可以了。</p><p>那么，改如何解决这个问题呢？那就是看一下有没有在什么巧合的情况下触发了<code>Black Formatter</code>的安装，然后，我们把这个插件给卸载就好啦！他奶奶的，坏我心情。</p><p><img src="https://i.imgur.com/kkECPD4.png" /></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>VSCode</tag>
+      
+      <tag>Python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>一点点天空之城的记忆</title>
     <link href="/2023/04/24/%E4%B8%80%E7%82%B9%E7%82%B9%E5%A4%A9%E7%A9%BA%E4%B9%8B%E5%9F%8E%E7%9A%84%E8%AE%B0%E5%BF%86/"/>
     <url>/2023/04/24/%E4%B8%80%E7%82%B9%E7%82%B9%E5%A4%A9%E7%A9%BA%E4%B9%8B%E5%9F%8E%E7%9A%84%E8%AE%B0%E5%BF%86/</url>
