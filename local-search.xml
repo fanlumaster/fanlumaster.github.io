@@ -4,6 +4,90 @@
   
   
   <entry>
+    <title>Vim Tricks</title>
+    <link href="/2023/05/02/Vim-Tricks/"/>
+    <url>/2023/05/02/Vim-Tricks/</url>
+    
+    <content type="html"><![CDATA[<p>Yet another blog about vim/neovim tricks.</p><h2 id="vim如何获取当前的文件的名称">vim如何获取当前的文件的名称</h2><p>首先，把模式切换到 insert 这一状态，然后，按下<code>Ctrl + R</code>，然后，我们再输入<code>%</code>，这样，就可以把当前 buffer 中的文件的全路径给上屏了。</p><p>未完待续...</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Neovim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Spectacle 使用手记</title>
+    <link href="/2023/05/02/Spectacle-%E4%BD%BF%E7%94%A8%E6%89%8B%E8%AE%B0/"/>
+    <url>/2023/05/02/Spectacle-%E4%BD%BF%E7%94%A8%E6%89%8B%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<p>主要记录一下 KDE 下的一个截图工具的使用。</p><p>恢复使用 Manjaro Linux Kde，截图软件使用的是Spectacle，所以，有一些快捷键，我就需要去重新地回想一下，</p><ul><li>捕捉当前活动的的的窗口：<code>Win + Print</code></li><li>捕捉当前光标下的窗口：<code>Win + Ctrl + Print</code></li><li>捕捉整个桌面：<code>Shift + Print</code></li><li>捕捉一个自定义的长方形窗口：<code>Win + Shift + Print</code></li></ul><p>这里面我其实最需要的其实就是前两个。</p><p>按：Linux 中的 Meta 键其实就是键盘上的 Win 键。</p><p>快捷键的图示，</p><p><img src="https://i.imgur.com/ydjrPuy.png" /></p><p>我们还可以自定义一些其它的设置，比如，截图后自动保存到我们指定的目录，</p><p><img src="https://i.imgur.com/pKxSy4H.png" /></p><p>之所以要自动保存到指定的目录，是因为如果直接把剪贴板中的图片粘到imgur 中的话，有时候 png 图片会失去一些东西。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>工具</tag>
+      
+      <tag>KDE</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Manjaro Kde 中使用 fcitx-rime 的一些细节手记</title>
+    <link href="/2023/05/02/Manjaro-Kde-%E4%B8%AD%E4%BD%BF%E7%94%A8-fcitx-rime-%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%86%E8%8A%82%E6%89%8B%E8%AE%B0/"/>
+    <url>/2023/05/02/Manjaro-Kde-%E4%B8%AD%E4%BD%BF%E7%94%A8-fcitx-rime-%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%86%E8%8A%82%E6%89%8B%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<h2 id="前言">前言</h2><p>对于如何去安装fcitx-rime，这个我在这里不作赘述，虽然说，我当时装这个是出了点问题，但是呢，总归是使用那两个包管理器来安装好的，就用那个pacman 和 yay 都尝试一下，如果直接安装 fcitx-rime会有问题的话，那么，就再试一下带 git后缀的，这个是直接把源码拉下来然后进行编译的。当然啦，也可能会出现网络的问题，这个就要科学上网啦。</p><p>还有，就是，在安装之前，我建议先执行一下yay，即把整个系统先更新一下，否则可能有些包会不兼容的，而且，一些软件的包信息也不是最新的。</p><h2 id="细节">细节</h2><p>首先，我使用的 rime 方案是这个仓库，</p><p><a href="https://github.com/functoreality/rime-flypy-zrmfast"class="uri">https://github.com/functoreality/rime-flypy-zrmfast</a></p><p>这是一个小鹤双拼加辅助码的方案。详细的信息可以在仓库的 readme里面去查看，我这里主要是记录一下我对它作的一些微调。</p><h3 id="微调一">微调一</h3><p>输入法默认状态设置为英文。</p><p>小鹤双拼加辅助码的方案是在 <code>flypy_zrmfast.schema.yaml</code>中进行配置。以下如无特殊说明也是在这个文件中进行配置。</p><p>这里我们把这个 reset 设置成 1 即可，</p><figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">switches:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">ascii_mode</span><br>    <span class="hljs-attr">reset:</span> <span class="hljs-number">1</span><br>    <span class="hljs-attr">states:</span> [ <span class="hljs-string">中文</span>, <span class="hljs-string">西文</span> ]<br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">full_shape</span><br>    <span class="hljs-attr">states:</span> [ <span class="hljs-string">半角</span>, <span class="hljs-string">全角</span> ]<br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">simplification</span><br>    <span class="hljs-attr">states:</span> [ <span class="hljs-string">漢字</span>, <span class="hljs-string">汉字</span> ]<br>  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">ascii_punct</span><br>    <span class="hljs-attr">states:</span> [ <span class="hljs-string">。，</span>, <span class="hljs-string">．，</span> ]<br></code></pre></div></td></tr></table></figure><p><img src="https://i.imgur.com/UEuwxT5.png" /></p><h3 id="微调二">微调二</h3><p>把中文调节成简体字。</p><p>这个方案默认的情况是繁体字，这个不需要我们改配置，我们使用快捷键`Ctrl + `` 进行修改方案即可，先选 1，再选 4，</p><p><img src="https://i.imgur.com/Cgt4vMf.png" /></p><p><img src="https://i.imgur.com/HM6CujJ.png" /></p><h3 id="微调三">微调三</h3><p>把候选框的 pageSize 改为 6。</p><figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-comment"># 候选框得 pagesize 这个要在这个里面设置才可以</span><br><span class="hljs-comment"># 大概是这个文件在那个文件后面被引用，这个设置会覆盖掉那个 default 文件</span><br><span class="hljs-attr">menu:</span><br>  <span class="hljs-attr">page_size:</span> <span class="hljs-number">6</span><br></code></pre></div></td></tr></table></figure><h3 id="微调四">微调四</h3><p>把置顶的字词给注释掉，这个文件是 <code>custom_phrase.txt</code>，</p><figure class="highlight txt"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs txt">## 置顶词与自定义词组在这个文件里指定<br>## 格式：文本-输入码-权重，其间用 Tab 符分隔。<br>## 如要添加新的，可以复制已有的行，然后在其基础上修改。<br>## 置顶字词<br>## 是u4<br>## 時u3<br>## 使ui2<br>## 試ui1<br>## 所s1<br>## 去q1<br>## 我w2<br>## 爲w1<br>## 有y2<br>## 又y1<br>## 哦o1<br>## 的d3<br>## 地d2<br>## 得de1<br>## 大da1<br>## 個g1<br>## 和h1<br>## 就j1<br>## 可k1<br>## 了l1<br>## 在z2<br>## 再z1<br>## 下x1<br>## 才c1<br>## 不b2<br>## 吧b1<br>## 把ba1<br>## 你n1<br>## 沒m1<br>## 這v2<br>## 只v1<br>## 涉及uej2<br>## 設計uej1<br></code></pre></div></td></tr></table></figure><p>不然这个是很烦人的。</p><h2 id="其它">其它</h2><p>放一张这个版本的辅助码的图片，</p><p><img src="https://i.imgur.com/s2aZrMw.jpg" /></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Manjaro</tag>
+      
+      <tag>输入法</tag>
+      
+      <tag>KDE</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux 中使用 AstroNvim 的体验和微调</title>
+    <link href="/2023/05/02/Linux-%E4%B8%AD%E4%BD%BF%E7%94%A8-AstroNvim-%E7%9A%84%E4%BD%93%E9%AA%8C%E5%92%8C%E5%BE%AE%E8%B0%83/"/>
+    <url>/2023/05/02/Linux-%E4%B8%AD%E4%BD%BF%E7%94%A8-AstroNvim-%E7%9A%84%E4%BD%93%E9%AA%8C%E5%92%8C%E5%BE%AE%E8%B0%83/</url>
+    
+    <content type="html"><![CDATA[<p>又重头使用这个玩具了。在我的观念里，这个 neovim大概可以称为玩具，VSCode也可以说是玩具，因为我不太玩游戏，而它们又有一定的可玩性，就刚好可以弥补我在游戏这一块的缺失。</p><p>这一次把原来的 lunarvim 类似的配置给换掉了，就是现在的这个AstroNvim，然后还换过一次LazyVim，也是一个开箱即用的配置，经过一番尝试，还是换了回来。</p><p>对于默认的键位映射，我们参考官方的文档即可，</p><p><a href="https://astronvim.com/Basic%20Usage/mappings"class="uri">https://astronvim.com/Basic%20Usage/mappings</a></p><p>对于如何去安装我们自定义的插件，可以看这里，</p><p><a href="https://astronvim.com/Recipes/custom_plugins"class="uri">https://astronvim.com/Recipes/custom_plugins</a></p><p>不过呢，这个得配合这个视频一起来使用，它这个用户自定义的接口设计得有点巧妙，</p><p><ahref="https://www.youtube.com/watch?v=GEHPiZ10gOk&amp;t=457s&amp;ab_channel=Cretezy"class="uri">https://www.youtube.com/watch?v=GEHPiZ10gOk&amp;t=457s&amp;ab_channel=Cretezy</a></p><p>我暂时只需要安装一个插件，那就是 <code>leap.nvim</code>这个插件，</p><p><img src="https://i.imgur.com/ILOP2IT.png" /></p><p>至于其它的插件或者说键位的自定义配置，我们看一下视频就很容易去操作或配置的。</p><p><strong>注意：</strong> AstroNvim 中目前有一个小遗憾，那就是 Neo-Tree这个插件的 fuzzy find或者说模糊搜索的功能做得不好，还比较慢。暂时呢，我们只有接受这个不完美啦，先用Telescope 的全局搜索来代替一下。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Neovim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>0424-0430 周读笔记</title>
     <link href="/2023/04/30/0424-0430-%E5%91%A8%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     <url>/2023/04/30/0424-0430-%E5%91%A8%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
