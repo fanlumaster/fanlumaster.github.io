@@ -16,23 +16,23 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Yet another blog about vim&#x2F;neovim tricks. vim如何获取当前的文件的名称 首先，把模式切换到 insert 这一状态，然后，按下 Ctrl + R，然后，我们再输入 %，这样，就可以把当前 buffer 中的文件的全路径给上屏了。 未完待续...">
+    <meta name="description" content="顺便加一个翻译。 [00:00.00]ルージュ (口红) (《容易受伤的女人》日语版) - 中島みゆき (中岛美雪) [00:07.17]词：中島みゆき [00:14.34]曲：中島みゆき [00:21.52]口(くち)をきくのがうまくなりました [00:28.67]どんな酔(よ)いしれた人(ひと)にでも 我终于变得能言善道了 无论眼前是再怎么烂醉如泥的人 [00:36.13]口">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vim Tricks">
-<meta property="og:url" content="http://example.com/2023/05/02/Vim-Tricks/index.html">
+<meta property="og:title" content="口红-中岛美雪 日语音标注解">
+<meta property="og:url" content="http://example.com/2023/05/03/%E5%8F%A3%E7%BA%A2-%E4%B8%AD%E5%B2%9B%E7%BE%8E%E9%9B%AA-%E6%97%A5%E8%AF%AD%E9%9F%B3%E6%A0%87%E6%B3%A8%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="Yet another blog about vim&#x2F;neovim tricks. vim如何获取当前的文件的名称 首先，把模式切换到 insert 这一状态，然后，按下 Ctrl + R，然后，我们再输入 %，这样，就可以把当前 buffer 中的文件的全路径给上屏了。 未完待续...">
+<meta property="og:description" content="顺便加一个翻译。 [00:00.00]ルージュ (口红) (《容易受伤的女人》日语版) - 中島みゆき (中岛美雪) [00:07.17]词：中島みゆき [00:14.34]曲：中島みゆき [00:21.52]口(くち)をきくのがうまくなりました [00:28.67]どんな酔(よ)いしれた人(ひと)にでも 我终于变得能言善道了 无论眼前是再怎么烂醉如泥的人 [00:36.13]口">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/CYehdRd.png">
-<meta property="article:published_time" content="2023-05-02T15:37:53.000Z">
-<meta property="article:modified_time" content="2023-05-02T15:41:12.955Z">
+<meta property="og:image" content="https://i.imgur.com/BYKq9IK.png">
+<meta property="article:published_time" content="2023-05-03T08:03:58.000Z">
+<meta property="article:modified_time" content="2023-05-04T03:54:46.627Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="Neovim">
+<meta property="article:tag" content="歌词">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/CYehdRd.png">
+<meta name="twitter:image" content="https://i.imgur.com/BYKq9IK.png">
   
   
-  <title>Vim Tricks - Fan Lu&#39;s Blog</title>
+  <title>口红-中岛美雪 日语音标注解 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -177,12 +177,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/CYehdRd.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/BYKq9IK.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Vim Tricks">
+            <span class="h2" id="subtitle" title="口红-中岛美雪 日语音标注解">
               
             </span>
 
@@ -192,8 +192,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2023-05-02 23:37" pubdate>
-        2023年5月2日 晚上
+      <time datetime="2023-05-03 16:03" pubdate>
+        2023年5月3日 下午
       </time>
     </span>
   
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      128 字
+      1.5k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2 分钟
+      13 分钟
     </span>
   
 
@@ -241,15 +241,82 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Vim Tricks</h1>
+            <h1 style="display: none">口红-中岛美雪 日语音标注解</h1>
             
             <div class="markdown-body">
-              <p>Yet another blog about vim/neovim tricks.</p>
-<h2 id="vim如何获取当前的文件的名称">vim如何获取当前的文件的名称</h2>
-<p>首先，把模式切换到 insert 这一状态，然后，按下
-<code>Ctrl + R</code>，然后，我们再输入
-<code>%</code>，这样，就可以把当前 buffer 中的文件的全路径给上屏了。</p>
-<p>未完待续...</p>
+              <p>顺便加一个翻译。</p>
+<p>[00:00.00]ルージュ (口红) (《容易受伤的女人》日语版) - 中島みゆき
+(中岛美雪)<br />
+[00:07.17]词：中島みゆき<br />
+[00:14.34]曲：中島みゆき</p>
+<p>[00:21.52]口(くち)をきくのがうまくなりました<br />
+[00:28.67]どんな酔(よ)いしれた人(ひと)にでも</p>
+<p>我终于变得能言善道了<br />
+无论眼前是再怎么烂醉如泥的人</p>
+<p>[00:36.13]口(くち)をきくのがうまくなりました<br />
+[00:43.40]ルージュひくたびにわかります<br />
+[00:50.46]あの人(ひと)追(お)いかけて<br />
+[00:53.77]この町(まち)へ着(つ)いた頃(ころ)は<br />
+[00:57.56]まだルージュはただひとつ<br />
+[01:02.14]うす桜(さくら)<br />
+[01:05.23]あの人(ひと)追(お)いかけて<br />
+[01:08.50]くり返(か)す人(ひと)違(ちが)い<br />
+[01:12.70]いつか泣(な)き慣(な)れて</p>
+<p>我终于变得能言善道了<br />
+每涂一次口红　心中就多了然一分<br />
+当初追在那人后头来到这城市时<br />
+我还只有一条淡樱色的口红而已<br />
+在反反覆覆追寻着那人　然后过尽千帆皆不是的过程中<br />
+曾几何时已习惯哭泣</p>
+<p>[01:20.82]口(くち)をきくのがうまくなりました<br />
+[01:27.96]ルージュひくたびにわかります</p>
+<p>我终于变得能言善道了<br />
+每涂一次口红　心中就多了然一分</p>
+<p>[02:05.38]つくり笑(わら)いがうまくなりました<br />
+[02:12.59]心(こころ)馴(な)じめない人(ひと)にでも<br />
+[02:19.84]つくり笑(わら)いがうまくなりました<br />
+[02:27.24]ルージュひくたびにわかります</p>
+<p>我变得相当擅长陪笑了<br />
+就算眼前是无法由衷亲近的人<br />
+我变得相当擅长陪笑了<br />
+每涂一次口红　心中就多了然一分</p>
+<p>[02:34.45]生(う)まれた時(とき)から<br />
+[02:37.36]渡(わた)り鳥(どり)もわかる気(き)で<br />
+[02:41.73]つばさをつくろう事(こと)も<br />
+[02:45.83]知(し)るまいに<br />
+[02:48.96]気(き)がつきゃ鏡(かがみ)も忘(わす)れかけた<br />
+[02:53.75]うす桜(さくら)<br />
+[02:56.50]おかしな色(いろ)と笑(わら)う</p>
+<p>即便是候鸟　也未必打从出生就知晓<br />
+如何修整翅膀吧<br />
+稍不留神　连原本最在意的镜子都几乎遗忘<br />
+还笑说 "淡樱色　真是可笑的颜色"</p>
+<p>[03:04.64]つくり笑(わら)いがうまくなりました
+[03:11.85]ルージュひくたびにわかります</p>
+<p>我变得相当擅长陪笑了<br />
+每涂一次口红　心中就多了然一分</p>
+<p>[03:18.99]生(う)まれた時(とき)から<br />
+[03:21.79]渡(わた)り鳥(どり)もわかる気(き)で<br />
+[03:26.13]つばさをつくろう事(こと)も<br />
+[03:30.33]知(し)るまいに<br />
+[03:33.58]気(き)がつきゃ鏡(かがみ)も忘(わす)れかけた<br />
+[03:38.36]うす桜(さくら)<br />
+[03:41.03]おかしな色(いろ)と笑(わら)う</p>
+<p>即便是候鸟　也未必打从出生就知晓<br />
+如何修整翅膀吧<br />
+稍不留神　连原本最在意的镜子都几乎遗忘<br />
+还笑说 "淡樱色　真是可笑的颜色"</p>
+<p>[03:49.33]つくり笑(わら)いがうまくなりました<br />
+[03:56.28]ルージュひくたびにわかります</p>
+<p>我变得相当擅长陪笑了<br />
+每涂一次口红　心中就多了然一分</p>
+<hr />
+<p>参考：</p>
+<p>1、<a target="_blank" rel="noopener" href="https://blog.xuite.net/chuzu0/twblog/168335488"
+class="uri">https://blog.xuite.net/chuzu0/twblog/168335488</a><br />
+2、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8F%A3%E7%BA%A2/1070877"
+class="uri">https://baike.baidu.com/item/%E5%8F%A3%E7%BA%A2/1070877</a></p>
+<p>按：对比了几个翻译的版本，目前发现百度百科这个最符合相应的意境，编辑这个词条的人应该也是深情地喜欢着这首歌曲。其实第一个链接里面的翻译也合适。百科里面的增补联想成分偏多一点。</p>
 
             </div>
             <hr>
@@ -260,7 +327,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Neovim/">Neovim</a>
+                      <a class="hover-with-bg" href="/tags/%E6%AD%8C%E8%AF%8D/">歌词</a>
                     
                   </div>
                 
@@ -277,18 +344,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/03/%E5%8F%A3%E7%BA%A2-%E4%B8%AD%E5%B2%9B%E7%BE%8E%E9%9B%AA-%E6%97%A5%E8%AF%AD%E9%9F%B3%E6%A0%87%E6%B3%A8%E8%A7%A3/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">口红-中岛美雪 日语音标注解</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/02/Spectacle-%E4%BD%BF%E7%94%A8%E6%89%8B%E8%AE%B0/">
-                        <span class="hidden-mobile">Spectacle 使用手记</span>
+                      <a href="/2023/05/02/Vim-Tricks/">
+                        <span class="hidden-mobile">Vim Tricks</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -310,8 +371,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2023/05/02/Vim-Tricks/';
-          this.page.identifier = '/2023/05/02/Vim-Tricks/';
+          this.page.url = 'http://example.com/2023/05/03/%E5%8F%A3%E7%BA%A2-%E4%B8%AD%E5%B2%9B%E7%BE%8E%E9%9B%AA-%E6%97%A5%E8%AF%AD%E9%9F%B3%E6%A0%87%E6%B3%A8%E8%A7%A3/';
+          this.page.identifier = '/2023/05/03/%E5%8F%A3%E7%BA%A2-%E4%B8%AD%E5%B2%9B%E7%BE%8E%E9%9B%AA-%E6%97%A5%E8%AF%AD%E9%9F%B3%E6%A0%87%E6%B3%A8%E8%A7%A3/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
