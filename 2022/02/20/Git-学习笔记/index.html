@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/ZKY6TVe.png">
 <meta property="article:published_time" content="2022-02-20T11:51:22.000Z">
-<meta property="article:modified_time" content="2022-02-21T12:25:10.000Z">
+<meta property="article:modified_time" content="2023-05-06T07:22:04.875Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
@@ -203,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.4k 字
     </span>
   
 
@@ -212,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11 分钟
+      12 分钟
     </span>
   
 
@@ -248,10 +248,10 @@
 的使用，我们开始似乎不用纠结。不就是一个版本控制工具嘛，它的最主要的功能是版本控制。虽然经常可以听到，什么
 Git 的功能很强大很强大啦，然后学起来很难很难啦。听上去真是让人泄气。</p>
 <p>可是，我们很多人似乎没有搞懂自己的需求，一开始我们可以先学一点最核心的关于版本控制的命令嘛。这个学会了，估计对于当下也差不多了。人家陶渊明也说过“好读书不求甚解”，咱可以不用强制要求自己一下子就什么都学会，学会一点点也是很快乐的。</p>
-<h1 id="git-版本控制基础用法">Git 版本控制基础用法</h1>
+<h2 id="git-版本控制基础用法">Git 版本控制基础用法</h2>
 <p>这里主要是对 Git 的最重要的功能——版本控制相关命令进行记录和理解。</p>
-<h2
-id="创建历史版本以供将来回溯即创建读档点">创建历史版本以供将来回溯，即创建读档点</h2>
+<h3
+id="创建历史版本以供将来回溯即创建读档点">创建历史版本以供将来回溯，即创建读档点</h3>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git init<br></code></pre></div></td></tr></table></figure>
 <p>这是初始化 Git 仓库的命令。这个命令会在当前目录下生成一个
 <code>.git</code>
@@ -278,8 +278,8 @@ id="创建历史版本以供将来回溯即创建读档点">创建历史版本�
 保存。其实和 <code>--message</code> 功能相同。</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git diff<br></code></pre></div></td></tr></table></figure>
 <p>这个命令用来查看当前工作区与暂存区之间的差异。具体可以看另一篇博客。</p>
-<h2 id="回退到某一个读档点">回退到某一个读档点</h2>
-<h3 id="git-reset">git reset</h3>
+<h3 id="回退到某一个读档点">回退到某一个读档点</h3>
+<h4 id="git-reset">git reset</h4>
 <p>详见 <a href="">git reset 命令</a></p>
 <p>回退版本。</p>
 <p>语法：</p>
@@ -292,11 +292,14 @@ id="创建历史版本以供将来回溯即创建读档点">创建历史版本�
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git reset --soft HEAD<br></code></pre></div></td></tr></table></figure>
 <p>实例：</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ git reset --soft HEAD~3 <span class="hljs-comment"># 回退上上上一个版本</span><br></code></pre></div></td></tr></table></figure>
-<h1 id="git-常用命令">Git 常用命令</h1>
-<h2 id="查看配置列表">1、查看配置列表</h2>
+<h2 id="git-常用命令">Git 常用命令</h2>
+<h3 id="查看配置列表">1、查看配置列表</h3>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git config --list<br></code></pre></div></td></tr></table></figure>
-<h2 id="设置或者更改用户名和邮箱">2、设置或者更改用户名和邮箱</h2>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git config --global user.name <span class="hljs-string">&quot;fanlumaster&quot;</span><br>git config --global user.email <span class="hljs-string">&quot;1730976608@qq.com&quot;</span><br></code></pre></div></td></tr></table></figure>
+<h3 id="设置或者更改用户名和邮箱">2、设置或者更改用户名和邮箱</h3>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git config --global user.name <span class="hljs-string">&quot;fanlumaster&quot;</span><br>git config --global user.email <span class="hljs-string">&quot;xxxxxxxxxx@qq.com&quot;</span><br></code></pre></div></td></tr></table></figure>
+<h2 id="我平时会用的一些命令">我平时会用的一些命令</h2>
+<p>1、恢复一个文件到之前的一个的 commit 的状态，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git checkout 87718 .\flypy_zrmfast.dict.yaml<br></code></pre></div></td></tr></table></figure>
 <hr />
 <p>参考：</p>
 <p>1、菜鸟教程</p>
