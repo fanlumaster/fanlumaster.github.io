@@ -16,24 +16,24 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这一周的阅读有点混乱。 读完的有《碎梦刀》、《将军族》和《从Python开始学编程》。 读了一部分的《浣花洗剑录》，以及一点点的《沉重的翅膀》。 这一段时间，技术类的书是有在带着看的，这周因为给别人推荐 Vamei 的书，所以我自己也回头来重读一下 Vamei 的入门教程。读其书，想其人。以前是读 Vamei 的博客，里面也会有一些细小的瑕疵，博客的修改是比较容易的，人家在评论里面一说">
+    <meta name="description" content="主要是使用 Direct2D 和 DirectWrite 来绘制图形的时候，我以为是把资源最后一起释放就可以，结果当然不是这个样子。 一开始，我以为可能是 vector 出了问题，因为我对 C++ 其实并不是很熟悉，所以，上网检索一通，然后自己再测试一通，发现不可能是 vector 的问题，然后标准库里的组件怎么可能在内存这一块出问题呢？ 然后还是一点点测试，既然不是 vector 的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="0501-0507 周读总结">
-<meta property="og:url" content="http://example.com/2023/05/08/0501-0507-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="记一次 C++ 内存泄漏的排查及解决过程">
+<meta property="og:url" content="http://example.com/2023/05/11/%E8%AE%B0%E4%B8%80%E6%AC%A1-C-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%8E%92%E6%9F%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="这一周的阅读有点混乱。 读完的有《碎梦刀》、《将军族》和《从Python开始学编程》。 读了一部分的《浣花洗剑录》，以及一点点的《沉重的翅膀》。 这一段时间，技术类的书是有在带着看的，这周因为给别人推荐 Vamei 的书，所以我自己也回头来重读一下 Vamei 的入门教程。读其书，想其人。以前是读 Vamei 的博客，里面也会有一些细小的瑕疵，博客的修改是比较容易的，人家在评论里面一说">
+<meta property="og:description" content="主要是使用 Direct2D 和 DirectWrite 来绘制图形的时候，我以为是把资源最后一起释放就可以，结果当然不是这个样子。 一开始，我以为可能是 vector 出了问题，因为我对 C++ 其实并不是很熟悉，所以，上网检索一通，然后自己再测试一通，发现不可能是 vector 的问题，然后标准库里的组件怎么可能在内存这一块出问题呢？ 然后还是一点点测试，既然不是 vector 的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/0oLiz5T.png">
-<meta property="article:published_time" content="2023-05-08T06:34:18.000Z">
-<meta property="article:modified_time" content="2023-05-08T07:35:49.075Z">
+<meta property="og:image" content="https://i.imgur.com/42wKr6Z.png">
+<meta property="article:published_time" content="2023-05-11T13:38:08.000Z">
+<meta property="article:modified_time" content="2023-05-12T16:13:48.281Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="马拉松">
-<meta property="article:tag" content="阅读">
+<meta property="article:tag" content="问题">
+<meta property="article:tag" content="Cpp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/0oLiz5T.png">
+<meta name="twitter:image" content="https://i.imgur.com/42wKr6Z.png">
   
   
-  <title>0501-0507 周读总结 - Fan Lu&#39;s Blog</title>
+  <title>记一次 C++ 内存泄漏的排查及解决过程 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -178,12 +178,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/0oLiz5T.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/42wKr6Z.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="0501-0507 周读总结">
+            <span class="h2" id="subtitle" title="记一次 C++ 内存泄漏的排查及解决过程">
               
             </span>
 
@@ -193,8 +193,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2023-05-08 14:34" pubdate>
-        2023年5月8日 下午
+      <time datetime="2023-05-11 21:38" pubdate>
+        2023年5月11日 晚上
       </time>
     </span>
   
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      986 字
+      2.5k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9 分钟
+      21 分钟
     </span>
   
 
@@ -242,30 +242,23 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">0501-0507 周读总结</h1>
+            <h1 style="display: none">记一次 C++ 内存泄漏的排查及解决过程</h1>
             
             <div class="markdown-body">
-              <p>这一周的阅读有点混乱。</p>
-<p>读完的有《碎梦刀》、《将军族》和《从Python开始学编程》。</p>
-<p>读了一部分的《浣花洗剑录》，以及一点点的《沉重的翅膀》。</p>
-<p>这一段时间，技术类的书是有在带着看的，这周因为给别人推荐 Vamei
-的书，所以我自己也回头来重读一下 Vamei
-的入门教程。读其书，想其人。以前是读 Vamei
-的博客，里面也会有一些细小的瑕疵，博客的修改是比较容易的，人家在评论里面一说，很快就可以意识到，然后去作修改，可是这书，斯人已去，徒增唏嘘。</p>
-<p>不需要怀疑这本书的实用性，我们平时使用 Python
-的程度，不会超过这本书，现在看来，可能有些偏简单，可是能把这简单的内容以一种费曼的方式给讲出来，那是不容易的。</p>
-<p>世人多庸碌。</p>
-<p>和家里聊天，小朋友这一次考试考得在他自己看来是不错的。数学100，英语95，三门总分385。考完很高兴，用家乡的话来描述，就给高兴海海的。家里带去买冰棒，大概是随便挑，乡下的表示还是如此地质朴。妹妹大概是考得不是很好，看哥哥挑选冰棒，自己不太好意思，拘谨无措，大人看见，一番安慰，下次争取考得比哥哥好，该吃还得吃，怎么还不好意思了呢？以后你也让天天写奥数，让你小表哥教教你。</p>
-<p>问，告没告诉小表哥。说，小表哥又没问。</p>
-<p>不问不说。我曾经说过的话他听到心里去了。正直良善之外，需要附加的是勤恳，以及沉默。我很少给小孩鼓励，主要是在学习方面，这是从实践中取得的经验。我也很少给批评，那也是脱离常态的一种做法。说要考试，那我就绝不会给鼓励，也不会给期望，那其实是等同于给压力。</p>
-<p>说，奥数开始上道了，每天都写。我小学时候也写，自己写会有很多遗憾。我回顾一下我的求学历程，多是自己琢磨，路走得很驳杂。如果没有我，我想，小朋友的路大概率是和我一样，可能还会要难走一些。现在无妨，我可以负责扫清。</p>
-<p>对于任何一门技艺，我所在意的，只是其人求知的态度。我所讨厌的，那是骄矜自满、<strong>登山封路</strong>的态度。至于那些夏虫，谁会耗费宝贵的心力去多瞧他们一眼呢？</p>
-<p>说回这一周的阅读。《碎梦刀》是温瑞安的武侠系列。出场人物是四大名捕中的两位。《将军族》是陈映真的小说，一个小短篇，里面有浓烈的时代的悲伤。台湾的时代。但大抵上还是在一种纯真的范畴。</p>
-<p>浣花这部小说，看着看着不想看了，以后还是直接去翻一下《宫本武藏》好了。</p>
-<hr />
-<p>附：</p>
-<p>丹心、死谏、杀身以成仁。</p>
-<p>这是第一次使用自己编写的输入法来写博客。现在输入法缺陷颇多。同志仍需努力。</p>
+              <p>主要是使用 Direct2D 和 DirectWrite
+来绘制图形的时候，我以为是把资源最后一起释放就可以，结果当然不是这个样子。</p>
+<p>一开始，我以为可能是 vector 出了问题，因为我对 C++
+其实并不是很熟悉，所以，上网检索一通，然后自己再测试一通，发现不可能是
+vector 的问题，然后标准库里的组件怎么可能在内存这一块出问题呢？</p>
+<p>然后还是一点点测试，既然不是 vector
+的问题，那么，只能是图形的问题，之前测试了一次，但是忽略了
+<code>g_pRenderTarget</code>
+的释放，结果就以为，内存泄漏和这个指针没有关系，后面排查，问题大概只可能出现在这里了，所以，把相关的资源在这里进行释放，果然，是可以的，经过测试，发现问题解决，</p>
+<p>其实就是这一个函数里面的问题，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">FanyDrawText</span><span class="hljs-params">(HWND hwnd, std::wstring wText)</span> </span>&#123;<br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">        我们在重绘的时候，得重新获取一下客户区的信息，以及重新定义一下字体的信息？</span><br><span class="hljs-comment">        不然，字体的拉伸会导致字体的质量变得很差。</span><br><span class="hljs-comment">    */</span><br>    g_pDWriteFactory-&gt;<span class="hljs-built_in">CreateTextFormat</span>(<span class="hljs-string">L&quot;微软雅黑&quot;</span>, <span class="hljs-literal">NULL</span>, DWRITE_FONT_WEIGHT_NORMAL, DWRITE_FONT_STYLE_NORMAL, DWRITE_FONT_STRETCH_NORMAL, <span class="hljs-number">16.0f</span>, <span class="hljs-string">L&quot;zh-cn&quot;</span>, &amp;g_pDWriteTextFormat);<br>    <span class="hljs-comment">// 获取可以绘制的客户区的长方形区域</span><br>    RECT rc;<br>    <span class="hljs-built_in">GetClientRect</span>(hwnd, &amp;rc);<br>    g_pD2DFactory-&gt;<span class="hljs-built_in">CreateHwndRenderTarget</span>(D2D1::<span class="hljs-built_in">RenderTargetProperties</span>(), D2D1::<span class="hljs-built_in">HwndRenderTargetProperties</span>(hwnd, D2D1::<span class="hljs-built_in">SizeU</span>(rc.right - rc.left, rc.bottom - rc.top)), &amp;g_pRenderTarget);<br>    <span class="hljs-comment">// 清除背景为白色</span><br>    <span class="hljs-comment">// pRenderTarget-&gt;BeginDraw();</span><br>    g_pRenderTarget-&gt;<span class="hljs-built_in">BeginDraw</span>();<br>    <span class="hljs-comment">// pRenderTarget-&gt;Clear(D2D1::ColorF(D2D1::ColorF::White));</span><br>    <span class="hljs-comment">// 如果想改变输入法候选框的背景颜色，可以在这里修改</span><br>    <span class="hljs-comment">// g_pRenderTarget-&gt;Clear(D2D1::ColorF(D2D1::ColorF::Green));</span><br>    <span class="hljs-comment">// g_pRenderTarget-&gt;Clear(D2D1::ColorF(D2D1::ColorF::White));</span><br>    g_pRenderTarget-&gt;<span class="hljs-built_in">Clear</span>(D2D1::<span class="hljs-built_in">ColorF</span>(D2D1::ColorF::LightGreen));<br>    <span class="hljs-comment">// 设置绘制参数</span><br>    g_pRenderTarget-&gt;<span class="hljs-built_in">SetTransform</span>(D2D1::<span class="hljs-built_in">IdentityMatrix</span>());<br>    g_pRenderTarget-&gt;<span class="hljs-built_in">SetTextAntialiasMode</span>(D2D1_TEXT_ANTIALIAS_MODE_DEFAULT);<br>    <span class="hljs-comment">// 绘制文本</span><br>    <span class="hljs-comment">// ISO C++11 does not allow conversion from string literal to &#x27;wchar_t *&#x27;</span><br>    <span class="hljs-comment">// wchar_t *szText = L&quot;1.你好\n2.世界\n3.毛笔\n4.量子\n5.笔画\n6.竟然\n7.什么\n8.测试&quot;;</span><br>    <span class="hljs-comment">// std::wstring wText = L&quot;ni&#x27;hc\n1.你好\n2.世界\n3.毛笔\n4.量子\n5.笔画\n6.竟然\n7.什么\n8.测试&quot;;</span><br>    <span class="hljs-type">wchar_t</span> *szText = <span class="hljs-built_in">const_cast</span>&lt;<span class="hljs-type">wchar_t</span> *&gt;(wText.<span class="hljs-built_in">c_str</span>());<br>    RECT rect;<br>    <span class="hljs-built_in">GetClientRect</span>(hwnd, &amp;rect);<br>    D2D1_RECT_F layoutRect = D2D1::<span class="hljs-built_in">RectF</span>(<span class="hljs-built_in">static_cast</span>&lt;FLOAT&gt;(rect.left), <span class="hljs-built_in">static_cast</span>&lt;FLOAT&gt;(rect.top), <span class="hljs-built_in">static_cast</span>&lt;FLOAT&gt;(rect.right), <span class="hljs-built_in">static_cast</span>&lt;FLOAT&gt;(rect.bottom));<br>    g_pRenderTarget-&gt;<span class="hljs-built_in">CreateSolidColorBrush</span>(D2D1::<span class="hljs-built_in">ColorF</span>(D2D1::ColorF::Black), &amp;g_pBrush);<br>    g_pRenderTarget-&gt;<span class="hljs-built_in">DrawText</span>(szText, <span class="hljs-built_in">wcslen</span>(szText), g_pDWriteTextFormat, layoutRect, g_pBrush);<br>    <span class="hljs-comment">// 结束绘制</span><br>    HRESULT hr = g_pRenderTarget-&gt;<span class="hljs-built_in">EndDraw</span>();<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">FAILED</span>(hr)) &#123;<br>        <span class="hljs-comment">// 错误处理</span><br>        <span class="hljs-built_in">MessageBox</span>(<span class="hljs-literal">NULL</span>, <span class="hljs-built_in">TEXT</span>(<span class="hljs-string">&quot;End Drawing Error!&quot;</span>), <span class="hljs-string">L&quot;error&quot;</span>, MB_ICONERROR);<br>    &#125;<br>    <span class="hljs-comment">// 释放资源就不在这里操作了，而是专门在程序结束的时候统一释放</span><br>    <span class="hljs-comment">// Cleanup();</span><br>    <span class="hljs-built_in">SAFE_RELEASE</span>(g_pDWriteTextFormat);<br>    <span class="hljs-built_in">SAFE_RELEASE</span>(g_pBrush);<br>    <span class="hljs-built_in">SAFE_RELEASE</span>(g_pRenderTarget);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>之前写完一篇博客，程序的内存占用会飙升到
+200MB，现在的话，一直可以维持在 18MB 以下。</p>
+<p>后面可以再优化，那时就是优化，而非解决内存泄漏的问题了。</p>
 
             </div>
             <hr>
@@ -276,9 +269,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E9%A9%AC%E6%8B%89%E6%9D%BE/">马拉松</a>
+                      <a class="hover-with-bg" href="/tags/%E9%97%AE%E9%A2%98/">问题</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E9%98%85%E8%AF%BB/">阅读</a>
+                      <a class="hover-with-bg" href="/tags/Cpp/">Cpp</a>
                     
                   </div>
                 
@@ -295,18 +288,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/11/%E8%AE%B0%E4%B8%80%E6%AC%A1-C-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%8E%92%E6%9F%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">记一次 C++ 内存泄漏的排查及解决过程</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/06/Windows11-cmd-%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">
-                        <span class="hidden-mobile">Windows11 cmd 中文乱码问题</span>
+                      <a href="/2023/05/08/0501-0507-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/">
+                        <span class="hidden-mobile">0501-0507 周读总结</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -328,8 +315,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2023/05/08/0501-0507-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/';
-          this.page.identifier = '/2023/05/08/0501-0507-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/';
+          this.page.url = 'http://example.com/2023/05/11/%E8%AE%B0%E4%B8%80%E6%AC%A1-C-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%8E%92%E6%9F%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B/';
+          this.page.identifier = '/2023/05/11/%E8%AE%B0%E4%B8%80%E6%AC%A1-C-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%8E%92%E6%9F%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
