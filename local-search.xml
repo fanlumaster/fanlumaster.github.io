@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>Windows UIAccess 问题的处理</title>
+    <link href="/2023/05/13/Windows-UIAccess-%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%84%E7%90%86/"/>
+    <url>/2023/05/13/Windows-UIAccess-%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%84%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<p>最近是遇到了这样的问题，一直没有时间去具体地解决，在我自己的输入法上面遇到的这个问题，因为其他问题的优先级更高，所以拖到了今天才去解决它。好在，花费了大概一天的时间，总算是把这个问题解决，如果说，后面可能还有一点残余的工作，那也只是一些细枝末节性的事情。</p><p>我遇到的问题是，举一个具体的例子，在使用 Win32 的<code>SetWindowPos</code> 的时候，我们使用 <code>SetWindowPos</code>这个参数，那么，实际上，我们的窗口并不可以一直做到一直处于整个桌面的最前面，</p><figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-built_in">SetWindowPos</span>(gHwnd, HWND_TOPMOST, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, SWP_SHOWWINDOW | SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE);<br></code></pre></div></td></tr></table></figure><p>那么，经过查阅相关的资料，发现，这个有不少人遇到过这个问题，最近的一次<ahref="https://stackoverflow.com/questions/71767438/keep-window-on-top-of-taskbar-on-windows-11">stackoverflow</a>上面也有人问，但是没有人去回答，好吧，那我只好帮帮他了。</p><p>首先，因为我现在使用的输入法：Yzime，它有一个选项，UIAccess，然后看它的ahk 源码，发现，它是通过 dllcall 来调用系统的 UIAccess相关的函数的，那么，既然它可以用，那么，我的这个纯粹的 C++项目为什么不可以呢，于是去找 manifest的配置写法，发现似乎有点问题，然后又看到 GitHub 上的这个仓库：<ahref="https://github.com/killtimer0/uiaccess"class="uri">https://github.com/killtimer0/uiaccess</a>，把其中的头文件往项目中引入一下，然后把最终编译好的exe 文件使用管理员权限来运行，果然是可以的。这下算是把问题解决了。</p><p>另，为了不让程序每次运行都弹出一个确认的弹窗，我把系统的 UIA设置调到了最低，这里注意并且记录一下，</p><p><img src="https://i.imgur.com/sQPTwBC.png" /></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Cpp</tag>
+      
+      <tag>Win32</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>记一次 C++ 内存泄漏的排查及解决过程</title>
     <link href="/2023/05/11/%E8%AE%B0%E4%B8%80%E6%AC%A1-C-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%8E%92%E6%9F%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B/"/>
     <url>/2023/05/11/%E8%AE%B0%E4%B8%80%E6%AC%A1-C-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%8E%92%E6%9F%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B/</url>
