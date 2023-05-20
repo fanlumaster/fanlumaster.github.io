@@ -16,24 +16,24 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="最近是遇到了这样的问题，一直没有时间去具体地解决，在我自己的输入法上面遇到的这个问题，因为其他问题的优先级更高，所以拖到了今天才去解决它。好在，花费了大概一天的时间，总算是把这个问题解决，如果说，后面可能还有一点残余的工作，那也只是一些细枝末节性的事情。 我遇到的问题是，举一个具体的例子，在使用 Win32 的 SetWindowPos 的时候，我们使用 HWND_TOPMOST 这个参数，">
+    <meta name="description" content="本周阅读两本。一本是张洁的《沉重的翅膀》，另一本是倪匡的《蓝血人》。 沉重的翅膀在看之前我是没有意识到它的严肃及沉重的。七十年代末、八十年代初的我国重工业改革，沉疴实在是太重，改革之人所受到的阻挠千重万重。 这本书出版的时候是上个世纪，那个时候，韦君宜同志还是人民文学出版社的社长。韦君宜同志和徐晓，他们大概都与《今天》杂志是有着不小的联系的。  谨将此书献给为着中华民族的振兴而忘我工作的人">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows UIAccess 问题的处理">
-<meta property="og:url" content="http://example.com/2023/05/13/Windows-UIAccess-%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%84%E7%90%86/index.html">
+<meta property="og:title" content="0508-0514 周读总结">
+<meta property="og:url" content="http://example.com/2023/05/15/0508-0514-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="最近是遇到了这样的问题，一直没有时间去具体地解决，在我自己的输入法上面遇到的这个问题，因为其他问题的优先级更高，所以拖到了今天才去解决它。好在，花费了大概一天的时间，总算是把这个问题解决，如果说，后面可能还有一点残余的工作，那也只是一些细枝末节性的事情。 我遇到的问题是，举一个具体的例子，在使用 Win32 的 SetWindowPos 的时候，我们使用 HWND_TOPMOST 这个参数，">
+<meta property="og:description" content="本周阅读两本。一本是张洁的《沉重的翅膀》，另一本是倪匡的《蓝血人》。 沉重的翅膀在看之前我是没有意识到它的严肃及沉重的。七十年代末、八十年代初的我国重工业改革，沉疴实在是太重，改革之人所受到的阻挠千重万重。 这本书出版的时候是上个世纪，那个时候，韦君宜同志还是人民文学出版社的社长。韦君宜同志和徐晓，他们大概都与《今天》杂志是有着不小的联系的。  谨将此书献给为着中华民族的振兴而忘我工作的人">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://imgur.com/0ZTBx5G.png">
-<meta property="article:published_time" content="2023-05-13T07:17:32.000Z">
-<meta property="article:modified_time" content="2023-05-15T15:22:27.586Z">
+<meta property="og:image" content="https://i.imgur.com/dFTgIwC.png">
+<meta property="article:published_time" content="2023-05-15T02:58:47.000Z">
+<meta property="article:modified_time" content="2023-05-20T06:02:13.807Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="Cpp">
-<meta property="article:tag" content="Win32">
+<meta property="article:tag" content="马拉松">
+<meta property="article:tag" content="阅读">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://imgur.com/0ZTBx5G.png">
+<meta name="twitter:image" content="https://i.imgur.com/dFTgIwC.png">
   
   
-  <title>Windows UIAccess 问题的处理 - Fan Lu&#39;s Blog</title>
+  <title>0508-0514 周读总结 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -178,12 +178,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://imgur.com/0ZTBx5G.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/dFTgIwC.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Windows UIAccess 问题的处理">
+            <span class="h2" id="subtitle" title="0508-0514 周读总结">
               
             </span>
 
@@ -193,8 +193,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2023-05-13 15:17" pubdate>
-        2023年5月13日 下午
+      <time datetime="2023-05-15 10:58" pubdate>
+        2023年5月15日 上午
       </time>
     </span>
   
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      715 字
+      1.8k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      15 分钟
     </span>
   
 
@@ -242,29 +242,49 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Windows UIAccess 问题的处理</h1>
+            <h1 style="display: none">0508-0514 周读总结</h1>
             
             <div class="markdown-body">
-              <p>最近是遇到了这样的问题，一直没有时间去具体地解决，在我自己的输入法上面遇到的这个问题，因为其他问题的优先级更高，所以拖到了今天才去解决它。好在，花费了大概一天的时间，总算是把这个问题解决，如果说，后面可能还有一点残余的工作，那也只是一些细枝末节性的事情。</p>
-<p>我遇到的问题是，举一个具体的例子，在使用 Win32 的
-<code>SetWindowPos</code> 的时候，我们使用 <code>HWND_TOPMOST</code>
-这个参数，那么，实际上，我们的窗口并不可以一直做到一直处于整个桌面的最前面，</p>
-<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-built_in">SetWindowPos</span>(gHwnd, HWND_TOPMOST, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, SWP_SHOWWINDOW | SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE);<br></code></pre></div></td></tr></table></figure>
-<p>那么，经过查阅相关的资料，发现，这个有不少人遇到过这个问题，最近的一次
-<a
-target="_blank" rel="noopener" href="https://stackoverflow.com/questions/71767438/keep-window-on-top-of-taskbar-on-windows-11">stackoverflow</a>
-上面也有人问，但是没有人去回答，好吧，那我只好帮帮他了。</p>
-<p>首先，因为我现在使用的输入法：Yzime，它有一个选项，UIAccess，然后看它的
-ahk 源码，发现，它是通过 dllcall 来调用系统的 UIAccess
-相关的函数的，那么，既然它可以用，那么，我的这个纯粹的 C++
-项目为什么不可以呢，于是去找 manifest
-的配置写法，发现似乎有点问题，然后又看到 GitHub 上的这个仓库：<a
-target="_blank" rel="noopener" href="https://github.com/killtimer0/uiaccess"
-class="uri">https://github.com/killtimer0/uiaccess</a>，把其中的头文件往项目中引入一下，然后把最终编译好的
-exe 文件使用管理员权限来运行，果然是可以的。这下算是把问题解决了。</p>
-<p>另，为了不让程序每次运行都弹出一个确认的弹窗，我把系统的 UIA
-设置调到了最低，这里注意并且记录一下，</p>
-<p><img src="https://i.imgur.com/sQPTwBC.png" srcset="/img/loading.gif" lazyload /></p>
+              <p>本周阅读两本。一本是张洁的《沉重的翅膀》，另一本是倪匡的《蓝血人》。</p>
+<p>沉重的翅膀在看之前我是没有意识到它的严肃及沉重的。七十年代末、八十年代初的我国重工业改革，沉疴实在是太重，改革之人所受到的阻挠千重万重。</p>
+<p>这本书出版的时候是上个世纪，那个时候，韦君宜同志还是人民文学出版社的社长。韦君宜同志和徐晓，他们大概都与《今天》杂志是有着不小的联系的。</p>
+<blockquote>
+<p>谨将此书献给为着中华民族的振兴而忘我工作的人。</p>
+</blockquote>
+<p>现在心中还有着中华民族的，又有几人呢？又有几人心中不是全然自我呢？不难想象，如果郑子云这样的人物问到我，我会讪讪地说，这是我可以操心的吗？</p>
+<p>子云对我来说，是一个慰藉。我知道这样的人大抵上还是有的。蝉蜕时的痛苦，痛苦在谁的身上，不过是一些少数的郑子云罢了。郑子云可以称得上是同志，张洁同志可以是同志，韦君宜呢，也是同志。此同志的分量比起我们平时随口而出的同志，那是不可以等同的。</p>
+<p>借着昨天去爬山的契机，忍着心中的难为情，把 vc 君请到了 xk
+君那里。于是，此番、此篇大概可以放开一点笔触。</p>
+<p>也记一点关于最近两天的事情吧。</p>
+<p>前天打完球，大概是十点半左右，想起之前说要去爬山，可是一直拖，无趣，就匆匆拾了一点东西，谁也没说，骑着一辆小雨往校大门去了。实际上是南二门出，刚好那时已经过了夜里十一点钟。记忆呀，记忆。赶上了二号线，没赶上中南路的四号线。最后一班说来，又不来了。</p>
+<p>坐的硬座，但是人少，就当成硬卧来乘了。睡得还行。天气阴沉，霾，在我看来是比较重的。小县城。人嘛，遇到的当然是有好有坏。售票处的那个面色不是很好的工作人员不太符合要求。</p>
+<p>山景还行，水质很差。祝融峰，祝融火，把这个地儿烧成了什么样子？本来我还想去祷祝一番，祝融呀，你帮忙烧一下苟活于世的恶鬼们吧，不料，你大概是自顾不暇，我们这一代的事情，我们自己来解决好了。</p>
+<p>此山如没有特别的原因，大概以后不会再来，衡山，名义上的南岳，人车不分离，路又修得那么窄，上下山的车流那么密集，路那么曲折，寥寥无几的几个徒步登山人，遇到大巴，谁不跳脚骂上几句？心里的火真是越烧越大。真是。</p>
+<p>以下内容记于 05.20。</p>
+<p>最近几天忙于论文的事情，这篇博客其实本不应拖那么久的。</p>
+<p>还是谈沉重的翅膀。我不能大肆谈论现实中的人，书里的人总还是可以的吧。叶知秋，郑子云，陈咏明，莫征，圆圆，郁丽文，大部分人我都是很喜欢的。总体看来，我不讨厌的人是更多的。重工业改革，我被这个幌子给晃住了，实际上，还是写人更多一些，而写人，我也更喜欢看一些。就我个人的感觉，张洁的心思和文笔都是比韦君宜要更为细腻的，这和时代也有不少的关系。</p>
+<p>莫征一辈子不该做关于爱情的梦。陈咏明精卫填海一般的一生。领导嘛，就该领而导之。谨将此书献给为着中华民族的振兴而忘我工作的人。丑陋对于叶知秋来说，是她作为一个女人的不幸。咱们今天讨论的问题人家多少年前不知讨论了多少回。刘玉英那小民的家庭重担。天真地不幸的万群。</p>
+<blockquote>
+<p>您记得《共产党宣言》里的第一句话吗？</p>
+</blockquote>
+<blockquote>
+<p>「一个幽灵，共产主义的幽灵，在欧洲徘徊。旧欧洲的一切势力，教皇和沙皇、梅特涅和基佐、法国的激进党人和德国的警察，都为驱除这个幽灵而结成了神圣同盟。」</p>
+</blockquote>
+<p>纱帽翅颤悠与否，婚姻就稳定与否。小陈咏明 14
+载的郁丽文。嘻嘻哈哈的汪方亮，连田守诚也要怕他几分，这难道不是另一个杨郎中？什么宝钢，什么武钢。天真烂漫的圆圆，莫征父亲的书生软弱。</p>
+<blockquote>
+<p>「这不是某一个人的过错或是某几个人的过错，这是蝉蜕时期的痛苦。」</p>
+</blockquote>
+<p>孩子般的真诚、执着，和饱经世事的沉稳。</p>
+<p>何婷，不值一提。</p>
+<p>万群，</p>
+<blockquote>
+<p>山、川、日、月、风、雨、雷、电，多少年之后，还会造就那么一个小女人吗？</p>
+</blockquote>
+<p>一个人，无论是男人还是女人，如果是单纯的，那么，必须有某种力量作为后盾。单纯并不是一件易于维护的事情。</p>
+<p>世事变换，波谲云诡。我们究竟可以把握住什么东西呢？我们究竟可以改变什么东西呢？郑子云住进病房，田守诚比往日更加庄重。难道这世上真是田守诚更多吗？</p>
+<p>《蓝血人》，我还是第一次看倪匡的科幻小说。说是科幻，其实还是还是有武侠的意味。文字通俗，倒是适合给中学生看。连载的作品，看起来不需要费什么心力。情节的构造多是连载的那一套。那个时代的这类作品大抵上都是如此。倒是比较轻松，对于我们来说比较轻松，对于中学生来说，可能还要稍微伤感一点点呢，或为方天，或为一些人物的死去。</p>
+<p>于 2023.05.20 午时。</p>
 
             </div>
             <hr>
@@ -275,9 +295,9 @@ exe 文件使用管理员权限来运行，果然是可以的。这下算是把�
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Cpp/">Cpp</a>
+                      <a class="hover-with-bg" href="/tags/%E9%A9%AC%E6%8B%89%E6%9D%BE/">马拉松</a>
                     
-                      <a class="hover-with-bg" href="/tags/Win32/">Win32</a>
+                      <a class="hover-with-bg" href="/tags/%E9%98%85%E8%AF%BB/">阅读</a>
                     
                   </div>
                 
@@ -294,18 +314,12 @@ exe 文件使用管理员权限来运行，果然是可以的。这下算是把�
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/15/0508-0514-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">0508-0514 周读总结</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/11/%E8%AE%B0%E4%B8%80%E6%AC%A1-C-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E6%8E%92%E6%9F%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B/">
-                        <span class="hidden-mobile">记一次 C++ 内存泄漏的排查及解决过程</span>
+                      <a href="/2023/05/13/Windows-UIAccess-%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%84%E7%90%86/">
+                        <span class="hidden-mobile">Windows UIAccess 问题的处理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -327,8 +341,8 @@ exe 文件使用管理员权限来运行，果然是可以的。这下算是把�
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2023/05/13/Windows-UIAccess-%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%84%E7%90%86/';
-          this.page.identifier = '/2023/05/13/Windows-UIAccess-%E9%97%AE%E9%A2%98%E7%9A%84%E5%A4%84%E7%90%86/';
+          this.page.url = 'http://example.com/2023/05/15/0508-0514-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/';
+          this.page.identifier = '/2023/05/15/0508-0514-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
