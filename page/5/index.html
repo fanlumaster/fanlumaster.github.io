@@ -193,6 +193,52 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/10/03/Java-Exception-%E4%B8%AD%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E9%97%AE%E9%A2%98/" target="_self">
+          <img src="https://i.imgur.com/OsrTCMO.png" srcset="/img/loading.gif" lazyload alt="Java Exception 中的序列化问题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/10/03/Java-Exception-%E4%B8%AD%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E9%97%AE%E9%A2%98/" target="_self">
+          Java Exception 中的序列化问题
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/10/03/Java-Exception-%E4%B8%AD%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E9%97%AE%E9%A2%98/" target="_self">
+          
+          最近在看 GitHub 上的一个解析 epub 的库，然后再次遇到这个 serialVersionUID，是在自定义的异常类里面，每一个自定义的异常类里面都会有一个静态的 final 变量 serialVersionUID，这是用来标记类的版本的，方便在存储类的时候序列化和反序列化，方便向下兼容。 对于继承了 Exception 的来说，有这个变量并不奇怪，因为它的一层父类是实现了 Se
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-10-03 19:06" pubdate>
+              2022-10-03
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">Java</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2022/09/29/%E5%88%A9%E7%94%A8-Python-%E8%AF%A6%E7%BB%86%E8%AE%A1%E7%AE%97-Windows-%E7%9A%84%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5/" target="_self">
           <img src="https://i.imgur.com/ZpdgW6w.png" srcset="/img/loading.gif" lazyload alt="利用 Python 详细计算 Windows 的内存占用情况">
         </a>
@@ -593,52 +639,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/Windows/">Windows</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/09/09/Python-%E4%B8%AD%E7%9A%84-args-%E5%92%8C-kwargs/" target="_self">
-          <img src="https://i.imgur.com/HYe9W17.png" srcset="/img/loading.gif" lazyload alt="Python 中的 *args 和 **kwargs">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/09/09/Python-%E4%B8%AD%E7%9A%84-args-%E5%92%8C-kwargs/" target="_self">
-          Python 中的 *args 和 **kwargs
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2022/09/09/Python-%E4%B8%AD%E7%9A%84-args-%E5%92%8C-kwargs/" target="_self">
-          
-          惭愧呀，这个是新手问题。咳咳。好吧，当初看过然后忘掉了。 这个问题是很简单的，*args 是可变参数，**kwargs 是可变的键值对参数。 但是呢，我们在定义函数的时候，如果有固定的参数，那就严格遵守顺序喽。 *args 会收集多个参数，顺序的话，就按照正常的直觉来就可以，比如，如果固定参数在可变参数的后面的话，那么，固定参数传值就要使用键值对的形式。其他的就按照函数定义中的参数的顺序
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-09 17:06" pubdate>
-              2022-09-09
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Python/">Python</a>
             
           </div>
         
