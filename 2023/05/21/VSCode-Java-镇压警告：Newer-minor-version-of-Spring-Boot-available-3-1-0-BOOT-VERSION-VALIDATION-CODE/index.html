@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/HD1jBIM.png">
 <meta property="article:published_time" content="2023-05-21T06:58:28.000Z">
-<meta property="article:modified_time" content="2023-05-21T07:07:46.263Z">
+<meta property="article:modified_time" content="2023-05-21T07:14:00.150Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="VSCode">
 <meta property="article:tag" content="Java">
@@ -205,7 +205,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.4k 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10 分钟
+      12 分钟
     </span>
   
 
@@ -253,9 +253,12 @@
 <p>一开始以为是 redhat 的 xml 插件的问题，想着能不能去把 diagnostics
 给关掉，结果找半天没找到这个插件有这个配置，后面不得已才去往 springboot
 插件上找问题，结果，还真是这个插件的问题，于是，继续按关键词尝试，最后，试出了这个配置，</p>
-<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json"><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.SUPPORTED_OSS_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.UNSUPPORTED_OSS_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json"><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.UPDATE_LATEST_MINOR_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.UPDATE_LATEST_PATCH_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br></code></pre></div></td></tr></table></figure>
 <p>其实，还有几个其它的同一层级的配置，我是直接试到最后才试出来结果，索性就一起镇压了罢，</p>
-<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json"><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.UPDATE_LATEST_MAJOR_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.SUPPORTED_COMMERCIAL_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.UNSUPPORTED_COMMERCIAL_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.SUPPORTED_OSS_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.UNSUPPORTED_OSS_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;workbench.activityBar.visible&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json"><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.UPDATE_LATEST_MAJOR_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.SUPPORTED_COMMERCIAL_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.UNSUPPORTED_COMMERCIAL_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.SUPPORTED_OSS_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.UNSUPPORTED_OSS_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.UPDATE_LATEST_MINOR_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;spring-boot.ls.problem.version-validation.UPDATE_LATEST_PATCH_VERSION&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;IGNORE&quot;</span><span class="hljs-punctuation">,</span><br></code></pre></div></td></tr></table></figure>
+<p>按：今天发现 VSCode 中的 Spring 相关的插件的作者变成了
+VMWare？这是什么情况？原来似乎是 Pivot，是 Spring 还是 eclipse
+的官方组织，怎么突然变成了 VMWare？</p>
 
             </div>
             <hr>
@@ -286,6 +289,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/05/21/VSCode-Java-%E9%95%87%E5%8E%8B%E4%B8%80%E4%BA%9B%E8%AD%A6%E5%91%8A%E6%88%96%E9%94%99%E8%AF%AF%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">VSCode Java 镇压一些警告或错误的配置文件</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
