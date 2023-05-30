@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>在 vps 中运行一个 Java 的 jar 包</title>
+    <link href="/2023/05/30/%E5%9C%A8-vps-%E4%B8%AD%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AA-Java-%E7%9A%84-jar-%E5%8C%85/"/>
+    <url>/2023/05/30/%E5%9C%A8-vps-%E4%B8%AD%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AA-Java-%E7%9A%84-jar-%E5%8C%85/</url>
+    
+    <content type="html"><![CDATA[<p>今天算是把毕业设计的事情忙得差不多了。时间可以更多地分配给自己在意的事情上。</p><p>在服务器端部署一个 jar 包，其实就是一个后端项目。</p><p>如果是测试阶段，那么，我们直接使用 <code>java -jar</code>命令就可以了，比如，</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">java -jar .\memo-0.0.1-SNAPSHOT.jar<br></code></pre></div></td></tr></table></figure><p>但是这样有一个问题，因为是 ssh连接到远程的服务器，所以，一旦我们长时间不去操作，那么，服务器会自动断开连接，然后，程序就会自动终止。</p><p><img src="https://i.imgur.com/QIGlNW1.png" /></p><p>所以，我们得让这个程序在后台执行，</p><p>这里使用 <code>nohup</code> 命令就可以了，</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">nohup java -jar .\memo-0.0.1-SNAPSHOT.jar &amp;<br></code></pre></div></td></tr></table></figure><p><code>nohup</code> 就是 no hang up 的意思，不挂断。最后的<code>&amp;</code> 表示重定向。及，会将 <code>nohup</code> 和<code>&amp;</code> 之间的命令放入后台去执行，然后，命令的输入会重定向到nohup.out 文件中。</p><p>然后，需要考虑一个问题，及，我们如何去关闭这样的后台应用呢？</p><p>答案是：根据服务端口查询进程号，</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">netstat -lnp | grep 33231<br></code></pre></div></td></tr></table></figure><p>这里，<code>33231</code> 是 jar 运行占用的端口。</p><p>然后，我们再使用 <code>kill -9 33231</code> 杀掉进程即可。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>0515-0521 周读总结</title>
     <link href="/2023/05/23/0515-0521-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/"/>
     <url>/2023/05/23/0515-0521-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/</url>
