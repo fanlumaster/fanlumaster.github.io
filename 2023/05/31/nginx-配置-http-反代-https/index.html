@@ -16,23 +16,23 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="今天算是把毕业设计的事情忙得差不多了。时间可以更多地分配给自己在意的事情上。 在服务器端部署一个 jar 包，其实就是一个后端项目。 如果是测试阶段，那么，我们直接使用 java -jar 命令就可以了，比如， 1java -jar .\memo-0.0.1-SNAPSHOT.jar 但是这样有一个问题，因为是 ssh 连接到远程的服务器，所以，一旦我们长时间不去操作，那么，服务器会自">
+    <meta name="description" content="访问前端已经配置好了 ssl 证书，由于是前后端分离，而后端的接口不想去再麻烦地使用 https，所以，就利用 nginx 的反代来解决这个问题。之所以会有这个问题，是因为 https 网页中不支持 http 的请求。 12345678910111213141516171819server &amp;#123;    listen 443 ssl;    server_name fanyfull">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在 vps 中运行一个 Java 的 jar 包">
-<meta property="og:url" content="http://example.com/2023/05/30/%E5%9C%A8-vps-%E4%B8%AD%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AA-Java-%E7%9A%84-jar-%E5%8C%85/index.html">
+<meta property="og:title" content="nginx 配置 http 反代 https">
+<meta property="og:url" content="http://example.com/2023/05/31/nginx-%E9%85%8D%E7%BD%AE-http-%E5%8F%8D%E4%BB%A3-https/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="今天算是把毕业设计的事情忙得差不多了。时间可以更多地分配给自己在意的事情上。 在服务器端部署一个 jar 包，其实就是一个后端项目。 如果是测试阶段，那么，我们直接使用 java -jar 命令就可以了，比如， 1java -jar .\memo-0.0.1-SNAPSHOT.jar 但是这样有一个问题，因为是 ssh 连接到远程的服务器，所以，一旦我们长时间不去操作，那么，服务器会自">
+<meta property="og:description" content="访问前端已经配置好了 ssl 证书，由于是前后端分离，而后端的接口不想去再麻烦地使用 https，所以，就利用 nginx 的反代来解决这个问题。之所以会有这个问题，是因为 https 网页中不支持 http 的请求。 12345678910111213141516171819server &amp;#123;    listen 443 ssl;    server_name fanyfull">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/FBBP2ZF.png">
-<meta property="article:published_time" content="2023-05-30T14:25:34.000Z">
-<meta property="article:modified_time" content="2023-05-30T14:46:14.495Z">
+<meta property="og:image" content="https://i.imgur.com/j6BhYeU.png">
+<meta property="article:published_time" content="2023-05-31T02:30:08.000Z">
+<meta property="article:modified_time" content="2023-05-31T02:45:04.435Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="nginx">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/FBBP2ZF.png">
+<meta name="twitter:image" content="https://i.imgur.com/j6BhYeU.png">
   
   
-  <title>在 vps 中运行一个 Java 的 jar 包 - Fan Lu&#39;s Blog</title>
+  <title>nginx 配置 http 反代 https - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -189,12 +189,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/FBBP2ZF.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/j6BhYeU.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="在 vps 中运行一个 Java 的 jar 包">
+            <span class="h2" id="subtitle" title="nginx 配置 http 反代 https">
               
             </span>
 
@@ -204,8 +204,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2023-05-30 22:25" pubdate>
-        2023年5月30日 晚上
+      <time datetime="2023-05-31 10:30" pubdate>
+        2023年5月31日 上午
       </time>
     </span>
   
@@ -215,7 +215,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      481 字
+      1.6k 字
     </span>
   
 
@@ -224,7 +224,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5 分钟
+      14 分钟
     </span>
   
 
@@ -253,29 +253,47 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">在 vps 中运行一个 Java 的 jar 包</h1>
+            <h1 style="display: none">nginx 配置 http 反代 https</h1>
             
             <div class="markdown-body">
-              <p>今天算是把毕业设计的事情忙得差不多了。时间可以更多地分配给自己在意的事情上。</p>
-<p>在服务器端部署一个 jar 包，其实就是一个后端项目。</p>
-<p>如果是测试阶段，那么，我们直接使用 <code>java -jar</code>
-命令就可以了，比如，</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">java -jar .\memo-0.0.1-SNAPSHOT.jar<br></code></pre></div></td></tr></table></figure>
-<p>但是这样有一个问题，因为是 ssh
-连接到远程的服务器，所以，一旦我们长时间不去操作，那么，服务器会自动断开连接，然后，程序就会自动终止。</p>
-<p><img src="https://i.imgur.com/QIGlNW1.png" srcset="/img/loading.gif" lazyload /></p>
-<p>所以，我们得让这个程序在后台执行，</p>
-<p>这里使用 <code>nohup</code> 命令就可以了，</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">nohup java -jar .\memo-0.0.1-SNAPSHOT.jar &amp;<br></code></pre></div></td></tr></table></figure>
-<p><code>nohup</code> 就是 no hang up 的意思，不挂断。最后的
-<code>&amp;</code> 表示重定向。及，会将 <code>nohup</code> 和
-<code>&amp;</code> 之间的命令放入后台去执行，然后，命令的输入会重定向到
-nohup.out 文件中。</p>
-<p>然后，需要考虑一个问题，及，我们如何去关闭这样的后台应用呢？</p>
-<p>答案是：根据服务端口查询进程号，</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">netstat -lnp | grep 33231<br></code></pre></div></td></tr></table></figure>
-<p>这里，<code>33231</code> 是 jar 运行占用的端口。</p>
-<p>然后，我们再使用 <code>kill -9 33231</code> 杀掉进程即可。</p>
+              <p>访问前端已经配置好了 ssl
+证书，由于是前后端分离，而后端的接口不想去再麻烦地使用
+https，所以，就利用 nginx
+的反代来解决这个问题。之所以会有这个问题，是因为 https 网页中不支持 http
+的请求。</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">server &#123;<br>    listen <span class="hljs-number">443</span> ssl;<br>    server_name fanyfull.xyz;<br><br>    ssl_certificate <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/ssl/</span>fanyfull.xyz/fullchain.cer;<br>    ssl_certificate_key <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/ssl/</span>fanyfull.xyz/fanyfull.xyz.key;<br><br>    <span class="hljs-comment"># 配置 HTTPS 前端</span><br>    location / &#123;<br>    root <span class="hljs-regexp">/usr/</span>share<span class="hljs-regexp">/nginx/</span>frontend/;<br>        index index.html;<br>        try_files <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span><span class="hljs-regexp">/ /i</span>ndex.html;<br>    &#125;<br><br>    <span class="hljs-comment"># 配置 HTTP 后端接口</span><br>    location /api &#123;<br>        proxy_pass http:<span class="hljs-regexp">//i</span>p_address:port;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>这里，把 <code>ip_address</code> 换成实际的 ip 地址，把
+<code>port</code> 换成实际的后端的端口号。</p>
+<p>然后，前端的 base_url 我本来是有带上接口的，而经过 nginx
+这么一转换，其实是不用了，</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">VITE_BASE_URL=https:<span class="hljs-regexp">//</span>fanyfull.xyz<br></code></pre></div></td></tr></table></figure>
+<p>这样一来，例如，我在请求
+<code>https://fanyfull.xyz/api/tag/list</code> 的时候，最后实际请求的是
+<code>http://ip_address:port/api/tag/list</code>，这样，后端就不用去配置证书，就使用原本的
+http 协议就可以为前端所使用了。</p>
+<p>下面附上 chatgpt 给我的回答，</p>
+<p>要使用 Nginx 将前端访问后端接口的协议从 HTTPS 转为 HTTP，您可以使用
+Nginx 的 <code>proxy_pass</code>
+指令来实现。以下是一个示例配置，假设前端应用程序部署在 HTTPS
+上的根目录，后端接口部署在HTTP上的 <code>/api</code> 路径下：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-section">server</span> &#123;<br>    <span class="hljs-attribute">listen</span> <span class="hljs-number">443</span> ssl;<br>    <span class="hljs-attribute">server_name</span> example.com;<br><br>    <span class="hljs-attribute">ssl_certificate</span> /path/to/ssl_certificate.crt;<br>    <span class="hljs-attribute">ssl_certificate_key</span> /path/to/ssl_certificate.key;<br><br>    <span class="hljs-comment"># 配置 HTTPS 前端</span><br>    <span class="hljs-section">location</span> / &#123;<br>        <span class="hljs-attribute">root</span> /path/to/frontend;<br>        <span class="hljs-attribute">index</span> index.html;<br>        <span class="hljs-attribute">try_files</span> <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ /index.html;<br>    &#125;<br><br>    <span class="hljs-comment"># 配置 HTTP 后端接口</span><br>    <span class="hljs-section">location</span> /api &#123;<br>        <span class="hljs-attribute">proxy_pass</span> http://backend_server_ip:backend_server_port;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>请注意替换以下内容：</p>
+<ul>
+<li><code>example.com</code>：您的域名。</li>
+<li><code>/path/to/ssl_certificate.crt</code> 和
+<code>/path/to/ssl_certificate.key</code>：您的 SSL
+证书和私钥的路径。</li>
+<li><code>/path/to/frontend</code>：前端应用程序的根目录路径。</li>
+<li><code>http://backend_server_ip:backend_server_port</code>：后端接口的地址和端口。</li>
+</ul>
+<p>此配置中，Nginx 监听 443
+端口，通过HTTPS将前端应用程序提供给用户。当用户访问根目录时，Nginx将提供前端应用程序的静态文件。当用户访问
+<code>/api</code> 路径时，Nginx 将通过 <code>proxy_pass</code>
+指令将请求代理到后端接口的 HTTP 地址。</p>
+<p>确保在您的服务器上安装了
+Nginx，并使用此配置文件进行相应的更改和调整。重启 Nginx
+后，您的前端应用程序应该能够通过 HTTPS 访问，并通过 Nginx
+代理将后端接口请求转发为 HTTP。</p>
 
             </div>
             <hr>
@@ -286,7 +304,7 @@ nohup.out 文件中。</p>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                      <a class="hover-with-bg" href="/tags/nginx/">nginx</a>
                     
                   </div>
                 
@@ -303,18 +321,12 @@ nohup.out 文件中。</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/31/nginx-%E9%85%8D%E7%BD%AE-http-%E5%8F%8D%E4%BB%A3-https/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">nginx 配置 http 反代 https</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/23/0515-0521-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/">
-                        <span class="hidden-mobile">0515-0521 周读总结</span>
+                      <a href="/2023/05/30/%E5%9C%A8-vps-%E4%B8%AD%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AA-Java-%E7%9A%84-jar-%E5%8C%85/">
+                        <span class="hidden-mobile">在 vps 中运行一个 Java 的 jar 包</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -336,8 +348,8 @@ nohup.out 文件中。</p>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2023/05/30/%E5%9C%A8-vps-%E4%B8%AD%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AA-Java-%E7%9A%84-jar-%E5%8C%85/';
-          this.page.identifier = '/2023/05/30/%E5%9C%A8-vps-%E4%B8%AD%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AA-Java-%E7%9A%84-jar-%E5%8C%85/';
+          this.page.url = 'http://example.com/2023/05/31/nginx-%E9%85%8D%E7%BD%AE-http-%E5%8F%8D%E4%BB%A3-https/';
+          this.page.identifier = '/2023/05/31/nginx-%E9%85%8D%E7%BD%AE-http-%E5%8F%8D%E4%BB%A3-https/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
