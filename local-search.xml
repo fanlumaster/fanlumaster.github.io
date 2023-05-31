@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>acme.sh 给域名配置 ssl 证书</title>
+    <link href="/2023/05/31/acme-sh-%E7%BB%99%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE-ssl-%E8%AF%81%E4%B9%A6/"/>
+    <url>/2023/05/31/acme-sh-%E7%BB%99%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE-ssl-%E8%AF%81%E4%B9%A6/</url>
+    
+    <content type="html"><![CDATA[<p>我是按照官方的指南来操作的，</p><p><ahref="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E"class="uri">https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E</a></p><p>我自己再作一层通俗的我自己下次做可以节省时间的转换。</p><p>第一步，安装，</p><figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">curl https://get.acme.sh | sh -s email=my@example.com<br></code></pre></div></td></tr></table></figure><p>这里要把 email 换成自己的邮箱。有用。</p><p>第二步，激活一下 <code>.bashrc</code> 或者<code>.zshrc</code>，这里以 <code>.bashrc</code> 为例，</p><figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh"><span class="hljs-built_in">source</span> ~/.bashrc<br></code></pre></div></td></tr></table></figure><p>第三步，生成证书，</p><figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">acme.sh --issue -d mydomain.com --nginx<br></code></pre></div></td></tr></table></figure><p>这里把域名换成自己的就可以，我这里因为是使用的nginx，所以对其它的方式就不去赘述。</p><p>第四步，copy/安装证书，其实就是执行以下的命令，我这里给出我自己实际使用的命令作为例子，</p><figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">acme.sh --install-cert -d fanyfull.xyz \<br>--key-file       /etc/nginx/ssl/fanyfull.xyz/fanyfull.xyz.key \<br>--fullchain-file /etc/nginx/ssl/fanyfull.xyz/fullchain.cer \<br>--reloadcmd     <span class="hljs-string">&quot;service nginx force-reload&quot;</span><br></code></pre></div></td></tr></table></figure><p>其实就是把相应的文件复制到 <code>/etc/nginx/ssl/fanyfull.xyz/</code>这个位置。</p><p>之后在 nginx的配置文件中配置(<code>/etc/nginx/nginx.conf</code>)即可，</p><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">server &#123;<br>    listen <span class="hljs-number">443</span> ssl;<br>    server_name fanyfull.xyz;<br><br>    ssl_certificate <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/ssl/</span>fanyfull.xyz/fullchain.cer;<br>    ssl_certificate_key <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/ssl/</span>fanyfull.xyz/fanyfull.xyz.key;<br><br>    <span class="hljs-comment"># 配置 HTTPS 前端</span><br>    location / &#123;<br>    root <span class="hljs-regexp">/usr/</span>share<span class="hljs-regexp">/nginx/</span>frontend/;<br>        index index.html;<br>        try_files <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span><span class="hljs-regexp">/ /i</span>ndex.html;<br>    &#125;<br><br>    <span class="hljs-comment"># 配置 HTTP 后端接口</span><br>    location /api &#123;<br>        proxy_pass http:<span class="hljs-regexp">//i</span>p_address:port;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure><p>主要是以下的部分，</p><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">listen <span class="hljs-number">443</span> ssl;<br>server_name fanyfull.xyz;<br><br>ssl_certificate <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/ssl/</span>fanyfull.xyz/fullchain.cer;<br>ssl_certificate_key <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/ssl/</span>fanyfull.xyz/fanyfull.xyz.key;<br></code></pre></div></td></tr></table></figure><p>这是单独的另一个 server 配置。</p><p>在配置好之后，我们使用 https 来访问网页，</p><p><a href="https://fanyfull.xyz"class="uri">https://fanyfull.xyz</a></p><p><img src="https://i.imgur.com/jNJJXU5.png" /></p><p>由于这里并没有强制把 http 转发成 https，所以，http其实在这个时候也还是可以访问的，</p><p><img src="https://i.imgur.com/k8ORTpt.png" /></p><p>这里地址栏就没有安全的小锁了，还会报不安全，真·是·丑陋！</p><p>如果是未登录的状态，就是下面这个样子，</p><p><img src="https://i.imgur.com/ZOjstO5.png" /></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>网站</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>MySQL 调整时区</title>
+    <link href="/2023/05/31/MySQL-%E8%B0%83%E6%95%B4%E6%97%B6%E5%8C%BA/"/>
+    <url>/2023/05/31/MySQL-%E8%B0%83%E6%95%B4%E6%97%B6%E5%8C%BA/</url>
+    
+    <content type="html"><![CDATA[<p>在 Ubuntu 20.04 中，使用 MySQL 的时间出了问题。</p><p>先是在终端的 mysql 中使用 <code>select now();</code>看一下时间，好像是慢了 7 个小时，这个服务器物理位置是在纽约，用的是BST，英国夏令时。而我在 spring boot 里面的时区配置写的是<code>Asia/Shanghai</code>，我就想在 <code>/etc/mysql/my.cnf</code>中也把时区换成上海，换了之后，可能是格式的问题，后面连 mysql都无法重启，这个也让我排查了半天。真是的。</p><p>后面索性就硬编码吧，把时间的差值计算一下，然后，直接在<code>/etc/mysql/my.cnf</code> 中把时区的设置写死，</p><figure class="highlight ini"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ini"><span class="hljs-section">[mysqld]</span><br><span class="hljs-attr">default-time-zone</span>=<span class="hljs-string">&#x27;+08:00&#x27;</span><br></code></pre></div></td></tr></table></figure><p>这一下，在时间这一块是不出什么问题了。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>MySQL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>nginx 配置 http 反代 https</title>
     <link href="/2023/05/31/nginx-%E9%85%8D%E7%BD%AE-http-%E5%8F%8D%E4%BB%A3-https/"/>
     <url>/2023/05/31/nginx-%E9%85%8D%E7%BD%AE-http-%E5%8F%8D%E4%BB%A3-https/</url>

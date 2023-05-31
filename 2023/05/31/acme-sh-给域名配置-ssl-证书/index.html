@@ -16,23 +16,23 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="访问前端已经配置好了 ssl 证书，由于是前后端分离，而后端的接口不想去再麻烦地使用 https，所以，就利用 nginx 的反代来解决这个问题。之所以会有这个问题，是因为 https 网页中不支持 http 的请求。 12345678910111213141516171819server &amp;#123;    listen 443 ssl;    server_name fanyfull">
+    <meta name="description" content="我是按照官方的指南来操作的， https:&#x2F;&#x2F;github.com&#x2F;acmesh-official&#x2F;acme.sh&#x2F;wiki&#x2F;%E8%AF%B4%E6%98%8E 我自己再作一层通俗的我自己下次做可以节省时间的转换。 第一步，安装， 1curl https:&#x2F;&#x2F;get.acme.sh | sh -s email&#x3D;my@example.com 这里要把 email 换成自己的邮箱。有用。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nginx 配置 http 反代 https">
-<meta property="og:url" content="http://example.com/2023/05/31/nginx-%E9%85%8D%E7%BD%AE-http-%E5%8F%8D%E4%BB%A3-https/index.html">
+<meta property="og:title" content="acme.sh 给域名配置 ssl 证书">
+<meta property="og:url" content="http://example.com/2023/05/31/acme-sh-%E7%BB%99%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE-ssl-%E8%AF%81%E4%B9%A6/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="访问前端已经配置好了 ssl 证书，由于是前后端分离，而后端的接口不想去再麻烦地使用 https，所以，就利用 nginx 的反代来解决这个问题。之所以会有这个问题，是因为 https 网页中不支持 http 的请求。 12345678910111213141516171819server &amp;#123;    listen 443 ssl;    server_name fanyfull">
+<meta property="og:description" content="我是按照官方的指南来操作的， https:&#x2F;&#x2F;github.com&#x2F;acmesh-official&#x2F;acme.sh&#x2F;wiki&#x2F;%E8%AF%B4%E6%98%8E 我自己再作一层通俗的我自己下次做可以节省时间的转换。 第一步，安装， 1curl https:&#x2F;&#x2F;get.acme.sh | sh -s email&#x3D;my@example.com 这里要把 email 换成自己的邮箱。有用。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/j6BhYeU.png">
-<meta property="article:published_time" content="2023-05-31T02:30:08.000Z">
-<meta property="article:modified_time" content="2023-05-31T02:45:04.435Z">
+<meta property="og:image" content="https://i.imgur.com/zMm6QM2.png">
+<meta property="article:published_time" content="2023-05-31T03:02:31.000Z">
+<meta property="article:modified_time" content="2023-05-31T03:28:44.098Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="网站">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/j6BhYeU.png">
+<meta name="twitter:image" content="https://i.imgur.com/zMm6QM2.png">
   
   
-  <title>nginx 配置 http 反代 https - Fan Lu&#39;s Blog</title>
+  <title>acme.sh 给域名配置 ssl 证书 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -189,12 +189,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/j6BhYeU.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/zMm6QM2.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="nginx 配置 http 反代 https">
+            <span class="h2" id="subtitle" title="acme.sh 给域名配置 ssl 证书">
               
             </span>
 
@@ -204,7 +204,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2023-05-31 10:30" pubdate>
+      <time datetime="2023-05-31 11:02" pubdate>
         2023年5月31日 上午
       </time>
     </span>
@@ -215,7 +215,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      1.4k 字
     </span>
   
 
@@ -224,7 +224,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14 分钟
+      12 分钟
     </span>
   
 
@@ -253,47 +253,44 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">nginx 配置 http 反代 https</h1>
+            <h1 style="display: none">acme.sh 给域名配置 ssl 证书</h1>
             
             <div class="markdown-body">
-              <p>访问前端已经配置好了 ssl
-证书，由于是前后端分离，而后端的接口不想去再麻烦地使用
-https，所以，就利用 nginx
-的反代来解决这个问题。之所以会有这个问题，是因为 https 网页中不支持 http
-的请求。</p>
+              <p>我是按照官方的指南来操作的，</p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E"
+class="uri">https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E</a></p>
+<p>我自己再作一层通俗的我自己下次做可以节省时间的转换。</p>
+<p>第一步，安装，</p>
+<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">curl https://get.acme.sh | sh -s email=my@example.com<br></code></pre></div></td></tr></table></figure>
+<p>这里要把 email 换成自己的邮箱。有用。</p>
+<p>第二步，激活一下 <code>.bashrc</code> 或者
+<code>.zshrc</code>，这里以 <code>.bashrc</code> 为例，</p>
+<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh"><span class="hljs-built_in">source</span> ~/.bashrc<br></code></pre></div></td></tr></table></figure>
+<p>第三步，生成证书，</p>
+<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">acme.sh --issue -d mydomain.com --nginx<br></code></pre></div></td></tr></table></figure>
+<p>这里把域名换成自己的就可以，我这里因为是使用的
+nginx，所以对其它的方式就不去赘述。</p>
+<p>第四步，copy/安装证书，其实就是执行以下的命令，我这里给出我自己实际使用的命令作为例子，</p>
+<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">acme.sh --install-cert -d fanyfull.xyz \<br>--key-file       /etc/nginx/ssl/fanyfull.xyz/fanyfull.xyz.key \<br>--fullchain-file /etc/nginx/ssl/fanyfull.xyz/fullchain.cer \<br>--reloadcmd     <span class="hljs-string">&quot;service nginx force-reload&quot;</span><br></code></pre></div></td></tr></table></figure>
+<p>其实就是把相应的文件复制到 <code>/etc/nginx/ssl/fanyfull.xyz/</code>
+这个位置。</p>
+<p>之后在 nginx
+的配置文件中配置(<code>/etc/nginx/nginx.conf</code>)即可，</p>
 <figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">server &#123;<br>    listen <span class="hljs-number">443</span> ssl;<br>    server_name fanyfull.xyz;<br><br>    ssl_certificate <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/ssl/</span>fanyfull.xyz/fullchain.cer;<br>    ssl_certificate_key <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/ssl/</span>fanyfull.xyz/fanyfull.xyz.key;<br><br>    <span class="hljs-comment"># 配置 HTTPS 前端</span><br>    location / &#123;<br>    root <span class="hljs-regexp">/usr/</span>share<span class="hljs-regexp">/nginx/</span>frontend/;<br>        index index.html;<br>        try_files <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span><span class="hljs-regexp">/ /i</span>ndex.html;<br>    &#125;<br><br>    <span class="hljs-comment"># 配置 HTTP 后端接口</span><br>    location /api &#123;<br>        proxy_pass http:<span class="hljs-regexp">//i</span>p_address:port;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<p>这里，把 <code>ip_address</code> 换成实际的 ip 地址，把
-<code>port</code> 换成实际的后端的端口号。</p>
-<p>然后，前端的 base_url 我本来是有带上接口的，而经过 nginx
-这么一转换，其实是不用了，</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">VITE_BASE_URL=https:<span class="hljs-regexp">//</span>fanyfull.xyz<br></code></pre></div></td></tr></table></figure>
-<p>这样一来，例如，我在请求
-<code>https://fanyfull.xyz/api/tag/list</code> 的时候，最后实际请求的是
-<code>http://ip_address:port/api/tag/list</code>，这样，后端就不用去配置证书，就使用原本的
-http 协议就可以为前端所使用了。</p>
-<p>下面附上 chatgpt 给我的回答，</p>
-<p>要使用 Nginx 将前端访问后端接口的协议从 HTTPS 转为 HTTP，您可以使用
-Nginx 的 <code>proxy_pass</code>
-指令来实现。以下是一个示例配置，假设前端应用程序部署在 HTTPS
-上的根目录，后端接口部署在HTTP上的 <code>/api</code> 路径下：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-section">server</span> &#123;<br>    <span class="hljs-attribute">listen</span> <span class="hljs-number">443</span> ssl;<br>    <span class="hljs-attribute">server_name</span> example.com;<br><br>    <span class="hljs-attribute">ssl_certificate</span> /path/to/ssl_certificate.crt;<br>    <span class="hljs-attribute">ssl_certificate_key</span> /path/to/ssl_certificate.key;<br><br>    <span class="hljs-comment"># 配置 HTTPS 前端</span><br>    <span class="hljs-section">location</span> / &#123;<br>        <span class="hljs-attribute">root</span> /path/to/frontend;<br>        <span class="hljs-attribute">index</span> index.html;<br>        <span class="hljs-attribute">try_files</span> <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span>/ /index.html;<br>    &#125;<br><br>    <span class="hljs-comment"># 配置 HTTP 后端接口</span><br>    <span class="hljs-section">location</span> /api &#123;<br>        <span class="hljs-attribute">proxy_pass</span> http://backend_server_ip:backend_server_port;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<p>请注意替换以下内容：</p>
-<ul>
-<li><code>example.com</code>：您的域名。</li>
-<li><code>/path/to/ssl_certificate.crt</code> 和
-<code>/path/to/ssl_certificate.key</code>：您的 SSL
-证书和私钥的路径。</li>
-<li><code>/path/to/frontend</code>：前端应用程序的根目录路径。</li>
-<li><code>http://backend_server_ip:backend_server_port</code>：后端接口的地址和端口。</li>
-</ul>
-<p>此配置中，Nginx 监听 443
-端口，通过HTTPS将前端应用程序提供给用户。当用户访问根目录时，Nginx将提供前端应用程序的静态文件。当用户访问
-<code>/api</code> 路径时，Nginx 将通过 <code>proxy_pass</code>
-指令将请求代理到后端接口的 HTTP 地址。</p>
-<p>确保在您的服务器上安装了
-Nginx，并使用此配置文件进行相应的更改和调整。重启 Nginx
-后，您的前端应用程序应该能够通过 HTTPS 访问，并通过 Nginx
-代理将后端接口请求转发为 HTTP。</p>
+<p>主要是以下的部分，</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">listen <span class="hljs-number">443</span> ssl;<br>server_name fanyfull.xyz;<br><br>ssl_certificate <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/ssl/</span>fanyfull.xyz/fullchain.cer;<br>ssl_certificate_key <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/ssl/</span>fanyfull.xyz/fanyfull.xyz.key;<br></code></pre></div></td></tr></table></figure>
+<p>这是单独的另一个 server 配置。</p>
+<p>在配置好之后，我们使用 https 来访问网页，</p>
+<p><a target="_blank" rel="noopener" href="https://fanyfull.xyz"
+class="uri">https://fanyfull.xyz</a></p>
+<p><img src="https://i.imgur.com/jNJJXU5.png" srcset="/img/loading.gif" lazyload /></p>
+<p>由于这里并没有强制把 http 转发成 https，所以，http
+其实在这个时候也还是可以访问的，</p>
+<p><img src="https://i.imgur.com/k8ORTpt.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这里地址栏就没有安全的小锁了，还会报不安全，真·是·丑陋！</p>
+<p>如果是未登录的状态，就是下面这个样子，</p>
+<p><img src="https://i.imgur.com/ZOjstO5.png" srcset="/img/loading.gif" lazyload /></p>
 
             </div>
             <hr>
@@ -304,7 +301,7 @@ Nginx，并使用此配置文件进行相应的更改和调整。重启 Nginx
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/nginx/">nginx</a>
+                      <a class="hover-with-bg" href="/tags/%E7%BD%91%E7%AB%99/">网站</a>
                     
                   </div>
                 
@@ -321,18 +318,12 @@ Nginx，并使用此配置文件进行相应的更改和调整。重启 Nginx
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/31/MySQL-%E8%B0%83%E6%95%B4%E6%97%B6%E5%8C%BA/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">MySQL 调整时区</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/30/%E5%9C%A8-vps-%E4%B8%AD%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AA-Java-%E7%9A%84-jar-%E5%8C%85/">
-                        <span class="hidden-mobile">在 vps 中运行一个 Java 的 jar 包</span>
+                      <a href="/2023/05/31/MySQL-%E8%B0%83%E6%95%B4%E6%97%B6%E5%8C%BA/">
+                        <span class="hidden-mobile">MySQL 调整时区</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -354,8 +345,8 @@ Nginx，并使用此配置文件进行相应的更改和调整。重启 Nginx
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2023/05/31/nginx-%E9%85%8D%E7%BD%AE-http-%E5%8F%8D%E4%BB%A3-https/';
-          this.page.identifier = '/2023/05/31/nginx-%E9%85%8D%E7%BD%AE-http-%E5%8F%8D%E4%BB%A3-https/';
+          this.page.url = 'http://example.com/2023/05/31/acme-sh-%E7%BB%99%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE-ssl-%E8%AF%81%E4%B9%A6/';
+          this.page.identifier = '/2023/05/31/acme-sh-%E7%BB%99%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE-ssl-%E8%AF%81%E4%B9%A6/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
