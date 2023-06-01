@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>关于 cloudflare 让 nginx 反代失效的问题</title>
+    <link href="/2023/06/02/%E5%85%B3%E4%BA%8E-cloudflare-%E8%AE%A9-nginx-%E5%8F%8D%E4%BB%A3%E5%A4%B1%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <url>/2023/06/02/%E5%85%B3%E4%BA%8E-cloudflare-%E8%AE%A9-nginx-%E5%8F%8D%E4%BB%A3%E5%A4%B1%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p>下午换了一个域名，首先是换了一个域名供应商。之前的域名出了一点问题。这一次选择的是namesilo，但是选择这个域名的话，那么，会相应地出现一个问题，那就是这个域名供应商自己默认锁提供的域名解析服务器是不好用的，速度很慢，解析经常出问题。</p><p>关于这个问题，已经有成熟的解决方案，那就是把域名解析服务交给cloudflare。</p><p>我在使用了 cf的服务之后，域名是可以正常解析了，但是，在实际访问网站的过程中，我把https 映射到 http 的 nginx 配置失效了，排查了半天，原以为是 nginx的配置出了问题。后来终于排查到 cf，是 cf 的 dns服务的代理状态出了问题。它默认的状态似乎是全权代理，我们这里需要把它修改成<strong>仅DNS</strong>，</p><p><img src="https://i.imgur.com/wToMdQv.png" /></p><p>这样，cf 就只作 dns 解析的服务，而对其它的 https不作处理，也就是会交给 nginx 来处理，这样一来，问题就解决了。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>nginx</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>acme.sh 给域名配置 ssl 证书</title>
     <link href="/2023/05/31/acme-sh-%E7%BB%99%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE-ssl-%E8%AF%81%E4%B9%A6/"/>
     <url>/2023/05/31/acme-sh-%E7%BB%99%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE-ssl-%E8%AF%81%E4%B9%A6/</url>

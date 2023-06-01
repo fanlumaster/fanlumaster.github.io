@@ -16,23 +16,23 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="我是按照官方的指南来操作的， https:&#x2F;&#x2F;github.com&#x2F;acmesh-official&#x2F;acme.sh&#x2F;wiki&#x2F;%E8%AF%B4%E6%98%8E 我自己再作一层通俗的我自己下次做可以节省时间的转换。 第一步，安装， 1curl https:&#x2F;&#x2F;get.acme.sh | sh -s email&#x3D;my@example.com 这里要把 email 换成自己的邮箱。有用。">
+    <meta name="description" content="下午换了一个域名，首先是换了一个域名供应商。之前的域名出了一点问题。这一次选择的是 namesilo，但是选择这个域名的话，那么，会相应地出现一个问题，那就是这个域名供应商自己默认锁提供的域名解析服务器是不好用的，速度很慢，解析经常出问题。 关于这个问题，已经有成熟的解决方案，那就是把域名解析服务交给 cloudflare。 我在使用了 cf 的服务之后，域名是可以正常解析了，但是，在实">
 <meta property="og:type" content="article">
-<meta property="og:title" content="acme.sh 给域名配置 ssl 证书">
-<meta property="og:url" content="http://example.com/2023/05/31/acme-sh-%E7%BB%99%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE-ssl-%E8%AF%81%E4%B9%A6/index.html">
+<meta property="og:title" content="关于 cloudflare 让 nginx 反代失效的问题">
+<meta property="og:url" content="http://example.com/2023/06/02/%E5%85%B3%E4%BA%8E-cloudflare-%E8%AE%A9-nginx-%E5%8F%8D%E4%BB%A3%E5%A4%B1%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="我是按照官方的指南来操作的， https:&#x2F;&#x2F;github.com&#x2F;acmesh-official&#x2F;acme.sh&#x2F;wiki&#x2F;%E8%AF%B4%E6%98%8E 我自己再作一层通俗的我自己下次做可以节省时间的转换。 第一步，安装， 1curl https:&#x2F;&#x2F;get.acme.sh | sh -s email&#x3D;my@example.com 这里要把 email 换成自己的邮箱。有用。">
+<meta property="og:description" content="下午换了一个域名，首先是换了一个域名供应商。之前的域名出了一点问题。这一次选择的是 namesilo，但是选择这个域名的话，那么，会相应地出现一个问题，那就是这个域名供应商自己默认锁提供的域名解析服务器是不好用的，速度很慢，解析经常出问题。 关于这个问题，已经有成熟的解决方案，那就是把域名解析服务交给 cloudflare。 我在使用了 cf 的服务之后，域名是可以正常解析了，但是，在实">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/zMm6QM2.png">
-<meta property="article:published_time" content="2023-05-31T03:02:31.000Z">
-<meta property="article:modified_time" content="2023-05-31T03:28:44.098Z">
+<meta property="og:image" content="https://i.imgur.com/Ee3l34p.png">
+<meta property="article:published_time" content="2023-06-01T16:58:03.000Z">
+<meta property="article:modified_time" content="2023-06-01T17:09:21.823Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="网站">
+<meta property="article:tag" content="nginx">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/zMm6QM2.png">
+<meta name="twitter:image" content="https://i.imgur.com/Ee3l34p.png">
   
   
-  <title>acme.sh 给域名配置 ssl 证书 - Fan Lu&#39;s Blog</title>
+  <title>关于 cloudflare 让 nginx 反代失效的问题 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -189,12 +189,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/zMm6QM2.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/Ee3l34p.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="acme.sh 给域名配置 ssl 证书">
+            <span class="h2" id="subtitle" title="关于 cloudflare 让 nginx 反代失效的问题">
               
             </span>
 
@@ -204,8 +204,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2023-05-31 11:02" pubdate>
-        2023年5月31日 上午
+      <time datetime="2023-06-02 00:58" pubdate>
+        2023年6月2日 凌晨
       </time>
     </span>
   
@@ -215,7 +215,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.4k 字
+      366 字
     </span>
   
 
@@ -224,7 +224,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12 分钟
+      4 分钟
     </span>
   
 
@@ -253,44 +253,22 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">acme.sh 给域名配置 ssl 证书</h1>
+            <h1 style="display: none">关于 cloudflare 让 nginx 反代失效的问题</h1>
             
             <div class="markdown-body">
-              <p>我是按照官方的指南来操作的，</p>
-<p><a
-target="_blank" rel="noopener" href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E"
-class="uri">https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E</a></p>
-<p>我自己再作一层通俗的我自己下次做可以节省时间的转换。</p>
-<p>第一步，安装，</p>
-<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">curl https://get.acme.sh | sh -s email=my@example.com<br></code></pre></div></td></tr></table></figure>
-<p>这里要把 email 换成自己的邮箱。有用。</p>
-<p>第二步，激活一下 <code>.bashrc</code> 或者
-<code>.zshrc</code>，这里以 <code>.bashrc</code> 为例，</p>
-<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh"><span class="hljs-built_in">source</span> ~/.bashrc<br></code></pre></div></td></tr></table></figure>
-<p>第三步，生成证书，</p>
-<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">acme.sh --issue -d mydomain.com --nginx<br></code></pre></div></td></tr></table></figure>
-<p>这里把域名换成自己的就可以，我这里因为是使用的
-nginx，所以对其它的方式就不去赘述。</p>
-<p>第四步，copy/安装证书，其实就是执行以下的命令，我这里给出我自己实际使用的命令作为例子，</p>
-<figure class="highlight sh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sh">acme.sh --install-cert -d fanyfull.xyz \<br>--key-file       /etc/nginx/ssl/fanyfull.xyz/fanyfull.xyz.key \<br>--fullchain-file /etc/nginx/ssl/fanyfull.xyz/fullchain.cer \<br>--reloadcmd     <span class="hljs-string">&quot;service nginx force-reload&quot;</span><br></code></pre></div></td></tr></table></figure>
-<p>其实就是把相应的文件复制到 <code>/etc/nginx/ssl/fanyfull.xyz/</code>
-这个位置。</p>
-<p>之后在 nginx
-的配置文件中配置(<code>/etc/nginx/nginx.conf</code>)即可，</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">server &#123;<br>    listen <span class="hljs-number">443</span> ssl;<br>    server_name fanyfull.xyz;<br><br>    ssl_certificate <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/ssl/</span>fanyfull.xyz/fullchain.cer;<br>    ssl_certificate_key <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/ssl/</span>fanyfull.xyz/fanyfull.xyz.key;<br><br>    <span class="hljs-comment"># 配置 HTTPS 前端</span><br>    location / &#123;<br>    root <span class="hljs-regexp">/usr/</span>share<span class="hljs-regexp">/nginx/</span>frontend/;<br>        index index.html;<br>        try_files <span class="hljs-variable">$uri</span> <span class="hljs-variable">$uri</span><span class="hljs-regexp">/ /i</span>ndex.html;<br>    &#125;<br><br>    <span class="hljs-comment"># 配置 HTTP 后端接口</span><br>    location /api &#123;<br>        proxy_pass http:<span class="hljs-regexp">//i</span>p_address:port;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<p>主要是以下的部分，</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">listen <span class="hljs-number">443</span> ssl;<br>server_name fanyfull.xyz;<br><br>ssl_certificate <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/ssl/</span>fanyfull.xyz/fullchain.cer;<br>ssl_certificate_key <span class="hljs-regexp">/etc/</span>nginx<span class="hljs-regexp">/ssl/</span>fanyfull.xyz/fanyfull.xyz.key;<br></code></pre></div></td></tr></table></figure>
-<p>这是单独的另一个 server 配置。</p>
-<p>在配置好之后，我们使用 https 来访问网页，</p>
-<p><a target="_blank" rel="noopener" href="https://fanyfull.xyz"
-class="uri">https://fanyfull.xyz</a></p>
-<p><img src="https://i.imgur.com/jNJJXU5.png" srcset="/img/loading.gif" lazyload /></p>
-<p>由于这里并没有强制把 http 转发成 https，所以，http
-其实在这个时候也还是可以访问的，</p>
-<p><img src="https://i.imgur.com/k8ORTpt.png" srcset="/img/loading.gif" lazyload /></p>
-<p>这里地址栏就没有安全的小锁了，还会报不安全，真·是·丑陋！</p>
-<p>如果是未登录的状态，就是下面这个样子，</p>
-<p><img src="https://i.imgur.com/ZOjstO5.png" srcset="/img/loading.gif" lazyload /></p>
+              <p>下午换了一个域名，首先是换了一个域名供应商。之前的域名出了一点问题。这一次选择的是
+namesilo，但是选择这个域名的话，那么，会相应地出现一个问题，那就是这个域名供应商自己默认锁提供的域名解析服务器是不好用的，速度很慢，解析经常出问题。</p>
+<p>关于这个问题，已经有成熟的解决方案，那就是把域名解析服务交给
+cloudflare。</p>
+<p>我在使用了 cf
+的服务之后，域名是可以正常解析了，但是，在实际访问网站的过程中，我把
+https 映射到 http 的 nginx 配置失效了，排查了半天，原以为是 nginx
+的配置出了问题。后来终于排查到 cf，是 cf 的 dns
+服务的代理状态出了问题。它默认的状态似乎是全权代理，我们这里需要把它修改成<strong>仅
+DNS</strong>，</p>
+<p><img src="https://i.imgur.com/wToMdQv.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这样，cf 就只作 dns 解析的服务，而对其它的 https
+不作处理，也就是会交给 nginx 来处理，这样一来，问题就解决了。</p>
 
             </div>
             <hr>
@@ -301,7 +279,7 @@ class="uri">https://fanyfull.xyz</a></p>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%BD%91%E7%AB%99/">网站</a>
+                      <a class="hover-with-bg" href="/tags/nginx/">nginx</a>
                     
                   </div>
                 
@@ -318,18 +296,12 @@ class="uri">https://fanyfull.xyz</a></p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/02/%E5%85%B3%E4%BA%8E-cloudflare-%E8%AE%A9-nginx-%E5%8F%8D%E4%BB%A3%E5%A4%B1%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">关于 cloudflare 让 nginx 反代失效的问题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/31/MySQL-%E8%B0%83%E6%95%B4%E6%97%B6%E5%8C%BA/">
-                        <span class="hidden-mobile">MySQL 调整时区</span>
+                      <a href="/2023/05/31/acme-sh-%E7%BB%99%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE-ssl-%E8%AF%81%E4%B9%A6/">
+                        <span class="hidden-mobile">acme.sh 给域名配置 ssl 证书</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -351,8 +323,8 @@ class="uri">https://fanyfull.xyz</a></p>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2023/05/31/acme-sh-%E7%BB%99%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE-ssl-%E8%AF%81%E4%B9%A6/';
-          this.page.identifier = '/2023/05/31/acme-sh-%E7%BB%99%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE-ssl-%E8%AF%81%E4%B9%A6/';
+          this.page.url = 'http://example.com/2023/06/02/%E5%85%B3%E4%BA%8E-cloudflare-%E8%AE%A9-nginx-%E5%8F%8D%E4%BB%A3%E5%A4%B1%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/';
+          this.page.identifier = '/2023/06/02/%E5%85%B3%E4%BA%8E-cloudflare-%E8%AE%A9-nginx-%E5%8F%8D%E4%BB%A3%E5%A4%B1%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
