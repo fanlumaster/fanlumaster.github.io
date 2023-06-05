@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>Disqus 去除 reactions</title>
+    <link href="/2023/06/05/Disqus-%E5%8E%BB%E9%99%A4-reactions/"/>
+    <url>/2023/06/05/Disqus-%E5%8E%BB%E9%99%A4-reactions/</url>
+    
+    <content type="html"><![CDATA[<p>默认的情况下，我在博客里面使用的评论插件 disqus 它是带有 reactions的，那个东西做得太丑啦！一个点赞的符号做得那么大，占据那么大的空间，很没道理。</p><p>还美其名曰：</p><blockquote><p>What do you think?</p></blockquote><p>谁要你 think 呀？</p><p>所以，还是想办法把它去掉好了。之前没有时间搞，最近时间空出来了，就搞一搞好了。</p><p>一开始试了 css 里面把相关的 html部件给隐藏掉，结果是不行的。所以去找官方的开关，是在这个文章里有介绍，</p><p><a href="https://help.disqus.com/en/articles/2199501-reactions"class="uri">https://help.disqus.com/en/articles/2199501-reactions</a></p><p>然后根据指示，进入我的设置页面，</p><p><ahref="https://https-fanlumaster-github-io.disqus.com/admin/settings/reactions/"class="uri">https://https-fanlumaster-github-io.disqus.com/admin/settings/reactions/</a></p><p>把那个 reaction 的设置给 disable 掉就好了。</p><p>现在这个底部的评论的部分清爽多了，</p><p><img src="https://i.imgur.com/Mr5Wh5C.png" /></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>博客</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>关于 cloudflare 让 nginx 反代失效的问题</title>
     <link href="/2023/06/02/%E5%85%B3%E4%BA%8E-cloudflare-%E8%AE%A9-nginx-%E5%8F%8D%E4%BB%A3%E5%A4%B1%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <url>/2023/06/02/%E5%85%B3%E4%BA%8E-cloudflare-%E8%AE%A9-nginx-%E5%8F%8D%E4%BB%A3%E5%A4%B1%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/</url>
