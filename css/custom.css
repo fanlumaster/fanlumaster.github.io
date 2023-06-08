@@ -25,5 +25,21 @@ pre code {
 }
 
 #navbar {
-  transition: all 0.25s;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.navbar .nav-item .nav-link {
+    display: block;
+    color: var(--navbar-text-color);
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.navbar .nav-item .nav-link i {
+    font-size: 1rem;
+}
+
+.nav-item {
+  /* margin-left: auto;
+  margin-right: auto; */
 }
