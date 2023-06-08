@@ -18,3 +18,12 @@ pre code {
 ::-webkit-scrollbar-thumb {
   border-radius: 0px;
 }
+
+/* 设置一个属性来隐藏顶部的导航栏 */
+.nav-hidden {
+  display: none;
+}
+
+#navbar {
+  transition: all 0.25s;
+}
