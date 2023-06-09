@@ -16,23 +16,23 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="hexo-fluid 这个主题本身提供了一个显示更新日期的方式，但是，它不满足我的要求，它并不是制作一个类似于创建日期一样的 html 小部件在标题的下面，而是使用了一个类似于标题一样的样式嵌在了文章的身体里面，这样子是很丑的，效果和底部的版权声明是类似的，  实际上，我想要的是直接在标题的创建时间这个信息的旁边添加一个更新的时间就可以了。 这个需求无法通过 fluid 自带的配置来">
+    <meta name="description" content="这个问题可以通过自定义 js 脚本来解决，无侵入式修改。而 hexo-fluid 配置自定义的 js 文件也是比较轻松的，文档里面写得是比较清晰的，我们在 fluid 的主题配置文件里面指定一下自定义的 js 文件即可，  为了同时拥有动画效果，我们也得指定一下 css 文件，做法和上面是一样的，然后具体创建(如果原来没有的话)修改两个文件，一个是 js 文件，我们通过在网页中查看这个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何给 hexo-fluid 主题的博客文章添加更新的时间信息">
-<meta property="og:url" content="http://example.com/2023/06/09/%E5%A6%82%E4%BD%95%E7%BB%99-hexo-fluid-%E4%B8%BB%E9%A2%98%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E6%9B%B4%E6%96%B0%E7%9A%84%E6%97%B6%E9%97%B4%E4%BF%A1%E6%81%AF/index.html">
+<meta property="og:title" content="hexo-fluid 配置导航栏在页面滚动时自动显隐">
+<meta property="og:url" content="http://example.com/2023/06/09/hexo-fluid-%E9%85%8D%E7%BD%AE%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%9C%A8%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E6%97%B6%E8%87%AA%E5%8A%A8%E6%98%BE%E9%9A%90/index.html">
 <meta property="og:site_name" content="Fan Lu&#39;s Blog">
-<meta property="og:description" content="hexo-fluid 这个主题本身提供了一个显示更新日期的方式，但是，它不满足我的要求，它并不是制作一个类似于创建日期一样的 html 小部件在标题的下面，而是使用了一个类似于标题一样的样式嵌在了文章的身体里面，这样子是很丑的，效果和底部的版权声明是类似的，  实际上，我想要的是直接在标题的创建时间这个信息的旁边添加一个更新的时间就可以了。 这个需求无法通过 fluid 自带的配置来">
+<meta property="og:description" content="这个问题可以通过自定义 js 脚本来解决，无侵入式修改。而 hexo-fluid 配置自定义的 js 文件也是比较轻松的，文档里面写得是比较清晰的，我们在 fluid 的主题配置文件里面指定一下自定义的 js 文件即可，  为了同时拥有动画效果，我们也得指定一下 css 文件，做法和上面是一样的，然后具体创建(如果原来没有的话)修改两个文件，一个是 js 文件，我们通过在网页中查看这个">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/ciFbyXZ.png">
-<meta property="article:published_time" content="2023-06-09T13:50:06.000Z">
-<meta property="article:modified_time" content="2023-06-09T14:15:41.663Z">
+<meta property="og:image" content="https://i.imgur.com/9a6j7N2.png">
+<meta property="article:published_time" content="2023-06-09T14:57:38.000Z">
+<meta property="article:modified_time" content="2023-06-09T15:08:25.417Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="博客">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/ciFbyXZ.png">
+<meta name="twitter:image" content="https://i.imgur.com/9a6j7N2.png">
   
   
-  <title>如何给 hexo-fluid 主题的博客文章添加更新的时间信息 - Fan Lu&#39;s Blog</title>
+  <title>hexo-fluid 配置导航栏在页面滚动时自动显隐 - Fan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -214,12 +214,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/ciFbyXZ.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/9a6j7N2.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="如何给 hexo-fluid 主题的博客文章添加更新的时间信息">
+            <span class="h2" id="subtitle" title="hexo-fluid 配置导航栏在页面滚动时自动显隐">
               
             </span>
 
@@ -229,9 +229,9 @@
       
         <span class="post-meta">
           <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-          <time datetime="2023-06-09 21:50" pubdate>
+          <time datetime="2023-06-09 22:57" pubdate>
             <!-- 2023年6月9日 晚上 -->
-            2023-06-09 21:50
+            2023-06-09 22:57
           </time>
         </span>
         
@@ -239,9 +239,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2023-06-09 22:15" pubdate>
+              <time datetime="2023-06-09 23:08" pubdate>
                 <!-- 2023年6月9日 晚上 -->
-                2023-06-09 22:15
+                2023-06-09 23:08
               </time>
             </span>
             
@@ -251,7 +251,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      1.5k 字
     </span>
     
 
@@ -260,7 +260,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              15 分钟
+              13 分钟
         </span>
         
 
@@ -299,7 +299,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">如何给 hexo-fluid 主题的博客文章添加更新的时间信息</h1>
+            <h1 style="display: none">hexo-fluid 配置导航栏在页面滚动时自动显隐</h1>
             <!-- fanyfull 注释原本的更新时间 start -->
             <!-- 
               <p class="note note-info">
@@ -310,45 +310,22 @@
              -->
             <!-- fanyfull 注释原本的更新时间 end -->
             <div class="markdown-body">
-              <p>hexo-fluid
-这个主题本身提供了一个显示更新日期的方式，但是，它不满足我的要求，它并不是制作一个类似于创建日期一样的
-html
-小部件在标题的下面，而是使用了一个类似于标题一样的样式嵌在了文章的身体里面，这样子是很丑的，效果和底部的版权声明是类似的，</p>
-<p><img src="https://i.imgur.com/eOcxqvY.png" srcset="/img/loading.gif" lazyload /></p>
-<p>实际上，我想要的是直接在标题的创建时间这个信息的旁边添加一个更新的时间就可以了。</p>
-<p>这个需求无法通过 fluid
-自带的配置来实现，只能够去到这个主题的源码文件里面去修改了。所以我们就直接到
-node_modules 中的 <code>hexo-theme-fluid</code>
-目录下去修改，主要是这两个文件，</p>
-<p><img src="https://i.imgur.com/EwWCKSa.png" srcset="/img/loading.gif" lazyload /></p>
-<p>接下来就是具体操作的步骤，其背后的原理不难，就不作具体的复述。</p>
-<p>首先，配置主题 <code>_config.fluid.yml</code> 配置文件中的
-<code>updated</code> 选项为 <code>true</code>，</p>
-<p><img src="https://i.imgur.com/ZSaycyP.png" srcset="/img/loading.gif" lazyload /></p>
-<p>这个在后面更改 ejs 文件的时候会用到。</p>
-<p>然后，来到之前的 <code>post.ejs</code>
-文件中，把以下的代码注释掉，注释掉之后是这个样子，</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- fanyfull 注释原本的更新时间 start --&gt;</span><br><span class="hljs-comment">&lt;!-- &lt;% if(theme.post.updated &amp;&amp; theme.post.updated.enable) &#123; %&gt;</span><br><span class="hljs-comment">    &lt;p class=&quot;note note-info&quot;&gt;</span><br><span class="hljs-comment">    &lt;% if (theme.post.updated.relative) &#123; %&gt;</span><br><span class="hljs-comment">        &lt;%- theme.post.updated.content %&gt;&lt;%- relative_date(page.updated, theme.post.meta.date.format) %&gt;</span><br><span class="hljs-comment">    &lt;% &#125; else &#123; %&gt;</span><br><span class="hljs-comment">        &lt;%- theme.post.updated.content %&gt;&lt;%- date(page.updated, theme.post.meta.date.format) %&gt;</span><br><span class="hljs-comment">    &lt;% &#125; %&gt;</span><br><span class="hljs-comment">    &lt;/p&gt;</span><br><span class="hljs-comment">&lt;% &#125; %&gt; --&gt;</span><br><span class="hljs-comment">&lt;!-- fanyfull 注释原本的更新时间 end --&gt;</span><br></code></pre></div></td></tr></table></figure>
-<p>然后再来到 <code>post-meta.ejs</code> 代码中，添加如下代码，</p>
-<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html">&lt;% if (theme.post.updated &amp;&amp; theme.post.updated.enable) &#123; %&gt;<br><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>-<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-meta&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;iconfont icon-date-fill&quot;</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">time</span> <span class="hljs-attr">datetime</span>=<span class="hljs-string">&quot;&lt;%= date(page.updated, &#x27;YYYY-MM-DD HH:mm&#x27;) %&gt;&quot;</span> <span class="hljs-attr">pubdate</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- &lt;%= date(page.updated, theme.post.meta.date.format) %&gt; --&gt;</span><br>    &lt;%= date(page.updated, &#x27;YYYY-MM-DD HH:mm&#x27; ) %&gt;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">time</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>&lt;% &#125; %&gt;<br></code></pre></div></td></tr></table></figure>
-<p><img src="https://i.imgur.com/KwoB77M.png" srcset="/img/loading.gif" lazyload /></p>
-<p>之后，像这里的
-<code>page.updated</code>、<code>theme.post.updated</code>
-这些变量其实是 hexo 自己的变量，在<a
-target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/variables.html">这里</a>可以查到，而具体一点，比如
-<code>theme.post.updated</code> 其实就是上面我们在配置文件中设置的那个
-<code>updated</code>。然后这里的时间我们可以在每一篇文章的头信息里面添加一条
-<code>updated</code>，其格式保持和 <code>date</code>
-保持一致，我们也可以不写，那么，默认的更新时间就是此 md
-文件最后一次修改的时间。</p>
-<p>到这里，这个问题就解决了，我们再执行一下 <code>hexo g</code>，然后
-<code>hexo s</code> 预览一下，效果如下，</p>
-<p><img src="https://i.imgur.com/dJskhpJ.png" srcset="/img/loading.gif" lazyload /></p>
-<hr />
-<p>参考：<br />
-1、<a
-target="_blank" rel="noopener" href="https://www.pplong.top/2022/04/07/Hexo-Fluid-%E5%8D%9A%E5%AE%A2%E8%A3%85%E4%BF%AE/">Hexo
-Fluid--博客装修整理</a></p>
+              <p>这个问题可以通过自定义 js 脚本来解决，无侵入式修改。而 hexo-fluid
+配置自定义的 js 文件也是比较轻松的，文档里面写得是比较清晰的，我们在
+fluid 的主题配置文件里面指定一下自定义的 js 文件即可，</p>
+<p><img src="https://i.imgur.com/XMBZE3u.png" srcset="/img/loading.gif" lazyload /></p>
+<p>为了同时拥有动画效果，我们也得指定一下 css
+文件，做法和上面是一样的，然后具体创建(如果原来没有的话)修改两个文件，一个是
+js 文件，我们通过在网页中查看这个 html 元素，然后在 js
+代码中定位到这个元素，然后作具体的修改，</p>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js"><span class="hljs-keyword">var</span> navbarWidget = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;navbar&quot;</span>);<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">toggleNavbar</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">var</span> prevScrollPos = <span class="hljs-variable language_">window</span>.<span class="hljs-property">pageYOffset</span> || <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">scrollTop</span>;<br>  <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;scroll&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">var</span> currentScrollPos = <span class="hljs-variable language_">window</span>.<span class="hljs-property">pageYOffset</span> || <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">scrollTop</span>;<br>    <span class="hljs-keyword">if</span> (prevScrollPos &gt; currentScrollPos) &#123;<br>      <span class="hljs-comment">// 向上滚动，显示导航栏</span><br>      <span class="hljs-comment">// document.querySelector(&#x27;nav&#x27;).style.top = &#x27;0&#x27;;</span><br>      <span class="hljs-comment">// navbarWidget.classList.remove(&#x27;nav-hidden&#x27;);</span><br>      navbarWidget.<span class="hljs-property">style</span>.<span class="hljs-property">top</span> = <span class="hljs-string">&#x27;0&#x27;</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-comment">// 向下滚动，隐藏导航栏</span><br>      <span class="hljs-comment">// document.querySelector(&#x27;nav&#x27;).style.top = &#x27;-100px&#x27;; // 根据需要设置隐藏的位置</span><br>      <span class="hljs-comment">// navbarWidget.classList.add(&#x27;nav-hidden&#x27;);</span><br>      navbarWidget.<span class="hljs-property">style</span>.<span class="hljs-property">top</span> = <span class="hljs-string">&#x27;-100px&#x27;</span>;<br>    &#125;<br>    prevScrollPos = currentScrollPos;<br>  &#125;);<br>&#125;;<br><br><span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-title function_">toggleNavbar</span>();<br>&#125;;<br></code></pre></div></td></tr></table></figure>
+<p>上面这段 js 代码其实是比较简单的，这个问一下 chatgpt
+都可以得到类似的效果。</p>
+<p>然后是动画效果，在我们的 <code>custom.css</code>
+文件里面加入如下代码片段，</p>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-comment">/* 导航栏动画 */</span><br><span class="hljs-selector-id">#navbar</span> &#123;<br>  <span class="hljs-attribute">transition</span>: all <span class="hljs-number">0.3s</span>;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1rem</span>;<br>&#125;<br><br><span class="hljs-selector-class">.navbar</span> <span class="hljs-selector-class">.nav-item</span> <span class="hljs-selector-class">.nav-link</span> &#123;<br>    <span class="hljs-attribute">display</span>: block;<br>    <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--navbar-text-color);<br>    <span class="hljs-attribute">transition</span>: color <span class="hljs-number">0.3s</span>, background-color <span class="hljs-number">0.3s</span>;<br>&#125;<br><br><span class="hljs-selector-class">.navbar</span> <span class="hljs-selector-class">.nav-item</span> <span class="hljs-selector-class">.nav-link</span> <span class="hljs-selector-tag">i</span> &#123;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1rem</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>这里我还多做了一个步骤，那就是把导航栏的字体大小调整成了
+<code>1rem</code>，这个其实是为了和移动端自适应的时候保持一致，那么，这样的话，浏览器在缩放宽度的时候字体的动画效果就不会因为大小的问题而产生视觉上的不好的观感。</p>
 
             </div>
             <hr>
@@ -376,18 +353,12 @@ Fluid--博客装修整理</a></p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/09/hexo-fluid-%E9%85%8D%E7%BD%AE%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%9C%A8%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E6%97%B6%E8%87%AA%E5%8A%A8%E6%98%BE%E9%9A%90/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">hexo-fluid 配置导航栏在页面滚动时自动显隐</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/06/09/idea-%E5%90%AF%E5%8A%A8%E6%97%B6-error-opening-zip-file-or-jar-manifest/">
-                        <span class="hidden-mobile">idea 启动时 error opening zip file or jar manifest</span>
+                      <a href="/2023/06/09/%E5%A6%82%E4%BD%95%E7%BB%99-hexo-fluid-%E4%B8%BB%E9%A2%98%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E6%9B%B4%E6%96%B0%E7%9A%84%E6%97%B6%E9%97%B4%E4%BF%A1%E6%81%AF/">
+                        <span class="hidden-mobile">如何给 hexo-fluid 主题的博客文章添加更新的时间信息</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -409,8 +380,8 @@ Fluid--博客装修整理</a></p>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2023/06/09/%E5%A6%82%E4%BD%95%E7%BB%99-hexo-fluid-%E4%B8%BB%E9%A2%98%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E6%9B%B4%E6%96%B0%E7%9A%84%E6%97%B6%E9%97%B4%E4%BF%A1%E6%81%AF/';
-          this.page.identifier = '/2023/06/09/%E5%A6%82%E4%BD%95%E7%BB%99-hexo-fluid-%E4%B8%BB%E9%A2%98%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E6%9B%B4%E6%96%B0%E7%9A%84%E6%97%B6%E9%97%B4%E4%BF%A1%E6%81%AF/';
+          this.page.url = 'http://example.com/2023/06/09/hexo-fluid-%E9%85%8D%E7%BD%AE%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%9C%A8%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E6%97%B6%E8%87%AA%E5%8A%A8%E6%98%BE%E9%9A%90/';
+          this.page.identifier = '/2023/06/09/hexo-fluid-%E9%85%8D%E7%BD%AE%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%9C%A8%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8%E6%97%B6%E8%87%AA%E5%8A%A8%E6%98%BE%E9%9A%90/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');

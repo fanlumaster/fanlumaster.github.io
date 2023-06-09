@@ -25,9 +25,9 @@ window.onload = function () {
 
 // let 
 
-console.log("fanyfull");
-console.log(Fluid);
+// console.log("fanyfull");
+// console.log(Fluid);
 
-let page = ''
-console.log(page);
+// let page = ''
+// console.log(page);
 // console.log(page.date);
