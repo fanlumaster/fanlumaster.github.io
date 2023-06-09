@@ -22,3 +22,12 @@ function toggleNavbar() {
 window.onload = function () {
   toggleNavbar();
 };
+
+// let 
+
+console.log("fanyfull");
+console.log(Fluid);
+
+let page = ''
+console.log(page);
+// console.log(page.date);

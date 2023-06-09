@@ -227,14 +227,25 @@
             
               <div class="mt-3">
   
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-03-08 21:06" pubdate>
-        2022年3月8日 晚上
-      </time>
-    </span>
-  
+      
+        <span class="post-meta">
+          <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+          <time datetime="2022-03-08 21:06" pubdate>
+            <!-- 2022年3月8日 晚上 -->
+            2022-03-08 21:06
+          </time>
+        </span>
+        
+          
+            <span>-</span>
+            <span class="post-meta">
+              <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+              <time datetime="2022-03-10 01:06" pubdate>
+                <!-- 2022年3月10日 凌晨 -->
+                2022-03-10 01:06
+              </time>
+            </span>
+            
 </div>
 
 <div class="mt-1">
@@ -243,21 +254,31 @@
       <i class="iconfont icon-chart"></i>
       809 字
     </span>
-  
+    
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
       
-      
-      7 分钟
-    </span>
-  
+        <span class="post-meta mr-2">
+          <i class="iconfont icon-clock-fill"></i>
+          
+            
+              7 分钟
+        </span>
+        
 
-  
-  
+          
+            
 </div>
 
+<!-- 自定义的更新时间 -->
+<!-- <div class="mt-1">
+  
+    <p class="note note-info">
+      
+              本文最后更新于：2022年3月10日 凌晨
+                  
+    </p>
+    
+</div> -->
             
           </div>
 
@@ -280,7 +301,15 @@
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">LeetCode 三月份每日一题</h1>
-            
+            <!-- fanyfull 注释原本的更新时间 start -->
+            <!-- 
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月10日 凌晨
+                
+              </p>
+             -->
+            <!-- fanyfull 注释原本的更新时间 end -->
             <div class="markdown-body">
               <p><img src="https://i.imgur.com/TB9TPG5.png" srcset="/img/loading.gif" lazyload /></p>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> <span class="hljs-type">List</span><br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">platesBetweenCandles</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span>, queries: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        res = [<span class="hljs-number">0</span>] * <span class="hljs-built_in">len</span>(queries)<br>        preSum, preSumArray = <span class="hljs-number">0</span>, [<span class="hljs-number">0</span>] * <span class="hljs-built_in">len</span>(s)<br>        leftCandle, leftArray = -<span class="hljs-number">1</span>, [<span class="hljs-number">0</span>] * <span class="hljs-built_in">len</span>(s)<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s)):<br>            <span class="hljs-keyword">if</span> s[i] == <span class="hljs-string">&#x27;*&#x27;</span>:<br>                preSum += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">else</span>:<br>                leftCandle = i<br>            preSumArray[i] = preSum<br>            leftArray[i] = leftCandle<br><br>        rightCandle, rightArray = <span class="hljs-built_in">len</span>(s) - <span class="hljs-number">1</span>, [<span class="hljs-number">0</span>] * <span class="hljs-built_in">len</span>(s)<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s) - <span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">if</span> s[i] == <span class="hljs-string">&#x27;|&#x27;</span>:<br>                rightCandle = i<br>            rightArray[i] = rightCandle<br><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(queries)):<br>            leftIndex = rightArray[queries[i][<span class="hljs-number">0</span>]]<br>            rightIndex = leftArray[queries[i][<span class="hljs-number">1</span>]]<br>            <span class="hljs-keyword">if</span> leftIndex &lt; rightIndex:<br>                res[i] = preSumArray[rightIndex] - preSumArray[leftIndex]<br><br>        <span class="hljs-keyword">return</span> res<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    solu = Solution()<br>    str1 = <span class="hljs-string">&quot;**|**|***|&quot;</span><br>    <span class="hljs-built_in">print</span>(solu.platesBetweenCandles(str1, [[<span class="hljs-number">2</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">9</span>]]))<br><br></code></pre></div></td></tr></table></figure>

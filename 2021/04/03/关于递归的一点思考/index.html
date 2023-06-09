@@ -224,14 +224,25 @@
             
               <div class="mt-3">
   
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-03 11:49" pubdate>
-        2021年4月3日 中午
-      </time>
-    </span>
-  
+      
+        <span class="post-meta">
+          <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+          <time datetime="2021-04-03 11:49" pubdate>
+            <!-- 2021年4月3日 中午 -->
+            2021-04-03 11:49
+          </time>
+        </span>
+        
+          
+            <span>-</span>
+            <span class="post-meta">
+              <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+              <time datetime="2023-06-01 03:11" pubdate>
+                <!-- 2023年6月1日 凌晨 -->
+                2023-06-01 03:11
+              </time>
+            </span>
+            
 </div>
 
 <div class="mt-1">
@@ -240,21 +251,31 @@
       <i class="iconfont icon-chart"></i>
       285 字
     </span>
-  
+    
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
       
-      
-      3 分钟
-    </span>
-  
+        <span class="post-meta mr-2">
+          <i class="iconfont icon-clock-fill"></i>
+          
+            
+              3 分钟
+        </span>
+        
 
-  
-  
+          
+            
 </div>
 
+<!-- 自定义的更新时间 -->
+<!-- <div class="mt-1">
+  
+    <p class="note note-info">
+      
+              本文最后更新于：2023年6月1日 凌晨
+                  
+    </p>
+    
+</div> -->
             
           </div>
 
@@ -277,7 +298,15 @@
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">关于递归的一点思考</h1>
-            
+            <!-- fanyfull 注释原本的更新时间 start -->
+            <!-- 
+              <p class="note note-info">
+                
+                  本文最后更新于：2023年6月1日 凌晨
+                
+              </p>
+             -->
+            <!-- fanyfull 注释原本的更新时间 end -->
             <div class="markdown-body">
               <p>今天在阅读二叉树的边界打印过程中，由于多要使用递归，什么先序遍历啦，什么尾递归啦，关于二叉树，递归真是无处不在。</p>
 <p>由此，也产生了一点想法。</p>

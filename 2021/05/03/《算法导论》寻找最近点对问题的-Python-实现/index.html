@@ -227,14 +227,25 @@
             
               <div class="mt-3">
   
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-03 14:06" pubdate>
-        2021年5月3日 下午
-      </time>
-    </span>
-  
+      
+        <span class="post-meta">
+          <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+          <time datetime="2021-05-03 14:06" pubdate>
+            <!-- 2021年5月3日 下午 -->
+            2021-05-03 14:06
+          </time>
+        </span>
+        
+          
+            <span>-</span>
+            <span class="post-meta">
+              <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+              <time datetime="2021-05-27 22:45" pubdate>
+                <!-- 2021年5月27日 晚上 -->
+                2021-05-27 22:45
+              </time>
+            </span>
+            
 </div>
 
 <div class="mt-1">
@@ -243,21 +254,31 @@
       <i class="iconfont icon-chart"></i>
       16k 字
     </span>
-  
+    
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
       
-      
-      137 分钟
-    </span>
-  
+        <span class="post-meta mr-2">
+          <i class="iconfont icon-clock-fill"></i>
+          
+            
+              137 分钟
+        </span>
+        
 
-  
-  
+          
+            
 </div>
 
+<!-- 自定义的更新时间 -->
+<!-- <div class="mt-1">
+  
+    <p class="note note-info">
+      
+              本文最后更新于：2021年5月27日 晚上
+                  
+    </p>
+    
+</div> -->
             
           </div>
 
@@ -280,7 +301,15 @@
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">《算法导论》寻找最近点对问题的 Python 实现</h1>
-            
+            <!-- fanyfull 注释原本的更新时间 start -->
+            <!-- 
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年5月27日 晚上
+                
+              </p>
+             -->
+            <!-- fanyfull 注释原本的更新时间 end -->
             <div class="markdown-body">
               <h3 id="代码">代码</h3>
 <figure class="highlight py"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs py"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-comment"># @File  : nearest_dot_pair_final.py</span><br><span class="hljs-comment"># @Author: FanLu</span><br><span class="hljs-comment"># @Date  : 2021/5/3</span><br><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">寻找最近点对问题</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-keyword">import</span> math<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_dist</span>(<span class="hljs-params">a:<span class="hljs-built_in">tuple</span>, b:<span class="hljs-built_in">tuple</span></span>):<br>    <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    获取两点之间的欧几里得距离</span><br><span class="hljs-string">    :param a: 点 a</span><br><span class="hljs-string">    :param b: 点 b</span><br><span class="hljs-string">    :return: 两点间的欧几里得距离</span><br><span class="hljs-string">    &#x27;&#x27;&#x27;</span><br>    dist = math.sqrt((a[<span class="hljs-number">0</span>] - b[<span class="hljs-number">0</span>]) ** <span class="hljs-number">2</span> + (a[<span class="hljs-number">1</span>] - b[<span class="hljs-number">1</span>]) ** <span class="hljs-number">2</span>)<br>    <span class="hljs-keyword">return</span> dist<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">brute_get_min</span>(<span class="hljs-params">Q:<span class="hljs-built_in">list</span></span>):<br>    <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    暴力求解最小点对问题</span><br><span class="hljs-string">    :param Q: 点的全集</span><br><span class="hljs-string">    :return: 最近点对，最近点对的距离</span><br><span class="hljs-string">    &#x27;&#x27;&#x27;</span><br>    point_pair = [(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>), (<span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>), <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>))] <span class="hljs-comment"># 初始最近点对为原点和无穷点</span><br>    dist_min = <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>) <span class="hljs-comment"># 初始最近点对的距离是无穷大</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(Q)):<br>        a = Q[i]<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i + <span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(Q)):<br>            b = Q[j]<br>            dist = get_dist(a, b)<br>            <span class="hljs-keyword">if</span> dist &lt; dist_min:<br>                dist_min = dist<br>                point_pair[<span class="hljs-number">0</span>] = a<br>                point_pair[<span class="hljs-number">1</span>] = b<br>    <span class="hljs-keyword">return</span> [point_pair, dist_min]<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">find_dotpair</span>(<span class="hljs-params">P:<span class="hljs-built_in">list</span>, X:<span class="hljs-built_in">list</span>, Y:<span class="hljs-built_in">list</span></span>):<br>    <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    找出最近点对</span><br><span class="hljs-string">    :param P: 点的全集 Q 的子集</span><br><span class="hljs-string">    :param X: P 中的所有点按照 x 坐标排序的结果</span><br><span class="hljs-string">    :param Y: P 中的所有点按照 y 坐标排序的结果</span><br><span class="hljs-string">    :return: 点对，最短距离</span><br><span class="hljs-string">    &#x27;&#x27;&#x27;</span><br>    n = <span class="hljs-built_in">len</span>(P) <span class="hljs-comment"># 获取点的总数，这同时是 P.len，X.len 和 Y.len</span><br>    <span class="hljs-comment"># n &lt;= 3 时，直接暴力求解</span><br>    <span class="hljs-keyword">if</span> n &lt;= <span class="hljs-number">3</span>:<br>        point_pair = [(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>), (<span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>), <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>))]<br>        dist_min = <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>)<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i + <span class="hljs-number">1</span>, n):<br>                <span class="hljs-keyword">if</span> get_dist(P[i], P[j]) &lt; dist_min:<br>                    point_pair[<span class="hljs-number">0</span>] = P[i]<br>                    point_pair[<span class="hljs-number">1</span>] = P[j]<br>                    dist_min = get_dist(P[i], P[j])<br>        <span class="hljs-keyword">return</span> [point_pair, dist_min]<br><br>    <span class="hljs-comment"># 求出递归所需的参数</span><br>    half = math.ceil(n / <span class="hljs-number">2</span>)<br>    XL = X[:half]<br>    XR = X[half:]<br>    PL = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> P <span class="hljs-keyword">if</span> i <span class="hljs-keyword">in</span> XL]<br>    PR = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> P <span class="hljs-keyword">if</span> i <span class="hljs-keyword">in</span> XR]<br>    <span class="hljs-comment"># 对中间的边界的可能重复的元素进行处理</span><br>    <span class="hljs-keyword">while</span> <span class="hljs-built_in">len</span>(PL) != <span class="hljs-built_in">len</span>(XL):<br>        PL.remove(XL[-<span class="hljs-number">1</span>])<br>    <span class="hljs-keyword">while</span> <span class="hljs-built_in">len</span>(PR) != <span class="hljs-built_in">len</span>(XR):<br>        PR.remove(XR[<span class="hljs-number">0</span>])<br>    YL = []<br>    YR = []<br>    L_len = R_len = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, n):<br>        <span class="hljs-keyword">if</span> Y[i] <span class="hljs-keyword">in</span> PL:<br>            YL.append(Y[i])<br>            L_len += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> Y[i] <span class="hljs-keyword">in</span> PR:<br>            YR.append(Y[i])<br>            R_len += <span class="hljs-number">1</span><br>    <span class="hljs-comment"># 对中间的边界的可能重复的元素进行处理</span><br>    <span class="hljs-keyword">while</span> <span class="hljs-built_in">len</span>(YL) != <span class="hljs-built_in">len</span>(XL):<br>        YL.remove(XL[-<span class="hljs-number">1</span>])<br>    <span class="hljs-keyword">while</span> <span class="hljs-built_in">len</span>(YR) != <span class="hljs-built_in">len</span>(XR):<br>        YR.remove(XR[<span class="hljs-number">0</span>])<br>    <span class="hljs-comment"># 递归处理</span><br>    PL_res = find_dotpair(PL, XL, YL) <span class="hljs-comment"># 左半部分递归处理结果</span><br>    PR_res = find_dotpair(PR, XR, YR) <span class="hljs-comment"># 右半部分递归处理结果</span><br>    point_pair = PL_res[<span class="hljs-number">0</span>] <span class="hljs-keyword">if</span> PL_res[<span class="hljs-number">1</span>] &lt; PR_res[<span class="hljs-number">1</span>] <span class="hljs-keyword">else</span> PR_res[<span class="hljs-number">0</span>]<br>    dist_min = <span class="hljs-built_in">min</span>(PL_res[<span class="hljs-number">1</span>], PR_res[<span class="hljs-number">1</span>]) <span class="hljs-comment"># 取左右两个部分中的最小的那一个距离</span><br>    <span class="hljs-comment"># 对中间区域进行处理</span><br>    x_mid = (X[half - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>] + X[half][<span class="hljs-number">0</span>]) / <span class="hljs-number">2</span> <span class="hljs-comment"># 中间分割线的 x 坐标</span><br>    Y_midarea = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> Y <span class="hljs-keyword">if</span> i[<span class="hljs-number">0</span>] &gt;= x_mid - dist_min <span class="hljs-keyword">and</span> i[<span class="hljs-number">0</span>] &lt;= x_mid + dist_min] <span class="hljs-comment"># 中间区域的所有点</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(Y_midarea)):<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i + <span class="hljs-number">1</span>, i + <span class="hljs-number">7</span>):<br>            <span class="hljs-keyword">if</span> j &gt;= <span class="hljs-built_in">len</span>(Y_midarea):<br>                <span class="hljs-keyword">continue</span><br>            <span class="hljs-keyword">if</span> get_dist(Y_midarea[i], Y_midarea[j]) &lt; dist_min:<br>                point_pair[<span class="hljs-number">0</span>] = Y_midarea[i]<br>                point_pair[<span class="hljs-number">1</span>] = Y_midarea[j]<br>                dist_min = get_dist(Y_midarea[i], Y_midarea[j])<br>    <span class="hljs-keyword">return</span> [point_pair, dist_min]<br><br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    Q = [(random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">256</span>), random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">256</span>)) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">128</span>)] <span class="hljs-comment"># 生成 128 个点</span><br>    <span class="hljs-built_in">print</span>(Q)<br>    <span class="hljs-comment"># 测试暴力求解法</span><br>    brute_res = brute_get_min(Q)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;暴力法&#x27;</span>, brute_res)<br>    <span class="hljs-comment"># 测试分治法</span><br>    P = Q<br>    X = <span class="hljs-built_in">sorted</span>(P) <span class="hljs-comment"># 默认按照 x 坐标排序</span><br>    Y = <span class="hljs-built_in">sorted</span>(P, key=<span class="hljs-keyword">lambda</span> p : p[<span class="hljs-number">1</span>]) <span class="hljs-comment"># 按照 Y 坐标排序</span><br>    divide_res = find_dotpair(P, X, Y)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;分治法&#x27;</span>, divide_res)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):<br>        main()<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;----------&#x27;</span>)<br></code></pre></div></td></tr></table></figure>

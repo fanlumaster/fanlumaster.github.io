@@ -226,14 +226,25 @@
             
               <div class="mt-3">
   
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-07-13 15:51" pubdate>
-        2021年7月13日 下午
-      </time>
-    </span>
-  
+      
+        <span class="post-meta">
+          <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+          <time datetime="2021-07-13 15:51" pubdate>
+            <!-- 2021年7月13日 下午 -->
+            2021-07-13 15:51
+          </time>
+        </span>
+        
+          
+            <span>-</span>
+            <span class="post-meta">
+              <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+              <time datetime="2021-07-21 00:43" pubdate>
+                <!-- 2021年7月21日 凌晨 -->
+                2021-07-21 00:43
+              </time>
+            </span>
+            
 </div>
 
 <div class="mt-1">
@@ -242,21 +253,31 @@
       <i class="iconfont icon-chart"></i>
       534 字
     </span>
-  
+    
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
       
-      
-      5 分钟
-    </span>
-  
+        <span class="post-meta mr-2">
+          <i class="iconfont icon-clock-fill"></i>
+          
+            
+              5 分钟
+        </span>
+        
 
-  
-  
+          
+            
 </div>
 
+<!-- 自定义的更新时间 -->
+<!-- <div class="mt-1">
+  
+    <p class="note note-info">
+      
+              本文最后更新于：2021年7月21日 凌晨
+                  
+    </p>
+    
+</div> -->
             
           </div>
 
@@ -279,7 +300,15 @@
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">VMware 在 Ubuntu18 环境下升级 VMware Tools</h1>
-            
+            <!-- fanyfull 注释原本的更新时间 start -->
+            <!-- 
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年7月21日 凌晨
+                
+              </p>
+             -->
+            <!-- fanyfull 注释原本的更新时间 end -->
             <div class="markdown-body">
               <p>好吧，经过几番折腾之后，我决定执行下面的命令直接梭哈</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ sudo apt-get autoremove open-vm-tools<br>$ sudo apt-get install open-vm-tools<br>$ sudo apt-get install open-vm-tools-desktop<br></code></pre></div></td></tr></table></figure>
