@@ -1,0 +1,614 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/myfavicon.png">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="fanlumaster">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="很久以前的网友，忘了当时是讨论什么的了，之前手机彻底清除过一次，那时候也没想着保存微信的聊天数据，所以，只能依稀记得当时是讨论某一本书，好像是《算法4》，又好像是刘汝佳的紫书。也可能是陈锋的那本蓝书。 这一次是因为 UVA 1593 这道题目，让我看一下代码的逻辑是否有问题。 这道题目的链接：https:&#x2F;&#x2F;vjudge.net&#x2F;problem&#x2F;UVA-1593。 代码是陈锋写的，原版（说是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UVA 1593">
+<meta property="og:url" content="http://example.com/2023/06/19/UVA-1593/index.html">
+<meta property="og:site_name" content="Fan Lu&#39;s Blog">
+<meta property="og:description" content="很久以前的网友，忘了当时是讨论什么的了，之前手机彻底清除过一次，那时候也没想着保存微信的聊天数据，所以，只能依稀记得当时是讨论某一本书，好像是《算法4》，又好像是刘汝佳的紫书。也可能是陈锋的那本蓝书。 这一次是因为 UVA 1593 这道题目，让我看一下代码的逻辑是否有问题。 这道题目的链接：https:&#x2F;&#x2F;vjudge.net&#x2F;problem&#x2F;UVA-1593。 代码是陈锋写的，原版（说是">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/nxtkS0A.png">
+<meta property="article:published_time" content="2023-06-19T07:07:44.000Z">
+<meta property="article:modified_time" content="2023-06-19T08:13:30.480Z">
+<meta property="article:author" content="fanlumaster">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/nxtkS0A.png">
+  
+  
+  <title>UVA 1593 - Fan Lu&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/mastodon-icon/iconfont.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fan Lu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://fanyfull.monster/">
+                <i class="iconfont icon-note"></i>
+                闲言
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/reading/">
+                <i class="iconfont icon-book"></i>
+                读书
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/nxtkS0A.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="UVA 1593">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+      
+        <span class="post-meta">
+          <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+          <time datetime="2023-06-19 15:07" pubdate>
+            <!-- 2023年6月19日 下午 -->
+            2023-06-19 15:07
+          </time>
+        </span>
+        
+          
+            <span>-</span>
+            <span class="post-meta">
+              <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+              <time datetime="2023-06-19 16:13" pubdate>
+                <!-- 2023年6月19日 下午 -->
+                2023-06-19 16:13
+              </time>
+            </span>
+            
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.8k 字
+    </span>
+    
+
+      
+        <span class="post-meta mr-2">
+          <i class="iconfont icon-clock-fill"></i>
+          
+            
+              24 分钟
+        </span>
+        
+
+          
+            
+</div>
+
+<!-- 自定义的更新时间 -->
+<!-- <div class="mt-1">
+  
+    <p class="note note-info">
+      
+              本文最后更新于：2023年6月19日 下午
+                  
+    </p>
+    
+</div> -->
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">UVA 1593</h1>
+            <!-- fanyfull 注释原本的更新时间 start -->
+            <!-- 
+              <p class="note note-info">
+                
+                  本文最后更新于：2023年6月19日 下午
+                
+              </p>
+             -->
+            <!-- fanyfull 注释原本的更新时间 end -->
+            <div class="markdown-body">
+              <p>很久以前的网友，忘了当时是讨论什么的了，之前手机彻底清除过一次，那时候也没想着保存微信的聊天数据，所以，只能依稀记得当时是讨论某一本书，好像是《算法4》，又好像是刘汝佳的紫书。也可能是陈锋的那本蓝书。</p>
+<p>这一次是因为 UVA 1593 这道题目，让我看一下代码的逻辑是否有问题。</p>
+<p>这道题目的链接：<a target="_blank" rel="noopener" href="https://vjudge.net/problem/UVA-1593"
+class="uri">https://vjudge.net/problem/UVA-1593</a>。</p>
+<p>代码是陈锋写的，原版（说是原版，是因为改了头文件以使其可以使用 MSVC
+正常编译）的大概是这个样子，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-comment">// Alignment of Code, ACM/ICPC NEERC 2010, UVa1593</span><br><span class="hljs-comment">// 陈锋</span><br><span class="hljs-comment">// #include &lt;bits/stdc++.h&gt;</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iomanip&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sstream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> _for(i, a, b) for (int i = (a); i &lt; (int)(b); ++i)</span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">1024</span>;<br>vector&lt;string&gt; Words[MAXN];<br><span class="hljs-type">size_t</span> WL[MAXN];<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    string line, word;<br>    <span class="hljs-type">int</span> wc = <span class="hljs-number">0</span>, lc = <span class="hljs-number">0</span>;  <span class="hljs-comment">// 每一行单词数，行数</span><br>    <span class="hljs-built_in">fill_n</span>(WL, MAXN, <span class="hljs-number">0</span>);<br>    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">getline</span>(cin, line)) &#123;<br>        <span class="hljs-function">stringstream <span class="hljs-title">ss</span><span class="hljs-params">(line)</span></span>;<br>        <span class="hljs-type">int</span> wi = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (ss &gt;&gt; word) Words[lc].<span class="hljs-built_in">push_back</span>(word), WL[wi] = <span class="hljs-built_in">max</span>(WL[wi], word.<span class="hljs-built_in">size</span>()), wi++;<br>        wc = <span class="hljs-built_in">max</span>(wc, wi), lc++;<br>    &#125;<br>    _for(i, <span class="hljs-number">0</span>, lc) &#123;<br>        <span class="hljs-type">const</span> vector&lt;string&gt; &amp;ws = Words[i];<br>        _for(j, <span class="hljs-number">0</span>, ws.<span class="hljs-built_in">size</span>()) &#123;<br>            <span class="hljs-type">int</span> w = j &lt; ws.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span> ? WL[j] + <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;<br>            cout &lt;&lt; left &lt;&lt; <span class="hljs-built_in">setw</span>(w) &lt;&lt; ws[j];<br>        &#125;<br>        cout &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/* 13505067	1593	Alignment of Code	Accepted	C++	0.028</span><br><span class="hljs-comment"> * 2014-04-16 14:42:46 */</span><br><br></code></pre></div></td></tr></table></figure>
+<p>后面这位仁兄是重定向了一下，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-comment">// Alignment of Code, ACM/ICPC NEERC 2010, UVa1593</span><br><span class="hljs-comment">// 陈锋</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iomanip&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sstream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> _for(i, a, b) for (int i = (a); i &lt; (int)(b); ++i)</span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> MAXN = <span class="hljs-number">1024</span>;<br>vector&lt;string&gt; Words[MAXN];<br><span class="hljs-type">size_t</span> WL[MAXN];<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    string line, word;<br>    <span class="hljs-type">int</span> wc = <span class="hljs-number">0</span>, lc = <span class="hljs-number">0</span>;  <span class="hljs-comment">// 每一行单词数，行数</span><br>    <span class="hljs-built_in">fill_n</span>(WL, MAXN, <span class="hljs-number">0</span>);<br>    FILE* stream1;<br>    <span class="hljs-built_in">freopen_s</span>(&amp;stream1, <span class="hljs-string">&quot;./in.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, stdin);<br>    <span class="hljs-built_in">freopen_s</span>(&amp;stream1, <span class="hljs-string">&quot;./out.txt&quot;</span>, <span class="hljs-string">&quot;w&quot;</span>, stdout);<br>    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">getline</span>(cin, line)) &#123;<br>        <span class="hljs-function">stringstream <span class="hljs-title">ss</span><span class="hljs-params">(line)</span></span>;<br>        <span class="hljs-type">int</span> wi = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (ss &gt;&gt; word) Words[lc].<span class="hljs-built_in">push_back</span>(word), WL[wi] = <span class="hljs-built_in">max</span>(WL[wi], word.<span class="hljs-built_in">size</span>()), wi++;<br>        wc = <span class="hljs-built_in">max</span>(wc, wi), lc++;<br>    &#125;<br>    _for(i, <span class="hljs-number">0</span>, lc) &#123;<br>        <span class="hljs-type">const</span> vector&lt;string&gt;&amp; ws = Words[i];<br>        _for(j, <span class="hljs-number">0</span>, ws.<span class="hljs-built_in">size</span>()) &#123;<br>            <span class="hljs-type">int</span> w = j &lt; ws.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span> ? WL[j] + <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;<br>            cout &lt;&lt; left &lt;&lt; <span class="hljs-built_in">setw</span>(w) &lt;&lt; ws[j];<br>        &#125;<br>        cout &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/* 13505067	1593	Alignment of Code	Accepted	C++	0.028</span><br><span class="hljs-comment"> * 2014-04-16 14:42:46 */</span><br></code></pre></div></td></tr></table></figure>
+<p>这里的代码，从逻辑上来讲，我觉得是完全没有问题，那么，问题只可能是出现在文件或者文本流的处理方面。我在
+Linux 中使用 Clang 15 编译运行是一点问题都没有的，我一开始是直接在
+terminal 中运行测试的，后面使用 uDebug
+的数据进行测试，发现也是没有问题的。后面在 Windows 中的 PowerShell
+中进行测试，发现也是没有问题的。</p>
+<p>注意：这里要注意一个 EOF 的问题，在 Linux 的 Shell 中，使用
+<code>Ctrl + D</code> 就可以了。而 Windows 中，我一开始使用
+<code>Ctrl + Z</code> 发现不行，就使用了 <code>Ctrl + C</code>
+乱试，结果得到的输出当然是错误的。后面终于意识到在输入
+<code>Ctrl + Z</code> 之后再回车一下，EOF
+就能够正常被读入了。然后程序输出的结果当然是正确的。</p>
+<p>至于后面重定向使用文件作为输入输出之后，为什么又会出问题呢？</p>
+<p>先描述一下问题：</p>
+<p>输入文件是这个：</p>
+<p><img src="https://i.imgur.com/VUwylTL.png" srcset="/img/loading.gif" lazyload /></p>
+<p>输出文件是这个，它第一行对不齐，</p>
+<p><img src="https://i.imgur.com/FHSK4je.png" srcset="/img/loading.gif" lazyload /></p>
+<p>注意那个输入文件，它的文件编码格式是
+<code>UTF-8 with BOM</code>，这个格式的文件是不可以直接使用 C++
+中的文本流进行处理的，它还需要一些额外的处理，所以这里就出现了一点问题。</p>
+<p>我个人对解决这个问题的思路目前其实也仅仅就是把文件的编码格式换一下，就使用
+VSCode
+里面自带的操作就可以，像在这里的话，我们就直接点击右下角的编码名，后续按照提示进行修改即可。</p>
+<p>把编码修改成 <code>UTF-8</code> 就可以了。</p>
+<p>多说一句，之前其实身边的同学(wulw)也有遇到过这个问题的。所以这次一下就把这个问题定位了出来。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/06/14/personal-sharing/">
+                        <span class="hidden-mobile">软件学院 2022 级大一实训之个人“踩坑”分享</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://example.com/2023/06/19/UVA-1593/';
+          this.page.identifier = '/2023/06/19/UVA-1593/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'https-fanlumaster-github-io' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://fanyfull.monster" target="_blank" rel="nofollow noopener"><span>FanyFull</span></a> <i class="iconfont icon-love"></i> <a href="https://fanyfull.monster" target="_blank" rel="nofollow noopener"><span>Monster</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/custom.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
