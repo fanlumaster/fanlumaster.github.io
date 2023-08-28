@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>autohotkey(ahk) 去掉窗口的标题栏和边框</title>
+    <link href="/2023/08/28/autohotkey-ahk-%E5%8E%BB%E6%8E%89%E7%AA%97%E5%8F%A3%E7%9A%84%E6%A0%87%E9%A2%98%E6%A0%8F%E5%92%8C%E8%BE%B9%E6%A1%86/"/>
+    <url>/2023/08/28/autohotkey-ahk-%E5%8E%BB%E6%8E%89%E7%AA%97%E5%8F%A3%E7%9A%84%E6%A0%87%E9%A2%98%E6%A0%8F%E5%92%8C%E8%BE%B9%E6%A1%86/</url>
+    
+    <content type="html"><![CDATA[<p>可能偶尔有点用处。就是利用 ahk 来控制标题栏的显隐。</p><p>这个只针对使用 windows原生的标题栏的应用有效。现在很多有名的软件都是选择自绘标题栏和边框这些组件了，比如chrome。所以，这个脚本可能用处并不是很大。</p><p>我目前的一个应用是把 terminal 的标题栏给隐藏掉，然后使用 snipaste去截图，这样截出来的就是四四方方的一个窗口，不会有边角料的干预。这里吐槽一下，win11的圆角窗口的截图有点不好处理，现有的截图软件截出来一点都不优雅。或许这是一个创新的点，等待有技术、有时间、有想法的同志去实现一下。</p><p>话不多说，上脚本，</p><figure class="highlight ahk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ahk"><span class="hljs-title">+^+!u::</span><br><span class="hljs-built_in">WinGetTitle,</span> currentWindow, A<br><span class="hljs-built_in">IfWinExist %</span>currentWindow%<br><span class="hljs-built_in">WinSet,</span> Style, -<span class="hljs-number">0</span>xC40000,<br><span class="hljs-comment">; WinMove, , , 0, 0, A_ScreenWidth, A_ScreenHeight</span><br><span class="hljs-comment">; WinMove, , , 0, 0, 1400, 1200</span><br>DllCall(“SetMenu”, “Ptr”, WinExist(), “Ptr”, <span class="hljs-number">0</span>)<br><span class="hljs-keyword">return</span><br><br><br><span class="hljs-title">+^+!i::</span><br><span class="hljs-built_in">WinGetTitle,</span> currentWindow, A<br><span class="hljs-built_in">IfWinExist %</span>currentWindow%<br><span class="hljs-built_in">WinSet,</span> Style, +<span class="hljs-number">0</span>xC40000,<br><span class="hljs-comment">; WinMove, , , 0, 0, A_ScreenWidth, A_ScreenHeight</span><br><span class="hljs-comment">; WinMove, , , 0, 0, 1400, 1200</span><br>DllCall(“SetMenu”, “Ptr”, WinExist(), “Ptr”, <span class="hljs-number">0</span>)<br><span class="hljs-keyword">return</span><br></code></pre></div></td></tr></table></figure><p>上面脚本定义的快捷键分别是：</p><ul><li><code>Ctrl + Shift + Alt + u</code>: 隐藏窗口的标题栏</li><li><code>Ctrl + Shift + Alt + i</code>: 恢复窗口的标题栏</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>ahk</tag>
+      
+      <tag>windows</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>费解的开关-CH0201</title>
     <link href="/2023/08/27/%E8%B4%B9%E8%A7%A3%E7%9A%84%E5%BC%80%E5%85%B3/"/>
     <url>/2023/08/27/%E8%B4%B9%E8%A7%A3%E7%9A%84%E5%BC%80%E5%85%B3/</url>
