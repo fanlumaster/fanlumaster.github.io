@@ -16,24 +16,23 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="可能偶尔有点用处。就是利用 ahk 来控制标题栏的显隐。 这个只针对使用 windows 原生的标题栏的应用有效。现在很多有名的软件都是选择自绘标题栏和边框这些组件了，比如 chrome。所以，这个脚本可能用处并不是很大。 我目前的一个应用是把 terminal 的标题栏给隐藏掉，然后使用 snipaste 去截图，这样截出来的就是四四方方的一个窗口，不会有边角料的干预。这里吐槽一下，w">
+    <meta name="description" content="这里暂时只需要知道如何使用就可以了。 首先是生成一个密钥， 1❯ keytool -genkeypair -alias fanyfull -keypass ffkp123456 -validity 365 -storepass ffsp123456 -keystore fanyfull.jks -keyalg RSA 解释一下这里的选项，  -alias 密钥对的名称 -keypass">
 <meta property="og:type" content="article">
-<meta property="og:title" content="autohotkey(ahk) 去掉窗口的标题栏和边框">
-<meta property="og:url" content="http://example.com/2023/08/28/autohotkey-ahk-%E5%8E%BB%E6%8E%89%E7%AA%97%E5%8F%A3%E7%9A%84%E6%A0%87%E9%A2%98%E6%A0%8F%E5%92%8C%E8%BE%B9%E6%A1%86/index.html">
+<meta property="og:title" content="jdk 中的 keytool 的使用">
+<meta property="og:url" content="http://example.com/2023/08/28/jdk-%E4%B8%AD%E7%9A%84-keytool-%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Fany&#39;s Blog">
-<meta property="og:description" content="可能偶尔有点用处。就是利用 ahk 来控制标题栏的显隐。 这个只针对使用 windows 原生的标题栏的应用有效。现在很多有名的软件都是选择自绘标题栏和边框这些组件了，比如 chrome。所以，这个脚本可能用处并不是很大。 我目前的一个应用是把 terminal 的标题栏给隐藏掉，然后使用 snipaste 去截图，这样截出来的就是四四方方的一个窗口，不会有边角料的干预。这里吐槽一下，w">
+<meta property="og:description" content="这里暂时只需要知道如何使用就可以了。 首先是生成一个密钥， 1❯ keytool -genkeypair -alias fanyfull -keypass ffkp123456 -validity 365 -storepass ffsp123456 -keystore fanyfull.jks -keyalg RSA 解释一下这里的选项，  -alias 密钥对的名称 -keypass">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/InwY1rd.png">
-<meta property="article:published_time" content="2023-08-28T14:31:24.000Z">
-<meta property="article:modified_time" content="2023-08-28T15:43:02.718Z">
+<meta property="og:image" content="https://i.imgur.com/NRd9Kim.png">
+<meta property="article:published_time" content="2023-08-28T15:20:37.000Z">
+<meta property="article:modified_time" content="2023-08-28T15:43:24.384Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="ahk">
-<meta property="article:tag" content="windows">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/InwY1rd.png">
+<meta name="twitter:image" content="https://i.imgur.com/NRd9Kim.png">
   
   
-  <title>autohotkey(ahk) 去掉窗口的标题栏和边框 - Fany&#39;s Blog</title>
+  <title>jdk 中的 keytool 的使用 - Fany&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -215,12 +214,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/InwY1rd.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/NRd9Kim.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="autohotkey(ahk) 去掉窗口的标题栏和边框">
+            <span class="h2" id="subtitle" title="jdk 中的 keytool 的使用">
               
             </span>
 
@@ -230,9 +229,9 @@
       
         <span class="post-meta">
           <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-          <time datetime="2023-08-28 22:31" pubdate>
+          <time datetime="2023-08-28 23:20" pubdate>
             <!-- 2023年8月28日 晚上 -->
-            2023-08-28 22:31
+            2023-08-28 23:20
           </time>
         </span>
         
@@ -252,7 +251,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      749 字
+      726 字
     </span>
     
 
@@ -300,7 +299,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">autohotkey(ahk) 去掉窗口的标题栏和边框</h1>
+            <h1 style="display: none">jdk 中的 keytool 的使用</h1>
             <!-- fanyfull 注释原本的更新时间 start -->
             <!-- 
               <p class="note note-info">
@@ -311,20 +310,32 @@
              -->
             <!-- fanyfull 注释原本的更新时间 end -->
             <div class="markdown-body">
-              <p>可能偶尔有点用处。就是利用 ahk 来控制标题栏的显隐。</p>
-<p>这个只针对使用 windows
-原生的标题栏的应用有效。现在很多有名的软件都是选择自绘标题栏和边框这些组件了，比如
-chrome。所以，这个脚本可能用处并不是很大。</p>
-<p>我目前的一个应用是把 terminal 的标题栏给隐藏掉，然后使用 snipaste
-去截图，这样截出来的就是四四方方的一个窗口，不会有边角料的干预。这里吐槽一下，win11
-的圆角窗口的截图有点不好处理，现有的截图软件截出来一点都不优雅。或许这是一个创新的点，等待有技术、有时间、有想法的同志去实现一下。</p>
-<p>话不多说，上脚本，</p>
-<figure class="highlight ahk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ahk"><span class="hljs-title">+^+!u::</span><br><span class="hljs-built_in">WinGetTitle,</span> currentWindow, A<br><span class="hljs-built_in">IfWinExist %</span>currentWindow%<br><span class="hljs-built_in">WinSet,</span> Style, -<span class="hljs-number">0</span>xC40000,<br><span class="hljs-comment">; WinMove, , , 0, 0, A_ScreenWidth, A_ScreenHeight</span><br><span class="hljs-comment">; WinMove, , , 0, 0, 1400, 1200</span><br>DllCall(“SetMenu”, “Ptr”, WinExist(), “Ptr”, <span class="hljs-number">0</span>)<br><span class="hljs-keyword">return</span><br><br><br><span class="hljs-title">+^+!i::</span><br><span class="hljs-built_in">WinGetTitle,</span> currentWindow, A<br><span class="hljs-built_in">IfWinExist %</span>currentWindow%<br><span class="hljs-built_in">WinSet,</span> Style, +<span class="hljs-number">0</span>xC40000,<br><span class="hljs-comment">; WinMove, , , 0, 0, A_ScreenWidth, A_ScreenHeight</span><br><span class="hljs-comment">; WinMove, , , 0, 0, 1400, 1200</span><br>DllCall(“SetMenu”, “Ptr”, WinExist(), “Ptr”, <span class="hljs-number">0</span>)<br><span class="hljs-keyword">return</span><br></code></pre></div></td></tr></table></figure>
-<p>上面脚本定义的快捷键分别是：</p>
+              <p>这里暂时只需要知道如何使用就可以了。</p>
+<p>首先是生成一个密钥，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">❯ keytool -genkeypair -alias fanyfull -keypass ffkp123456 -validity 365 -storepass ffsp123456 -keystore fanyfull.jks -keyalg RSA<br></code></pre></div></td></tr></table></figure>
+<p>解释一下这里的选项，</p>
 <ul>
-<li><code>Ctrl + Shift + Alt + u</code>: 隐藏窗口的标题栏</li>
-<li><code>Ctrl + Shift + Alt + i</code>: 恢复窗口的标题栏</li>
+<li>-alias 密钥对的名称</li>
+<li>-keypass 密钥密码</li>
+<li>-validity 有效期，这里是以天为单位</li>
+<li>-storepass 存储库的密码</li>
+<li>-keystore 指定生成的密钥文件存放的位置，这里的
+<code>fanyfull.jks</code> 表示的是当前目录下的
+<code>fanyfull.jks</code>，如果没有，就生成这个文件</li>
+<li>-keyalg 指定这个密钥对生成的算法，这里用的是 RSA 算法</li>
 </ul>
+<p><img src="https://i.imgur.com/VTrCi70.png" srcset="/img/loading.gif" lazyload /></p>
+<p>如果想查看生成的 jks 文件的详细信息，可以使用以下命令，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">❯ keytool -list -v -alias fanyfull -storepass ffsp123456 -keystore .\fanyfull.jks<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://i.imgur.com/1o4lQ2y.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后是提取私钥，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">❯ keytool -importkeystore -srckeystore .\fanyfull.jks -destkeystore fanyfull.p12 -deststoretype PKCS12 -srcalias fanyfull -deststorepass ffsp123456 -destkeypass ffkp123456<br></code></pre></div></td></tr></table></figure>
+<p>然后根据提示输入 storepass 即可，</p>
+<p><img src="https://i.imgur.com/Bxf0Nqs.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后，可以使用 openssl 工具来提取其中的私钥，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">❯ openssl pkcs12 -nodes -in .\fanyfull.p12 -out private.pem<br></code></pre></div></td></tr></table></figure>
+<p>至于这里的 openssl 工具，我这里是 windows 环境，使用 scoop
+安装一下即可。</p>
 
             </div>
             <hr>
@@ -335,9 +346,7 @@ chrome。所以，这个脚本可能用处并不是很大。</p>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/ahk/">ahk</a>
-                    
-                      <a class="hover-with-bg" href="/tags/windows/">windows</a>
+                      <a class="hover-with-bg" href="/tags/java/">java</a>
                     
                   </div>
                 
@@ -354,18 +363,12 @@ chrome。所以，这个脚本可能用处并不是很大。</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/28/jdk-%E4%B8%AD%E7%9A%84-keytool-%E7%9A%84%E4%BD%BF%E7%94%A8/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">jdk 中的 keytool 的使用</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/27/%E8%B4%B9%E8%A7%A3%E7%9A%84%E5%BC%80%E5%85%B3/">
-                        <span class="hidden-mobile">费解的开关-CH0201</span>
+                      <a href="/2023/08/28/autohotkey-ahk-%E5%8E%BB%E6%8E%89%E7%AA%97%E5%8F%A3%E7%9A%84%E6%A0%87%E9%A2%98%E6%A0%8F%E5%92%8C%E8%BE%B9%E6%A1%86/">
+                        <span class="hidden-mobile">autohotkey(ahk) 去掉窗口的标题栏和边框</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -387,8 +390,8 @@ chrome。所以，这个脚本可能用处并不是很大。</p>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2023/08/28/autohotkey-ahk-%E5%8E%BB%E6%8E%89%E7%AA%97%E5%8F%A3%E7%9A%84%E6%A0%87%E9%A2%98%E6%A0%8F%E5%92%8C%E8%BE%B9%E6%A1%86/';
-          this.page.identifier = '/2023/08/28/autohotkey-ahk-%E5%8E%BB%E6%8E%89%E7%AA%97%E5%8F%A3%E7%9A%84%E6%A0%87%E9%A2%98%E6%A0%8F%E5%92%8C%E8%BE%B9%E6%A1%86/';
+          this.page.url = 'http://example.com/2023/08/28/jdk-%E4%B8%AD%E7%9A%84-keytool-%E7%9A%84%E4%BD%BF%E7%94%A8/';
+          this.page.identifier = '/2023/08/28/jdk-%E4%B8%AD%E7%9A%84-keytool-%E7%9A%84%E4%BD%BF%E7%94%A8/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
