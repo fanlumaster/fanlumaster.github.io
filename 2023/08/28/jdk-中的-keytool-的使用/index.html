@@ -16,18 +16,19 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这里暂时只需要知道如何使用就可以了。 首先是生成一个密钥， 1❯ keytool -genkeypair -alias fanyfull -keypass ffkp123456 -validity 365 -storepass ffsp123456 -keystore fanyfull.jks -keyalg RSA 解释一下这里的选项，  -alias 密钥对的名称 -keypass">
+    <meta name="description" content="这里暂时只需要知道如何使用就可以了。 首先是生成一个密钥， 1keytool -genkeypair -alias fanyfull -keypass ffkp123456 -validity 365 -storepass ffsp123456 -keystore fanyfull.jks -keyalg RSA 解释一下这里的选项，  -alias 密钥对的名称 -keypass 密">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jdk 中的 keytool 的使用">
 <meta property="og:url" content="http://example.com/2023/08/28/jdk-%E4%B8%AD%E7%9A%84-keytool-%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Fany&#39;s Blog">
-<meta property="og:description" content="这里暂时只需要知道如何使用就可以了。 首先是生成一个密钥， 1❯ keytool -genkeypair -alias fanyfull -keypass ffkp123456 -validity 365 -storepass ffsp123456 -keystore fanyfull.jks -keyalg RSA 解释一下这里的选项，  -alias 密钥对的名称 -keypass">
+<meta property="og:description" content="这里暂时只需要知道如何使用就可以了。 首先是生成一个密钥， 1keytool -genkeypair -alias fanyfull -keypass ffkp123456 -validity 365 -storepass ffsp123456 -keystore fanyfull.jks -keyalg RSA 解释一下这里的选项，  -alias 密钥对的名称 -keypass 密">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/NRd9Kim.png">
 <meta property="article:published_time" content="2023-08-28T15:20:37.000Z">
-<meta property="article:modified_time" content="2023-08-28T15:43:24.384Z">
+<meta property="article:modified_time" content="2023-09-02T12:53:26.514Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="java">
+<meta property="article:tag" content="openssl">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://i.imgur.com/NRd9Kim.png">
   
@@ -239,9 +240,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2023-08-28 23:43" pubdate>
-                <!-- 2023年8月28日 晚上 -->
-                2023-08-28 23:43
+              <time datetime="2023-09-02 20:53" pubdate>
+                <!-- 2023年9月2日 晚上 -->
+                2023-09-02 20:53
               </time>
             </span>
             
@@ -251,7 +252,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      726 字
+      1k 字
     </span>
     
 
@@ -260,7 +261,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              7 分钟
+              9 分钟
         </span>
         
 
@@ -273,7 +274,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2023年8月28日 晚上
+              本文最后更新于：2023年9月2日 晚上
                   
     </p>
     
@@ -304,7 +305,7 @@
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2023年8月28日 晚上
+                  本文最后更新于：2023年9月2日 晚上
                 
               </p>
              -->
@@ -312,7 +313,7 @@
             <div class="markdown-body">
               <p>这里暂时只需要知道如何使用就可以了。</p>
 <p>首先是生成一个密钥，</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">❯ keytool -genkeypair -alias fanyfull -keypass ffkp123456 -validity 365 -storepass ffsp123456 -keystore fanyfull.jks -keyalg RSA<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">keytool -genkeypair -alias fanyfull -keypass ffkp123456 -validity 365 -storepass ffsp123456 -keystore fanyfull.jks -keyalg RSA<br></code></pre></div></td></tr></table></figure>
 <p>解释一下这里的选项，</p>
 <ul>
 <li>-alias 密钥对的名称</li>
@@ -326,16 +327,30 @@
 </ul>
 <p><img src="https://i.imgur.com/VTrCi70.png" srcset="/img/loading.gif" lazyload /></p>
 <p>如果想查看生成的 jks 文件的详细信息，可以使用以下命令，</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">❯ keytool -list -v -alias fanyfull -storepass ffsp123456 -keystore .\fanyfull.jks<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">keytool -list -v -alias fanyfull -storepass ffsp123456 -keystore .\fanyfull.jks<br></code></pre></div></td></tr></table></figure>
 <p><img src="https://i.imgur.com/1o4lQ2y.png" srcset="/img/loading.gif" lazyload /></p>
-<p>然后是提取私钥，</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">❯ keytool -importkeystore -srckeystore .\fanyfull.jks -destkeystore fanyfull.p12 -deststoretype PKCS12 -srcalias fanyfull -deststorepass ffsp123456 -destkeypass ffkp123456<br></code></pre></div></td></tr></table></figure>
+<p>然后是<strong>提取私钥</strong>，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">keytool -importkeystore -srckeystore .\fanyfull.jks -destkeystore fanyfull.p12 -deststoretype PKCS12 -srcalias fanyfull -deststorepass ffsp123456 -destkeypass ffkp123456<br></code></pre></div></td></tr></table></figure>
 <p>然后根据提示输入 storepass 即可，</p>
 <p><img src="https://i.imgur.com/Bxf0Nqs.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后，可以使用 openssl 工具来提取其中的私钥，</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">❯ openssl pkcs12 -nodes -in .\fanyfull.p12 -out private.pem<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">openssl pkcs12 -nodes -in .\fanyfull.p12 -out private.pem<br></code></pre></div></td></tr></table></figure>
+<p>我们可以查看一下这里的私钥，</p>
+<p><img src="https://i.imgur.com/iHmEnD6.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这里的 <code>BEGIN PRIVATE KEY</code> 和 <code>END PRIVATE KEY</code>
+之间的内容就是我们的私钥。</p>
+<p>然后是<strong>提取公钥</strong>，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">openssl pkey -in .\private.pem -pubout -out public.pem<br></code></pre></div></td></tr></table></figure>
+<p>我们可以查看一下这里的公钥，</p>
+<p><img src="https://i.imgur.com/b8aO9q3.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这里的 <code>BEGIN PUBLIC KEY</code> 和 <code>END PUBLIC KEY</code>
+之间的内容就是我们的私钥。</p>
+<p>而，如果我们单纯地只是想提取证书的话，那么，可以使用以下的命令，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">keytool -export -alias fanyfull -keystore .\fanyfull.jks -file public.cert -rfc<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://i.imgur.com/Suy4j2A.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/HcGr7m8.png" srcset="/img/loading.gif" lazyload /></p>
 <p>至于这里的 openssl 工具，我这里是 windows 环境，使用 scoop
-安装一下即可。</p>
+安装一下即可。当然，你也可以选择使用其他的方式来安装，比如，直接从网上下载二进制包来安装。</p>
 
             </div>
             <hr>
@@ -347,6 +362,8 @@
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/java/">java</a>
+                    
+                      <a class="hover-with-bg" href="/tags/openssl/">openssl</a>
                     
                   </div>
                 
