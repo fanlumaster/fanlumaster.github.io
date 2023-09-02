@@ -230,8 +230,54 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/09/02/%E4%BD%BF%E7%94%A8-java-%E6%8F%90%E5%8F%96-jks-%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5/" target="_self">
+          <img src="https://i.imgur.com/blDl9FF.png" srcset="/img/loading.gif" lazyload alt="使用 java 提取 jks 文件中的公钥和私钥">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/09/02/%E4%BD%BF%E7%94%A8-java-%E6%8F%90%E5%8F%96-jks-%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5/" target="_self">
+          使用 java 提取 jks 文件中的公钥和私钥
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/09/02/%E4%BD%BF%E7%94%A8-java-%E6%8F%90%E5%8F%96-jks-%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5/" target="_self">
+          
+          注意，这个代码只能提取标准 jks 文件中的公钥和私钥，如果是使用 jdk17 中的 keytool 生成的 jks 文件，本文的代码是不生效的。 我们用 jdk17 版本的 keytool 生成的密钥库类型为 PKCS12，而 PKCS12 只有 storepass 属性，没有 keypass，因此我们单独指定密钥条目的密码，即填入的 keypass 将不会生效，签名的时候也会无法正常按
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-02 21:20" pubdate>
+              2023-09-02
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/java/">java</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2023/08/28/jdk-%E4%B8%AD%E7%9A%84-keytool-%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
-          <img src="https://i.imgur.com/NRd9Kim.png" srcset="/img/loading.gif" lazyload alt="jdk 中的 keytool 的使用">
+          <img src="https://i.imgur.com/NRd9Kim.png" srcset="/img/loading.gif" lazyload alt="jdk 中的 keytool 的使用，以及提取 jks 文件中的公钥和私钥">
         </a>
       </div>
     
@@ -239,14 +285,14 @@
       <h1 class="index-header">
         
         <a href="/2023/08/28/jdk-%E4%B8%AD%E7%9A%84-keytool-%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
-          jdk 中的 keytool 的使用
+          jdk 中的 keytool 的使用，以及提取 jks 文件中的公钥和私钥
         </a>
       </h1>
 
       <p class="index-excerpt">
         <a href="/2023/08/28/jdk-%E4%B8%AD%E7%9A%84-keytool-%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_self">
           
-          这里暂时只需要知道如何使用就可以了。 首先是生成一个密钥， 1keytool -genkeypair -alias fanyfull -keypass ffkp123456 -validity 365 -storepass ffsp123456 -keystore fanyfull.jks -keyalg RSA 解释一下这里的选项，  -alias 密钥对的名称 -keypass 密
+          这里暂时只需要知道如何使用就可以了。 需要注意的一点是，这里是使用 jdk17 中带有的 keytool 生成的。所以，会出现以下的问题，这就导致了无法使用 java 来进行提取其中的公钥和私钥， 1警告: PKCS12 密钥库不支持其他存储和密钥口令。正在忽略用户指定的-keypass值。  这里更多的信息可以看这篇博客， https:&#x2F;&#x2F;www.cnblogs.com&#x2F;simon
         </a>
       </p>
 
@@ -651,54 +697,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/%E7%94%9F%E6%B4%BB/">生活</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2023/08/06/UVA-818/" target="_self">
-          <img src="https://i.imgur.com/GDswAHt.png" srcset="/img/loading.gif" lazyload alt="UVA 818">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/08/06/UVA-818/" target="_self">
-          UVA 818
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2023/08/06/UVA-818/" target="_self">
-          
-          对 UVA 818 的理解
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-06 10:56" pubdate>
-              2023-08-06
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-              <a href="/tags/UVA/">UVA</a>
             
           </div>
         

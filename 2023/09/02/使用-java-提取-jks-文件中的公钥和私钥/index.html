@@ -16,24 +16,23 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="可能偶尔有点用处。就是利用 ahk 来控制标题栏的显隐。 这个只针对使用 windows 原生的标题栏的应用有效。现在很多有名的软件都是选择自绘标题栏和边框这些组件了，比如 chrome。所以，这个脚本可能用处并不是很大。 我目前的一个应用是把 terminal 的标题栏给隐藏掉，然后使用 snipaste 去截图，这样截出来的就是四四方方的一个窗口，不会有边角料的干预。这里吐槽一下，w">
+    <meta name="description" content="注意，这个代码只能提取标准 jks 文件中的公钥和私钥，如果是使用 jdk17 中的 keytool 生成的 jks 文件，本文的代码是不生效的。 我们用 jdk17 版本的 keytool 生成的密钥库类型为 PKCS12，而 PKCS12 只有 storepass 属性，没有 keypass，因此我们单独指定密钥条目的密码，即填入的 keypass 将不会生效，签名的时候也会无法正常按">
 <meta property="og:type" content="article">
-<meta property="og:title" content="autohotkey(ahk) 去掉窗口的标题栏和边框">
-<meta property="og:url" content="http://example.com/2023/08/28/autohotkey-ahk-%E5%8E%BB%E6%8E%89%E7%AA%97%E5%8F%A3%E7%9A%84%E6%A0%87%E9%A2%98%E6%A0%8F%E5%92%8C%E8%BE%B9%E6%A1%86/index.html">
+<meta property="og:title" content="使用 java 提取 jks 文件中的公钥和私钥">
+<meta property="og:url" content="http://example.com/2023/09/02/%E4%BD%BF%E7%94%A8-java-%E6%8F%90%E5%8F%96-jks-%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5/index.html">
 <meta property="og:site_name" content="Fany&#39;s Blog">
-<meta property="og:description" content="可能偶尔有点用处。就是利用 ahk 来控制标题栏的显隐。 这个只针对使用 windows 原生的标题栏的应用有效。现在很多有名的软件都是选择自绘标题栏和边框这些组件了，比如 chrome。所以，这个脚本可能用处并不是很大。 我目前的一个应用是把 terminal 的标题栏给隐藏掉，然后使用 snipaste 去截图，这样截出来的就是四四方方的一个窗口，不会有边角料的干预。这里吐槽一下，w">
+<meta property="og:description" content="注意，这个代码只能提取标准 jks 文件中的公钥和私钥，如果是使用 jdk17 中的 keytool 生成的 jks 文件，本文的代码是不生效的。 我们用 jdk17 版本的 keytool 生成的密钥库类型为 PKCS12，而 PKCS12 只有 storepass 属性，没有 keypass，因此我们单独指定密钥条目的密码，即填入的 keypass 将不会生效，签名的时候也会无法正常按">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/InwY1rd.png">
-<meta property="article:published_time" content="2023-08-28T14:31:24.000Z">
-<meta property="article:modified_time" content="2023-08-28T15:43:02.718Z">
+<meta property="og:image" content="https://i.imgur.com/blDl9FF.png">
+<meta property="article:published_time" content="2023-09-02T13:20:01.000Z">
+<meta property="article:modified_time" content="2023-09-02T15:30:02.120Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="ahk">
-<meta property="article:tag" content="windows">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/InwY1rd.png">
+<meta name="twitter:image" content="https://i.imgur.com/blDl9FF.png">
   
   
-  <title>autohotkey(ahk) 去掉窗口的标题栏和边框 - Fany&#39;s Blog</title>
+  <title>使用 java 提取 jks 文件中的公钥和私钥 - Fany&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -215,12 +214,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/InwY1rd.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/blDl9FF.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="autohotkey(ahk) 去掉窗口的标题栏和边框">
+            <span class="h2" id="subtitle" title="使用 java 提取 jks 文件中的公钥和私钥">
               
             </span>
 
@@ -230,9 +229,9 @@
       
         <span class="post-meta">
           <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-          <time datetime="2023-08-28 22:31" pubdate>
-            <!-- 2023年8月28日 晚上 -->
-            2023-08-28 22:31
+          <time datetime="2023-09-02 21:20" pubdate>
+            <!-- 2023年9月2日 晚上 -->
+            2023-09-02 21:20
           </time>
         </span>
         
@@ -240,9 +239,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2023-08-28 23:43" pubdate>
-                <!-- 2023年8月28日 晚上 -->
-                2023-08-28 23:43
+              <time datetime="2023-09-02 23:30" pubdate>
+                <!-- 2023年9月2日 晚上 -->
+                2023-09-02 23:30
               </time>
             </span>
             
@@ -252,7 +251,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      749 字
+      2k 字
     </span>
     
 
@@ -261,7 +260,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              7 分钟
+              17 分钟
         </span>
         
 
@@ -274,7 +273,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2023年8月28日 晚上
+              本文最后更新于：2023年9月2日 晚上
                   
     </p>
     
@@ -300,31 +299,26 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">autohotkey(ahk) 去掉窗口的标题栏和边框</h1>
+            <h1 style="display: none">使用 java 提取 jks 文件中的公钥和私钥</h1>
             <!-- fanyfull 注释原本的更新时间 start -->
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2023年8月28日 晚上
+                  本文最后更新于：2023年9月2日 晚上
                 
               </p>
              -->
             <!-- fanyfull 注释原本的更新时间 end -->
             <div class="markdown-body">
-              <p>可能偶尔有点用处。就是利用 ahk 来控制标题栏的显隐。</p>
-<p>这个只针对使用 windows
-原生的标题栏的应用有效。现在很多有名的软件都是选择自绘标题栏和边框这些组件了，比如
-chrome。所以，这个脚本可能用处并不是很大。</p>
-<p>我目前的一个应用是把 terminal 的标题栏给隐藏掉，然后使用 snipaste
-去截图，这样截出来的就是四四方方的一个窗口，不会有边角料的干预。这里吐槽一下，win11
-的圆角窗口的截图有点不好处理，现有的截图软件截出来一点都不优雅。或许这是一个创新的点，等待有技术、有时间、有想法的同志去实现一下。</p>
-<p>话不多说，上脚本，</p>
-<figure class="highlight ahk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ahk"><span class="hljs-title">+^+!u::</span><br><span class="hljs-built_in">WinGetTitle,</span> currentWindow, A<br><span class="hljs-built_in">IfWinExist %</span>currentWindow%<br><span class="hljs-built_in">WinSet,</span> Style, -<span class="hljs-number">0</span>xC40000,<br><span class="hljs-comment">; WinMove, , , 0, 0, A_ScreenWidth, A_ScreenHeight</span><br><span class="hljs-comment">; WinMove, , , 0, 0, 1400, 1200</span><br>DllCall(“SetMenu”, “Ptr”, WinExist(), “Ptr”, <span class="hljs-number">0</span>)<br><span class="hljs-keyword">return</span><br><br><br><span class="hljs-title">+^+!i::</span><br><span class="hljs-built_in">WinGetTitle,</span> currentWindow, A<br><span class="hljs-built_in">IfWinExist %</span>currentWindow%<br><span class="hljs-built_in">WinSet,</span> Style, +<span class="hljs-number">0</span>xC40000,<br><span class="hljs-comment">; WinMove, , , 0, 0, A_ScreenWidth, A_ScreenHeight</span><br><span class="hljs-comment">; WinMove, , , 0, 0, 1400, 1200</span><br>DllCall(“SetMenu”, “Ptr”, WinExist(), “Ptr”, <span class="hljs-number">0</span>)<br><span class="hljs-keyword">return</span><br></code></pre></div></td></tr></table></figure>
-<p>上面脚本定义的快捷键分别是：</p>
-<ul>
-<li><code>Ctrl + Shift + Alt + u</code>: 隐藏窗口的标题栏</li>
-<li><code>Ctrl + Shift + Alt + i</code>: 恢复窗口的标题栏</li>
-</ul>
+              <p>注意，这个代码只能提取标准 jks 文件中的公钥和私钥，如果是使用 jdk17
+中的 keytool 生成的 jks 文件，本文的代码是不生效的。</p>
+<p>我们用 jdk17 版本的 keytool 生成的密钥库类型为 PKCS12，而 PKCS12 只有
+storepass 属性，没有 keypass，因此我们单独指定密钥条目的密码，即填入的
+keypass 将不会生效，签名的时候也会无法正常按照我们创建时填写的 keypass
+来读取我们的密钥。</p>
+<p>我这里使用的 jks 文件是使用 jdk8 中的 keytool 生成的。</p>
+<p>代码写出来很简单，</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.bouncycastle.jce.provider.BouncyCastleProvider;<br><br><span class="hljs-keyword">import</span> java.io.FileInputStream;<br><span class="hljs-keyword">import</span> java.security.KeyStore;<br><span class="hljs-keyword">import</span> java.security.PrivateKey;<br><span class="hljs-keyword">import</span> java.security.PublicKey;<br><span class="hljs-keyword">import</span> java.security.Security;<br><span class="hljs-keyword">import</span> java.security.cert.Certificate;<br><span class="hljs-keyword">import</span> java.util.Base64;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">KeyStoreExtract</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">jksFile</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;C:\\EDisk\\JavaCodes\\certificate\\jks_demo\\fanyfull.jks&quot;</span>;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">alias</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;fanyfull&quot;</span>;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">storepass</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;ffsp123456&quot;</span>;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">keypass</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;ffkp123456&quot;</span>;<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-type">FileInputStream</span> <span class="hljs-variable">fis</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FileInputStream</span>(jksFile);<br>            <span class="hljs-type">KeyStore</span> <span class="hljs-variable">keyStore</span> <span class="hljs-operator">=</span> KeyStore.getInstance(<span class="hljs-string">&quot;JKS&quot;</span>);<br>            keyStore.load(fis, storepass.toCharArray());<br>            fis.close();<br><br>            Security.addProvider(<span class="hljs-keyword">new</span> <span class="hljs-title class_">BouncyCastleProvider</span>());<br><br>            <span class="hljs-type">PrivateKey</span> <span class="hljs-variable">privateKey</span> <span class="hljs-operator">=</span> (PrivateKey) keyStore.getKey(alias, keypass.toCharArray());<br>            <span class="hljs-type">Certificate</span> <span class="hljs-variable">cert</span> <span class="hljs-operator">=</span> keyStore.getCertificate(alias);<br>            <span class="hljs-type">PublicKey</span> <span class="hljs-variable">publicKey</span> <span class="hljs-operator">=</span> cert.getPublicKey();<br><br>            <span class="hljs-type">String</span> <span class="hljs-variable">base64PrivateKey</span> <span class="hljs-operator">=</span> Base64.getEncoder().encodeToString(privateKey.getEncoded());<br>            <span class="hljs-type">String</span> <span class="hljs-variable">base64Cert</span> <span class="hljs-operator">=</span> Base64.getEncoder().encodeToString(cert.getEncoded());<br>            <span class="hljs-type">String</span> <span class="hljs-variable">base64PublicKey</span> <span class="hljs-operator">=</span> Base64.getEncoder().encodeToString(publicKey.getEncoded());<br><br>            <span class="hljs-comment">// public key</span><br>            System.out.println(<span class="hljs-string">&quot;-----BEGIN PUBLIC KEY-----&quot;</span>);<br>            System.out.println(base64PublicKey);<br>            System.out.println(<span class="hljs-string">&quot;-----END PUBLIC KEY-----&quot;</span>);<br><br>            <span class="hljs-comment">// private key</span><br>            System.out.println(<span class="hljs-string">&quot;-----BEGIN PRIVATE KEY-----&quot;</span>);<br>            System.out.println(base64PrivateKey);<br>            System.out.println(<span class="hljs-string">&quot;-----END PRIVATE KEY-----&quot;</span>);<br><br>            <span class="hljs-comment">// cert</span><br>            System.out.println(<span class="hljs-string">&quot;-----BEGIN CERTIFICATE-----&quot;</span>);<br>            System.out.println(base64Cert);<br>            System.out.println(<span class="hljs-string">&quot;-----END CERTIFICATE-----&quot;</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            e.printStackTrace();<br>        &#125;<br>    &#125;<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
@@ -335,9 +329,7 @@ chrome。所以，这个脚本可能用处并不是很大。</p>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/ahk/">ahk</a>
-                    
-                      <a class="hover-with-bg" href="/tags/windows/">windows</a>
+                      <a class="hover-with-bg" href="/tags/java/">java</a>
                     
                   </div>
                 
@@ -354,18 +346,12 @@ chrome。所以，这个脚本可能用处并不是很大。</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/28/jdk-%E4%B8%AD%E7%9A%84-keytool-%E7%9A%84%E4%BD%BF%E7%94%A8/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">jdk 中的 keytool 的使用，以及提取 jks 文件中的公钥和私钥</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/27/%E8%B4%B9%E8%A7%A3%E7%9A%84%E5%BC%80%E5%85%B3/">
-                        <span class="hidden-mobile">费解的开关-CH0201</span>
+                      <a href="/2023/08/28/jdk-%E4%B8%AD%E7%9A%84-keytool-%E7%9A%84%E4%BD%BF%E7%94%A8/">
+                        <span class="hidden-mobile">jdk 中的 keytool 的使用，以及提取 jks 文件中的公钥和私钥</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -387,8 +373,8 @@ chrome。所以，这个脚本可能用处并不是很大。</p>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2023/08/28/autohotkey-ahk-%E5%8E%BB%E6%8E%89%E7%AA%97%E5%8F%A3%E7%9A%84%E6%A0%87%E9%A2%98%E6%A0%8F%E5%92%8C%E8%BE%B9%E6%A1%86/';
-          this.page.identifier = '/2023/08/28/autohotkey-ahk-%E5%8E%BB%E6%8E%89%E7%AA%97%E5%8F%A3%E7%9A%84%E6%A0%87%E9%A2%98%E6%A0%8F%E5%92%8C%E8%BE%B9%E6%A1%86/';
+          this.page.url = 'http://example.com/2023/09/02/%E4%BD%BF%E7%94%A8-java-%E6%8F%90%E5%8F%96-jks-%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5/';
+          this.page.identifier = '/2023/09/02/%E4%BD%BF%E7%94%A8-java-%E6%8F%90%E5%8F%96-jks-%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
