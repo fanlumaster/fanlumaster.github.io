@@ -130,18 +130,6 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" target="_blank" rel="noopener" href="https://fanyfull.top/@fanyfull">
-                <i class="iconfont icon-note"></i>
-                闲言
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
               <a class="nav-link" href="/reading/">
                 <i class="iconfont icon-book"></i>
                 读书
@@ -246,7 +234,7 @@
       <p class="index-excerpt">
         <a href="/2023/09/02/%E4%BD%BF%E7%94%A8-java-%E6%8F%90%E5%8F%96-jks-%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5/" target="_self">
           
-          注意，这个代码只能提取标准 jks 文件中的公钥和私钥，如果是使用 jdk17 中的 keytool 生成的 jks 文件，本文的代码是不生效的。 我们用 jdk17 版本的 keytool 生成的密钥库类型为 PKCS12，而 PKCS12 只有 storepass 属性，没有 keypass，因此我们单独指定密钥条目的密码，即填入的 keypass 将不会生效，签名的时候也会无法正常按
+          注意，这个代码只能提取标准 jks 文件中的公钥和私钥，如果是使用 jdk17 中的 keytool 生成的 jks 文件，本文的代码是不生效的，而且，在其他的情况都正确的情况下，会出现以下的错误， 1Get Key failed: Given final block not properly padded. Such issues can arise if a bad key is use
         </a>
       </p>
 
@@ -504,9 +492,9 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Java/">Java</a>
-            
               <a href="/tags/springboot/">springboot</a>
+            
+              <a href="/tags/Java/">Java</a>
             
           </div>
         
@@ -756,7 +744,7 @@
 
   <footer class="text-center mt-5 py-3">
   <div class="footer-content">
-     <a href="https://fanyfull.monster" target="_blank" rel="nofollow noopener"><span>FanyFull</span></a> <i class="iconfont icon-love"></i> <a href="https://fanyfull.monster" target="_blank" rel="nofollow noopener"><span>Monster</span></a> 
+     <a href="https://fanyfull.monster" target="_blank" rel="nofollow noopener"><span>FanyFull</span></a> <i class="iconfont icon-love"></i> <a href="https://fanyfull.top/@fanyfull" target="_blank" rel="nofollow noopener"><span>Monster</span></a> 
   </div>
   
 
