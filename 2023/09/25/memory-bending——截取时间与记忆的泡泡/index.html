@@ -16,23 +16,23 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="下午换了一个域名，首先是换了一个域名供应商。之前的域名出了一点问题。这一次选择的是 namesilo，但是选择这个域名的话，那么，会相应地出现一个问题，那就是这个域名供应商自己默认锁提供的域名解析服务器是不好用的，速度很慢，解析经常出问题。 关于这个问题，已经有成熟的解决方案，那就是把域名解析服务交给 cloudflare。 我在使用了 cf 的服务之后，域名是可以正常解析了，但是，在实">
+    <meta name="description" content="工作的事情说重不重，说轻不轻。这个方面可记的事情不多。那么，什么值得 bending 呢？Vc 桑自蓉城来，那是自然不得不聚的。说是以后聚的机会比较少，其实是不少的。未来的我们，又有哪一个会缺钱呢？想去哪里也不过是几张机票的事情。这还只是按部就班的情况。万一哪一位同志创业成功了呢？ 我说，来龙岗喝粥。GfBc 不愿意，实际上店家虽然叫林记砂锅粥，其烧烤也是很好的。啊，说起烧烤，就要提一提学">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于 cloudflare 让 nginx 反代失效的问题">
-<meta property="og:url" content="http://example.com/2023/06/02/%E5%85%B3%E4%BA%8E-cloudflare-%E8%AE%A9-nginx-%E5%8F%8D%E4%BB%A3%E5%A4%B1%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="memory bending——截取时间与记忆的泡泡">
+<meta property="og:url" content="http://example.com/2023/09/25/memory-bending%E2%80%94%E2%80%94%E6%88%AA%E5%8F%96%E6%97%B6%E9%97%B4%E4%B8%8E%E8%AE%B0%E5%BF%86%E7%9A%84%E6%B3%A1%E6%B3%A1/index.html">
 <meta property="og:site_name" content="Fany&#39;s Blog">
-<meta property="og:description" content="下午换了一个域名，首先是换了一个域名供应商。之前的域名出了一点问题。这一次选择的是 namesilo，但是选择这个域名的话，那么，会相应地出现一个问题，那就是这个域名供应商自己默认锁提供的域名解析服务器是不好用的，速度很慢，解析经常出问题。 关于这个问题，已经有成熟的解决方案，那就是把域名解析服务交给 cloudflare。 我在使用了 cf 的服务之后，域名是可以正常解析了，但是，在实">
+<meta property="og:description" content="工作的事情说重不重，说轻不轻。这个方面可记的事情不多。那么，什么值得 bending 呢？Vc 桑自蓉城来，那是自然不得不聚的。说是以后聚的机会比较少，其实是不少的。未来的我们，又有哪一个会缺钱呢？想去哪里也不过是几张机票的事情。这还只是按部就班的情况。万一哪一位同志创业成功了呢？ 我说，来龙岗喝粥。GfBc 不愿意，实际上店家虽然叫林记砂锅粥，其烧烤也是很好的。啊，说起烧烤，就要提一提学">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/uKD02ed.png">
-<meta property="article:published_time" content="2023-06-01T16:58:03.000Z">
-<meta property="article:modified_time" content="2023-09-23T06:36:38.230Z">
+<meta property="og:image" content="https://i.imgur.com/mvrxddw.png">
+<meta property="article:published_time" content="2023-09-24T16:03:48.000Z">
+<meta property="article:modified_time" content="2023-09-24T16:53:00.085Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="生活">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/uKD02ed.png">
+<meta name="twitter:image" content="https://i.imgur.com/mvrxddw.png">
   
   
-  <title>关于 cloudflare 让 nginx 反代失效的问题 - Fany&#39;s Blog</title>
+  <title>memory bending——截取时间与记忆的泡泡 - Fany&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -202,12 +202,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/uKD02ed.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/mvrxddw.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="关于 cloudflare 让 nginx 反代失效的问题">
+            <span class="h2" id="subtitle" title="memory bending——截取时间与记忆的泡泡">
               
             </span>
 
@@ -217,9 +217,9 @@
       
         <span class="post-meta">
           <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-          <time datetime="2023-06-02 00:58" pubdate>
-            <!-- 2023年6月2日 凌晨 -->
-            2023-06-02 00:58
+          <time datetime="2023-09-25 00:03" pubdate>
+            <!-- 2023年9月25日 凌晨 -->
+            2023-09-25 00:03
           </time>
         </span>
         
@@ -227,9 +227,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2023-09-23 14:36" pubdate>
-                <!-- 2023年9月23日 下午 -->
-                2023-09-23 14:36
+              <time datetime="2023-09-25 00:53" pubdate>
+                <!-- 2023年9月25日 凌晨 -->
+                2023-09-25 00:53
               </time>
             </span>
             
@@ -239,7 +239,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      366 字
+      1.5k 字
     </span>
     
 
@@ -248,7 +248,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              4 分钟
+              13 分钟
         </span>
         
 
@@ -261,7 +261,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2023年9月23日 下午
+              本文最后更新于：2023年9月25日 凌晨
                   
     </p>
     
@@ -287,30 +287,47 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">关于 cloudflare 让 nginx 反代失效的问题</h1>
+            <h1 style="display: none">memory bending——截取时间与记忆的泡泡</h1>
             <!-- fanyfull 注释原本的更新时间 start -->
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2023年9月23日 下午
+                  本文最后更新于：2023年9月25日 凌晨
                 
               </p>
              -->
             <!-- fanyfull 注释原本的更新时间 end -->
             <div class="markdown-body">
-              <p>下午换了一个域名，首先是换了一个域名供应商。之前的域名出了一点问题。这一次选择的是
-namesilo，但是选择这个域名的话，那么，会相应地出现一个问题，那就是这个域名供应商自己默认锁提供的域名解析服务器是不好用的，速度很慢，解析经常出问题。</p>
-<p>关于这个问题，已经有成熟的解决方案，那就是把域名解析服务交给
-cloudflare。</p>
-<p>我在使用了 cf
-的服务之后，域名是可以正常解析了，但是，在实际访问网站的过程中，我把
-https 映射到 http 的 nginx 配置失效了，排查了半天，原以为是 nginx
-的配置出了问题。后来终于排查到 cf，是 cf 的 dns
-服务的代理状态出了问题。它默认的状态似乎是全权代理，我们这里需要把它修改成<strong>仅
-DNS</strong>，</p>
-<p><img src="https://i.imgur.com/wToMdQv.png" srcset="/img/loading.gif" lazyload /></p>
-<p>这样，cf 就只作 dns 解析的服务，而对其它的 https
-不作处理，也就是会交给 nginx 来处理，这样一来，问题就解决了。</p>
+              <p>工作的事情说重不重，说轻不轻。这个方面可记的事情不多。那么，什么值得
+bending 呢？Vc
+桑自蓉城来，那是自然不得不聚的。说是以后聚的机会比较少，其实是不少的。未来的我们，又有哪一个会缺钱呢？想去哪里也不过是几张机票的事情。这还只是按部就班的情况。万一哪一位同志创业成功了呢？</p>
+<p>我说，来龙岗喝粥。GfBc
+不愿意，实际上店家虽然叫林记砂锅粥，其烧烤也是很好的。啊，说起烧烤，就要提一提学校外面的老兵烧烤，再也不可以去，卫生条件实在太差！说回喝粥，早知点一个中锅了。之前是四个人中锅喝不完，两个人小锅喝不完，这一次三个人，就来一只小锅吧，不料一开始不想喝粥的这位该是一人一锅我觉得也不在话下。</p>
+<p>方今是搬到了 50 层，开始以为是 49
+层，果然还是缺不了遁去的那个一。</p>
+<p>不由再想想 18
+级的同学们。只缘身在此山中。在山中，那么，全貌自然是见不全，不仅如此，想要一窥不多的景色，也是很难很难。依然是这个啦，那个啦，加权啦，竞赛啦，项目啦。有那么重要吗？上个课都不能够享受其中。用一个词语来形容——池鱼。要说那时最大的可遗憾的点，无非是那时保研不太难，考本院的研究生亦是，加上一个互联网的末班车。实际上一文不值。若是仍是那种情状，无非是从一个小的牢笼换了大一点的。平时吃饭，听同事讲压力大，我笑笑，以示理解，实际呢？那种东西早就抛到九霄云外啦！</p>
+<p>有一个思索的点，所有的曾经的愿望，或多或少都会以某种扭曲的方式实现，最终都会实现。回顾我大一那会儿，和高中同学在县城漫步，寒假，空气很差，雾霾蒙蒙，我说，我将来要来到现在的公司。在大学这几年，我对公司的感觉一变再变，曲折了一下，最终还是落在了相应的那个点。想起另外一个同学，家境应是好，很好，高中时代以用敝公司的手机为荣，现在则是一色的苹果设备，用了苹果就可以
+polish
+一下自己的专业开发者的本色了嘛。事实如何，无从说起。也不能说。</p>
+<p>无非是混口饭吃嘛。</p>
+<p>反手似有进步。对现在的工作环境，在乒乓球这一块儿，我是比较满意的。同事的水平支撑我一年的练球也是一点问题也冇的。</p>
+<p>鼠目寸光之辈是有，与我何干？自由地去抉择自己的所爱与所恶，还有什么不知足的呢？想要更多的钱，想要更好的女人，想要更大的权力？没意义的。想一想蝴蝶，我与蝴蝶作比较好不好？</p>
+<p>曾与 If 有过一面之缘的
+Lr，我说，时光在你身上发生了倒流。在我看来确实是如此，但，女子天性爱美，以为一点点的果冻都要想方设法地抹下去，还远远没有到那种程度呢。说好要一起去香港，给我作导游，我说，第一站，诗歌舞街，导游不知，我只好笑笑。不是人尽皆知并非不好。有一搭没一搭地说话，19
+年乃至 20
+年的执念，倒是消散的一干二净。我说，缘浅，深深浅浅也没有什么，可以说道什么呢？也向
+Lq
+一样，问我那不可说之人的遗毒，自然不能向对球友交代那样说什么君子(小人)报仇之类，这就又是暗的另一面了。</p>
+<p>更多的是感叹，我们有多少的年轻的年华可以挥霍涂抹呢？其实不多的。卡塔拉几十年后也会老得让人只余一个慈祥的形容词。赫本在五十岁时，会有二十岁的恋情吗？时光的倒流也是有限度的。冷冷热热。</p>
+<p>几年前背的情人，早忘记得一干二净，只余第一句：</p>
+<blockquote>
+<p>我已经老了。</p>
+</blockquote>
+<p>其余的方面，解决了一些小问题，direct2d 分层的问题，原来 win32
+创建一个新的线程是如此地便捷。</p>
+<p>朋友常在，这在以前是不可思议的事情。</p>
+<p>这一切都是命运石之门的选择。不由想起，明天或许可以在吃饭的时候和那位同事谈一谈降世神通。什么今石洋之，什么恶魔人什么天元什么斩服什么回转企鹅罐，这样的二次元我还从来没有遇到过，偏偏还不似过往所遇之人之虚张声势实则一窍不通。</p>
 
             </div>
             <hr>
@@ -321,7 +338,7 @@ DNS</strong>，</p>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/nginx/">nginx</a>
+                      <a class="hover-with-bg" href="/tags/%E7%94%9F%E6%B4%BB/">生活</a>
                     
                   </div>
                 
@@ -338,18 +355,12 @@ DNS</strong>，</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/05/Disqus-%E5%8E%BB%E9%99%A4-reactions/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Disqus 去除 reactions</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/31/acme-sh-%E7%BB%99%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE-ssl-%E8%AF%81%E4%B9%A6/">
-                        <span class="hidden-mobile">acme.sh 给域名配置 ssl 证书</span>
+                      <a href="/2023/09/02/%E4%BD%BF%E7%94%A8-java-%E6%8F%90%E5%8F%96-jks-%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5/">
+                        <span class="hidden-mobile">使用 java 提取 jks 文件中的公钥和私钥</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -371,8 +382,8 @@ DNS</strong>，</p>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2023/06/02/%E5%85%B3%E4%BA%8E-cloudflare-%E8%AE%A9-nginx-%E5%8F%8D%E4%BB%A3%E5%A4%B1%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/';
-          this.page.identifier = '/2023/06/02/%E5%85%B3%E4%BA%8E-cloudflare-%E8%AE%A9-nginx-%E5%8F%8D%E4%BB%A3%E5%A4%B1%E6%95%88%E7%9A%84%E9%97%AE%E9%A2%98/';
+          this.page.url = 'http://example.com/2023/09/25/memory-bending%E2%80%94%E2%80%94%E6%88%AA%E5%8F%96%E6%97%B6%E9%97%B4%E4%B8%8E%E8%AE%B0%E5%BF%86%E7%9A%84%E6%B3%A1%E6%B3%A1/';
+          this.page.identifier = '/2023/09/25/memory-bending%E2%80%94%E2%80%94%E6%88%AA%E5%8F%96%E6%97%B6%E9%97%B4%E4%B8%8E%E8%AE%B0%E5%BF%86%E7%9A%84%E6%B3%A1%E6%B3%A1/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
