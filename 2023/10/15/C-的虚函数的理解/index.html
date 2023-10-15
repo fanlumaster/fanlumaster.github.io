@@ -16,19 +16,37 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="http://example.com/archives/page/5/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="C++ 的虚函数的理解">
+<meta property="og:url" content="http://example.com/2023/10/15/C-%E7%9A%84%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Fany&#39;s Blog">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-15T04:02:20.000Z">
+<meta property="article:modified_time" content="2023-10-15T08:45:52.947Z">
 <meta property="article:author" content="fanlumaster">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>归档 - Fany&#39;s Blog</title>
+  <title>C++ 的虚函数的理解 - Fany&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -60,7 +78,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -180,15 +198,70 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/arietty02.jpg') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="归档">
+            <span class="h2" id="subtitle" title="C++ 的虚函数的理解">
               
             </span>
 
+            
+              <div class="mt-3">
+  
+      
+        <span class="post-meta">
+          <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+          <time datetime="2023-10-15 12:02" pubdate>
+            <!-- 2023年10月15日 中午 -->
+            2023-10-15 12:02
+          </time>
+        </span>
+        
+          
+            <span>-</span>
+            <span class="post-meta">
+              <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+              <time datetime="2023-10-15 16:45" pubdate>
+                <!-- 2023年10月15日 下午 -->
+                2023-10-15 16:45
+              </time>
+            </span>
+            
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      0 字
+    </span>
+    
+
+      
+        <span class="post-meta mr-2">
+          <i class="iconfont icon-clock-fill"></i>
+          
+            
+              1 分钟
+        </span>
+        
+
+          
+            
+</div>
+
+<!-- 自定义的更新时间 -->
+<!-- <div class="mt-1">
+  
+    <p class="note note-info">
+      
+              本文最后更新于：2023年10月15日 下午
+                  
+    </p>
+    
+</div> -->
             
           </div>
 
@@ -200,100 +273,118 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 299 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2023</p>
-    
-    <a href="/2023/05/02/Vim-Tricks/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Vim Tricks</span>
-      <time style="float: right;">05-02</time>
-    </a>
-  
-    
-    <a href="/2023/05/02/Spectacle-%E4%BD%BF%E7%94%A8%E6%89%8B%E8%AE%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Spectacle 使用手记</span>
-      <time style="float: right;">05-02</time>
-    </a>
-  
-    
-    <a href="/2023/05/02/Manjaro-Kde-%E4%B8%AD%E4%BD%BF%E7%94%A8-fcitx-rime-%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%86%E8%8A%82%E6%89%8B%E8%AE%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Manjaro Kde 中使用 fcitx-rime 的一些细节手记</span>
-      <time style="float: right;">05-02</time>
-    </a>
-  
-    
-    <a href="/2023/05/02/Linux-%E4%B8%AD%E4%BD%BF%E7%94%A8-AstroNvim-%E7%9A%84%E4%BD%93%E9%AA%8C%E5%92%8C%E5%BE%AE%E8%B0%83/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Linux 中使用 AstroNvim 的体验和微调</span>
-      <time style="float: right;">05-02</time>
-    </a>
-  
-    
-    <a href="/2023/04/30/0424-0430-%E5%91%A8%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">0424-0430 周读笔记</span>
-      <time style="float: right;">04-30</time>
-    </a>
-  
-    
-    <a href="/2023/04/29/%E5%91%A8%E6%9C%AB%E6%9D%82%E8%AE%B0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">周末杂记</span>
-      <time style="float: right;">04-29</time>
-    </a>
-  
-    
-    <a href="/2023/04/25/%E9%87%8D%E4%BF%AE%E9%97%AD%E5%8F%A3%E8%AF%80/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">重修闭口诀</span>
-      <time style="float: right;">04-25</time>
-    </a>
-  
-    
-    <a href="/2023/04/25/VSCode-%E7%9A%84-black-formatter-%E6%8F%92%E4%BB%B6%E5%90%8A%E8%AF%A1%E7%9A%84%E9%94%99%E8%AF%AF/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">VSCode 的 black-formatter 插件吊诡的错误</span>
-      <time style="float: right;">04-25</time>
-    </a>
-  
-    
-    <a href="/2023/04/24/%E4%B8%80%E7%82%B9%E7%82%B9%E5%A4%A9%E7%A9%BA%E4%B9%8B%E5%9F%8E%E7%9A%84%E8%AE%B0%E5%BF%86/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">一点点天空之城的记忆</span>
-      <time style="float: right;">04-24</time>
-    </a>
-  
-    
-    <a href="/2023/04/23/0417-0423-%E5%91%A8%E8%AF%BB%E6%80%BB%E7%BB%93/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">0417-0423 周读总结</span>
-      <time style="float: right;">04-23</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C++ 的虚函数的理解</h1>
+            <!-- fanyfull 注释原本的更新时间 start -->
+            <!-- 
+              <p class="note note-info">
+                
+                  本文最后更新于：2023年10月15日 下午
+                
+              </p>
+             -->
+            <!-- fanyfull 注释原本的更新时间 end -->
+            <div class="markdown-body">
+              
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/#board">3</a><a class="page-number" href="/archives/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/page/6/#board">6</a><a class="page-number" href="/archives/page/7/#board">7</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/30/#board">30</a><a class="extend next" rel="next" href="/archives/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
-
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/10/14/Compile-and-run-a-TSF-based-input-method-on-windows11/">
+                        <span class="hidden-mobile">在 Windows11 系统中编译并运行一个基于 TSF 的中文输入法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://example.com/2023/10/15/C-%E7%9A%84%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/';
+          this.page.identifier = '/2023/10/15/C-%E7%9A%84%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'https-fanlumaster-github-io' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -377,6 +468,19 @@
 
 
 
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
 
 
 
@@ -396,6 +500,48 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
 
 
 
