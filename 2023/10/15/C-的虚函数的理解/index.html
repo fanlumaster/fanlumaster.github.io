@@ -16,16 +16,20 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="这里只是简单地理解一下虚函数。暂时只是够用就行。 关于这个概念，其实有两个点需要理解，  虚函数 纯虚函数  很多人可能上来会被这个&quot;虚&quot;字给吓住。就像曾经刚刚接触编程的我一样。 我这里就直接以实际的代码来理解， 1234567891011121314151617181920212223242526272829303132333435363738394041424344#inclu">
+<meta property="og:type" content="article">
 <meta property="og:title" content="C++ 的虚函数的理解">
 <meta property="og:url" content="http://example.com/2023/10/15/C-%E7%9A%84%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Fany&#39;s Blog">
+<meta property="og:description" content="这里只是简单地理解一下虚函数。暂时只是够用就行。 关于这个概念，其实有两个点需要理解，  虚函数 纯虚函数  很多人可能上来会被这个&quot;虚&quot;字给吓住。就像曾经刚刚接触编程的我一样。 我这里就直接以实际的代码来理解， 1234567891011121314151617181920212223242526272829303132333435363738394041424344#inclu">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/sh2gSM5.png">
 <meta property="article:published_time" content="2023-10-15T04:02:20.000Z">
-<meta property="article:modified_time" content="2023-10-15T08:45:52.947Z">
+<meta property="article:modified_time" content="2023-10-15T11:39:17.339Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/sh2gSM5.png">
   
   
   <title>C++ 的虚函数的理解 - Fany&#39;s Blog</title>
@@ -198,7 +202,7 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://cdn.jsdelivr.net/gh/fanlumaster/BlogMaps@master/blogs/pictures/20210527215327.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/sh2gSM5.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -223,9 +227,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2023-10-15 16:45" pubdate>
-                <!-- 2023年10月15日 下午 -->
-                2023-10-15 16:45
+              <time datetime="2023-10-15 19:39" pubdate>
+                <!-- 2023年10月15日 晚上 -->
+                2023-10-15 19:39
               </time>
             </span>
             
@@ -235,7 +239,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      2.5k 字
     </span>
     
 
@@ -244,7 +248,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              1 分钟
+              21 分钟
         </span>
         
 
@@ -257,7 +261,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2023年10月15日 下午
+              本文最后更新于：2023年10月15日 晚上
                   
     </p>
     
@@ -288,13 +292,47 @@
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2023年10月15日 下午
+                  本文最后更新于：2023年10月15日 晚上
                 
               </p>
              -->
             <!-- fanyfull 注释原本的更新时间 end -->
             <div class="markdown-body">
-              
+              <p>这里只是简单地理解一下虚函数。暂时只是够用就行。</p>
+<p>关于这个概念，其实有两个点需要理解，</p>
+<ul>
+<li>虚函数</li>
+<li>纯虚函数</li>
+</ul>
+<p>很多人可能上来会被这个"虚"字给吓住。就像曾经刚刚接触编程的我一样。</p>
+<p>我这里就直接以实际的代码来理解，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">animal</span><br>&#123;<br>  <span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;animal eat&quot;</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;animal sleep&quot;</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">breath</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;animal breath&quot;</span> &lt;&lt; endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">fish</span> : <span class="hljs-keyword">public</span> animal<br>&#123;<br>  <span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">breath</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;fish bubble&quot;</span> &lt;&lt; endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">fn</span><span class="hljs-params">(animal *pAn)</span></span><br><span class="hljs-function"></span>&#123;<br>    pAn-&gt;<span class="hljs-built_in">breath</span>();<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc, <span class="hljs-type">char</span> *argv[])</span></span><br><span class="hljs-function"></span>&#123;<br>    animal *pAn;<br>    fish fh;<br>    pAn = &amp;fh;<br>    <span class="hljs-built_in">fn</span>(pAn);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>运行结果是：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">animal breath<br></code></pre></div></td></tr></table></figure>
+<p>为什么输出的结果不是“fish bubble”呢？这是因为在我们将 fish
+类的对象fh的地址赋给 pAn 时，C++ 编译器进行了类型转换，此时 C++
+编译器认为变量 pAn 保存就是 animal 对象的地址。当在 fn 函数中执行
+<code>pAn-&gt;breathe()</code> 时，调用的当然就是 animal 对象的 breathe
+函数。</p>
+<p>再来看，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">animal</span><br>&#123;<br>  <span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;animal eat&quot;</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;animal sleep&quot;</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">breath</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;animal breath&quot;</span> &lt;&lt; endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">fish</span> : <span class="hljs-keyword">public</span> animal<br>&#123;<br>  <span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">breath</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;fish bubble&quot;</span> &lt;&lt; endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">fn</span><span class="hljs-params">(animal *pAn)</span></span><br><span class="hljs-function"></span>&#123;<br>    pAn-&gt;<span class="hljs-built_in">breath</span>();<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc, <span class="hljs-type">char</span> *argv[])</span></span><br><span class="hljs-function"></span>&#123;<br>    animal *pAn;<br>    fish fh;<br>    pAn = &amp;fh;<br>    <span class="hljs-built_in">fn</span>(pAn);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>我们在 animal 中的 breath 函数的前面加一个 virtual
+限定词，这下运行结果就变成了这样，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">fish bubble<br></code></pre></div></td></tr></table></figure>
+<p>这里使用 virtual 关键字声明的函数就叫作虚函数。这是 C++
+中的多态性。当 C++
+编译器在编译的时候，如果知道这是一个虚函数，那么，编译器就会采用一个叫作迟绑定(late
+binding)的技术。即编译时并不确定具体调用的函数的函数，而是在运行时依据对象的类型来确认调用的是哪一个函数。这里的原理就是这个样子。</p>
+<p>了解了虚函数，那么，让我们再看看<strong>纯虚函数</strong>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">animal</span><br>&#123;<br>  <span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;animal eat&quot;</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;animal sleep&quot;</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">breath</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;<br>&#125;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">fish</span> : <span class="hljs-keyword">public</span> animal<br>&#123;<br>  <span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">breath</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    </span>&#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;fish bubble&quot;</span> &lt;&lt; endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">fn</span><span class="hljs-params">(animal *pAn)</span></span><br><span class="hljs-function"></span>&#123;<br>    pAn-&gt;<span class="hljs-built_in">breath</span>();<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc, <span class="hljs-type">char</span> *argv[])</span></span><br><span class="hljs-function"></span>&#123;<br>    animal *pAn;<br>    fish fh;<br>    pAn = &amp;fh;<br>    <span class="hljs-built_in">fn</span>(pAn);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>这里运行的结果也是，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">fish bubble<br></code></pre></div></td></tr></table></figure>
+<p>我们依然是对 animal 中的这个 breath
+函数进行修改。这里就是将其声明为纯虚函数。</p>
+<p>纯虚函数是指被标明不具体实现的虚成员函数(一般来说)。纯虚函数可以让类先具有一个操作名称，而没有操作内容。，让派生类再继承时再去具体地给出定义。凡是含有纯虚函数的类叫作抽象类。这种类<strong>不能</strong>声明对象，只是作为基类为派生类服务。在派生类中必须完全实现基类中的纯虚函数，否则，派生类就也变成了抽象类，不能实例化对象。</p>
+<hr />
+<p>参考：</p>
+<p>1、《VC++深入详解》</p>
 
             </div>
             <hr>
