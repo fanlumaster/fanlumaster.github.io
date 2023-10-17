@@ -16,25 +16,23 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="由于 TSF 输入法的本质是提供两个 dll 文件，所以，我们这里的研究就是围绕着如何写好这个 dll 动态链接库来展开的。 并且，本次的研究主体是微软提供的 Sample TSF 代码。当然，过程中不排除会包括我自己新添加的代码、特性和优化以及修复等等。 注意，这个代码是可以正常编译和运行的。 如果有同样对输入法十分感兴趣的同志有遇到的什么问题，欢迎找到我的联系方式和我进行这方面的交">
+    <meta name="description" content="只有实践才能帮助我们更好地理解概念。再一次体会到这个感觉。 这里说是剔除倒数第二个 commit，实际上，无论剔除倒数第一个都是可以的(也不完全绝对哈，看官自己细品)。 首先，我们来创建一个空目录，然后，git init 初始化此目录，创建一个 readme 的 txt 文件，然后，依次作三次修改，如下，    现在，我想把第二次的提交给剔除掉，同时，保留第三次提交的内容，那么，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TSF 输入法学习与开发笔记">
-<meta property="og:url" content="http://example.com/2023/10/15/TSF-%E8%BE%93%E5%85%A5%E6%B3%95%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="git rebase 实用场景之剔除倒数第二个 commit">
+<meta property="og:url" content="http://example.com/2023/10/17/git-rebase-%E5%AE%9E%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B9%8B%E5%89%94%E9%99%A4%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E4%B8%AA-commit/index.html">
 <meta property="og:site_name" content="Fany&#39;s Blog">
-<meta property="og:description" content="由于 TSF 输入法的本质是提供两个 dll 文件，所以，我们这里的研究就是围绕着如何写好这个 dll 动态链接库来展开的。 并且，本次的研究主体是微软提供的 Sample TSF 代码。当然，过程中不排除会包括我自己新添加的代码、特性和优化以及修复等等。 注意，这个代码是可以正常编译和运行的。 如果有同样对输入法十分感兴趣的同志有遇到的什么问题，欢迎找到我的联系方式和我进行这方面的交">
+<meta property="og:description" content="只有实践才能帮助我们更好地理解概念。再一次体会到这个感觉。 这里说是剔除倒数第二个 commit，实际上，无论剔除倒数第一个都是可以的(也不完全绝对哈，看官自己细品)。 首先，我们来创建一个空目录，然后，git init 初始化此目录，创建一个 readme 的 txt 文件，然后，依次作三次修改，如下，    现在，我想把第二次的提交给剔除掉，同时，保留第三次提交的内容，那么，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/PTi19vc.png">
-<meta property="article:published_time" content="2023-10-15T15:29:55.000Z">
-<meta property="article:modified_time" content="2023-10-15T15:51:54.678Z">
+<meta property="og:image" content="https://i.imgur.com/4tBUBUB.png">
+<meta property="article:published_time" content="2023-10-17T14:27:43.000Z">
+<meta property="article:modified_time" content="2023-10-17T15:30:24.420Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="未竟">
-<meta property="article:tag" content="输入法">
-<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/PTi19vc.png">
+<meta name="twitter:image" content="https://i.imgur.com/4tBUBUB.png">
   
   
-  <title>TSF 输入法学习与开发笔记 - Fany&#39;s Blog</title>
+  <title>git rebase 实用场景之剔除倒数第二个 commit - Fany&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -204,12 +202,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/PTi19vc.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/4tBUBUB.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="TSF 输入法学习与开发笔记">
+            <span class="h2" id="subtitle" title="git rebase 实用场景之剔除倒数第二个 commit">
               
             </span>
 
@@ -219,9 +217,9 @@
       
         <span class="post-meta">
           <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-          <time datetime="2023-10-15 23:29" pubdate>
-            <!-- 2023年10月15日 晚上 -->
-            2023-10-15 23:29
+          <time datetime="2023-10-17 22:27" pubdate>
+            <!-- 2023年10月17日 晚上 -->
+            2023-10-17 22:27
           </time>
         </span>
         
@@ -229,9 +227,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2023-10-15 23:51" pubdate>
-                <!-- 2023年10月15日 晚上 -->
-                2023-10-15 23:51
+              <time datetime="2023-10-17 23:30" pubdate>
+                <!-- 2023年10月17日 晚上 -->
+                2023-10-17 23:30
               </time>
             </span>
             
@@ -241,7 +239,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      556 字
     </span>
     
 
@@ -250,7 +248,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              10 分钟
+              5 分钟
         </span>
         
 
@@ -263,7 +261,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2023年10月15日 晚上
+              本文最后更新于：2023年10月17日 晚上
                   
     </p>
     
@@ -289,28 +287,47 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">TSF 输入法学习与开发笔记</h1>
+            <h1 style="display: none">git rebase 实用场景之剔除倒数第二个 commit</h1>
             <!-- fanyfull 注释原本的更新时间 start -->
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2023年10月15日 晚上
+                  本文最后更新于：2023年10月17日 晚上
                 
               </p>
              -->
             <!-- fanyfull 注释原本的更新时间 end -->
             <div class="markdown-body">
-              <p>由于 TSF 输入法的本质是提供两个 dll
-文件，所以，我们这里的研究就是围绕着如何写好这个 dll
-动态链接库来展开的。</p>
-<p>并且，本次的研究主体是微软提供的 Sample TSF
-代码。当然，过程中不排除会包括我自己新添加的代码、特性和优化以及修复等等。</p>
-<p>注意，这个代码是可以正常编译和运行的。</p>
-<p>如果有同样对输入法十分感兴趣的同志有遇到的什么问题，欢迎找到我的联系方式和我进行这方面的交流。</p>
-<h2 id="dllmain">DllMain</h2>
-<p><code>DllMain</code> 函数在 dll
-被加载和卸载时被调用，它通常用于执行初始化和清理工作。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Private.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Globals.h&quot;</span></span><br><br><span class="hljs-comment">//+---------------------------------------------------------------------------</span><br><span class="hljs-comment">//</span><br><span class="hljs-comment">// DllMain</span><br><span class="hljs-comment">//</span><br><span class="hljs-comment">//----------------------------------------------------------------------------</span><br><br><span class="hljs-function">BOOL WINAPI <span class="hljs-title">DllMain</span><span class="hljs-params">(HINSTANCE hInstance, DWORD dwReason, LPVOID pvReserved)</span></span><br><span class="hljs-function"></span>&#123;<br>    pvReserved; <span class="hljs-comment">// 空操作，用于消除某些编译器的警告</span><br><br>    <span class="hljs-keyword">switch</span> (dwReason)<br>    &#123;<br>    <span class="hljs-keyword">case</span> DLL_PROCESS_ATTACH: <span class="hljs-comment">// dll 被加载时执行</span><br><br>        Global::dllInstanceHandle = hInstance; <span class="hljs-comment">// 将 dll 实例句柄存储在全局变量中</span><br><br>        <span class="hljs-comment">// 初始化一个临界区，用于多线程同步</span><br>        <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">InitializeCriticalSectionAndSpinCount</span>(&amp;Global::CS, <span class="hljs-number">0</span>))<br>        &#123;<br>            <span class="hljs-keyword">return</span> FALSE;<br>        &#125;<br><br>        <span class="hljs-comment">// 注册一个窗口类</span><br>        <span class="hljs-keyword">if</span> (!Global::<span class="hljs-built_in">RegisterWindowClass</span>())<br>        &#123;<br>            <span class="hljs-keyword">return</span> FALSE;<br>        &#125;<br><br>        <span class="hljs-keyword">break</span>;<br><br>    <span class="hljs-keyword">case</span> DLL_PROCESS_DETACH: <span class="hljs-comment">// dll 被卸载时执行，这里主要就是 dll 附着的窗口被关闭时需要执行这里的操作</span><br><br>        <span class="hljs-built_in">DeleteCriticalSection</span>(&amp;Global::CS); <span class="hljs-comment">// 删除之前的临界区</span><br><br>        <span class="hljs-keyword">break</span>;<br><br>    <span class="hljs-keyword">case</span> DLL_THREAD_ATTACH: <span class="hljs-comment">// 新线程被创建时执行</span><br><br>        <span class="hljs-keyword">break</span>;<br><br>    <span class="hljs-keyword">case</span> DLL_THREAD_DETACH: <span class="hljs-comment">// 线程退出时执行</span><br><br>        <span class="hljs-keyword">break</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> TRUE; <span class="hljs-comment">// dll 加载成功</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+              <p>只有实践才能帮助我们更好地理解概念。再一次体会到这个感觉。</p>
+<p>这里说是剔除倒数第二个
+commit，实际上，无论剔除倒数第一个都是可以的(也不完全绝对哈，看官自己细品)。</p>
+<p>首先，我们来创建一个空目录，然后，<code>git init</code>
+初始化此目录，创建一个 readme 的 txt
+文件，然后，依次作三次修改，如下，</p>
+<p><img src="https://i.imgur.com/kte3whA.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/TtzPSC1.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/BwIuVQM.png" srcset="/img/loading.gif" lazyload /></p>
+<p>现在，我想把第二次的提交给剔除掉，同时，保留第三次提交的内容，那么，让我们执行，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git rebase -i HEAD~2<br></code></pre></div></td></tr></table></figure>
+<p>然后，进入编辑界面，我们把第二次的 commit 这一行给删掉，</p>
+<p><img src="https://i.imgur.com/wILHVu5.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后出现冲突，</p>
+<p><img src="https://i.imgur.com/wFHCtVF.png" srcset="/img/loading.gif" lazyload /></p>
+<p>然后，我们手动解决冲突，我们这里把第二次提交的内容给手动剔除掉，然后，提交，</p>
+<p>可以看到，现在的提交的 log 只剩两个了，但是为什么命令行还是提示说
+<code>REBASING 1/1</code> 呢？</p>
+<p><img src="https://i.imgur.com/5dcwRtG.png" srcset="/img/loading.gif" lazyload /></p>
+<p>其实，可以从这里的 <code>git branch</code>
+的输出看出一点端倪，因此，我们还需要执行下面的命令，继续之前因为冲突而被中止的
+rebase，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git rebase --continue<br></code></pre></div></td></tr></table></figure>
+<p>这样一来，我们看，刚刚那个临时分支就归化到 master
+分支上了，因为我们本来就是在 master
+分支上操作的嘛，在哪个分支上操作最终的结果就归化到哪个分支上，</p>
+<p><img src="https://i.imgur.com/MQsCbQl.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这下清爽多了。我们开头所提的需求也就搞定了。</p>
+<p>git rebase
+当然有很多其他的用处，然而，因为最近没有需求，所以，暂时就先记录理解这一个好了。</p>
 
             </div>
             <hr>
@@ -321,11 +338,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%9C%AA%E7%AB%9F/">未竟</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E8%BE%93%E5%85%A5%E6%B3%95/">输入法</a>
-                    
-                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                      <a class="hover-with-bg" href="/tags/Git/">Git</a>
                     
                   </div>
                 
@@ -342,18 +355,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/17/git-rebase-%E5%AE%9E%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B9%8B%E5%89%94%E9%99%A4%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E4%B8%AA-commit/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">git rebase 实用场景之剔除倒数第二个 commit</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/15/C-%E7%9A%84%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/">
-                        <span class="hidden-mobile">C++ 的虚函数的理解</span>
+                      <a href="/2023/10/15/TSF-%E8%BE%93%E5%85%A5%E6%B3%95%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">
+                        <span class="hidden-mobile">TSF 输入法学习与开发笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -375,8 +382,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2023/10/15/TSF-%E8%BE%93%E5%85%A5%E6%B3%95%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/';
-          this.page.identifier = '/2023/10/15/TSF-%E8%BE%93%E5%85%A5%E6%B3%95%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/';
+          this.page.url = 'http://example.com/2023/10/17/git-rebase-%E5%AE%9E%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B9%8B%E5%89%94%E9%99%A4%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E4%B8%AA-commit/';
+          this.page.identifier = '/2023/10/17/git-rebase-%E5%AE%9E%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B9%8B%E5%89%94%E9%99%A4%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E4%B8%AA-commit/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');

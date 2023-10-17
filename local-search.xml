@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>git rebase 实用场景之剔除倒数第二个 commit</title>
+    <link href="/2023/10/17/git-rebase-%E5%AE%9E%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B9%8B%E5%89%94%E9%99%A4%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E4%B8%AA-commit/"/>
+    <url>/2023/10/17/git-rebase-%E5%AE%9E%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B9%8B%E5%89%94%E9%99%A4%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E4%B8%AA-commit/</url>
+    
+    <content type="html"><![CDATA[<p>只有实践才能帮助我们更好地理解概念。再一次体会到这个感觉。</p><p>这里说是剔除倒数第二个commit，实际上，无论剔除倒数第一个都是可以的(也不完全绝对哈，看官自己细品)。</p><p>首先，我们来创建一个空目录，然后，<code>git init</code>初始化此目录，创建一个 readme 的 txt文件，然后，依次作三次修改，如下，</p><p><img src="https://i.imgur.com/kte3whA.png" /></p><p><img src="https://i.imgur.com/TtzPSC1.png" /></p><p><img src="https://i.imgur.com/BwIuVQM.png" /></p><p>现在，我想把第二次的提交给剔除掉，同时，保留第三次提交的内容，那么，让我们执行，</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git rebase -i HEAD~2<br></code></pre></div></td></tr></table></figure><p>然后，进入编辑界面，我们把第二次的 commit 这一行给删掉，</p><p><img src="https://i.imgur.com/wILHVu5.png" /></p><p>然后出现冲突，</p><p><img src="https://i.imgur.com/wFHCtVF.png" /></p><p>然后，我们手动解决冲突，我们这里把第二次提交的内容给手动剔除掉，然后，提交，</p><p>可以看到，现在的提交的 log 只剩两个了，但是为什么命令行还是提示说<code>REBASING 1/1</code> 呢？</p><p><img src="https://i.imgur.com/5dcwRtG.png" /></p><p>其实，可以从这里的 <code>git branch</code>的输出看出一点端倪，因此，我们还需要执行下面的命令，继续之前因为冲突而被中止的rebase，</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git rebase --continue<br></code></pre></div></td></tr></table></figure><p>这样一来，我们看，刚刚那个临时分支就归化到 master分支上了，因为我们本来就是在 master分支上操作的嘛，在哪个分支上操作最终的结果就归化到哪个分支上，</p><p><img src="https://i.imgur.com/MQsCbQl.png" /></p><p>这下清爽多了。我们开头所提的需求也就搞定了。</p><p>git rebase当然有很多其他的用处，然而，因为最近没有需求，所以，暂时就先记录理解这一个好了。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>TSF 输入法学习与开发笔记</title>
     <link href="/2023/10/15/TSF-%E8%BE%93%E5%85%A5%E6%B3%95%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
     <url>/2023/10/15/TSF-%E8%BE%93%E5%85%A5%E6%B3%95%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/</url>
