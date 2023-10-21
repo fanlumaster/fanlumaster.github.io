@@ -16,23 +16,23 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="只有实践才能帮助我们更好地理解概念。再一次体会到这个感觉。 这里说是剔除倒数第二个 commit，实际上，无论剔除倒数第一个都是可以的(也不完全绝对哈，看官自己细品)。 首先，我们来创建一个空目录，然后，git init 初始化此目录，创建一个 readme 的 txt 文件，然后，依次作三次修改，如下，    现在，我想把第二次的提交给剔除掉，同时，保留第三次提交的内容，那么，">
+    <meta name="description" content="复又翻开聊斋志异，看异史氏的所述，  余于孔生，不羡其得艳妻，而羡其得腻友也。观其容可以忘饥，听其声可以解颐。得此良友，时一谈宴，则“色授魂与”，尤胜于“颠倒衣裳”矣。  以前的关注点在于颠倒衣裳，现今颠倒衣裳已不成其为关注点，再来看异史氏的这句论断，忽觉，“腻友”二字着实可爱。以前读赵伯陶注解的版本，其解释为：极为亲密的朋友。啊，谬矣！再看朱其铠主编的版本，其解释为：  美丽而亲昵的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git rebase 实用场景之剔除倒数第二个 commit">
-<meta property="og:url" content="http://example.com/2023/10/17/git-rebase-%E5%AE%9E%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B9%8B%E5%89%94%E9%99%A4%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E4%B8%AA-commit/index.html">
+<meta property="og:title" content="寂与死寂">
+<meta property="og:url" content="http://example.com/2023/10/22/%E5%AF%82%E4%B8%8E%E6%AD%BB%E5%AF%82/index.html">
 <meta property="og:site_name" content="Fany&#39;s Blog">
-<meta property="og:description" content="只有实践才能帮助我们更好地理解概念。再一次体会到这个感觉。 这里说是剔除倒数第二个 commit，实际上，无论剔除倒数第一个都是可以的(也不完全绝对哈，看官自己细品)。 首先，我们来创建一个空目录，然后，git init 初始化此目录，创建一个 readme 的 txt 文件，然后，依次作三次修改，如下，    现在，我想把第二次的提交给剔除掉，同时，保留第三次提交的内容，那么，">
+<meta property="og:description" content="复又翻开聊斋志异，看异史氏的所述，  余于孔生，不羡其得艳妻，而羡其得腻友也。观其容可以忘饥，听其声可以解颐。得此良友，时一谈宴，则“色授魂与”，尤胜于“颠倒衣裳”矣。  以前的关注点在于颠倒衣裳，现今颠倒衣裳已不成其为关注点，再来看异史氏的这句论断，忽觉，“腻友”二字着实可爱。以前读赵伯陶注解的版本，其解释为：极为亲密的朋友。啊，谬矣！再看朱其铠主编的版本，其解释为：  美丽而亲昵的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/4tBUBUB.png">
-<meta property="article:published_time" content="2023-10-17T14:27:43.000Z">
-<meta property="article:modified_time" content="2023-10-17T15:30:24.420Z">
+<meta property="og:image" content="https://i.imgur.com/LW9TS5Q.png">
+<meta property="article:published_time" content="2023-10-21T16:27:51.000Z">
+<meta property="article:modified_time" content="2023-10-21T17:07:32.848Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="Git">
+<meta property="article:tag" content="Memory Bending">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/4tBUBUB.png">
+<meta name="twitter:image" content="https://i.imgur.com/LW9TS5Q.png">
   
   
-  <title>git rebase 实用场景之剔除倒数第二个 commit - Fany&#39;s Blog</title>
+  <title>寂与死寂 - Fany&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -202,12 +202,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/4tBUBUB.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/LW9TS5Q.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="git rebase 实用场景之剔除倒数第二个 commit">
+            <span class="h2" id="subtitle" title="寂与死寂">
               
             </span>
 
@@ -217,9 +217,9 @@
       
         <span class="post-meta">
           <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-          <time datetime="2023-10-17 22:27" pubdate>
-            <!-- 2023年10月17日 晚上 -->
-            2023-10-17 22:27
+          <time datetime="2023-10-22 00:27" pubdate>
+            <!-- 2023年10月22日 凌晨 -->
+            2023-10-22 00:27
           </time>
         </span>
         
@@ -227,9 +227,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2023-10-17 23:30" pubdate>
-                <!-- 2023年10月17日 晚上 -->
-                2023-10-17 23:30
+              <time datetime="2023-10-22 01:07" pubdate>
+                <!-- 2023年10月22日 凌晨 -->
+                2023-10-22 01:07
               </time>
             </span>
             
@@ -239,7 +239,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      556 字
+      1.1k 字
     </span>
     
 
@@ -248,7 +248,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              5 分钟
+              10 分钟
         </span>
         
 
@@ -261,7 +261,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2023年10月17日 晚上
+              本文最后更新于：2023年10月22日 凌晨
                   
     </p>
     
@@ -287,47 +287,41 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">git rebase 实用场景之剔除倒数第二个 commit</h1>
+            <h1 style="display: none">寂与死寂</h1>
             <!-- fanyfull 注释原本的更新时间 start -->
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2023年10月17日 晚上
+                  本文最后更新于：2023年10月22日 凌晨
                 
               </p>
              -->
             <!-- fanyfull 注释原本的更新时间 end -->
             <div class="markdown-body">
-              <p>只有实践才能帮助我们更好地理解概念。再一次体会到这个感觉。</p>
-<p>这里说是剔除倒数第二个
-commit，实际上，无论剔除倒数第一个都是可以的(也不完全绝对哈，看官自己细品)。</p>
-<p>首先，我们来创建一个空目录，然后，<code>git init</code>
-初始化此目录，创建一个 readme 的 txt
-文件，然后，依次作三次修改，如下，</p>
-<p><img src="https://i.imgur.com/kte3whA.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img src="https://i.imgur.com/TtzPSC1.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img src="https://i.imgur.com/BwIuVQM.png" srcset="/img/loading.gif" lazyload /></p>
-<p>现在，我想把第二次的提交给剔除掉，同时，保留第三次提交的内容，那么，让我们执行，</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git rebase -i HEAD~2<br></code></pre></div></td></tr></table></figure>
-<p>然后，进入编辑界面，我们把第二次的 commit 这一行给删掉，</p>
-<p><img src="https://i.imgur.com/wILHVu5.png" srcset="/img/loading.gif" lazyload /></p>
-<p>然后出现冲突，</p>
-<p><img src="https://i.imgur.com/wFHCtVF.png" srcset="/img/loading.gif" lazyload /></p>
-<p>然后，我们手动解决冲突，我们这里把第二次提交的内容给手动剔除掉，然后，提交，</p>
-<p>可以看到，现在的提交的 log 只剩两个了，但是为什么命令行还是提示说
-<code>REBASING 1/1</code> 呢？</p>
-<p><img src="https://i.imgur.com/5dcwRtG.png" srcset="/img/loading.gif" lazyload /></p>
-<p>其实，可以从这里的 <code>git branch</code>
-的输出看出一点端倪，因此，我们还需要执行下面的命令，继续之前因为冲突而被中止的
-rebase，</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git rebase --continue<br></code></pre></div></td></tr></table></figure>
-<p>这样一来，我们看，刚刚那个临时分支就归化到 master
-分支上了，因为我们本来就是在 master
-分支上操作的嘛，在哪个分支上操作最终的结果就归化到哪个分支上，</p>
-<p><img src="https://i.imgur.com/MQsCbQl.png" srcset="/img/loading.gif" lazyload /></p>
-<p>这下清爽多了。我们开头所提的需求也就搞定了。</p>
-<p>git rebase
-当然有很多其他的用处，然而，因为最近没有需求，所以，暂时就先记录理解这一个好了。</p>
+              <p>复又翻开聊斋志异，看异史氏的所述，</p>
+<blockquote>
+<p>余于孔生，不羡其得艳妻，而羡其得腻友也。观其容可以忘饥，听其声可以解颐。得此良友，时一谈宴，则“色授魂与”，尤胜于“颠倒衣裳”矣。</p>
+</blockquote>
+<p>以前的关注点在于颠倒衣裳，现今颠倒衣裳已不成其为关注点，再来看异史氏的这句论断，忽觉，“腻友”二字着实可爱。以前读赵伯陶注解的版本，其解释为：极为亲密的朋友。啊，谬矣！再看朱其铠主编的版本，其解释为：</p>
+<blockquote>
+<p>美丽而亲昵的女友。《说文》：“腻，上肥也。”段玉裁注引《诗·卫风·硕人》“肤如凝脂”，说“凝脂”意即“上肥”。</p>
+</blockquote>
+<p>看完这个注解，方知我以前错过了多么可贵的东西，一个“腻”字，暗含多少难得的情愫与意境。也正是明了了这一点，我才知道，我可能是有着一个浅浅的“腻友”的。</p>
+<p>晚上看烟花秀，不曾想竟是我大学期间日夜洗耳的梁祝。甚至在光电的大厅现场也是有幸耳闻过一次。无尽的记忆与往事与心绪滚滚而来，似波涛、似浪潮、似江风、似秋天旋转的落叶，旋进心湖的深处。情绪堪堪抑制。</p>
+<p>而这是本周的第二次的情绪翻滚。第一次可能更多是怒。工作上被指摘这个那个，错的难道是我？工作毕竟是工作，即使是别人错了，仍然要春风和煦地，一定努力改正，并且，不能是空口无凭地，须是一板一眼地钉入那些相应的钉子。这是我的无奈，也是我们的无奈。谁不是混一口饭吃呢。</p>
+<p>值得宽心的事儿，是咳嗽好得一干二净，相比于大学期间，一个星期多一点好彻，我记不清是优化了还是恶化，只知，比起高中至少是要好不少的。高三那会儿，有一次直接让家里开车到学校把我直挺挺地载回家去蒸桑拿养病的。不管是那会儿还是这会儿，家里的空气，家里的房间，母亲整理的床铺，永远都比我见过的最优美的
+"clean code"
+都要令人感到踏实、放心，在那种情景之下，无论是多么紧皱的眉头，都可以获得最自由的舒展。</p>
+<p>谈一谈“寂”，还有“死寂”。表面上的情绪失控，掩盖不了内心深处的彻头彻尾式的麻木。心中所挂碍的，总是让我想起高中时候
+Th
+同志贴在墙上的那个“尽人事，听天命”，那时自然是一个人也做不到的。此时又是如何呢？把指针一圈一圈地往回拨，自然是无济于事的。时光无法推倒重来。有些信念现在看起来倒是有点玄之又玄的意味了。</p>
+<p>该做的事情，总是不可以因噎废食的。早上接到两通电话，一个问题需要处理一下，还是放到工作日再去处理吧。另一个电话，uurufa
+相关的回应，不可以鲁莽行事，这是当然的。正如我知道输入法的开发是一门相当妥协的艺术一样，此事当然也是妥协的成分居多。</p>
+<p>唯一不用妥协的，自然就是“寂”与“死寂”。</p>
+<p>何以复苏？恐怕是要到连我外公这般七十来岁的老同志都知晓的“躺平”的那一天吧。这里的躺平可不是戏谑的那般“躺在棺材里”的意思，在我这里呢，也不是通俗意义上的理解。总之，相信那一天尽早来到吧。</p>
+<blockquote>
+<p>不然，那也太悲观了！</p>
+</blockquote>
 
             </div>
             <hr>
@@ -338,7 +332,7 @@ rebase，</p>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Git/">Git</a>
+                      <a class="hover-with-bg" href="/tags/Memory-Bending/">Memory Bending</a>
                     
                   </div>
                 
@@ -355,18 +349,12 @@ rebase，</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/22/%E5%AF%82%E4%B8%8E%E6%AD%BB%E5%AF%82/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">寂与死寂</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/15/TSF-%E8%BE%93%E5%85%A5%E6%B3%95%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">
-                        <span class="hidden-mobile">TSF 输入法学习与开发笔记</span>
+                      <a href="/2023/10/17/git-rebase-%E5%AE%9E%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B9%8B%E5%89%94%E9%99%A4%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E4%B8%AA-commit/">
+                        <span class="hidden-mobile">git rebase 实用场景之剔除倒数第二个 commit</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -388,8 +376,8 @@ rebase，</p>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2023/10/17/git-rebase-%E5%AE%9E%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B9%8B%E5%89%94%E9%99%A4%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E4%B8%AA-commit/';
-          this.page.identifier = '/2023/10/17/git-rebase-%E5%AE%9E%E7%94%A8%E5%9C%BA%E6%99%AF%E4%B9%8B%E5%89%94%E9%99%A4%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E4%B8%AA-commit/';
+          this.page.url = 'http://example.com/2023/10/22/%E5%AF%82%E4%B8%8E%E6%AD%BB%E5%AF%82/';
+          this.page.identifier = '/2023/10/22/%E5%AF%82%E4%B8%8E%E6%AD%BB%E5%AF%82/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
