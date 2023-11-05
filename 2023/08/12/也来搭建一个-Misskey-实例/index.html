@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/NDsqGhN.png">
 <meta property="article:published_time" content="2023-08-12T14:39:54.000Z">
-<meta property="article:modified_time" content="2023-08-13T08:23:59.098Z">
+<meta property="article:modified_time" content="2023-11-04T15:07:56.291Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="网站">
@@ -228,9 +228,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2023-08-13 16:23" pubdate>
-                <!-- 2023年8月13日 下午 -->
-                2023-08-13 16:23
+              <time datetime="2023-11-04 23:07" pubdate>
+                <!-- 2023年11月4日 晚上 -->
+                2023-11-04 23:07
               </time>
             </span>
             
@@ -240,7 +240,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.8k 字
+      1.9k 字
     </span>
     
 
@@ -249,7 +249,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              15 分钟
+              17 分钟
         </span>
         
 
@@ -262,7 +262,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2023年8月13日 下午
+              本文最后更新于：2023年11月4日 晚上
                   
     </p>
     
@@ -293,7 +293,7 @@
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2023年8月13日 下午
+                  本文最后更新于：2023年11月4日 晚上
                 
               </p>
              -->
@@ -363,6 +363,14 @@ files 目录的读写权限。</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo ufw <span class="hljs-built_in">disable</span><br></code></pre></div></td></tr></table></figure>
 <p>重启防火墙，</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo ufw reload<br></code></pre></div></td></tr></table></figure>
+<h2 id="使用经验">使用经验</h2>
+<h3 id="如何更改-storage-的限制">如何更改 storage 的限制</h3>
+<p>既然是我们自己的服务器，那么，其实不用那么抠嘛，默认的是一个用户可以使用
+100MB 的空间，也就是说，上传个不到 100
+张的图片就差不多把空间给耗尽了。</p>
+<p>修改的入口是在这个地方。我这里就暂时把这个值修改成 1000MB
+了，应该够我用一段时间了。</p>
+<p><img src="https://i.imgur.com/tl1CSdy.png" srcset="/img/loading.gif" lazyload /></p>
 <hr />
 <p>参考：</p>
 <p>1、<a target="_blank" rel="noopener" href="https://misskey-hub.net/en/docs/admin/nginx.html"
