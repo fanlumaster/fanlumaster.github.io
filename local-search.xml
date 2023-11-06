@@ -4,6 +4,46 @@
   
   
   <entry>
+    <title>记一次 manjaro 更新后开机界面卡死的事故</title>
+    <link href="/2023/11/06/%E8%AE%B0%E4%B8%80%E6%AC%A1-manjaro-%E6%9B%B4%E6%96%B0%E5%90%8E%E5%BC%80%E6%9C%BA%E7%95%8C%E9%9D%A2%E5%8D%A1%E6%AD%BB%E7%9A%84%E4%BA%8B%E6%95%85/"/>
+    <url>/2023/11/06/%E8%AE%B0%E4%B8%80%E6%AC%A1-manjaro-%E6%9B%B4%E6%96%B0%E5%90%8E%E5%BC%80%E6%9C%BA%E7%95%8C%E9%9D%A2%E5%8D%A1%E6%AD%BB%E7%9A%84%E4%BA%8B%E6%95%85/</url>
+    
+    <content type="html"><![CDATA[<p>前天周六晚上使用 manjaro 自带的图形软件更新的，它自动把我的 linux内核给更新到了 6.4.9.1，并且设置成了默认的内核。</p><p>然后，我在重启 manjaro应用更新的时候，发现系统进不去了，一直卡在了<code>/dev/nvme</code>然后又是什么 <code>clean ... files, blocks</code>这里。我重试了几次强制关机开机。不行。</p><p>于是 <code>Ctrl+AltF3</code> 进入命令行，登录 root 用户，之后，</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo vi /etc/default/grub<br></code></pre></div></td></tr></table></figure><p>这里，我是把下面的值从 hidden 改成 menu，</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">GRUB_TIMEOUT_STYLE = menu<br></code></pre></div></td></tr></table></figure><p>保存退出，然后，执行，</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo update-grub<br></code></pre></div></td></tr></table></figure><p>之后再 <code>reboot</code> 即可。</p><p><img src="https://i.imgur.com/xF4kZwy.png" /></p><p>后面就可以进入开机的一个 manjaro提供的菜单界面了，我们可以在这里选择高级启动选项，然后，指定一个低版本的内核来启动就可以了。</p><p>后面可以进入系统之后，我们就可以把之前的那个高版本的内核给去掉了，</p><p><img src="https://i.imgur.com/FzpTqPY.png" /></p><p>话说回来，不支持的内核竟然也可以被更新，这应该算是一个 bug 了。</p><hr /><p>参考：<a href="https://nihil.cc/posts/problem_with_grub"class="uri">https://nihil.cc/posts/problem_with_grub</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Manjaro</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Neovim 自动重载当前文件在外部编辑器的修改</title>
+    <link href="/2023/11/05/Neovim-%E8%87%AA%E5%8A%A8%E9%87%8D%E8%BD%BD%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%9C%A8%E5%A4%96%E9%83%A8%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/"/>
+    <url>/2023/11/05/Neovim-%E8%87%AA%E5%8A%A8%E9%87%8D%E8%BD%BD%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%9C%A8%E5%A4%96%E9%83%A8%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/</url>
+    
+    <content type="html"><![CDATA[<p>Neovim默认情况下自然是不支持同时在外部编辑器修改同一份文件的，如果我们这样做了，那么，在返回Neovim中时，会报一个编辑冲突，和文件已经改变的警告，但是，作为用户希望看到的行为肯定是编辑器可以自动给我们处理好这件事情。</p><p>在 Neovim中实现这一点并不难，如果想手动处理上面的冲突的话，那么，直接来一个<code>:e!</code> 应该就可以了。更方便的方法是写入配置的脚本中，</p><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua"><span class="hljs-comment">-- enable auto reload when file changed in other editors</span><br>vim.o.autoread = <span class="hljs-literal">true</span><br>vim.api.nvim_create_autocmd(&#123; <span class="hljs-string">&quot;BufEnter&quot;</span>, <span class="hljs-string">&quot;CursorHold&quot;</span>, <span class="hljs-string">&quot;CursorHoldI&quot;</span>, <span class="hljs-string">&quot;FocusGained&quot;</span> &#125;, &#123;<br>  command = <span class="hljs-string">&quot;if mode() != &#x27;c&#x27; | checktime | endif&quot;</span>,<br>  pattern = &#123; <span class="hljs-string">&quot;*&quot;</span> &#125;<br>&#125;)<br></code></pre></div></td></tr></table></figure><p>这样，从别的编辑器返回的时候，如果有需要更新的内容，就可以自动应用这些更新了。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Neovim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>两道有趣的小学奥数题</title>
     <link href="/2023/11/05/%E4%B8%A4%E9%81%93%E6%9C%89%E8%B6%A3%E7%9A%84%E5%B0%8F%E5%AD%A6%E5%A5%A5%E6%95%B0%E9%A2%98/"/>
     <url>/2023/11/05/%E4%B8%A4%E9%81%93%E6%9C%89%E8%B6%A3%E7%9A%84%E5%B0%8F%E5%AD%A6%E5%A5%A5%E6%95%B0%E9%A2%98/</url>

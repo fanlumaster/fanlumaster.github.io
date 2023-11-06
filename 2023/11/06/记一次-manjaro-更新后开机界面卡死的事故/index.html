@@ -16,24 +16,24 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="每周例行给家里小孩上奥数课小录">
+    <meta name="description" content="前天周六晚上使用 manjaro 自带的图形软件更新的，它自动把我的 linux 内核给更新到了 6.4.9.1，并且设置成了默认的内核。 然后，我在重启 manjaro 应用更新的时候，发现系统进不去了，一直卡在了&#x2F;dev&#x2F;nvme 然后又是什么 clean ... files, blocks 这里。我重试了几次强制关机开机。不行。 于是 Ctrl+AltF3 进入命令行，登录 ro">
 <meta property="og:type" content="article">
-<meta property="og:title" content="两道有趣的小学奥数题">
-<meta property="og:url" content="http://example.com/2023/11/05/%E4%B8%A4%E9%81%93%E6%9C%89%E8%B6%A3%E7%9A%84%E5%B0%8F%E5%AD%A6%E5%A5%A5%E6%95%B0%E9%A2%98/index.html">
+<meta property="og:title" content="记一次 manjaro 更新后开机界面卡死的事故">
+<meta property="og:url" content="http://example.com/2023/11/06/%E8%AE%B0%E4%B8%80%E6%AC%A1-manjaro-%E6%9B%B4%E6%96%B0%E5%90%8E%E5%BC%80%E6%9C%BA%E7%95%8C%E9%9D%A2%E5%8D%A1%E6%AD%BB%E7%9A%84%E4%BA%8B%E6%95%85/index.html">
 <meta property="og:site_name" content="Fany&#39;s Blog">
-<meta property="og:description" content="每周例行给家里小孩上奥数课小录">
+<meta property="og:description" content="前天周六晚上使用 manjaro 自带的图形软件更新的，它自动把我的 linux 内核给更新到了 6.4.9.1，并且设置成了默认的内核。 然后，我在重启 manjaro 应用更新的时候，发现系统进不去了，一直卡在了&#x2F;dev&#x2F;nvme 然后又是什么 clean ... files, blocks 这里。我重试了几次强制关机开机。不行。 于是 Ctrl+AltF3 进入命令行，登录 ro">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/xa7saQg.png">
-<meta property="article:published_time" content="2023-11-05T10:36:50.000Z">
-<meta property="article:modified_time" content="2023-11-05T15:07:47.283Z">
+<meta property="og:image" content="https://i.imgur.com/in2yofR.png">
+<meta property="article:published_time" content="2023-11-06T04:50:12.000Z">
+<meta property="article:modified_time" content="2023-11-06T05:02:41.299Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="数学">
-<meta property="article:tag" content="小学奥数">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Manjaro">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/xa7saQg.png">
+<meta name="twitter:image" content="https://i.imgur.com/in2yofR.png">
   
   
-  <title>两道有趣的小学奥数题 - Fany&#39;s Blog</title>
+  <title>记一次 manjaro 更新后开机界面卡死的事故 - Fany&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -203,12 +203,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/xa7saQg.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/in2yofR.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="两道有趣的小学奥数题">
+            <span class="h2" id="subtitle" title="记一次 manjaro 更新后开机界面卡死的事故">
               
             </span>
 
@@ -218,9 +218,9 @@
       
         <span class="post-meta">
           <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-          <time datetime="2023-11-05 18:36" pubdate>
-            <!-- 2023年11月5日 晚上 -->
-            2023-11-05 18:36
+          <time datetime="2023-11-06 12:50" pubdate>
+            <!-- 2023年11月6日 下午 -->
+            2023-11-06 12:50
           </time>
         </span>
         
@@ -228,9 +228,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2023-11-05 23:07" pubdate>
-                <!-- 2023年11月5日 晚上 -->
-                2023-11-05 23:07
+              <time datetime="2023-11-06 13:02" pubdate>
+                <!-- 2023年11月6日 下午 -->
+                2023-11-06 13:02
               </time>
             </span>
             
@@ -240,7 +240,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      310 字
+      468 字
     </span>
     
 
@@ -249,7 +249,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              3 分钟
+              4 分钟
         </span>
         
 
@@ -262,7 +262,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2023年11月5日 晚上
+              本文最后更新于：2023年11月6日 下午
                   
     </p>
     
@@ -288,33 +288,39 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">两道有趣的小学奥数题</h1>
+            <h1 style="display: none">记一次 manjaro 更新后开机界面卡死的事故</h1>
             <!-- fanyfull 注释原本的更新时间 start -->
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2023年11月5日 晚上
+                  本文最后更新于：2023年11月6日 下午
                 
               </p>
              -->
             <!-- fanyfull 注释原本的更新时间 end -->
             <div class="markdown-body">
-              <p>一道是六年级的题目，对于这道题，主要是理解把循环小数转化为分数，我小学的时候可从来没想过这个问题呀。还有就是，如果遇到单个数字循环的，那必然是转化成
-1
-来进行循环，对于循环，如果没有特别的经验的话，单单是想到这个式子还是比较容易的，</p>
-<p><span class="math display">\[
-0.\mathop{1}\limits^{·} \times 9 = 0.\mathop{9}\limits^{·} = 1
-\]</span></p>
-<p>而这个式子除了用极限的方法之外，用分数来证明也是可以的，</p>
-<p><span class="math display">\[
-0.\mathop{1}\limits^{·} = \frac{1} {9}
-\]</span></p>
-<p>这样的话，把下面的中间式子转成分数，其实是很好算的，</p>
-<p><img src="https://i.imgur.com/VnggwVV.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img src="https://i.imgur.com/txFBNq2.png" srcset="/img/loading.gif" lazyload /></p>
-<p>一道是五年级的题目，这个对小学生来说，理解起来有点绕，但是理解了之后就是挺好玩儿的，</p>
-<p><img src="https://i.imgur.com/EwBz7B1.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img src="https://i.imgur.com/y2BKfiW.png" srcset="/img/loading.gif" lazyload /></p>
+              <p>前天周六晚上使用 manjaro 自带的图形软件更新的，它自动把我的 linux
+内核给更新到了 6.4.9.1，并且设置成了默认的内核。</p>
+<p>然后，我在重启 manjaro
+应用更新的时候，发现系统进不去了，一直卡在了<code>/dev/nvme</code>
+然后又是什么 <code>clean ... files, blocks</code>
+这里。我重试了几次强制关机开机。不行。</p>
+<p>于是 <code>Ctrl+AltF3</code> 进入命令行，登录 root 用户，之后，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo vi /etc/default/grub<br></code></pre></div></td></tr></table></figure>
+<p>这里，我是把下面的值从 hidden 改成 menu，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">GRUB_TIMEOUT_STYLE = menu<br></code></pre></div></td></tr></table></figure>
+<p>保存退出，然后，执行，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo update-grub<br></code></pre></div></td></tr></table></figure>
+<p>之后再 <code>reboot</code> 即可。</p>
+<p><img src="https://i.imgur.com/xF4kZwy.png" srcset="/img/loading.gif" lazyload /></p>
+<p>后面就可以进入开机的一个 manjaro
+提供的菜单界面了，我们可以在这里选择高级启动选项，然后，指定一个低版本的内核来启动就可以了。</p>
+<p>后面可以进入系统之后，我们就可以把之前的那个高版本的内核给去掉了，</p>
+<p><img src="https://i.imgur.com/FzpTqPY.png" srcset="/img/loading.gif" lazyload /></p>
+<p>话说回来，不支持的内核竟然也可以被更新，这应该算是一个 bug 了。</p>
+<hr />
+<p>参考：<a target="_blank" rel="noopener" href="https://nihil.cc/posts/problem_with_grub"
+class="uri">https://nihil.cc/posts/problem_with_grub</a></p>
 
             </div>
             <hr>
@@ -325,9 +331,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E5%AD%A6/">数学</a>
+                      <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%B0%8F%E5%AD%A6%E5%A5%A5%E6%95%B0/">小学奥数</a>
+                      <a class="hover-with-bg" href="/tags/Manjaro/">Manjaro</a>
                     
                   </div>
                 
@@ -344,18 +350,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/05/Neovim-%E8%87%AA%E5%8A%A8%E9%87%8D%E8%BD%BD%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%9C%A8%E5%A4%96%E9%83%A8%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Neovim 自动重载当前文件在外部编辑器的修改</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/05/manjaro-kde-plasma-x11-neovide-%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E7%9A%84%E4%B8%80%E7%A7%8D%E6%8A%98%E8%A1%B7%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95/">
-                        <span class="hidden-mobile">manjaro kde plasma x11 neovide 无法输入中文的一种折衷处理办法</span>
+                      <a href="/2023/11/05/Neovim-%E8%87%AA%E5%8A%A8%E9%87%8D%E8%BD%BD%E5%BD%93%E5%89%8D%E6%96%87%E4%BB%B6%E5%9C%A8%E5%A4%96%E9%83%A8%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E4%BF%AE%E6%94%B9/">
+                        <span class="hidden-mobile">Neovim 自动重载当前文件在外部编辑器的修改</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -377,8 +377,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2023/11/05/%E4%B8%A4%E9%81%93%E6%9C%89%E8%B6%A3%E7%9A%84%E5%B0%8F%E5%AD%A6%E5%A5%A5%E6%95%B0%E9%A2%98/';
-          this.page.identifier = '/2023/11/05/%E4%B8%A4%E9%81%93%E6%9C%89%E8%B6%A3%E7%9A%84%E5%B0%8F%E5%AD%A6%E5%A5%A5%E6%95%B0%E9%A2%98/';
+          this.page.url = 'http://example.com/2023/11/06/%E8%AE%B0%E4%B8%80%E6%AC%A1-manjaro-%E6%9B%B4%E6%96%B0%E5%90%8E%E5%BC%80%E6%9C%BA%E7%95%8C%E9%9D%A2%E5%8D%A1%E6%AD%BB%E7%9A%84%E4%BA%8B%E6%95%85/';
+          this.page.identifier = '/2023/11/06/%E8%AE%B0%E4%B8%80%E6%AC%A1-manjaro-%E6%9B%B4%E6%96%B0%E5%90%8E%E5%BC%80%E6%9C%BA%E7%95%8C%E9%9D%A2%E5%8D%A1%E6%AD%BB%E7%9A%84%E4%BA%8B%E6%95%85/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
