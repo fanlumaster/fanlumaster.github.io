@@ -1,0 +1,593 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/myfavicon.png">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="fanlumaster">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="二零二三年十一月份每日一题的记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二三年十一月每日一题">
+<meta property="og:url" content="http://example.com/2023/11/10/%E4%BA%8C%E4%B8%89%E5%B9%B4%E5%8D%81%E4%B8%80%E6%9C%88%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/index.html">
+<meta property="og:site_name" content="Flyan Lu&#39;s Blog">
+<meta property="og:description" content="二零二三年十一月份每日一题的记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/OMqgRZ6.png">
+<meta property="article:published_time" content="2023-11-10T11:01:51.000Z">
+<meta property="article:modified_time" content="2023-11-10T16:50:00.056Z">
+<meta property="article:author" content="fanlumaster">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="未竟">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/OMqgRZ6.png">
+  
+  
+  <title>二三年十一月每日一题 - Flyan Lu&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/mastodon-icon/iconfont.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Flyan Lu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/reading/">
+                <i class="iconfont icon-book"></i>
+                读书
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/OMqgRZ6.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="二三年十一月每日一题">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+      
+        <span class="post-meta">
+          <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+          <time datetime="2023-11-10 19:01" pubdate>
+            <!-- 2023年11月10日 晚上 -->
+            2023-11-10 19:01
+          </time>
+        </span>
+        
+          
+            <span>-</span>
+            <span class="post-meta">
+              <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+              <time datetime="2023-11-11 00:50" pubdate>
+                <!-- 2023年11月11日 凌晨 -->
+                2023-11-11 00:50
+              </time>
+            </span>
+            
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      7.8k 字
+    </span>
+    
+
+      
+        <span class="post-meta mr-2">
+          <i class="iconfont icon-clock-fill"></i>
+          
+            
+              66 分钟
+        </span>
+        
+
+          
+            
+</div>
+
+<!-- 自定义的更新时间 -->
+<!-- <div class="mt-1">
+  
+    <p class="note note-info">
+      
+              本文最后更新于：2023年11月11日 凌晨
+                  
+    </p>
+    
+</div> -->
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">二三年十一月每日一题</h1>
+            <!-- fanyfull 注释原本的更新时间 start -->
+            <!-- 
+              <p class="note note-info">
+                
+                  本文最后更新于：2023年11月11日 凌晨
+                
+              </p>
+             -->
+            <!-- fanyfull 注释原本的更新时间 end -->
+            <div class="markdown-body">
+              <h2 id="统计范围内的元音字符串数">07 2586. 统计范围内的元音字符串数</h2>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Arrays;<br><span class="hljs-keyword">import</span> java.util.HashSet;<br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-keyword">import</span> java.util.Set;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>  <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">vowelStrings</span><span class="hljs-params">(String[] words, <span class="hljs-type">int</span> left, <span class="hljs-type">int</span> right)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    List&lt;Character&gt; vowelList = Arrays.asList(<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>, <span class="hljs-string">&#x27;i&#x27;</span>, <span class="hljs-string">&#x27;o&#x27;</span>, <span class="hljs-string">&#x27;u&#x27;</span>);<br>    Set&lt;Character&gt; vowelSet = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;(vowelList);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> left; i &lt;= right; i++) &#123;<br>      <span class="hljs-type">char</span> <span class="hljs-variable">firstChar</span> <span class="hljs-operator">=</span> words[i].charAt(<span class="hljs-number">0</span>);<br>      <span class="hljs-type">char</span> <span class="hljs-variable">lastChar</span> <span class="hljs-operator">=</span> words[i].charAt(words[i].length() - <span class="hljs-number">1</span>);<br>      <span class="hljs-keyword">if</span> (vowelSet.contains(firstChar) &amp;&amp; vowelSet.contains(lastChar)) &#123;<br>        ans += <span class="hljs-number">1</span>;<br>      &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-comment">// Test 1</span><br>    String[] words = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[] &#123; <span class="hljs-string">&quot;are&quot;</span>, <span class="hljs-string">&quot;amy&quot;</span>, <span class="hljs-string">&quot;u&quot;</span> &#125;;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>;<br>    <span class="hljs-type">Solution</span> <span class="hljs-variable">solu</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Solution</span>();<br>    <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> solu.vowelStrings(words, left, right);<br>    System.out.println(ans);<br><br>    <span class="hljs-comment">// Test 2</span><br>    words = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[] &#123; <span class="hljs-string">&quot;hey&quot;</span>, <span class="hljs-string">&quot;aeo&quot;</span>, <span class="hljs-string">&quot;mu&quot;</span>, <span class="hljs-string">&quot;ooo&quot;</span>, <span class="hljs-string">&quot;artro&quot;</span> &#125;;<br>    left = <span class="hljs-number">1</span>;<br>    right = <span class="hljs-number">4</span>;<br>    ans = solu.vowelStrings(words, left, right);<br>    System.out.println(ans);<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="最长平衡子字符串">08 2609. 最长平衡子字符串</h2>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>  <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">findTheLongestBalancedSubstring</span><span class="hljs-params">(String s)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">sLen</span> <span class="hljs-operator">=</span> s.length();<br>    <span class="hljs-type">int</span>[] count = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; sLen; i++) &#123;<br>      <span class="hljs-keyword">if</span> (s.charAt(i) == <span class="hljs-string">&#x27;1&#x27;</span>) &#123;<br>        count[<span class="hljs-number">1</span>] += <span class="hljs-number">1</span>;<br>        ans = Math.max(ans, <span class="hljs-number">2</span> * Math.min(count[<span class="hljs-number">0</span>], count[<span class="hljs-number">1</span>]));<br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span> || s.charAt(i - <span class="hljs-number">1</span>) == <span class="hljs-string">&#x27;1&#x27;</span>) &#123; <span class="hljs-comment">// 如果 s[i] == &#x27;0&#x27;</span><br>        count[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>        count[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        count[<span class="hljs-number">0</span>] += <span class="hljs-number">1</span>;<br>      &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">     * 示例 1：</span><br><span class="hljs-comment">     * 输入：s = &quot;01000111&quot;</span><br><span class="hljs-comment">     * 输出：6</span><br><span class="hljs-comment">     * 解释：最长的平衡子字符串是 &quot;000111&quot; ，长度为 6 。</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * 示例 2：</span><br><span class="hljs-comment">     * 输入：s = &quot;00111&quot;</span><br><span class="hljs-comment">     * 输出：4</span><br><span class="hljs-comment">     * 解释：最长的平衡子字符串是 &quot;0011&quot; ，长度为 4 。</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * 示例 3：</span><br><span class="hljs-comment">     * 输入：s = &quot;111&quot;</span><br><span class="hljs-comment">     * 输出：0</span><br><span class="hljs-comment">     * 解释：除了空子字符串之外不存在其他平衡子字符串，所以答案为 0 。</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-type">Solution</span> <span class="hljs-variable">solu</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Solution</span>();<br>    <span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;01000111&quot;</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> solu.findTheLongestBalancedSubstring(s);<br>    System.out.println(ans);<br><br>    s = <span class="hljs-string">&quot;00111&quot;</span>;<br>    ans = solu.findTheLongestBalancedSubstring(s);<br>    System.out.println(ans);<br><br>    s = <span class="hljs-string">&quot;111&quot;</span>;<br>    ans = solu.findTheLongestBalancedSubstring(s);<br>    System.out.println(ans);<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="逃离火灾">09 2258. 逃离火灾</h2>
+<p>这道题其实难倒不是很难，但是有点烦。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>  <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span>[][] DIRS = &#123; &#123; -<span class="hljs-number">1</span>, <span class="hljs-number">0</span> &#125;, &#123; <span class="hljs-number">0</span>, <span class="hljs-number">1</span> &#125;, &#123; <span class="hljs-number">1</span>, <span class="hljs-number">0</span> &#125;, &#123; <span class="hljs-number">0</span>, -<span class="hljs-number">1</span> &#125; &#125;; <span class="hljs-comment">// 上、右、下、左</span><br><br>  <span class="hljs-comment">/**</span><br><span class="hljs-comment">   * 火的 bfs</span><br><span class="hljs-comment">   *</span><br><span class="hljs-comment">   * grid: 格子</span><br><span class="hljs-comment">   * fire: 标记格子上的点是否着火</span><br><span class="hljs-comment">   * f: bfs 的起始需要遍历的值</span><br><span class="hljs-comment">   *</span><br><span class="hljs-comment">   * return bfs 一圈之后所有的着火点</span><br><span class="hljs-comment">   */</span><br>  <span class="hljs-keyword">private</span> List&lt;<span class="hljs-type">int</span>[]&gt; spreadFire(<span class="hljs-type">int</span>[][] grid, <span class="hljs-type">boolean</span>[][] fire, List&lt;<span class="hljs-type">int</span>[]&gt; f) &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">m</span> <span class="hljs-operator">=</span> grid.length;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> grid[<span class="hljs-number">0</span>].length;<br>    List&lt;<span class="hljs-type">int</span>[]&gt; tmp = f;<br>    f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] p : tmp) &#123;<br>      <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] d : DIRS) &#123; <span class="hljs-comment">// 枚举上右下左四个方向</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> p[<span class="hljs-number">0</span>] + d[<span class="hljs-number">0</span>];<br>        <span class="hljs-type">int</span> <span class="hljs-variable">y</span> <span class="hljs-operator">=</span> p[<span class="hljs-number">1</span>] + d[<span class="hljs-number">1</span>];<br>        <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> &lt;= x &amp;&amp; x &lt; m &amp;&amp; <span class="hljs-number">0</span> &lt;= y &amp;&amp; y &lt; n &amp;&amp; !fire[x][y] &amp;&amp; grid[x][y] == <span class="hljs-number">0</span>) &#123;<br>          fire[x][y] = <span class="hljs-literal">true</span>; <span class="hljs-comment">// 标记着火的位置</span><br>          f.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[] &#123; x, y &#125;);<br>        &#125;<br>      &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> f;<br>  &#125;<br><br>  <span class="hljs-comment">/**</span><br><span class="hljs-comment">   * 返回能否在初始位置停留 t 分钟，并安全到达安全屋</span><br><span class="hljs-comment">   */</span><br>  <span class="hljs-keyword">private</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">check</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] grid, <span class="hljs-type">int</span> t)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">m</span> <span class="hljs-operator">=</span> grid.length;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> grid[<span class="hljs-number">0</span>].length;<br>    <span class="hljs-type">boolean</span>[][] onFire = <span class="hljs-keyword">new</span> <span class="hljs-title class_">boolean</span>[m][n];<br>    List&lt;<span class="hljs-type">int</span>[]&gt; f = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; m; i++) &#123;<br>      <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; n; j++) &#123;<br>        <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-number">1</span>) &#123;<br>          onFire[i][j] = <span class="hljs-literal">true</span>; <span class="hljs-comment">// 标记着火的位置</span><br>          f.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[] &#123; i, j &#125;); <span class="hljs-comment">// dfs 的初始值</span><br>        &#125;<br>      &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 让火扩散 t 分钟，就是向外扩展 t 圈</span><br>    <span class="hljs-keyword">while</span> (t-- &gt; <span class="hljs-number">0</span> &amp;&amp; !f.isEmpty()) &#123; <span class="hljs-comment">// 如果火无法扩散就提前退出</span><br>      f = spreadFire(grid, onFire, f);<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (onFire[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]) &#123; <span class="hljs-comment">// 起点着火了</span><br>      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br><br>    <span class="hljs-comment">// 人的 bfs</span><br>    <span class="hljs-type">boolean</span>[][] vis = <span class="hljs-keyword">new</span> <span class="hljs-title class_">boolean</span>[m][n];<br>    vis[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-literal">true</span>;<br>    List&lt;<span class="hljs-type">int</span>[]&gt; nextCircle = List.of(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[] &#123; <span class="hljs-number">0</span>, <span class="hljs-number">0</span> &#125;); <span class="hljs-comment">// 人从 (0, 0) 的位置开始尝试</span><br>    <span class="hljs-keyword">while</span> (!nextCircle.isEmpty()) &#123;<br>      List&lt;<span class="hljs-type">int</span>[]&gt; curCircle = nextCircle;<br>      nextCircle = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(); <span class="hljs-comment">// 下一圈</span><br>      <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] p : curCircle) &#123;<br>        <span class="hljs-keyword">if</span> (onFire[p[<span class="hljs-number">0</span>]][p[<span class="hljs-number">1</span>]]) &#123;<br>          <span class="hljs-comment">// 如果这个位置已经着火了，因为人走过这一圈之后，火也会走一圈，</span><br>          <span class="hljs-comment">// 这里不需要考虑安全屋，因为如果已经到安全屋的话，那么，就直接返回 true 了</span><br>          <span class="hljs-keyword">continue</span>;<br><br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span>[] d : DIRS) &#123; <span class="hljs-comment">// 四个方向</span><br>          <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> p[<span class="hljs-number">0</span>] + d[<span class="hljs-number">0</span>];<br>          <span class="hljs-type">int</span> <span class="hljs-variable">y</span> <span class="hljs-operator">=</span> p[<span class="hljs-number">1</span>] + d[<span class="hljs-number">1</span>];<br>          <span class="hljs-comment">// 如果在 grid 的边界内，并且这个位置没有着火，并且未访问过，并且这个格子是草地</span><br>          <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> &lt;= x &amp;&amp; x &lt; m &amp;&amp; <span class="hljs-number">0</span> &lt;= y &amp;&amp; y &lt; n &amp;&amp; !onFire[x][y] &amp;&amp; !vis[x][y] &amp;&amp; grid[x][y] == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">if</span> (x == m - <span class="hljs-number">1</span> &amp;&amp; y == n - <span class="hljs-number">1</span>) &#123; <span class="hljs-comment">// 到达安全屋了</span><br>              <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>            &#125;<br>            vis[x][y] = <span class="hljs-literal">true</span>; <span class="hljs-comment">// 防止重复访问</span><br>            nextCircle.add(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[] &#123; x, y &#125;);<br>          &#125;<br>        &#125;<br>      &#125;<br>      f = spreadFire(grid, onFire, f); <span class="hljs-comment">// 火也要同时扩散</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maximumMinutes</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] grid)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">m</span> <span class="hljs-operator">=</span> grid.length;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> grid[<span class="hljs-number">0</span>].length;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> -<span class="hljs-number">1</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> m * n + <span class="hljs-number">1</span>; <span class="hljs-comment">// 右边界可以取得大一点</span><br>    <span class="hljs-keyword">while</span> (left + <span class="hljs-number">1</span> &lt; right) &#123;<br>      <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> (left + right) &gt;&gt;&gt; <span class="hljs-number">1</span>; <span class="hljs-comment">// 无符号右移一位</span><br>      <span class="hljs-keyword">if</span> (check(grid, mid)) &#123; <span class="hljs-comment">// 符合条件就延长时间继续尝试</span><br>        left = mid;<br>      &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// 否则缩减边界</span><br>        right = mid;<br>      &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> left &lt; m * n ? left : <span class="hljs-number">1_000_000_000</span>;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">     * 示例 1：</span><br><span class="hljs-comment">     * 输入：grid =</span><br><span class="hljs-comment">     * [[0,2,0,0,0,0,0],[0,0,0,2,2,1,0],[0,2,0,0,1,2,0],[0,0,2,2,2,0,2],[0,0,0,0,0,0</span><br><span class="hljs-comment">     * ,0]]</span><br><span class="hljs-comment">     * 输出：3</span><br><span class="hljs-comment">     * 解释：上图展示了你在初始位置停留 3 分钟后的情形。</span><br><span class="hljs-comment">     * 你仍然可以安全到达安全屋。</span><br><span class="hljs-comment">     * 停留超过 3 分钟会让你无法安全到达安全屋。</span><br><span class="hljs-comment">     * </span><br><span class="hljs-comment">     * 示例 2：</span><br><span class="hljs-comment">     * 输入：grid = [[0,0,0,0],[0,1,2,0],[0,2,0,0]]</span><br><span class="hljs-comment">     * 输出：-1</span><br><span class="hljs-comment">     * 解释：上图展示了你马上开始朝安全屋移动的情形。</span><br><span class="hljs-comment">     * 火会蔓延到你可以移动的所有格子，所以无法安全到达安全屋。</span><br><span class="hljs-comment">     * 所以返回 -1 。</span><br><span class="hljs-comment">     * </span><br><span class="hljs-comment">     * 示例 3：</span><br><span class="hljs-comment">     * 输入：grid = [[0,0,0],[2,2,0],[1,2,0]]</span><br><span class="hljs-comment">     * 输出：1000000000</span><br><span class="hljs-comment">     * 解释：上图展示了初始网格图。</span><br><span class="hljs-comment">     * 注意，由于火被墙围了起来，所以无论如何你都能安全到达安全屋。</span><br><span class="hljs-comment">     * 所以返回 109 。</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-type">Solution</span> <span class="hljs-variable">solu</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Solution</span>();<br>    <span class="hljs-type">int</span>[][] grid = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[][] &#123; &#123; <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span> &#125;, &#123; <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span> &#125;, &#123; <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span> &#125;,<br>        &#123; <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span> &#125;, &#123; <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span> &#125; &#125;;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> solu.maximumMinutes(grid);<br>    System.out.println(ans);<br><br>    grid = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[][] &#123; &#123; <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span> &#125;, &#123; <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span> &#125;, &#123; <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span> &#125; &#125;;<br>    ans = solu.maximumMinutes(grid);<br>    System.out.println(ans);<br><br>    grid = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[][] &#123; &#123; <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span> &#125;, &#123; <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span> &#125;, &#123; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span> &#125; &#125;;<br>    ans = solu.maximumMinutes(grid);<br>    System.out.println(ans);<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="咒语和药水的成功对数">10 2300. 咒语和药水的成功对数</h2>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Arrays;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br><br>  <span class="hljs-comment">/**</span><br><span class="hljs-comment">   * 二分查找</span><br><span class="hljs-comment">   * 查找最左边的第一个大于 needle 的数</span><br><span class="hljs-comment">   * 返回其位置</span><br><span class="hljs-comment">   */</span><br>  <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">findFirstPotion</span><span class="hljs-params">(<span class="hljs-type">int</span>[] potions, <span class="hljs-type">long</span> needle)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> potions.length;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> potions.length - <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>      <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> left + (right - left) / <span class="hljs-number">2</span>;<br>      <span class="hljs-keyword">if</span> (potions[mid] &gt; needle) &#123;<br>        res = mid;<br>        right = mid - <span class="hljs-number">1</span>;<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        left = mid + <span class="hljs-number">1</span>;<br>      &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> res;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] successfulPairs(<span class="hljs-type">int</span>[] spells, <span class="hljs-type">int</span>[] potions, <span class="hljs-type">long</span> success) &#123;<br>    <span class="hljs-type">int</span>[] pairs = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[spells.length];<br>    Arrays.sort(potions);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; spells.length; i++) &#123;<br>      <span class="hljs-type">long</span> <span class="hljs-variable">needle</span> <span class="hljs-operator">=</span> (success + spells[i] - <span class="hljs-number">1</span>) / spells[i] - <span class="hljs-number">1</span>;<br>      <span class="hljs-type">int</span> <span class="hljs-variable">cur</span> <span class="hljs-operator">=</span> findFirstPotion(potions, needle);<br>      <span class="hljs-keyword">if</span> (potions.length != cur) &#123;<br>        pairs[i] = potions.length - cur;<br>      &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> pairs;<br>  &#125;<br><br>  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br><br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">     * 示例 1：</span><br><span class="hljs-comment">     * 输入：spells = [5,1,3], potions = [1,2,3,4,5], success = 7</span><br><span class="hljs-comment">     * 输出：[4,0,3]</span><br><span class="hljs-comment">     * 解释：</span><br><span class="hljs-comment">     * - 第 0 个咒语：5 * [1,2,3,4,5] = [5,10,15,20,25] 。总共 4 个成功组合。</span><br><span class="hljs-comment">     * - 第 1 个咒语：1 * [1,2,3,4,5] = [1,2,3,4,5] 。总共 0 个成功组合。</span><br><span class="hljs-comment">     * - 第 2 个咒语：3 * [1,2,3,4,5] = [3,6,9,12,15] 。总共 3 个成功组合。</span><br><span class="hljs-comment">     * 所以返回 [4,0,3] 。</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * 示例 2：</span><br><span class="hljs-comment">     * 输入：spells = [3,1,2], potions = [8,5,8], success = 16</span><br><span class="hljs-comment">     * 输出：[2,0,2]</span><br><span class="hljs-comment">     * 解释：</span><br><span class="hljs-comment">     * - 第 0 个咒语：3 * [8,5,8] = [24,15,24] 。总共 2 个成功组合。</span><br><span class="hljs-comment">     * - 第 1 个咒语：1 * [8,5,8] = [8,5,8] 。总共 0 个成功组合。</span><br><span class="hljs-comment">     * - 第 2 个咒语：2 * [8,5,8] = [16,10,16] 。总共 2 个成功组合。</span><br><span class="hljs-comment">     * 所以返回 [2,0,2] 。</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-type">Solution</span> <span class="hljs-variable">solu</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Solution</span>();<br>    <span class="hljs-type">int</span>[] spells = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[] &#123; <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span> &#125;;<br>    <span class="hljs-type">int</span>[] portions = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[] &#123; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span> &#125;;<br>    <span class="hljs-type">long</span> <span class="hljs-variable">success</span> <span class="hljs-operator">=</span> <span class="hljs-number">7</span>;<br>    <span class="hljs-type">int</span>[] pairs = solu.successfulPairs(spells, portions, success);<br>    System.out.println(Arrays.toString(pairs));<br><br>    spells = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[] &#123;<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>&#125;;<br>    portions = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[] &#123;<span class="hljs-number">8</span>,<span class="hljs-number">5</span>,<span class="hljs-number">8</span>&#125;;<br>    success = <span class="hljs-number">16</span>;<br>    pairs = solu.successfulPairs(spells, portions, success);<br>    System.out.println(Arrays.toString(pairs));<br>  &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>注意这里的这一行处理，</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-type">long</span> <span class="hljs-variable">needle</span> <span class="hljs-operator">=</span> (success + spells[i] - <span class="hljs-number">1</span>) / spells[i] - <span class="hljs-number">1</span>;<br></code></pre></div></td></tr></table></figure>
+<p>这是一个很有趣的处理方式，这个式子可以保证其结果是，</p>
+<p><span class="math display">\[
+needle = \left \lceil \frac{success}{spells[i]}\right \rceil - 1
+\]</span></p>
+<p>然后，我们只要二分查找，从左找刚好比这个 needle
+的第一个数就可以了。</p>
+<p>注意看 <span class="math inline">\(spells[i] - 1\)</span>
+这个整体，然后，我们知道这里涉及的都是整数，就不难理解了。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                      <a class="hover-with-bg" href="/tags/LeetCode/">LeetCode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%9C%AA%E7%AB%9F/">未竟</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/06/%E8%AE%B0%E4%B8%80%E6%AC%A1-manjaro-%E6%9B%B4%E6%96%B0%E5%90%8E%E5%BC%80%E6%9C%BA%E7%95%8C%E9%9D%A2%E5%8D%A1%E6%AD%BB%E7%9A%84%E4%BA%8B%E6%95%85/">
+                        <span class="hidden-mobile">记一次 manjaro 更新后开机界面卡死的事故</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://example.com/2023/11/10/%E4%BA%8C%E4%B8%89%E5%B9%B4%E5%8D%81%E4%B8%80%E6%9C%88%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/';
+          this.page.identifier = '/2023/11/10/%E4%BA%8C%E4%B8%89%E5%B9%B4%E5%8D%81%E4%B8%80%E6%9C%88%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'https-fanlumaster-github-io' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://fanyfull.monster" target="_blank" rel="nofollow noopener"><span>FanyFull</span></a> <i class="iconfont icon-love"></i> <a href="https://fanyfull.top/@fanyfull" target="_blank" rel="nofollow noopener"><span>Monster</span></a> <i class="iconfont icon-love"></i> <a href="https://fanyfull.github.io" target="_blank" rel="nofollow noopener"><span>Another</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/custom.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
