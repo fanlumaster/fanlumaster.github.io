@@ -1,0 +1,670 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/myfavicon.png">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="fanlumaster">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="时光流转。工作的事情告一个段落。近来可以抽出一点时间写博客了。 手头堆积的事情是很多的。目前工作的节奏可以说和 996 之间贴得严丝合缝。组里的师姐(姑且可以这么认为)年底代表党支部送来关怀。谈及我的下班和周末的生活。我说，手边很多事情都在缓慢地推进。偶尔和 Q 同事一起出去爬爬山都要对时间精打细算，到这个程度。  这也太单调了。你没有欲望的吗？  我的某方面的欲望在别人看来，可能会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lazyvim 从零开始配置">
+<meta property="og:url" content="http://example.com/2023/11/25/Lazyvim-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="Flyan Lu&#39;s Blog">
+<meta property="og:description" content="时光流转。工作的事情告一个段落。近来可以抽出一点时间写博客了。 手头堆积的事情是很多的。目前工作的节奏可以说和 996 之间贴得严丝合缝。组里的师姐(姑且可以这么认为)年底代表党支部送来关怀。谈及我的下班和周末的生活。我说，手边很多事情都在缓慢地推进。偶尔和 Q 同事一起出去爬爬山都要对时间精打细算，到这个程度。  这也太单调了。你没有欲望的吗？  我的某方面的欲望在别人看来，可能会">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.imgur.com/krCmIQu.png">
+<meta property="article:published_time" content="2023-11-25T12:17:37.000Z">
+<meta property="article:modified_time" content="2023-11-26T04:46:02.005Z">
+<meta property="article:author" content="fanlumaster">
+<meta property="article:tag" content="未竟">
+<meta property="article:tag" content="Neovim">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/krCmIQu.png">
+  
+  
+  <title>Lazyvim 从零开始配置 - Flyan Lu&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="stylesheet" href="/css/mastodon-icon/iconfont.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Flyan Lu&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/reading/">
+                <i class="iconfont icon-book"></i>
+                读书
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://i.imgur.com/krCmIQu.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Lazyvim 从零开始配置">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+      
+        <span class="post-meta">
+          <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+          <time datetime="2023-11-25 20:17" pubdate>
+            <!-- 2023年11月25日 晚上 -->
+            2023-11-25 20:17
+          </time>
+        </span>
+        
+          
+            <span>-</span>
+            <span class="post-meta">
+              <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+              <time datetime="2023-11-26 12:46" pubdate>
+                <!-- 2023年11月26日 下午 -->
+                2023-11-26 12:46
+              </time>
+            </span>
+            
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.4k 字
+    </span>
+    
+
+      
+        <span class="post-meta mr-2">
+          <i class="iconfont icon-clock-fill"></i>
+          
+            
+              29 分钟
+        </span>
+        
+
+          
+            
+</div>
+
+<!-- 自定义的更新时间 -->
+<!-- <div class="mt-1">
+  
+    <p class="note note-info">
+      
+              本文最后更新于：2023年11月26日 下午
+                  
+    </p>
+    
+</div> -->
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Lazyvim 从零开始配置</h1>
+            <!-- fanyfull 注释原本的更新时间 start -->
+            <!-- 
+              <p class="note note-info">
+                
+                  本文最后更新于：2023年11月26日 下午
+                
+              </p>
+             -->
+            <!-- fanyfull 注释原本的更新时间 end -->
+            <div class="markdown-body">
+              <p>时光流转。工作的事情告一个段落。近来可以抽出一点时间写博客了。</p>
+<p>手头堆积的事情是很多的。目前工作的节奏可以说和 996
+之间贴得严丝合缝。组里的师姐(姑且可以这么认为)年底代表党支部送来关怀。谈及我的下班和周末的生活。我说，手边很多事情都在缓慢地推进。偶尔和
+Q 同事一起出去爬爬山都要对时间精打细算，到这个程度。</p>
+<blockquote>
+<p>这也太单调了。你没有欲望的吗？</p>
+</blockquote>
+<p>我的某方面的欲望在别人看来，可能会比较稀松平常。比如，我说，我写的和正在研究的一些小玩意儿，基本上都是为我的个人便利。这一点当然不得不让其惊讶。又谈及女友之类，我说我和
+Q 同事一样，暂时都不考虑云云。</p>
+<blockquote>
+<p>怪不得你还有这么多时间来搞那些东西呀。</p>
+</blockquote>
+<p>闲话少叙。</p>
+<p>下面将以一个一个小问题的形式，来记录我自己的个性化的设置。</p>
+<h2 id="options.lua">options.lua</h2>
+<p>这个其实就是对默认的 options
+的一个覆盖。其中可能会有需要注意的点。</p>
+<p><img src="https://i.imgur.com/4CbOubH.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="禁用拼写检查">禁用拼写检查</h3>
+<p>我不想在写 markdown
+文件的时候，还给我整一大堆它误报的语法拼写错误。</p>
+<p>在使用 <code>opt</code>
+这个变量之前，需要先定义一下。见上面的图片。</p>
+<figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua">opt.spell = <span class="hljs-literal">false</span><br></code></pre></div></td></tr></table></figure>
+<p>注意：在这里还需要配合 <code>autocmds.lua</code>，因为 Lazyvim 默认对
+markdown 加了一个 autocmd，需要修改的地方如下，</p>
+<p><img src="https://i.imgur.com/P9uZrGr.png" srcset="/img/loading.gif" lazyload /></p>
+<figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua"><span class="hljs-keyword">local</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">augroup</span><span class="hljs-params">(name)</span></span><br>  <span class="hljs-keyword">return</span> vim.api.nvim_create_augroup(<span class="hljs-string">&quot;lazyvim_&quot;</span> .. name, &#123; clear = <span class="hljs-literal">true</span> &#125;)<br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">-- wrap and check for spell in text filetypes</span><br>vim.api.nvim_create_autocmd(<span class="hljs-string">&quot;FileType&quot;</span>, &#123;<br>  group = augroup(<span class="hljs-string">&quot;wrap_spell&quot;</span>),<br>  pattern = &#123; <span class="hljs-string">&quot;gitcommit&quot;</span>, <span class="hljs-string">&quot;markdown&quot;</span> &#125;,<br>  callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span><br>    vim.opt_local.<span class="hljs-built_in">wrap</span> = <span class="hljs-literal">true</span><br>    vim.opt_local.spell = <span class="hljs-literal">false</span> <span class="hljs-comment">-- 覆盖默认的 true</span><br>  <span class="hljs-keyword">end</span>,<br>&#125;)<br></code></pre></div></td></tr></table></figure>
+<h3 id="开启-wrap-自动折行">开启 wrap 自动折行</h3>
+<figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua">opt.<span class="hljs-built_in">wrap</span> = <span class="hljs-literal">true</span><br></code></pre></div></td></tr></table></figure>
+<h3 id="禁用相对行号">禁用相对行号</h3>
+<figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua">opt.relativenumber = <span class="hljs-literal">false</span><br></code></pre></div></td></tr></table></figure>
+<h3 id="设置-gui-字体">设置 gui 字体</h3>
+<p>这里我使用的 gui 是 neovide。</p>
+<figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua">opt.guifont = &#123;<span class="hljs-string">&quot;CaskaydiaCove Nerd Font&quot;</span>, <span class="hljs-string">&quot;Source Han Sans CN&quot;</span>, <span class="hljs-string">&quot;微软雅黑&quot;</span>, <span class="hljs-string">&quot;Maple Mono SC NF&quot;</span>, <span class="hljs-string">&quot;:h13&quot;</span>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>按：这里需要使用的字体肯定是要提前安装好的哈。</p>
+<h3 id="显示空白字符">显示空白字符</h3>
+<p><img src="https://i.imgur.com/T5l0Jmo.png" srcset="/img/loading.gif" lazyload /></p>
+<figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua">opt.list = <span class="hljs-literal">true</span><br>opt.listchars = &#123; space = <span class="hljs-string">&quot;·&quot;</span> &#125;<br></code></pre></div></td></tr></table></figure>
+<p>参考<a
+target="_blank" rel="noopener" href="https://vi.stackexchange.com/questions/31811/neovim-lua-config-how-to-append-to-listchars">这里</a>。</p>
+<h3 id="windows-中设置-shell-为-pwsh7">Windows 中设置 shell 为
+pwsh7</h3>
+<figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua">opt.shell = <span class="hljs-string">&quot;pwsh&quot;</span><br>opt.shellcmdflag = <span class="hljs-string">&quot;-command&quot;</span><br>opt.shellquote = <span class="hljs-string">&#x27;&quot;&#x27;</span><br>opt.shellxquote = <span class="hljs-string">&quot;&quot;</span><br></code></pre></div></td></tr></table></figure>
+<h3 id="设置-conceals-的级别">设置 conceals 的级别</h3>
+<figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua">opt.conceallevel = <span class="hljs-number">0</span><br></code></pre></div></td></tr></table></figure>
+<p>这里肯定是设置成 0
+比较好，不然，有些东西它自动给我们隐藏了，比如，markdown
+中的代码块的标记。</p>
+<h3 id="设置-neovide-的光标颜色">设置 neovide 的光标颜色</h3>
+<p>这个需要在 lazy.lua 里面进行设置，当然，如果直接在最外层的 init.lua
+中设置应该也是可以的。</p>
+<p><img src="https://i.imgur.com/FKacPyl.png" srcset="/img/loading.gif" lazyload /></p>
+<figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua"><span class="hljs-comment">-- 设置光标的颜色默认为拉姆的发(fà)色</span><br>vim.cmd(<span class="hljs-string">&#x27;highlight Cursor gui=NONE guifg=bg guibg=#ffb6c1&#x27;</span>)<br></code></pre></div></td></tr></table></figure>
+<h2 id="keymaps">keymaps</h2>
+<h2 id="bufferline.nvim">bufferline.nvim</h2>
+<p>如果想要覆盖 bufferline.nvim 在 Lazynvim
+中的默认的配置的话，我这里就是直接在 <code>lua/plugins/</code>
+下面新建一个 <code>bufferline.lua</code>
+配置了，这个在文档里面也有讲类似。</p>
+<p><img src="https://i.imgur.com/VV5Kesd.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="buffer-标题的斜体和加粗设置">buffer 标题的斜体和加粗设置</h3>
+<p><a
+target="_blank" rel="noopener" href="https://www.lazyvim.org/plugins/ui#bufferlinenvim">文档</a>。</p>
+<p>我这里需要的效果是把当前的这个 buffer
+的标题的斜体(italic)和加粗效果给去掉，因为这在 neovide
+中显示效果会比较好，以及，对中文比较友好，</p>
+<p><img src="https://i.imgur.com/L9uL9ax.png" srcset="/img/loading.gif" lazyload /></p>
+<p>按：上面图片中的 <code>buffer_visiable</code> 似乎不是一个 valid
+的选项，所以，以下面的我实际给出的 lua 代码为准，</p>
+<p>具体的设置如下，</p>
+<figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua"><span class="hljs-keyword">return</span> &#123;<br>  <span class="hljs-string">&quot;akinsho/bufferline.nvim&quot;</span>,<br>  event = <span class="hljs-string">&quot;VeryLazy&quot;</span>,<br>  opts = &#123;<br>    options = &#123;&#125;,<br>    highlights = &#123;<br>      buffer_selected = &#123; italic = <span class="hljs-literal">false</span>, bold = <span class="hljs-literal">false</span> &#125;,<br>    &#125;,<br>  &#125;,<br>  <span class="hljs-built_in">config</span> = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(_, opts)</span></span><br>    <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;bufferline&quot;</span>).setup(opts)<br>    <span class="hljs-comment">-- Fix bufferline when restoring a session</span><br>    vim.api.nvim_create_autocmd(<span class="hljs-string">&quot;BufAdd&quot;</span>, &#123;<br>      callback = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span><br>        vim.schedule(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span><br>          <span class="hljs-built_in">pcall</span>(nvim_bufferline)<br>        <span class="hljs-keyword">end</span>)<br>      <span class="hljs-keyword">end</span>,<br>    &#125;)<br>  <span class="hljs-keyword">end</span>,<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="tokyonight.nvim">tokyonight.nvim</h2>
+<p>新建一个 tokyonight.lua 代码文件。</p>
+<p><img src="https://i.imgur.com/VV5Kesd.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="tokyonight-取消一些斜体">tokyonight 取消一些斜体</h3>
+<figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua"><span class="hljs-keyword">return</span> &#123;<br>  &#123; <span class="hljs-string">&quot;shaunsingh/oxocarbon.nvim&quot;</span> &#125;,<br>  &#123; <span class="hljs-string">&quot;ellisonleao/gruvbox.nvim&quot;</span> &#125;,<br>  &#123; <span class="hljs-string">&quot;rose-pine/neovim&quot;</span>, name = <span class="hljs-string">&quot;rose-pine&quot;</span> &#125;,<br>  &#123;<br>    <span class="hljs-string">&quot;tokyonight.nvim&quot;</span>,<br>    priority = <span class="hljs-number">1000</span>,<br>    opts = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span><br>      <span class="hljs-keyword">return</span> &#123;<br>        style = <span class="hljs-string">&quot;moon&quot;</span>,<br>        <span class="hljs-comment">-- transparent = true,</span><br>        styles = &#123;<br>          sidebars = <span class="hljs-string">&quot;transparent&quot;</span>,<br>          floats = <span class="hljs-string">&quot;transparent&quot;</span>,<br>          comments = &#123; italic = <span class="hljs-literal">false</span> &#125;,<br>          keywords = &#123; italic = <span class="hljs-literal">false</span> &#125;,<br>          functions = &#123; italic = <span class="hljs-literal">false</span> &#125;,<br>          variables = &#123; italic = <span class="hljs-literal">false</span> &#125;,<br>        &#125;,<br>      &#125;<br>    <span class="hljs-keyword">end</span>,<br>  &#125;,<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="nvim-treesitter">nvim-treesitter</h2>
+<p>这里在配置之外，我们需要全局安装 tree-sitter-cli，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">npm install -g tree-sitter-cli<br></code></pre></div></td></tr></table></figure>
+<p>或者，使用 yarn 也是可以的，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">yarn global add tree-sitter-cli<br></code></pre></div></td></tr></table></figure>
+<p>然后，还需要配置好 Visutal Studio 的 C++ 环境，然后，添加 clang
+的环境变量，</p>
+<p><img src="https://i.imgur.com/rrgqYXI.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/Y5cYU19.png" srcset="/img/loading.gif" lazyload /></p>
+<p>因为，在 Lazyvim 中使用 tree-sitter 的命令 <code>TSInstall</code>
+某个插件的时候，是需要使用这个来进行编译的，比如，我们这里安装一个 cpp
+的 tree-sitter 语法解析器，</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">:TSInstall cpp<br></code></pre></div></td></tr></table></figure>
+<p>它是先下载，然后编译，之后才算是安装好，</p>
+<p><img src="https://i.imgur.com/LZ6r4PW.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/Kd80xa7.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="markdown-代码块语法和-autopair-的冲突">markdown 代码块语法和
+autopair 的冲突</h2>
+<p>插件是 mini.pairs。</p>
+<p>在使用三个 backticks 的时候，Lazyvim
+处理得不好，但是目前没有找到合适的方法。暂时使用 cb(code block)
+这个默认自带的 snippets 来将就一下。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%9C%AA%E7%AB%9F/">未竟</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Neovim/">Neovim</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    <b>版权声明：</b> 本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/24/The-most-fantastic-feature-in-Neovim-that-I-am-enjoying/">
+                        <span class="hidden-mobile">Neovim 中最迷人的功能</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'http://example.com/2023/11/25/Lazyvim-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E9%85%8D%E7%BD%AE/';
+          this.page.identifier = '/2023/11/25/Lazyvim-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E9%85%8D%E7%BD%AE/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'https-fanlumaster-github-io' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://fanyfull.monster" target="_blank" rel="nofollow noopener"><span>FanyFull</span></a> <i class="iconfont icon-love"></i> <a href="https://fanyfull.top/@fanyfull" target="_blank" rel="nofollow noopener"><span>Monster</span></a> <i class="iconfont icon-love"></i> <a href="https://fanyfull.github.io" target="_blank" rel="nofollow noopener"><span>Another</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/custom.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

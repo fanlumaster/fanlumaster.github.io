@@ -218,6 +218,167 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/02/22/Git-%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" target="_self">
+          <img src="https://i.imgur.com/63thh11.png" srcset="/img/loading.gif" lazyload alt="Git 问题记录">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/02/22/Git-%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" target="_self">
+          Git 问题记录
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/02/22/Git-%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" target="_self">
+          
+          .gitignore 对某个文件(夹)无法生效 如果编写的规则没有错误的话，那么问题就很有可能出在了 .gitignore 文件中的规则所作用的文件之前已经被添加到了 Git 的仓库中。 我们可以执行以下命令来解决这个问题： 12git rm -rf --cached .git add .
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-02-22 12:10" pubdate>
+              2022-02-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Git/">Git</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Git/">Git</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/02/21/git-reset-%E5%91%BD%E4%BB%A4/" target="_self">
+          <img src="https://i.imgur.com/ZX2QHHo.png" srcset="/img/loading.gif" lazyload alt="git reset 命令">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/02/21/git-reset-%E5%91%BD%E4%BB%A4/" target="_self">
+          git reset 命令
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/02/21/git-reset-%E5%91%BD%E4%BB%A4/" target="_self">
+          
+          git reset 命令用于回退版本，可以指定退回某一次提交的版本。 git reset 命令语法格式如下： 1git reset [--soft | --mixed | --hard] [HEAD] --mixed 为默认，可以不用带该参数，用于重置暂存区的文件与上一次的提交(commit)保持一致，工作区文件内容保持不变。 1git reset  [HEAD]  实例： 123$
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-02-21 20:33" pubdate>
+              2022-02-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Git/">Git</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Git/">Git</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/02/20/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-%E9%98%85%E8%AF%BB-git-diff-%E8%BE%93%E5%87%BA%E7%9A%84%E4%BF%A1%E6%81%AF/" target="_self">
+          <img src="https://i.imgur.com/qdmiezz.png" srcset="/img/loading.gif" lazyload alt="如何理解/阅读 git diff 输出的信息">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/02/20/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-%E9%98%85%E8%AF%BB-git-diff-%E8%BE%93%E5%87%BA%E7%9A%84%E4%BF%A1%E6%81%AF/" target="_self">
+          如何理解/阅读 git diff 输出的信息
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/02/20/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-%E9%98%85%E8%AF%BB-git-diff-%E8%BE%93%E5%87%BA%E7%9A%84%E4%BF%A1%E6%81%AF/" target="_self">
+          
+          当我学会如何阅读 git diff&#x2F;patch 时，我觉得我对 git 内部机制的理解有所提高。这里有一个示例来阐释不同的部分： 1234567891011121314151617diff --git a&#x2F;bootstrap.sh b&#x2F;bootstrap.shindex e98ae1c..9073c4d 100644--- a&#x2F;bootstrap.sh+++ b&#x2F;bootstrap.sh@@
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-02-20 22:32" pubdate>
+              2022-02-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Git/">Git</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Git/">Git</a>
+            
+              <a href="/tags/%E7%BF%BB%E8%AF%91/">翻译</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2022/02/20/Git-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_self">
           <img src="https://i.imgur.com/ZKY6TVe.png" srcset="/img/loading.gif" lazyload alt="Git 学习笔记">
         </a>
@@ -586,165 +747,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/%E4%BD%9C%E4%B8%9A/">作业</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/12/22/Android-RecyclerView/" target="_self">
-          <img src="https://i.imgur.com/51TShjk.png" srcset="/img/loading.gif" lazyload alt="Android RecyclerView">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/12/22/Android-RecyclerView/" target="_self">
-          Android RecyclerView
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/12/22/Android-RecyclerView/" target="_self">
-          
-          首先，添加依赖，  1implementation &quot;androidx.recyclerview:recyclerview:1.2.1&quot; 另外，如果想要在 kotlin 文件中直接使用组件的 id 来调用类，那么，还需要加上这一行  1id &amp;#x27;kotlin-android-extensions&amp;#x27;
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-12-22 17:18" pubdate>
-              2021-12-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Android/">Android</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Android/">Android</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/28/Linux-%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
-          <img src="https://i.imgur.com/fMTsYIX.png" srcset="/img/loading.gif" lazyload alt="Linux 常用快捷键">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/28/Linux-%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
-          Linux 常用快捷键
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/28/Linux-%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" target="_self">
-          
-          截图  PrtSc：全屏捕捉，截取的图片保存在 Pictures 目录下。 Shift + PrtSc：自由选定区域，截取的图片保存在 Pictures 目录下。 Alt + PtrSc：截图当前窗口，截取的图片保存在 Pictures 目录下。 Ctrl + PrtSc：全屏截图，保存到剪贴板中。 Ctrl + Shift + PrtSc：自由选定区域，截取的图片保存到剪贴板中
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-28 17:37" pubdate>
-              2021-11-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Linux/">Linux</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Linux/">Linux</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/11/26/vim-%E7%9A%84%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/" target="_self">
-          <img src="https://i.imgur.com/LeihSSz.png" srcset="/img/loading.gif" lazyload alt="vim 的复制粘贴">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/11/26/vim-%E7%9A%84%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/" target="_self">
-          vim 的复制粘贴
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/11/26/vim-%E7%9A%84%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/" target="_self">
-          
-          本文内容转载自：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;huahuayu&#x2F;p&#x2F;12235242.html vim 内部复制、粘贴、剪切 选择文本  v + 光标移动（按字符选择）高亮所要的文本，然后进行各种操作比如，  d 表示删除 c 表示更改选中的文字 按：按 c 之后会将选中的内容删除，然后模式转为 INSERT 模式。  V（按行选择）。 按：V 不太好用。
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-26 22:40" pubdate>
-              2021-11-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/vim/">vim</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/vim/">vim</a>
             
           </div>
         
