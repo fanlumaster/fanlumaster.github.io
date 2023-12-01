@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/krCmIQu.png">
 <meta property="article:published_time" content="2023-11-25T12:17:37.000Z">
-<meta property="article:modified_time" content="2023-11-30T16:40:19.211Z">
+<meta property="article:modified_time" content="2023-12-01T05:08:49.300Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="未竟">
 <meta property="article:tag" content="Neovim">
@@ -228,9 +228,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2023-12-01 00:40" pubdate>
-                <!-- 2023年12月1日 凌晨 -->
-                2023-12-01 00:40
+              <time datetime="2023-12-01 13:08" pubdate>
+                <!-- 2023年12月1日 下午 -->
+                2023-12-01 13:08
               </time>
             </span>
             
@@ -249,7 +249,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              125 分钟
+              126 分钟
         </span>
         
 
@@ -262,7 +262,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2023年12月1日 凌晨
+              本文最后更新于：2023年12月1日 下午
                   
     </p>
     
@@ -293,7 +293,7 @@
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2023年12月1日 凌晨
+                  本文最后更新于：2023年12月1日 下午
                 
               </p>
              -->
@@ -482,6 +482,17 @@ projects，</p>
 <figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua"><span class="hljs-comment">-- for persisted</span><br>map(<span class="hljs-string">&quot;n&quot;</span>, <span class="hljs-string">&quot;&lt;leader&gt;fs&quot;</span>, <span class="hljs-string">&quot;&lt;cmd&gt;Telescope persisted&lt;cr&gt;&quot;</span>, &#123; desc = <span class="hljs-string">&quot;Search history sessions&quot;</span> &#125;)<br></code></pre></div></td></tr></table></figure>
 <p>然后，在 dashboard 中添加一下这个选项，这里只截取部分关键的代码，</p>
 <figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua">center = &#123;<br>  &#123; action = <span class="hljs-string">&quot;Telescope find_files&quot;</span>,                                     desc = <span class="hljs-string">&quot; Find file&quot;</span>,       icon = <span class="hljs-string">&quot; &quot;</span>, key = <span class="hljs-string">&quot;f&quot;</span> &#125;,<br>  &#123; action = <span class="hljs-string">&quot;ene | startinsert&quot;</span>,                                        desc = <span class="hljs-string">&quot; New file&quot;</span>,        icon = <span class="hljs-string">&quot; &quot;</span>, key = <span class="hljs-string">&quot;n&quot;</span> &#125;,<br>  &#123; action = <span class="hljs-string">&quot;Telescope oldfiles&quot;</span>,                                       desc = <span class="hljs-string">&quot; Recent files&quot;</span>,    icon = <span class="hljs-string">&quot; &quot;</span>, key = <span class="hljs-string">&quot;r&quot;</span> &#125;,<br>  &#123; action = <span class="hljs-string">&quot;Telescope live_grep&quot;</span>,                                      desc = <span class="hljs-string">&quot; Find text&quot;</span>,       icon = <span class="hljs-string">&quot; &quot;</span>, key = <span class="hljs-string">&quot;g&quot;</span> &#125;,<br>  &#123; action = <span class="hljs-string">[[lua require(&quot;lazyvim.util&quot;).telescope.config_files()()]]</span>, desc = <span class="hljs-string">&quot; Config&quot;</span>,          icon = <span class="hljs-string">&quot; &quot;</span>, key = <span class="hljs-string">&quot;c&quot;</span> &#125;,<br>  &#123; action = <span class="hljs-string">&#x27;lua require(&quot;persistence&quot;).load()&#x27;</span>,                        desc = <span class="hljs-string">&quot; Restore Session&quot;</span>, icon = <span class="hljs-string">&quot; &quot;</span>, key = <span class="hljs-string">&quot;s&quot;</span> &#125;,<br>  &#123; action = <span class="hljs-string">&#x27;Telescope persisted&#x27;</span>,                                      desc = <span class="hljs-string">&quot; Search sessions&quot;</span>, icon = <span class="hljs-string">&quot; &quot;</span>, key = <span class="hljs-string">&quot;S&quot;</span> &#125;,<br>  &#123; action = <span class="hljs-string">&quot;LazyExtras&quot;</span>,                                               desc = <span class="hljs-string">&quot; Lazy Extras&quot;</span>,     icon = <span class="hljs-string">&quot; &quot;</span>, key = <span class="hljs-string">&quot;x&quot;</span> &#125;,<br>  &#123; action = <span class="hljs-string">&quot;Lazy&quot;</span>,                                                     desc = <span class="hljs-string">&quot; Lazy&quot;</span>,            icon = <span class="hljs-string">&quot;󰒲 &quot;</span>, key = <span class="hljs-string">&quot;l&quot;</span> &#125;,<br>  &#123; action = <span class="hljs-string">&quot;qa&quot;</span>,                                                       desc = <span class="hljs-string">&quot; Quit&quot;</span>,            icon = <span class="hljs-string">&quot; &quot;</span>, key = <span class="hljs-string">&quot;q&quot;</span> &#125;,<br>&#125;,<br></code></pre></div></td></tr></table></figure>
+<h2 id="differview">differview</h2>
+<p>你想获得和 IDEA
+中类似的在代码提交之前的检视效果吗？那就试一试这个插件吧。</p>
+<figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua"><span class="hljs-keyword">return</span> &#123;<br>  <span class="hljs-string">&quot;sindrets/diffview.nvim&quot;</span>,<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>最常用的两个命令是，</p>
+<ul>
+<li><code>:DiffviewOpen</code></li>
+<li><code>:DiffviewClose</code></li>
+</ul>
+<p>看看效果，</p>
+<p><img src="https://i.imgur.com/TN1KHOs.png" srcset="/img/loading.gif" lazyload /></p>
 <hr />
 <h2 id="一些问题">一些问题</h2>
 <h3 id="python-的格式化不生效">python 的格式化不生效</h3>
