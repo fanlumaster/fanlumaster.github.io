@@ -16,16 +16,16 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="首先，我觉得应该先从我们日常会使用到的一些小命令来入手。并且，下面的内容会默认使用了 astronvim 的配置。我这里会在其基础上进行扩展一些我自己的操作。可能会会有一些基础性概念的说明，比如 leader 键的概念，这些会放在本文的后面讲，请留意。 打开一个新 tab 并且在其中打开 terminal 1:tabnew | term 参考：https:&#x2F;&#x2F;stackoverflow">
+    <meta name="description" content="首先，我觉得应该先从我们日常会使用到的一些小命令来入手。并且，下面的内容会默认使用了 lazyvim 的配置。我这里会在其基础上进行扩展一些我自己的操作。可能会会有一些基础性概念的说明，比如 leader 键的概念，这些会放在本文的后面讲，请留意。 我们什么时候可以评价 vim 究竟是否好用呢？大概是高强度使用了两个星期之后吧。如果更加严苛一点，那就得是当按下一个 vim 的操作像呼吸">
 <meta property="og:type" content="article">
 <meta property="og:title" content="neovim、neovide、astronvim 漫游">
 <meta property="og:url" content="http://example.com/2023/11/05/neovim%E3%80%81neovide%E3%80%81astronvim-%E6%BC%AB%E6%B8%B8/index.html">
 <meta property="og:site_name" content="Flyan Lu&#39;s Blog">
-<meta property="og:description" content="首先，我觉得应该先从我们日常会使用到的一些小命令来入手。并且，下面的内容会默认使用了 astronvim 的配置。我这里会在其基础上进行扩展一些我自己的操作。可能会会有一些基础性概念的说明，比如 leader 键的概念，这些会放在本文的后面讲，请留意。 打开一个新 tab 并且在其中打开 terminal 1:tabnew | term 参考：https:&#x2F;&#x2F;stackoverflow">
+<meta property="og:description" content="首先，我觉得应该先从我们日常会使用到的一些小命令来入手。并且，下面的内容会默认使用了 lazyvim 的配置。我这里会在其基础上进行扩展一些我自己的操作。可能会会有一些基础性概念的说明，比如 leader 键的概念，这些会放在本文的后面讲，请留意。 我们什么时候可以评价 vim 究竟是否好用呢？大概是高强度使用了两个星期之后吧。如果更加严苛一点，那就得是当按下一个 vim 的操作像呼吸">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/RigWalt.png">
 <meta property="article:published_time" content="2023-11-05T07:48:49.000Z">
-<meta property="article:modified_time" content="2023-11-23T14:14:19.579Z">
+<meta property="article:modified_time" content="2024-02-03T09:58:30.471Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="Neovim">
 <meta property="article:tag" content="未竟">
@@ -228,9 +228,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2023-11-23 22:14" pubdate>
-                <!-- 2023年11月23日 晚上 -->
-                2023-11-23 22:14
+              <time datetime="2024-02-03 17:58" pubdate>
+                <!-- 2024年2月3日 下午 -->
+                2024-02-03 17:58
               </time>
             </span>
             
@@ -240,7 +240,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      1.9k 字
     </span>
     
 
@@ -249,7 +249,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              15 分钟
+              16 分钟
         </span>
         
 
@@ -262,7 +262,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2023年11月23日 晚上
+              本文最后更新于：2024年2月3日 下午
                   
     </p>
     
@@ -293,16 +293,20 @@
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2023年11月23日 晚上
+                  本文最后更新于：2024年2月3日 下午
                 
               </p>
              -->
             <!-- fanyfull 注释原本的更新时间 end -->
             <div class="markdown-body">
               <p>首先，我觉得应该先从我们日常会使用到的一些小命令来入手。并且，下面的内容会默认使用了
-astronvim
+lazyvim
 的配置。我这里会在其基础上进行扩展一些我自己的操作。可能会会有一些基础性概念的说明，比如
 leader 键的概念，这些会放在本文的后面讲，请留意。</p>
+<p>我们什么时候可以评价 vim
+究竟是否好用呢？大概是高强度使用了两个星期之后吧。如果更加严苛一点，那就得是当按下一个
+vim 的操作像呼吸一样自然的时候，不过，这个时候，我们还离得开 vim
+吗？</p>
 <p><strong>打开一个新 tab 并且在其中打开 terminal</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">:tabnew | term<br></code></pre></div></td></tr></table></figure>
 <p>参考：<a
@@ -368,7 +372,7 @@ vim 中的一个叫作 easymotion 的插件。</p>
 <li>leader+leader+e:
 快速地跳转到当前页面的且在当前光标之后的每一个单词的结尾。</li>
 </ul>
-<p>这个 hop.nvim 结合 vim 的 visual
+<p>这个 <code>hop.nvim</code> 结合 vim 的 visual
 模式其实也是挺好用的。可以更加地方便我们去复制我们想要复制的文本。</p>
 <h3 id="基本的-vim-操作">基本的 vim 操作</h3>
 <p>如：</p>
@@ -384,6 +388,8 @@ vim 中的一个叫作 easymotion 的插件。</p>
 <p>可以方便我们便捷地去修改引号或者括号之类的包裹符号。</p>
 <h3 id="一些常用的操作">一些常用的操作</h3>
 <p>或许从实际的一个一个操作来讲可能会更加吸引人一些。</p>
+<p>下面的一些操作是结合了 motion 这个概念的。motion
+直接翻译过来，就是动作的意思。这些动作都是便捷的动作。</p>
 <ul>
 <li>快速地复制光标所在的位置的字符串：<code>yiw</code></li>
 <li>快速地剪切光标所在的位置的字符串并进入 insert 模式：<code>diw</code>
