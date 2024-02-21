@@ -16,16 +16,16 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="有时候 copy 别人的代码，这个搜索替换的功能还是挺实用的。 主要是面向实用。先拣几个常用的指令记录一下。 全局搜索替换所有符合条件的字串： 1:%s&#x2F;foo&#x2F;bar&#x2F;g foo 是待替换的字符串，bar 是替换后的字符串。 如果想确认每一个替换，那么，可以在结尾加一个 c 选项： 1:%s&#x2F;foo&#x2F;bar&#x2F;gc 如果是当前行而非全局替换的话，那么，把 % 去掉即可。 复杂一点">
+    <meta name="description" content="2024.02.21 补充两个实际的使用场景。 批量替换行开头的空格: 1:%s&#x2F;^\s\+&#x2F;g 批量替换行结尾的空格: 1:%s&#x2F;\s\+$&#x2F;g  以下是原来的记录。 有时候 copy 别人的代码，这个搜索替换的功能还是挺实用的。 主要是面向实用。先拣几个常用的指令记录一下。 全局搜索替换所有符合条件的字串： 1:%s&#x2F;foo&#x2F;bar&#x2F;g foo 是待替换的字符串，bar">
 <meta property="og:type" content="article">
 <meta property="og:title" content="neovim(vim) 的搜索和替换">
 <meta property="og:url" content="http://example.com/2022/08/21/neovim-vim-%E7%9A%84%E6%90%9C%E7%B4%A2%E5%92%8C%E6%9B%BF%E6%8D%A2/index.html">
 <meta property="og:site_name" content="Flyan Lu&#39;s Blog">
-<meta property="og:description" content="有时候 copy 别人的代码，这个搜索替换的功能还是挺实用的。 主要是面向实用。先拣几个常用的指令记录一下。 全局搜索替换所有符合条件的字串： 1:%s&#x2F;foo&#x2F;bar&#x2F;g foo 是待替换的字符串，bar 是替换后的字符串。 如果想确认每一个替换，那么，可以在结尾加一个 c 选项： 1:%s&#x2F;foo&#x2F;bar&#x2F;gc 如果是当前行而非全局替换的话，那么，把 % 去掉即可。 复杂一点">
+<meta property="og:description" content="2024.02.21 补充两个实际的使用场景。 批量替换行开头的空格: 1:%s&#x2F;^\s\+&#x2F;g 批量替换行结尾的空格: 1:%s&#x2F;\s\+$&#x2F;g  以下是原来的记录。 有时候 copy 别人的代码，这个搜索替换的功能还是挺实用的。 主要是面向实用。先拣几个常用的指令记录一下。 全局搜索替换所有符合条件的字串： 1:%s&#x2F;foo&#x2F;bar&#x2F;g foo 是待替换的字符串，bar">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/9k39AEO.jpg">
 <meta property="article:published_time" content="2022-08-21T15:22:29.000Z">
-<meta property="article:modified_time" content="2022-09-20T06:37:54.050Z">
+<meta property="article:modified_time" content="2024-02-21T15:13:09.324Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="neovim">
 <meta name="twitter:card" content="summary_large_image">
@@ -227,9 +227,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2022-09-20 14:37" pubdate>
-                <!-- 2022年9月20日 下午 -->
-                2022-09-20 14:37
+              <time datetime="2024-02-21 23:13" pubdate>
+                <!-- 2024年2月21日 晚上 -->
+                2024-02-21 23:13
               </time>
             </span>
             
@@ -239,7 +239,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      439 字
+      516 字
     </span>
     
 
@@ -248,7 +248,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              4 分钟
+              5 分钟
         </span>
         
 
@@ -261,7 +261,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2022年9月20日 下午
+              本文最后更新于：2024年2月21日 晚上
                   
     </p>
     
@@ -292,13 +292,20 @@
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2022年9月20日 下午
+                  本文最后更新于：2024年2月21日 晚上
                 
               </p>
              -->
             <!-- fanyfull 注释原本的更新时间 end -->
             <div class="markdown-body">
-              <p>有时候 copy 别人的代码，这个搜索替换的功能还是挺实用的。</p>
+              <p>2024.02.21 补充两个实际的使用场景。</p>
+<p><strong>批量替换行开头的空格:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">:%s/^\s\+/g<br></code></pre></div></td></tr></table></figure>
+<p><strong>批量替换行结尾的空格:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">:%s/\s\+$/g<br></code></pre></div></td></tr></table></figure>
+<hr />
+<p>以下是原来的记录。</p>
+<p>有时候 copy 别人的代码，这个搜索替换的功能还是挺实用的。</p>
 <p>主要是面向实用。先拣几个常用的指令记录一下。</p>
 <p>全局搜索替换所有符合条件的字串：</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">:%s/foo/bar/g<br></code></pre></div></td></tr></table></figure>
