@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/NJxKJg2.png">
 <meta property="article:published_time" content="2024-03-24T12:43:11.000Z">
-<meta property="article:modified_time" content="2024-03-24T14:26:14.946Z">
+<meta property="article:modified_time" content="2024-03-25T05:01:22.553Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="Windows">
 <meta name="twitter:card" content="summary_large_image">
@@ -227,9 +227,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2024-03-24 22:26" pubdate>
-                <!-- 2024年3月24日 晚上 -->
-                2024-03-24 22:26
+              <time datetime="2024-03-25 13:01" pubdate>
+                <!-- 2024年3月25日 下午 -->
+                2024-03-25 13:01
               </time>
             </span>
             
@@ -239,7 +239,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.4k 字
+      3.8k 字
     </span>
     
 
@@ -248,7 +248,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              29 分钟
+              32 分钟
         </span>
         
 
@@ -261,7 +261,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2024年3月24日 晚上
+              本文最后更新于：2024年3月25日 下午
                   
     </p>
     
@@ -292,7 +292,7 @@
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2024年3月24日 晚上
+                  本文最后更新于：2024年3月25日 下午
                 
               </p>
              -->
@@ -350,7 +350,7 @@ Linker -&gt; Manifest File -&gt; UAC Bypass UI Protection</p>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">makecert -r -pe -n <span class="hljs-string">&quot;CN=Test Certificate - For Internal Use Only&quot;</span> -ss PrivateCertStore testcert.cer<br></code></pre></div></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">certmgr.exe -add testcert.cer -s -r localMachine root<br></code></pre></div></td></tr></table></figure>
 <p>按：这一步如果失败，请切换到管理员模式来执行这个命令。</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">SignTool sign /v /s PrivateCertStore /n <span class="hljs-string">&quot;Test Certificate - For Internal Use Only&quot;</span> WindowsProject2.exe<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">SignTool sign /fd SHA256 /v /s PrivateCertStore /n <span class="hljs-string">&quot;Test Certificate - For Internal Use Only&quot;</span> WindowsProject2.exe<br></code></pre></div></td></tr></table></figure>
 <p>按：这里可以把编译好的 exe
 文件复制到别的目录进行这个签名的操作。当然，也可以直接在编译输出的原目录中进行操作。</p>
 <h3 id="第四步">第四步</h3>
@@ -376,6 +376,9 @@ project 不放在同一目录下)</p>
 <p>按：上面这步不确定是否需要处理。</p>
 <p>然后，将 sqlite3.dll 文件复制到 exe 文件所在的目录下即可。</p>
 <p>然后，再执行上面的四个步骤。最后运行即可得到想要的置顶的效果。</p>
+<p>按：2024.03.25 发现，其实不用迁移了。CMake 本身是可以做到的。只需要在
+CMakeLists 文件中加上如下的链接脚本即可，</p>
+<figure class="highlight txt"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs txt"># 如果是 windows，设置 asInvoker 权限。注意使用 if 需要配合 endif 使用<br>if (CMAKE_SYSTEM_NAME MATCHES &quot;Windows&quot;)<br>    set_target_properties($&#123;PROJECT_NAME&#125; PROPERTIES LINK_FLAGS &quot;/level=&#x27;asInvoker&#x27; /uiAccess=&#x27;true&#x27;&quot; )<br>endif()<br></code></pre></div></td></tr></table></figure>
 <hr />
 <p>稍微多说一点，窗口置顶有什么好处呢？或者说，有什么具体的应用呢？在我这里，当然是为了输入法的候选框来服务的，输入法的候选框如果被其它窗口遮住，那还得了。</p>
 <p>那，有没有其它场景的应用了呢？</p>
@@ -387,7 +390,9 @@ target="_blank" rel="noopener" href="https://blog.walterlv.com/post/run-desktop-
 2、<a
 target="_blank" rel="noopener" href="https://killtimer0.github.io/2023/03/06/UIAccess/">通过System令牌获取UIAccess</a><br />
 3、<a target="_blank" rel="noopener" href="https://github.com/killtimer0/uiaccess"
-class="uri">https://github.com/killtimer0/uiaccess</a></p>
+class="uri">https://github.com/killtimer0/uiaccess</a><br />
+4、<a target="_blank" rel="noopener" href="https://www.cnblogs.com/pandamohist/p/16908223.html"
+class="uri">https://www.cnblogs.com/pandamohist/p/16908223.html</a></p>
 
             </div>
             <hr>
