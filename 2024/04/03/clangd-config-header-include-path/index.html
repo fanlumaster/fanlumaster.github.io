@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/JlhonL4.png">
 <meta property="article:published_time" content="2024-04-03T05:02:06.000Z">
-<meta property="article:modified_time" content="2024-04-03T05:07:42.849Z">
+<meta property="article:modified_time" content="2024-04-03T05:11:13.801Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="clangd">
 <meta property="article:tag" content="arch">
@@ -228,9 +228,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2024-04-03 13:07" pubdate>
+              <time datetime="2024-04-03 13:11" pubdate>
                 <!-- 2024年4月3日 下午 -->
-                2024-04-03 13:07
+                2024-04-03 13:11
               </time>
             </span>
             
@@ -306,15 +306,15 @@
 当然是没有问题的，当前项目下的源文件在包含其他外部的我已经在
 <code>.clangd</code> 中指定过的文件是没有问题的。</p>
 <p>先看我的配置文件吧，</p>
-<p><img src="https://i.imgur.com/dWx5U6T.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/bL7xaS3.png" srcset="/img/loading.gif" lazyload /></p>
 <figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">CompileFlags:</span><br>  <span class="hljs-attr">Add:</span> [<br>    <span class="hljs-string">-I/usr/include/Fcitx5/Utils/</span>,<br>    <span class="hljs-string">-I/usr/include/Fcitx5/Utils/fcitx-utils/</span>,<br>    <span class="hljs-string">-I/usr/include/Fcitx5/Core</span>,<br>    <span class="hljs-string">-I/usr/include/Fcitx5/Config/</span>,<br>    <span class="hljs-string">-I/usr/include/Fcitx5/Module/</span>,<br>  ]<br></code></pre></div></td></tr></table></figure>
 <p>然后重新启动一下 Lsp(命令是 <code>:LspRestart</code>
 ，如果重启不行，那么，就只好重启 neovim
 了)，可以看到，头文件都可以正常被索引到，</p>
-<p><img src="https://i.imgur.com/Muinps0.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/qhV1bTi.png" srcset="/img/loading.gif" lazyload /></p>
 <p>然后我们进一步点进去，比如，到包含的第一个头文件里面去，这时，就发现有些本该找到的头文件找不到了，比如，下面报的找不到的
 <code>flags.h</code> ，其实就是在该头文件的同级目录下，</p>
-<p><img src="https://i.imgur.com/RhV8JcW.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/Xo8pK9S.png" srcset="/img/loading.gif" lazyload /></p>
 <p>那么，我们该如何处理这个问题呢？</p>
 <p>我试过一个方案，比如说，使用 CMake 来编译一个 compile_commands.json
 文件出来，然后再在 <code>.clangd</code> 文件中指定其位置。没用的。因为
@@ -334,7 +334,7 @@ Neovim 的 lsp 只针对当前 workspace
 文件，如果没有目录，也要新建。之后，同样，把项目中的
 <code>.clangd</code> 中的内容给放入到其中。此时，经测试，生效。</li>
 </ul>
-<p><img src="https://i.imgur.com/LzD03oO.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/TQE5wGq.png" srcset="/img/loading.gif" lazyload /></p>
 
             </div>
             <hr>
