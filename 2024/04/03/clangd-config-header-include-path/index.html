@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/JlhonL4.png">
 <meta property="article:published_time" content="2024-04-03T05:02:06.000Z">
-<meta property="article:modified_time" content="2024-04-03T05:11:13.801Z">
+<meta property="article:modified_time" content="2024-04-04T10:43:30.322Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="clangd">
 <meta property="article:tag" content="arch">
@@ -228,9 +228,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2024-04-03 13:11" pubdate>
-                <!-- 2024年4月3日 下午 -->
-                2024-04-03 13:11
+              <time datetime="2024-04-04 18:43" pubdate>
+                <!-- 2024年4月4日 晚上 -->
+                2024-04-04 18:43
               </time>
             </span>
             
@@ -240,7 +240,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      895 字
+      1.6k 字
     </span>
     
 
@@ -249,7 +249,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              8 分钟
+              14 分钟
         </span>
         
 
@@ -262,7 +262,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2024年4月3日 下午
+              本文最后更新于：2024年4月4日 晚上
                   
     </p>
     
@@ -293,7 +293,7 @@
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2024年4月3日 下午
+                  本文最后更新于：2024年4月4日 晚上
                 
               </p>
              -->
@@ -334,7 +334,24 @@ Neovim 的 lsp 只针对当前 workspace
 文件，如果没有目录，也要新建。之后，同样，把项目中的
 <code>.clangd</code> 中的内容给放入到其中。此时，经测试，生效。</li>
 </ul>
+<p>按：Windows 下的 clangd 的默认配置目录是
+<code>Windows: %LocalAppData%\clangd\config.yaml</code>, typically
+<code>C:\Users\Bob\AppData\Local\clangd\config.yaml</code>。</p>
 <p><img src="https://i.imgur.com/TQE5wGq.png" srcset="/img/loading.gif" lazyload /></p>
+<p>关于 Linux 和 Windows
+上的路径格式问题，也需要注意一下，这里举两个例子，</p>
+<p>1、For Windows:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">CompileFlags:</span><br>  <span class="hljs-attr">Add:</span> [<br>    <span class="hljs-string">&quot;-IC:\\EDisk\\AlgoCodes\\leetcode-records\\Cpp\\src\\utils\\includes&quot;</span>, <span class="hljs-comment"># for Windows</span><br>    <span class="hljs-string">-Wno-microsoft-goto</span>, <br>    <span class="hljs-string">-Wno-unused-value</span>, <br>    <span class="hljs-string">-Wno-nonportable-include-path</span>, <br>    <span class="hljs-string">-Wno-microsoft-extra-qualification</span>,<br>  ] <span class="hljs-comment"># ignore some specific warnings</span><br>  <span class="hljs-attr">CompilationDatabase:</span> <span class="hljs-string">build/</span>       <span class="hljs-comment"># Search build/ directory for compile_commands.json</span><br><span class="hljs-attr">Diagnostics:</span><br>  <span class="hljs-attr">UnusedIncludes:</span> <span class="hljs-string">None</span> <span class="hljs-comment"># 忽略 unused includes</span><br></code></pre></div></td></tr></table></figure>
+<p>2、For Linux:</p>
+<p>上面已经有了样例。这里只是有点奇怪，似乎 Linux
+中不需要给这个配置加上引号，而 Windows 中则是需要的。</p>
+<p>而且，不管是在哪个系统中，都只能使用绝对路径。</p>
+<hr />
+<p>参考：</p>
+<p>1、<a target="_blank" rel="noopener" href="https://clangd.llvm.org/config"
+class="uri">https://clangd.llvm.org/config</a><br />
+2、<a target="_blank" rel="noopener" href="https://github.com/neovim/neovim/blob/master/.clangd"
+class="uri">https://github.com/neovim/neovim/blob/master/.clangd</a></p>
 
             </div>
             <hr>
@@ -363,6 +380,12 @@ Neovim 的 lsp 只针对当前 workspace
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/04/05/clangd-configure-format-styles/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">clangd 配置格式化的格式</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

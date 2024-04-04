@@ -16,16 +16,16 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="依然是从实际的使用例子出发。暂时先不去研究其原理。 设置 C++ 的标准 比如，我这里想要设置标准为 C++20， 1set(CMAKE_CXX_STANDARD 20) Windows 平台下设置 uiaccess 按理说应该是在 manifest 中设置的，实际上，正确的设置方法，是在 CMake 的脚本中进行设置， 1set_target_properties($&amp;#123;P">
+    <meta name="description" content="依然是从实际的使用例子出发。暂时先不去研究其原理。 设置 C++ 的标准 比如，我这里想要设置标准为 C++17， 123# specify the C++ standardset(CMAKE_CXX_STANDARD 17)set(CMAKE_CXX_STANDARD_REQUIRED True) Windows 平台下设置 uiaccess 按理说应该是在 manifest 中设置的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CMake 使用笔记">
 <meta property="og:url" content="http://example.com/2024/03/25/CMake-draft-notes/index.html">
 <meta property="og:site_name" content="Flyan Lu&#39;s Blog">
-<meta property="og:description" content="依然是从实际的使用例子出发。暂时先不去研究其原理。 设置 C++ 的标准 比如，我这里想要设置标准为 C++20， 1set(CMAKE_CXX_STANDARD 20) Windows 平台下设置 uiaccess 按理说应该是在 manifest 中设置的，实际上，正确的设置方法，是在 CMake 的脚本中进行设置， 1set_target_properties($&amp;#123;P">
+<meta property="og:description" content="依然是从实际的使用例子出发。暂时先不去研究其原理。 设置 C++ 的标准 比如，我这里想要设置标准为 C++17， 123# specify the C++ standardset(CMAKE_CXX_STANDARD 17)set(CMAKE_CXX_STANDARD_REQUIRED True) Windows 平台下设置 uiaccess 按理说应该是在 manifest 中设置的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/ocPFzfG.png">
 <meta property="article:published_time" content="2024-03-25T15:44:19.000Z">
-<meta property="article:modified_time" content="2024-03-25T15:50:54.247Z">
+<meta property="article:modified_time" content="2024-04-04T16:39:19.985Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="Cpp">
 <meta property="article:tag" content="CMake">
@@ -228,9 +228,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2024-03-25 23:50" pubdate>
-                <!-- 2024年3月25日 晚上 -->
-                2024-03-25 23:50
+              <time datetime="2024-04-05 00:39" pubdate>
+                <!-- 2024年4月5日 凌晨 -->
+                2024-04-05 00:39
               </time>
             </span>
             
@@ -240,7 +240,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      281 字
+      430 字
     </span>
     
 
@@ -249,7 +249,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              3 分钟
+              4 分钟
         </span>
         
 
@@ -262,7 +262,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2024年3月25日 晚上
+              本文最后更新于：2024年4月5日 凌晨
                   
     </p>
     
@@ -293,7 +293,7 @@
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2024年3月25日 晚上
+                  本文最后更新于：2024年4月5日 凌晨
                 
               </p>
              -->
@@ -301,12 +301,16 @@
             <div class="markdown-body">
               <p>依然是从实际的使用例子出发。暂时先不去研究其原理。</p>
 <h2 id="设置-c-的标准">设置 C++ 的标准</h2>
-<p>比如，我这里想要设置标准为 C++20，</p>
-<figure class="highlight txt"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs txt">set(CMAKE_CXX_STANDARD 20)<br></code></pre></div></td></tr></table></figure>
+<p>比如，我这里想要设置标准为 C++17，</p>
+<figure class="highlight txt"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs txt"># specify the C++ standard<br>set(CMAKE_CXX_STANDARD 17)<br>set(CMAKE_CXX_STANDARD_REQUIRED True)<br></code></pre></div></td></tr></table></figure>
 <h2 id="windows-平台下设置-uiaccess">Windows 平台下设置 uiaccess</h2>
 <p>按理说应该是在 manifest 中设置的，实际上，正确的设置方法，是在 CMake
 的脚本中进行设置，</p>
 <figure class="highlight txt"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs txt">set_target_properties($&#123;PROJECT_NAME&#125; PROPERTIES LINK_FLAGS &quot;/level=&#x27;asInvoker&#x27; /uiAccess=&#x27;true&#x27;&quot; )<br></code></pre></div></td></tr></table></figure>
+<p>参考：</p>
+<p><a
+target="_blank" rel="noopener" href="https://cmake.org/cmake/help/v3.20/guide/tutorial/index.html?highlight=destination#id5"
+class="uri">https://cmake.org/cmake/help/v3.20/guide/tutorial/index.html?highlight=destination#id5</a></p>
 
             </div>
             <hr>
