@@ -16,23 +16,24 @@
   <meta name="author" content="fanlumaster">
   <meta name="keywords" content="">
   
-    <meta name="description" content="且用且记录。 仅仅作查漏补缺用。作为一个 vim&#x2F;nvim 用户，我想，很多模式化、规范化的操作或者是 keymap 都是烂熟于心的，毕竟是每天都要用很多次的。 一些快捷键式的操作  Ctrl+\, Ctrl+n: 在 toggleterm 或者 term 中或者其他的一些无法使用 Esc 回退到 normal 的情况下，从 insert 模式来到 normal 模式。 Esc+">
+    <meta name="description" content="本科的时候就有仔细想过这个问题，但是那个时候说起来一方面杂事儿有点多，另一方面其实我的基础还没有那么牢固，这个问题看起来有点吃力。这个问题在算法导论上是单独开了一个章节来介绍。而在那本经典的数据结构与算法分析黑书中，则是列到了高级数据结构的归类。实际上，in my opinion, 这个数据结构应该算不上太高级或者说难以理解(虽然我理解了很久)，现有的问题其实是没有一个真正通俗易懂，或者说真正">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vim&#x2F;Nvim&#x2F;Lazyvim 个人配置之所有常用的操作">
-<meta property="og:url" content="http://example.com/2024/04/11/lazyvim-all-personal-useful-keymaps/index.html">
+<meta property="og:title" content="红黑树详细理解笔记">
+<meta property="og:url" content="http://example.com/2024/04/14/red-black-tree-notes/index.html">
 <meta property="og:site_name" content="Flyan Lu&#39;s Blog">
-<meta property="og:description" content="且用且记录。 仅仅作查漏补缺用。作为一个 vim&#x2F;nvim 用户，我想，很多模式化、规范化的操作或者是 keymap 都是烂熟于心的，毕竟是每天都要用很多次的。 一些快捷键式的操作  Ctrl+\, Ctrl+n: 在 toggleterm 或者 term 中或者其他的一些无法使用 Esc 回退到 normal 的情况下，从 insert 模式来到 normal 模式。 Esc+">
+<meta property="og:description" content="本科的时候就有仔细想过这个问题，但是那个时候说起来一方面杂事儿有点多，另一方面其实我的基础还没有那么牢固，这个问题看起来有点吃力。这个问题在算法导论上是单独开了一个章节来介绍。而在那本经典的数据结构与算法分析黑书中，则是列到了高级数据结构的归类。实际上，in my opinion, 这个数据结构应该算不上太高级或者说难以理解(虽然我理解了很久)，现有的问题其实是没有一个真正通俗易懂，或者说真正">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.imgur.com/aNMNdM1.png">
-<meta property="article:published_time" content="2024-04-10T16:35:11.000Z">
-<meta property="article:modified_time" content="2024-04-10T16:43:15.324Z">
+<meta property="og:image" content="https://i.imgur.com/36v5wVJ.png">
+<meta property="article:published_time" content="2024-04-14T07:16:17.000Z">
+<meta property="article:modified_time" content="2024-04-14T09:05:06.094Z">
 <meta property="article:author" content="fanlumaster">
-<meta property="article:tag" content="Neovim">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="未竟">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://i.imgur.com/aNMNdM1.png">
+<meta name="twitter:image" content="https://i.imgur.com/36v5wVJ.png">
   
   
-  <title>Vim/Nvim/Lazyvim 个人配置之所有常用的操作 - Flyan Lu&#39;s Blog</title>
+  <title>红黑树详细理解笔记 - Flyan Lu&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -202,12 +203,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('https://i.imgur.com/aNMNdM1.png') no-repeat center center;
+         style="background: url('https://i.imgur.com/36v5wVJ.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Vim/Nvim/Lazyvim 个人配置之所有常用的操作">
+            <span class="h2" id="subtitle" title="红黑树详细理解笔记">
               
             </span>
 
@@ -217,9 +218,9 @@
       
         <span class="post-meta">
           <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-          <time datetime="2024-04-11 00:35" pubdate>
-            <!-- 2024年4月11日 凌晨 -->
-            2024-04-11 00:35
+          <time datetime="2024-04-14 15:16" pubdate>
+            <!-- 2024年4月14日 下午 -->
+            2024-04-14 15:16
           </time>
         </span>
         
@@ -227,9 +228,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2024-04-11 00:43" pubdate>
-                <!-- 2024年4月11日 凌晨 -->
-                2024-04-11 00:43
+              <time datetime="2024-04-14 17:05" pubdate>
+                <!-- 2024年4月14日 下午 -->
+                2024-04-14 17:05
               </time>
             </span>
             
@@ -239,7 +240,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      556 字
+      1k 字
     </span>
     
 
@@ -248,7 +249,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              5 分钟
+              9 分钟
         </span>
         
 
@@ -261,7 +262,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2024年4月11日 凌晨
+              本文最后更新于：2024年4月14日 下午
                   
     </p>
     
@@ -287,47 +288,65 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Vim/Nvim/Lazyvim 个人配置之所有常用的操作</h1>
+            <h1 style="display: none">红黑树详细理解笔记</h1>
             <!-- fanyfull 注释原本的更新时间 start -->
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2024年4月11日 凌晨
+                  本文最后更新于：2024年4月14日 下午
                 
               </p>
              -->
             <!-- fanyfull 注释原本的更新时间 end -->
             <div class="markdown-body">
-              <p>且用且记录。</p>
-<p>仅仅作查漏补缺用。作为一个 vim/nvim
-用户，我想，很多模式化、规范化的操作或者是 keymap
-都是烂熟于心的，毕竟是每天都要用很多次的。</p>
-<h2 id="一些快捷键式的操作">一些快捷键式的操作</h2>
+              <p>本科的时候就有仔细想过这个问题，但是那个时候说起来一方面杂事儿有点多，另一方面其实我的基础还没有那么牢固，这个问题看起来有点吃力。这个问题在算法导论上是单独开了一个章节来介绍。而在那本经典的数据结构与算法分析黑书中，则是列到了高级数据结构的归类。实际上，in
+my opinion,
+这个数据结构应该算不上太高级或者说难以理解(虽然我理解了很久)，现有的问题其实是没有一个真正通俗易懂，或者说真正地能够挖掘到每一个细节的相关的材料，当然，</p>
 <ul>
-<li><code>Ctrl+\, Ctrl+n</code>: 在 toggleterm 或者 term
-中或者其他的一些无法使用 Esc 回退到 normal 的情况下，从 insert 模式来到
-normal 模式。</li>
-<li><code>Esc+Esc</code>: 在 toggleterm 或者 term 中从 insert
-模式下回退到 normal 模式。</li>
-<li>search symbols in current file:
-<code>leader + s + s</code>，这个要求当前有一个 lsp client 已经 attach
-到当前的 buffer 了。</li>
+<li>算法导论的讲解算是一个很详细的材料了，除了最后的删除那里讲得有些不太清晰；</li>
+<li>Sedgwick
+的算法四也算一个，毕竟他是红黑树的发明者之一，不过，书中也不是讲得很详细，但是据网上的说法，似乎结合他的二三树来逐步理解会更加容易一些；</li>
+<li>数据结构与算法分析，这个就有点过于简略了，甚至连一些基础的证明都没有给出。</li>
 </ul>
-<h2 id="一些类似于-vim-进阶的操作">一些类似于 vim 进阶的操作</h2>
-<h3 id="如何使用-nvim-来为每一行自动编号">如何使用 nvim
-来为每一行自动编号</h3>
-<p>比如，我现在第 2 行到第 12 行是空行，然后，我想给这几行的开头分别从 1
-自动开始递增编号，那么，可以怎么做呢？</p>
-<p>这里讲一个方法，首先，使用列编辑，给第 2 行到第 12 行的开头都整上一个
-0，然后，使用行 visual 模式把这些行都选中，然后执行一下
-<code>g&lt;c-a&gt;</code> 即可。这里的 <code>&lt;c-a&gt;</code>
-是表示每行都会增量地 add 一下的意思。如果是增量递减该怎么做呢？答案是
-<code>&lt;c-s&gt;</code>。</p>
-<p>本部分参考：</p>
+<p>最近恰好没什么其它要紧的事情，因此重新回来思考这个数据结构，该说，总算是吃到了腹中，也尤其值得回味。</p>
+<p>ok，下面就结合算法导论记录一下我对红黑树的理解与实现。</p>
+<p>首先，定义要摆出来，</p>
+<p>一棵红黑树是满足下面<strong>红黑性质</strong>的二叉搜索树：</p>
+<ol type="1">
+<li>每个节点要么是红色的，要么是黑色的。</li>
+<li>根节点是黑色的。</li>
+<li>每个叶节点(NIL)是黑色的。</li>
+<li>如果一个节点是红色的，则它的两个子节点都是黑色的。</li>
+<li>对每个节点，从该节点到其所有后代节点的简单路径上，均包含相同数目的黑色节点。</li>
+</ol>
+<p>按：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20240867"
-class="uri">https://www.zhihu.com/question/20240867</a></li>
+<li>二叉搜索树的材料可以借助 Weiss
+的《数据结构与算法分析》来回忆，书中的这一块儿还是写的很详细的。</li>
+<li>其中简单路径的定义是从树上的某点开始沿树边走不重复的点到树上的另一点结束而形成的路径。</li>
 </ul>
+<p>下面的三幅图显示了一个红黑树的例子。</p>
+<p><img src="https://i.imgur.com/JqJ1aWZ.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/8uEnlDz.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/jOYPg1F.png" srcset="/img/loading.gif" lazyload /></p>
+<p>按：注意这里的
+<code>T.nil</code>，它指代的就是前面的定义中的叶节点(NIL)。整棵树只用了这一个
+<code>NIL</code>。</p>
+<p>然后，这里有一个引理来说明红黑树的高度所带来的效率。</p>
+<p><strong>引理</strong>：一棵有 n 个内部节点的红黑树的高度至多为 <span
+class="math inline">\(2lg(n+1)\)</span>。</p>
+<p>关于这个定理的详细证明可以看算法导论中的介绍(如下)，我认为这个对于我们<strong>理解</strong>红黑树并不重要，这里不作多讲。</p>
+<p><img src="https://i.imgur.com/TeC49fv.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/aWZ8tuW.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://i.imgur.com/ZXUeuDM.png" srcset="/img/loading.gif" lazyload /></p>
+<p>红黑树的两个核心操作是<strong>插入</strong>和<strong>删除</strong>。一个辅助的操作是<strong>旋转</strong>，我想，这个大家应该都不陌生，左旋和右旋的操作的图示如下，</p>
+<p><img src="https://i.imgur.com/Bnc3b0R.png" srcset="/img/loading.gif" lazyload /></p>
+<p>按：根据我的理解，所谓左旋，就是把水平方向处于左边的节点给拽下来，所谓右旋，就是把右边的节点给拽下来。(这样或许会更好记一点)</p>
+<p><img src="https://i.imgur.com/Bo7OUPk.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这个伪码写得挺清晰的，如果想更加形象地理解，可以看下面的这个图片例子，</p>
+<p><img src="https://i.imgur.com/CMi1KDB.png" srcset="/img/loading.gif" lazyload /></p>
+<p>未完待续...</p>
+<p>博主有更重要的事情在处理中...</p>
 
             </div>
             <hr>
@@ -338,7 +357,9 @@ class="uri">https://www.zhihu.com/question/20240867</a></li>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Neovim/">Neovim</a>
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%9C%AA%E7%AB%9F/">未竟</a>
                     
                   </div>
                 
@@ -355,9 +376,9 @@ class="uri">https://www.zhihu.com/question/20240867</a></li>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/04/14/red-black-tree-notes/">
+                      <a href="/2024/04/14/amortize-analysis-notes/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">红黑树详细理解笔记</span>
+                        <span class="hidden-mobile">摊还分析理解笔记</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -365,8 +386,8 @@ class="uri">https://www.zhihu.com/question/20240867</a></li>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/04/05/clangd-configure-format-styles/">
-                        <span class="hidden-mobile">clangd 配置格式化的格式</span>
+                      <a href="/2024/04/11/lazyvim-all-personal-useful-keymaps/">
+                        <span class="hidden-mobile">Vim/Nvim/Lazyvim 个人配置之所有常用的操作</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -388,8 +409,8 @@ class="uri">https://www.zhihu.com/question/20240867</a></li>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'http://example.com/2024/04/11/lazyvim-all-personal-useful-keymaps/';
-          this.page.identifier = '/2024/04/11/lazyvim-all-personal-useful-keymaps/';
+          this.page.url = 'http://example.com/2024/04/14/red-black-tree-notes/';
+          this.page.identifier = '/2024/04/14/red-black-tree-notes/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
