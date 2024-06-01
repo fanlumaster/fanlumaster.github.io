@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/krCmIQu.png">
 <meta property="article:published_time" content="2023-11-25T12:17:37.000Z">
-<meta property="article:modified_time" content="2024-05-05T11:18:42.092Z">
+<meta property="article:modified_time" content="2024-06-01T13:09:13.878Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="Neovim">
 <meta property="article:tag" content="未竟">
@@ -228,9 +228,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2024-05-05 19:18" pubdate>
-                <!-- 2024年5月5日 晚上 -->
-                2024-05-05 19:18
+              <time datetime="2024-06-01 21:09" pubdate>
+                <!-- 2024年6月1日 晚上 -->
+                2024-06-01 21:09
               </time>
             </span>
             
@@ -249,7 +249,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              149 分钟
+              150 分钟
         </span>
         
 
@@ -262,7 +262,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2024年5月5日 晚上
+              本文最后更新于：2024年6月1日 晚上
                   
     </p>
     
@@ -293,7 +293,7 @@
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2024年5月5日 晚上
+                  本文最后更新于：2024年6月1日 晚上
                 
               </p>
              -->
@@ -413,6 +413,11 @@ target="_blank" rel="noopener" href="https://www.lazyvim.org/plugins/ui#bufferli
 <p><img src="https://i.imgur.com/VV5Kesd.png" srcset="/img/loading.gif" lazyload /></p>
 <h3 id="tokyonight-取消一些斜体">tokyonight 取消一些斜体</h3>
 <figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua"><span class="hljs-keyword">return</span> &#123;<br>  &#123; <span class="hljs-string">&quot;shaunsingh/oxocarbon.nvim&quot;</span> &#125;,<br>  &#123; <span class="hljs-string">&quot;ellisonleao/gruvbox.nvim&quot;</span> &#125;,<br>  &#123; <span class="hljs-string">&quot;rose-pine/neovim&quot;</span>, name = <span class="hljs-string">&quot;rose-pine&quot;</span> &#125;,<br>  &#123;<br>    <span class="hljs-string">&quot;tokyonight.nvim&quot;</span>,<br>    priority = <span class="hljs-number">1000</span>,<br>    opts = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span><br>      <span class="hljs-keyword">return</span> &#123;<br>        style = <span class="hljs-string">&quot;moon&quot;</span>,<br>        <span class="hljs-comment">-- transparent = true,</span><br>        styles = &#123;<br>          sidebars = <span class="hljs-string">&quot;transparent&quot;</span>,<br>          floats = <span class="hljs-string">&quot;transparent&quot;</span>,<br>          comments = &#123; italic = <span class="hljs-literal">false</span> &#125;,<br>          keywords = &#123; italic = <span class="hljs-literal">false</span> &#125;,<br>          functions = &#123; italic = <span class="hljs-literal">false</span> &#125;,<br>          variables = &#123; italic = <span class="hljs-literal">false</span> &#125;,<br>        &#125;,<br>      &#125;<br>    <span class="hljs-keyword">end</span>,<br>  &#125;,<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="luasnip">Luasnip</h2>
+<p>注意，这个插件在最新版本的 Lazyvim 中是放入了 Extra
+中了，并不是想之前一样默认开启的，所以，如果现在我们想要在诸如 Markdown
+中使用一些顺手的 snippets 的话，就需要在 LazyExtras
+中开启这个功能(插件)。</p>
 <h2 id="nvim-treesitter">nvim-treesitter</h2>
 <p>这里在配置之外，我们需要全局安装 tree-sitter-cli，</p>
 <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">npm install -g tree-sitter-cli<br></code></pre></div></td></tr></table></figure>
