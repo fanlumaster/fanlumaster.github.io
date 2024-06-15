@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/PT6JWer.png">
 <meta property="article:published_time" content="2024-06-13T16:07:19.000Z">
-<meta property="article:modified_time" content="2024-06-14T03:09:13.670Z">
+<meta property="article:modified_time" content="2024-06-15T08:35:57.058Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="Windows">
 <meta property="article:tag" content="Vim">
@@ -229,9 +229,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2024-06-14 11:09" pubdate>
-                <!-- 2024年6月14日 上午 -->
-                2024-06-14 11:09
+              <time datetime="2024-06-15 16:35" pubdate>
+                <!-- 2024年6月15日 下午 -->
+                2024-06-15 16:35
               </time>
             </span>
             
@@ -241,7 +241,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      662 字
+      2.5k 字
     </span>
     
 
@@ -250,7 +250,7 @@
           <i class="iconfont icon-clock-fill"></i>
           
             
-              6 分钟
+              21 分钟
         </span>
         
 
@@ -263,7 +263,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2024年6月14日 上午
+              本文最后更新于：2024年6月15日 下午
                   
     </p>
     
@@ -294,7 +294,7 @@
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2024年6月14日 上午
+                  本文最后更新于：2024年6月15日 下午
                 
               </p>
              -->
@@ -308,9 +308,20 @@ vim-like 的键位的，这并不是什么费事儿的开发需求，但是呢�
 <p>本次就简单地给几个常用的类似于 Powertoys Run 这样的应用添加一些
 vim-like 的 remap。</p>
 <p>使用的是 AHK 的 v2 版本，</p>
+<h2 id="moving-shortcuts">moving shortcuts</h2>
+<p>下面是给一些应用定制不使用箭头也可以上下左右移动光标的快捷键。</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs reasonml">#Requires AutoHotkey v2.<span class="hljs-number">0</span><br><br>; Chrome, Powertoys&#x27;s Launcher <span class="hljs-keyword">and</span> VSCode arrow keymap<br>#HotIf <span class="hljs-constructor">WinActive(<span class="hljs-string">&quot;ahk_exe chrome.exe&quot;</span>)</span><span class="hljs-operator"> || </span><span class="hljs-constructor">WinActive(<span class="hljs-string">&quot;ahk_exe PowerToys.PowerLauncher.exe&quot;</span>)</span><span class="hljs-operator"> || </span><span class="hljs-constructor">WinActive(<span class="hljs-string">&quot;ahk_exe code.exe&quot;</span>)</span><br>&lt;!h::<span class="hljs-constructor">SendInput(<span class="hljs-string">&quot;&#123;Left&#125;&quot;</span>)</span><br>&lt;!j::<span class="hljs-constructor">SendInput(<span class="hljs-string">&quot;&#123;Down&#125;&quot;</span>)</span><br>&lt;!k::<span class="hljs-constructor">SendInput(<span class="hljs-string">&quot;&#123;Up&#125;&quot;</span>)</span><br>&lt;!l::<span class="hljs-constructor">SendInput(<span class="hljs-string">&quot;&#123;Right&#125;&quot;</span>)</span><br></code></pre></div></td></tr></table></figure>
 <p>这样一来，我们就可以在 Powertoys Run 中使用 <code>Alt + hjkl</code>
 来进行方向键的移动了。</p>
+<h2 id="moving-and-resizing-windows-shortcuts">moving and resizing
+windows shortcuts</h2>
+<p>下面是给所有的应用都定制移动和以 1
+像素为步长来调整窗口大小的快捷键。</p>
+<p>关于以 1
+像素为步长来调整窗口的大小，我设置这个功能的快捷键的初衷是为了可以便捷地微调
+Neovide
+的尺寸，因为它在窗口的右侧和下侧做得不严谨，所以，需要我们进行手动的微调。</p>
+<figure class="highlight scss"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs scss">; 窗口的 <span class="hljs-attribute">resize</span> 和移动相关<br><br>global stretchStepSize := <span class="hljs-number">1</span><br>global moveStepSize := <span class="hljs-number">10</span><br><br>; Ctrl + Shift + Alt + hjkl<br>^+!h:: <span class="hljs-built_in">stretch_left</span>()<br>^+!l:: <span class="hljs-built_in">stretch_right</span>()<br>^+!k:: <span class="hljs-built_in">stretch_up</span>()<br>^+!j:: <span class="hljs-built_in">stretch_down</span>()<br><br>; Ctrl + Win + Shift + Alt + hjkl<br>^#+!h:: <span class="hljs-built_in">move_left</span>()<br>^#+!j:: <span class="hljs-built_in">move_down</span>()<br>^#+!k:: <span class="hljs-built_in">move_up</span>()<br>^#+!l:: <span class="hljs-built_in">move_right</span>()<br><br><span class="hljs-built_in">stretch_right</span>() &#123;<br>    id := <span class="hljs-string">&#x27;ahk_id &#x27;</span> <span class="hljs-built_in">WinActive</span>(<span class="hljs-string">&#x27;A&#x27;</span>)<br>    <span class="hljs-built_in">WinGetPos</span>(&amp;x, &amp;y, &amp;w, &amp;h, id)<br>    <span class="hljs-built_in">WinMove</span>(x, y, w + stretchStepSize, h, id)<br>&#125;<br><br><span class="hljs-built_in">stretch_left</span>() &#123;<br>    id := <span class="hljs-string">&#x27;ahk_id &#x27;</span> <span class="hljs-built_in">WinActive</span>(<span class="hljs-string">&#x27;A&#x27;</span>)<br>    <span class="hljs-built_in">WinGetPos</span>(&amp;x, &amp;y, &amp;w, &amp;h, id)<br>    <span class="hljs-built_in">WinMove</span>(x, y, w - stretchStepSize, h, id)<br>&#125;<br><br><span class="hljs-built_in">stretch_up</span>() &#123;<br>    id := <span class="hljs-string">&#x27;ahk_id &#x27;</span> <span class="hljs-built_in">WinActive</span>(<span class="hljs-string">&#x27;A&#x27;</span>)<br>    <span class="hljs-built_in">WinGetPos</span>(&amp;x, &amp;y, &amp;w, &amp;h, id)<br>    <span class="hljs-built_in">WinMove</span>(x, y, w, h - stretchStepSize, id)<br>&#125;<br><br><span class="hljs-built_in">stretch_down</span>() &#123;<br>    id := <span class="hljs-string">&#x27;ahk_id &#x27;</span> <span class="hljs-built_in">WinActive</span>(<span class="hljs-string">&#x27;A&#x27;</span>)<br>    <span class="hljs-built_in">WinGetPos</span>(&amp;x, &amp;y, &amp;w, &amp;h, id)<br>    <span class="hljs-built_in">WinMove</span>(x, y, w, h + stretchStepSize, id)<br>&#125;<br><br><span class="hljs-built_in">move_right</span>() &#123;<br>    global moveStepSize<br>    id := <span class="hljs-string">&#x27;ahk_id &#x27;</span> <span class="hljs-built_in">WinActive</span>(<span class="hljs-string">&#x27;A&#x27;</span>)<br>    <span class="hljs-built_in">WinGetPos</span>(&amp;x, &amp;y, &amp;w, &amp;h, id)<br>    <span class="hljs-built_in">WinMove</span>(x + moveStepSize, y, w, h, id)<br>&#125;<br><br><span class="hljs-built_in">move_left</span>() &#123;<br>    global moveStepSize<br>    id := <span class="hljs-string">&#x27;ahk_id &#x27;</span> <span class="hljs-built_in">WinActive</span>(<span class="hljs-string">&#x27;A&#x27;</span>)<br>    <span class="hljs-built_in">WinGetPos</span>(&amp;x, &amp;y, &amp;w, &amp;h, id)<br>    <span class="hljs-built_in">WinMove</span>(x - moveStepSize, y, w, h, id)<br>&#125;<br><br><span class="hljs-built_in">move_up</span>() &#123;<br>    global moveStepSize<br>    id := <span class="hljs-string">&#x27;ahk_id &#x27;</span> <span class="hljs-built_in">WinActive</span>(<span class="hljs-string">&#x27;A&#x27;</span>)<br>    <span class="hljs-built_in">WinGetPos</span>(&amp;x, &amp;y, &amp;w, &amp;h, id)<br>    <span class="hljs-built_in">WinMove</span>(x, y - moveStepSize, w, h, id)<br>&#125;<br><br><span class="hljs-built_in">move_down</span>() &#123;<br>    global moveStepSize<br>    id := <span class="hljs-string">&#x27;ahk_id &#x27;</span> <span class="hljs-built_in">WinActive</span>(<span class="hljs-string">&#x27;A&#x27;</span>)<br>    <span class="hljs-built_in">WinGetPos</span>(&amp;x, &amp;y, &amp;w, &amp;h, id)<br>    <span class="hljs-built_in">WinMove</span>(x, y + moveStepSize, w, h, id)<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
             </div>
             <hr>
