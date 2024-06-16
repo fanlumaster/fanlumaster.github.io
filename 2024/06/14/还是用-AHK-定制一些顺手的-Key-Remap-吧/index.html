@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.imgur.com/PT6JWer.png">
 <meta property="article:published_time" content="2024-06-13T16:07:19.000Z">
-<meta property="article:modified_time" content="2024-06-15T08:35:57.058Z">
+<meta property="article:modified_time" content="2024-06-16T04:11:55.592Z">
 <meta property="article:author" content="fanlumaster">
 <meta property="article:tag" content="Windows">
 <meta property="article:tag" content="Vim">
@@ -229,9 +229,9 @@
             <span>-</span>
             <span class="post-meta">
               <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-              <time datetime="2024-06-15 16:35" pubdate>
-                <!-- 2024年6月15日 下午 -->
-                2024-06-15 16:35
+              <time datetime="2024-06-16 12:11" pubdate>
+                <!-- 2024年6月16日 中午 -->
+                2024-06-16 12:11
               </time>
             </span>
             
@@ -263,7 +263,7 @@
   
     <p class="note note-info">
       
-              本文最后更新于：2024年6月15日 下午
+              本文最后更新于：2024年6月16日 中午
                   
     </p>
     
@@ -294,7 +294,7 @@
             <!-- 
               <p class="note note-info">
                 
-                  本文最后更新于：2024年6月15日 下午
+                  本文最后更新于：2024年6月16日 中午
                 
               </p>
              -->
@@ -310,7 +310,7 @@ vim-like 的 remap。</p>
 <p>使用的是 AHK 的 v2 版本，</p>
 <h2 id="moving-shortcuts">moving shortcuts</h2>
 <p>下面是给一些应用定制不使用箭头也可以上下左右移动光标的快捷键。</p>
-<figure class="highlight reasonml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs reasonml">#Requires AutoHotkey v2.<span class="hljs-number">0</span><br><br>; Chrome, Powertoys&#x27;s Launcher <span class="hljs-keyword">and</span> VSCode arrow keymap<br>#HotIf <span class="hljs-constructor">WinActive(<span class="hljs-string">&quot;ahk_exe chrome.exe&quot;</span>)</span><span class="hljs-operator"> || </span><span class="hljs-constructor">WinActive(<span class="hljs-string">&quot;ahk_exe PowerToys.PowerLauncher.exe&quot;</span>)</span><span class="hljs-operator"> || </span><span class="hljs-constructor">WinActive(<span class="hljs-string">&quot;ahk_exe code.exe&quot;</span>)</span><br>&lt;!h::<span class="hljs-constructor">SendInput(<span class="hljs-string">&quot;&#123;Left&#125;&quot;</span>)</span><br>&lt;!j::<span class="hljs-constructor">SendInput(<span class="hljs-string">&quot;&#123;Down&#125;&quot;</span>)</span><br>&lt;!k::<span class="hljs-constructor">SendInput(<span class="hljs-string">&quot;&#123;Up&#125;&quot;</span>)</span><br>&lt;!l::<span class="hljs-constructor">SendInput(<span class="hljs-string">&quot;&#123;Right&#125;&quot;</span>)</span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml">#Requires AutoHotkey v2.0<br><br>; Chrome, Powertoys&#x27;s Launcher and VSCode arrow keymap<br>#HotIf WinActive(&quot;ahk_exe chrome.exe&quot;) || WinActive(&quot;ahk_exe PowerToys.PowerLauncher.exe&quot;) || WinActive(&quot;ahk_exe code.exe&quot;)<br><span class="hljs-meta">&lt;!h::SendInput(&quot;&#123;<span class="hljs-keyword">Left</span>&#125;&quot;)</span><br><span class="hljs-meta">&lt;!j::SendInput(&quot;&#123;<span class="hljs-keyword">Down</span>&#125;&quot;)</span><br><span class="hljs-meta">&lt;!k::SendInput(&quot;&#123;<span class="hljs-keyword">Up</span>&#125;&quot;)</span><br><span class="hljs-meta">&lt;!l::SendInput(&quot;&#123;<span class="hljs-keyword">Right</span>&#125;&quot;)</span><br><span class="hljs-meta"><span class="hljs-keyword">#HotIf</span> ; <span class="hljs-keyword">end</span> <span class="hljs-keyword">this</span> <span class="hljs-keyword">trunk</span></span><br></code></pre></div></td></tr></table></figure>
 <p>这样一来，我们就可以在 Powertoys Run 中使用 <code>Alt + hjkl</code>
 来进行方向键的移动了。</p>
 <h2 id="moving-and-resizing-windows-shortcuts">moving and resizing
