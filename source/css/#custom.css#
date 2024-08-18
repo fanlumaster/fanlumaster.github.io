@@ -1,0 +1,63 @@
+
+
+kkkkkk/* 调节圆角 */
+.markdown-body p>img,
+.markdown-body p>a>img {
+  border-radius: 3px;
+}
+
+/* 解决图片在刚展示时可能会在圆角出出现白色边框的问题 */
+.markdown-body img {
+  background-color: transparent;
+  /* 原来是 #fff */
+}
+
+/* 将进度条的圆角给去掉 */
+::-webkit-scrollbar-thumb {
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar {
+    width:auto;
+    height: auto;
+}
+
+::-webkit-scrollbar {
+  background-color: #202324;
+  color: #aba499;
+}
+::-webkit-scrollbar-corner {
+    background-color: #181a1b;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #454a4d;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #4f575b; /* 设置滚动条的悬停颜色 */
+}
+
+/* 设置一个属性来隐藏顶部的导航栏 */
+.nav-hidden {
+  display: none;
+}
+
+/* 导航栏动画 */
+#navbar {
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.navbar .nav-item .nav-link {
+    display: block;
+    color: var(--navbar-text-color);
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.navbar .nav-item .nav-link i {
+    font-size: 1rem;
+}
+
+.nav-item {
+  /* margin-left: auto;
+  margin-right: auto; */
+}
