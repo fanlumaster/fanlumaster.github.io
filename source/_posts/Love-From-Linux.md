@@ -6,6 +6,7 @@ tags:
 categories:
 index_img: https://i.postimg.cc/RMKpwh0W/image.png
 banner_img: https://i.postimg.cc/RMKpwh0W/image.png
+description: 附记一次博客的小小迁移
 ---
 
 爱不仅来自 Linux，还来自 postimage。
@@ -16,9 +17,11 @@ banner_img: https://i.postimg.cc/RMKpwh0W/image.png
 
 换了托管方式之后，这下多设备之间同步博客的撰写就可以说是相当方便了。现在一切都是原生的 git pull, git push，基本上没有需要其他的操作了。
 
-这一次也顺带着把评论系统换成了基于 GitHub Discussion 的 giscus，用起来体验比 disqus 要好很多。而且，操作十分便捷，同时，毕竟相当于是 GitHub 的服务，使用起来质感很好。
+这一次也顺带着把评论系统换成了基于 GitHub Discussion 的 giscus，用起来体验比 disqus 要好很多。而且，操作十分便捷，同时，毕竟相当于是 GitHub 的服务，使用起来质感很好。至于以前的博客下的评论怎么半呢？一则评论数量不多，二则那些评论并没有凭空消失，毕竟它们真正的存放地点是在 disqus 那里嘛。
 
 图床，这一次打算换成 postimage，虽然也是国外的免费服务，不过，似乎机房比 imgur 要多，访问要更流畅一些。
+
+此外，就是修一修小问题，比如，之前自定义的 js 没有 debounce 之类。主题的作者添加的 event 都是有 debounce 的，虽然 chrome 这勾八可能还是偶尔会发生一点问题，好在总归是无伤大雅了。
 
 Linux 嘛，前几天又TM没忍住，装了一把 hyprland，最终的结局当然是又换回 kde 了。
 
