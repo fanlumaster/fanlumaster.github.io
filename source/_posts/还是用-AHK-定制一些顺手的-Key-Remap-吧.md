@@ -20,7 +20,7 @@ banner_img: https://i.imgur.com/PT6JWer.png
 
 下面是给一些应用定制不使用箭头也可以上下左右移动光标的快捷键。
 
-```
+```autohotkey
 #Requires AutoHotkey v2.0
 
 ; Chrome, Powertoys's Launcher and VSCode arrow keymap
@@ -40,7 +40,7 @@ banner_img: https://i.imgur.com/PT6JWer.png
 
 关于以 1 像素为步长来调整窗口的大小，我设置这个功能的快捷键的初衷是为了可以便捷地微调 Neovide 的尺寸，因为它在窗口的右侧和下侧做得不严谨，所以，需要我们进行手动的微调。
 
-```
+```autohotkey
 ; 窗口的 resize 和移动相关
 
 global stretchStepSize := 1
