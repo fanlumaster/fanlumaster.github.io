@@ -1,6 +1,7 @@
 ---
 title: IDEA tricks
 date: 2022-03-02 18:37:18
+updated: 2022-03-06 22:06:20
 tags:
 - IDEA
 - 工具

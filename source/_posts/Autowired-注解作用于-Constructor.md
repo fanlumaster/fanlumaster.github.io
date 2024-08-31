@@ -1,6 +1,7 @@
 ---
 title: '@Autowired 注解作用于 Constructor'
 date: 2021-08-09 06:03:01
+updated: 2021-08-09 06:21:42
 tags:
 - Spring
 - Java

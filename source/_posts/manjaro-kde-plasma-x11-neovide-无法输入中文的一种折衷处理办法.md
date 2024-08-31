@@ -1,6 +1,7 @@
 ---
 title: manjaro kde plasma x11 neovide 无法输入中文的一种折衷处理办法
 date: 2023-11-05 18:10:31
+updated: 2023-11-05 18:57:03
 tags:
 - Manjaro
 - 输入法

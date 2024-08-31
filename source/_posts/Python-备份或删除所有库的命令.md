@@ -1,6 +1,7 @@
 ---
 title: Python 备份或删除所有库的命令
 date: 2021-03-29 23:31:32
+updated: 2023-06-01 03:08:11
 tags:
 - Python
 - pip

@@ -2,6 +2,7 @@
 title: C99 的 restrict 关键字
 description: '关于 restrict 关键字的笔记'
 date: 2021-05-05 15:49:41
+updated: 2023-06-01 03:00:35
 tags:
 - 《Linux C 一站式编程》
 categories:

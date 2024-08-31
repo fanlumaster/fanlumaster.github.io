@@ -2,6 +2,7 @@
 title: Ubuntu 下为 Linux 内核增加 2 个新的系统调用，并启用新的内核
 description: '记录一次给 Linux 内核增加系统调用的实验过程'
 date: 2021-04-07 19:33:59
+updated: 2023-06-01 03:08:37
 tags:
 - Linux
 - Ubuntu

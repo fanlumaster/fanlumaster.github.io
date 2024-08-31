@@ -1,6 +1,7 @@
 ---
 title: Hexo Fluid 主题文章内容中的图片的圆角有时会出现白色边框问题
 date: 2021-06-08 12:37:19
+updated: 2021-06-08 12:44:50
 tags:
 - Hexo
 - Fluid

@@ -1,6 +1,7 @@
 ---
 title: ThinkPad X13 AMD Gen1 安装 Ubuntu20.04 之后 F4 键的 LED 灯一直常亮的问题
 date: 2021-05-07 23:27:29
+updated: 2021-05-27 23:10:16
 tags:
 - Linux
 - Ubuntu20

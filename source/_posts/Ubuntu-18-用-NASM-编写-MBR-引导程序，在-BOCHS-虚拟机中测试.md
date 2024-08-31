@@ -1,6 +1,7 @@
 ---
 title: Ubuntu 18 用 NASM 编写 MBR 引导程序，在 BOCHS 虚拟机中测试
 date: 2021-06-06 21:58:57
+updated: 2021-06-13 15:56:00
 tags:
 - 操作系统
 - Linux

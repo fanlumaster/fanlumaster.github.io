@@ -1,6 +1,7 @@
 ---
 title: 利用 Python 和 sympy 库来求逻辑函数的真值表
 date: 2021-03-22 23:53:48
+updated: 2023-06-01 03:11:55
 tags:
 - Python
 - Sympy

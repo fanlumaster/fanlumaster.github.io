@@ -1,6 +1,7 @@
 ---
 title: jdk 中的 keytool 的使用，以及提取 jks 文件中的公钥和私钥
 date: 2023-08-28 23:20:37
+updated: 2023-09-02 23:13:35
 tags:
 - java
 - openssl

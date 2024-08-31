@@ -1,6 +1,7 @@
 ---
 title: 给 Okular 设置更加趁手的快捷键
 date: 2022-08-13 16:16:31
+updated: 2022-08-20 16:13:19
 tags:
 - Tools
 categories:

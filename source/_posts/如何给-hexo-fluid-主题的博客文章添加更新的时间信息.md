@@ -1,6 +1,7 @@
 ---
 title: 如何给 hexo-fluid 主题的博客文章添加更新的时间信息
 date: 2023-06-09 21:50:06
+updated: 2023-06-09 22:57:00
 tags:
 - 博客
 categories:

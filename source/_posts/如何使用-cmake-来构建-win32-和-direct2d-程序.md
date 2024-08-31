@@ -1,6 +1,7 @@
 ---
 title: 如何使用 cmake 来构建 win32 和 direct2d 程序
 date: 2023-03-03 23:54:24
+updated: 2023-03-04 00:05:54
 tags:
 - VSCode
 - C++

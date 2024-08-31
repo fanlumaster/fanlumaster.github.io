@@ -1,6 +1,7 @@
 ---
 title: 还是用 AHK 定制一些顺手的 Key Remap 吧
 date: 2024-06-14 00:07:19
+updated: 2024-08-18 22:28:18
 tags:
   - AHK
   - Windows

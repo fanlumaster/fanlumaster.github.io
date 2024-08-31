@@ -1,6 +1,7 @@
 ---
 title: Java 中变量的初始值
 date: 2021-03-30 23:25:27
+updated: 2023-06-01 03:02:18
 tags:
 - Java
 categories:

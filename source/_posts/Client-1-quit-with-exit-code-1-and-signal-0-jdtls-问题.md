@@ -1,6 +1,7 @@
 ---
 title: Client 1 quit with exit code 1 and signal 0 jdtls 问题
 date: 2023-11-04 21:42:48
+updated: 2024-04-11 00:33:00
 tags:
 - Neovim
 - lsp

@@ -2,6 +2,7 @@
 title: Ubuntu 下编译新的 Linux 内核
 description: '记录一次 Ubuntu 编译 Linux 内核的过程。'
 date: 2021-04-07 13:30:09
+updated: 2023-06-01 03:08:45
 tags:
 - Linux
 categories:

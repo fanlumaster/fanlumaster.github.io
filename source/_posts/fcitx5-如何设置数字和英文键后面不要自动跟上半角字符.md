@@ -1,6 +1,7 @@
 ---
 title: fcitx5 如何设置数字和英文键后面不要自动跟上半角字符
 date: 2022-09-14 13:12:38
+updated: 2022-09-14 16:10:35
 tags:
 - linux
 categories:

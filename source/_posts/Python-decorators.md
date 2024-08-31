@@ -1,6 +1,7 @@
 ---
 title: Python decorators
 date: 2022-09-08 15:57:35
+updated: 2022-09-09 17:31:41
 tags:
 - Python
 categories:

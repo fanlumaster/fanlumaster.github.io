@@ -1,6 +1,7 @@
 ---
 title: LaTex 中的空格（空白）表示方法（知其然并知其所以然）
 date: 2021-03-28 23:38:04
+updated: 2023-06-01 03:03:11
 tags:
 - LaTex
 - MathJax

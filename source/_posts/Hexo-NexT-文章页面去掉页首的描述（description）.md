@@ -1,6 +1,7 @@
 ---
 title: Hexo-NexT-文章页面去掉页首的描述（description）
 date: 2021-03-29 00:07:28
+updated: 2023-06-01 03:01:49
 tags:
 - Hexo
 - NexT

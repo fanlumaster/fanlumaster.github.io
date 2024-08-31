@@ -1,6 +1,7 @@
 ---
 title: Bilibili 如何使用 OBS 进行直播
 date: 2023-03-30 12:45:29
+updated: 2023-04-02 15:42:17
 tags:
 - 直播
 categories:

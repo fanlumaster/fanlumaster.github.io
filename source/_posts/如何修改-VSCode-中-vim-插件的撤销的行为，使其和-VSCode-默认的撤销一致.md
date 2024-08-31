@@ -1,6 +1,7 @@
 ---
 title: 如何修改 VSCode 中 vim 插件的撤销的行为，使其和 VSCode 默认的撤销一致
 date: 2022-08-29 17:36:13
+updated: 2022-08-29 18:46:40
 tags:
 - VSCode
 - vim

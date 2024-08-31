@@ -1,6 +1,7 @@
 ---
 title: neovim(vim) 的搜索和替换
 date: 2022-08-21 23:22:29
+updated: 2024-04-11 00:32:45
 tags:
 - Neovim
 categories:

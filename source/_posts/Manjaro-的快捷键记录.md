@@ -1,6 +1,7 @@
 ---
 title: Manjaro 的快捷键记录
 date: 2022-08-07 18:23:09
+updated: 2022-09-09 15:22:03
 tags:
 - Manjaro
 categories:

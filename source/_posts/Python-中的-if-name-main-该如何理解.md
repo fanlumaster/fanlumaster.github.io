@@ -1,6 +1,7 @@
 ---
 title: Python 中的 if __name == '__main__' 该如何理解
 date: 2021-05-28 13:58:42
+updated: 2024-04-14 15:15:23
 tags:
 - Python
 - 转载

@@ -1,6 +1,7 @@
 ---
 title: LaTex 数学公式将下标放在正下方（上标放在正上方）
 date: 2021-06-01 00:17:34
+updated: 2021-10-19 16:11:14
 tags:
 - LaTex
 categories:

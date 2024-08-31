@@ -3,6 +3,7 @@ title: >-
   VSCode Java 镇压警告：Newer minor version of Spring Boot available:
   3.1.0(BOOT_VERSION_VALIDATION_CODE)
 date: 2023-05-21 14:58:28
+updated: 2023-05-21 15:14:00
 tags:
 - VSCode
 - Java

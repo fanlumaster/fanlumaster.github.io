@@ -1,6 +1,7 @@
 ---
 title: how to set git editor to neovim
 date: 2022-08-21 19:21:19
+updated: 2022-08-21 19:23:49
 tags:
 - Git
 categories:

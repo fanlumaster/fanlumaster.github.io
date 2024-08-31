@@ -2,6 +2,7 @@
 title: 在 Linux 下，编写脚本或批处理。功能：在指定目录中全部 txt 文件的末尾追加一行，写入今天日期时间
 description: '一道操作系统实验题'
 date: 2021-04-09 00:29:29
+updated: 2023-06-01 03:12:21
 tags:
 - Linux
 - Shell

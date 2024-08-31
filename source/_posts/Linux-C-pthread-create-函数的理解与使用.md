@@ -2,6 +2,7 @@
 title: Linux C pthread_create() 函数的理解与使用
 description: 'Linux C 创建线程.'
 date: 2021-05-05 16:35:55
+updated: 2021-05-27 23:13:52
 tags:
 - C
 - 多线程

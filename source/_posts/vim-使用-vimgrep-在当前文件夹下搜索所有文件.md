@@ -1,6 +1,7 @@
 ---
 title: vim 使用 vimgrep 在当前文件夹下搜索所有文件
 date: 2022-09-12 16:08:25
+updated: 2022-09-12 16:23:54
 tags:
 - vim
 categories:

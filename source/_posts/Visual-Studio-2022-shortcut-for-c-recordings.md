@@ -1,6 +1,7 @@
 ---
 title: Visual Studio 2022 shortcut for c# recordings
 date: 2022-08-27 03:02:08
+updated: 2022-08-27 03:10:14
 tags:
 - VS
 categories:

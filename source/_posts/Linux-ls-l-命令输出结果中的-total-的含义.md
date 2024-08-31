@@ -2,6 +2,7 @@
 title: Linux ls -l 命令输出结果中的 total 的含义
 description: '关于 Linux 下 ls -l 命令输出结果中 total 的解释'
 date: 2021-04-05 22:26:10
+updated: 2023-06-01 03:04:07
 tags:
 - Linux 命令
 - Linux

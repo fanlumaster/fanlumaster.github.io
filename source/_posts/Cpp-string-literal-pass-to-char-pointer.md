@@ -1,6 +1,7 @@
 ---
 title: C++ 字符串字面量作为参数传递给字符指针
 date: 2024-03-24 22:27:06
+updated: 2024-03-24 22:35:58
 tags:
 - cpp
 categories:

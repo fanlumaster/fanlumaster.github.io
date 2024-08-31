@@ -1,6 +1,7 @@
 ---
 title: clangd all command line options
 date: 2023-11-30 22:51:01
+updated: 2023-11-30 23:03:13
 tags:
 - clangd
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Hexo-NexT 首页和其他页面设置分页
 date: 2021-03-22 20:46:39
+updated: 2023-06-01 03:01:58
 tags: 博客
 categories: 博客相关
 index_img: https://i.imgur.com/RHYUSvN.png

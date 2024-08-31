@@ -1,6 +1,7 @@
 ---
 title: LeetCode 9 and 10
 date: 2021-07-13 22:17:48
+updated: 2021-07-14 02:17:12
 tags:
 - LeetCode
 - Python

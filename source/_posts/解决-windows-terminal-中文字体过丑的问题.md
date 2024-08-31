@@ -1,6 +1,7 @@
 ---
 title: 解决 windows terminal 中文字体过丑的问题
 date: 2022-08-20 21:25:04
+updated: 2022-09-03 21:21:35
 tags:
 - Windows
 categories:

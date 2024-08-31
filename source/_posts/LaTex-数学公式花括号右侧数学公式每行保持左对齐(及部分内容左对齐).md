@@ -1,6 +1,7 @@
 ---
 title: LaTex 数学公式花括号右侧数学公式每行保持左对齐(及部分内容左对齐)
 date: 2021-06-01 00:23:42
+updated: 2021-06-01 15:49:10
 tags:
 - LaTex
 categories:

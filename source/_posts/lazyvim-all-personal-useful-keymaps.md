@@ -1,6 +1,7 @@
 ---
 title: Vim/Nvim/Lazyvim 个人配置之所有常用的操作
 date: 2024-04-11 00:35:11
+updated: 2024-04-11 22:08:26
 tags:
 - Neovim
 categories:

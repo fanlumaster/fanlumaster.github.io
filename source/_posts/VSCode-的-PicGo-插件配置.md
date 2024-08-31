@@ -1,6 +1,7 @@
 ---
 title: VSCode 的 PicGo 插件配置
 date: 2021-05-17 22:54:08
+updated: 2021-06-02 16:55:30
 tags:
 - VSCode
 - PicGo

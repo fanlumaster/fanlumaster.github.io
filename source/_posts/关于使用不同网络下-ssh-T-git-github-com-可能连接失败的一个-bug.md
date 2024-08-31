@@ -2,6 +2,7 @@
 title: 关于使用不同网络下 ssh -T git@github.com 可能连接失败的一个 bug
 description: '是日，遇一奇葩错误，遂记录之。'
 date: 2021-04-02 23:30:18
+updated: 2023-06-01 03:11:25
 tags:
 - bugs
 categories:

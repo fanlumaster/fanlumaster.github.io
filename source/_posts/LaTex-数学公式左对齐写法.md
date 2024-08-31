@@ -1,6 +1,7 @@
 ---
 title: LaTex 数学公式左对齐写法
 date: 2021-09-15 18:18:16
+updated: 2021-09-16 12:49:40
 tags:
 - LaTex
 categories:

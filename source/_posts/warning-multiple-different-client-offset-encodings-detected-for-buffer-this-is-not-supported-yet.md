@@ -3,6 +3,7 @@ title: >-
   warning: multiple different client offset_encodings detected for buffer, this
   is not supported yet
 date: 2023-11-24 22:08:54
+updated: 2023-11-25 20:19:57
 tags:
 - Neovim
 - 问题

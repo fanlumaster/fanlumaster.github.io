@@ -1,6 +1,7 @@
 ---
 title: 在 vps 中运行一个 Java 的 jar 包
 date: 2023-05-30 22:25:34
+updated: 2023-05-30 22:46:14
 tags:
 - Java
 categories:

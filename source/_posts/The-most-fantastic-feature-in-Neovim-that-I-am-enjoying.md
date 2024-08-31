@@ -1,6 +1,7 @@
 ---
 title: Neovim 中最迷人的功能
 date: 2023-11-24 22:48:43
+updated: 2024-06-01 21:09:24
 tags:
 - Neovim
 categories:

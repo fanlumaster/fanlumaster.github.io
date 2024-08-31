@@ -1,6 +1,7 @@
 ---
 title: 记一次 manjaro 更新后开机界面卡死的事故
 date: 2023-11-06 12:50:12
+updated: 2023-11-06 13:02:41
 tags:
 - Manjaro
 - Linux

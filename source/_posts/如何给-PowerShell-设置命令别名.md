@@ -1,6 +1,7 @@
 ---
 title: 如何给 PowerShell 设置命令别名
 date: 2022-08-21 13:56:11
+updated: 2024-04-11 00:32:25
 tags:
 - Neovim
 categories:

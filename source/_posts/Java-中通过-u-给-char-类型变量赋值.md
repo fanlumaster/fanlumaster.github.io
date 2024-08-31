@@ -1,6 +1,7 @@
 ---
 title: Java 中通过 '\u' 给 char 类型变量赋值
 date: 2021-03-31 00:44:39
+updated: 2023-06-01 03:02:57
 tags:
 - Java
 categories:

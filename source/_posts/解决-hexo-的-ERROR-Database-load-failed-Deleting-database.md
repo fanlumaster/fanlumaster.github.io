@@ -1,6 +1,7 @@
 ---
 title: 解决 hexo 的 ERROR Database load failed. Deleting database.
 date: 2022-08-21 00:10:50
+updated: 2022-08-21 00:22:58
 tags:
 - Hexo
 categories:

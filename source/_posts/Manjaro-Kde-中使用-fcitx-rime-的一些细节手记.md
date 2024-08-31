@@ -1,6 +1,7 @@
 ---
 title: Manjaro Kde 中使用 fcitx-rime 的一些细节手记
 date: 2023-05-02 23:34:41
+updated: 2023-05-02 23:36:18
 tags:
 - 输入法
 - KDE

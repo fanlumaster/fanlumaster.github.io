@@ -1,6 +1,7 @@
 ---
 title: bochs 利用 freedos 搭建保护模式的运行环境
 date: 2021-06-13 17:24:05
+updated: 2021-06-17 14:20:34
 tags:
 - 操作系统
 - Linux
