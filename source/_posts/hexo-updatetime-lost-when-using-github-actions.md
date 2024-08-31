@@ -46,4 +46,10 @@ banner_img: https://i.postimg.cc/3YkNmdkP/image.png
 
 这一波操作下来，大概就没有问题了。
 
+----------
+
+参考：
+
+1、<https://github.com/theme-next/hexo-theme-next/issues>
+
 
