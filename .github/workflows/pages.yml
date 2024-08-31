@@ -20,7 +20,8 @@ jobs:
           git ls-files -z | while IFS= read -r -d '' file; do
             commit_date=$(git log -1 --format="%ci" "$file")
             adjusted_date=$(date -d "$commit_date 8 hours" "+%Y-%m-%d %H:%M:%S %z")
-            echo "Updating timestamp for $file to $adjusted_date"
+            # only for debug
+            # echo "Updating timestamp for $file to $adjusted_date"
             touch -d "$adjusted_date" "$file"
           done
       - name: Use Node.js 21.7.1
