@@ -1,6 +1,7 @@
 ---
 title: 修改 Hexo-NexT 的 mathjax 配置，配置公式不要自动渲染编号
 date: 2021-03-28 21:03:30
+updated: 2023-06-01 03:11:17
 tags:
 - Hexo
 - NexT

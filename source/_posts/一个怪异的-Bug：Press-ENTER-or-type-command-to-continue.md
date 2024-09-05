@@ -2,6 +2,7 @@
 title: 一个怪异的 Bug：Press ENTER or type command to continue
 description: '在使用 vim 过程中遇到的一个奇怪的问题'
 date: 2021-04-05 23:44:50
+updated: 2023-06-01 03:09:12
 tags:
 - Bugs
 - Vim

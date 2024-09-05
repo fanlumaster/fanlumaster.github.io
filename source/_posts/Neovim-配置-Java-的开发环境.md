@@ -1,6 +1,7 @@
 ---
 title: Neovim 配置 Java 的开发环境
 date: 2023-11-05 15:12:47
+updated: 2023-12-02 19:29:07
 tags:
 - Neovim
 - Java

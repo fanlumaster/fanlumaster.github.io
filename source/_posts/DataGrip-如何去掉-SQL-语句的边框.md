@@ -1,6 +1,7 @@
 ---
 title: DataGrip 如何去掉 SQL 语句的边框
 date: 2022-08-23 20:50:33
+updated: 2022-08-23 21:00:30
 tags:
 - Jetbrains
 - 工具

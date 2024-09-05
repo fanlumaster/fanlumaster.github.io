@@ -1,6 +1,7 @@
 ---
 title: 绕个路解决 Ubuntu terminal 在从全屏或最大化切换到原来窗口时窗口尺寸缩小的问题
 date: 2021-11-03 17:13:54
+updated: 2021-11-06 16:09:06
 tags:
 - Ubuntu
 categories:

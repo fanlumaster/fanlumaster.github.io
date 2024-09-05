@@ -1,6 +1,7 @@
 ---
 title: VMware 在 Ubuntu18 环境下升级 VMware Tools
 date: 2021-07-13 15:51:53
+updated: 2021-07-21 00:43:16
 tags:
 - VMware
 categories:

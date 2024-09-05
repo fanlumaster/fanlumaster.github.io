@@ -1,6 +1,7 @@
 ---
 title: neovim 如何从 swp 文件中恢复
 date: 2022-08-20 23:11:34
+updated: 2024-04-11 00:31:48
 tags:
 - neovim
 categories:

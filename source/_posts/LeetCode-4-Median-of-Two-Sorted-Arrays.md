@@ -1,6 +1,7 @@
 ---
 title: LeetCode 4 Median of Two Sorted Arrays
 date: 2021-07-11 11:35:37
+updated: 2021-07-11 12:00:54
 tags:
 - LeetCode
 - Python

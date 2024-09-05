@@ -1,6 +1,7 @@
 ---
 title: neovim 的目录操作
 date: 2022-08-20 22:44:58
+updated: 2024-04-11 00:32:36
 tags:
 - Neovim
 categories:

@@ -1,6 +1,7 @@
 ---
 title: Spectacle 使用手记
 date: 2023-05-02 23:36:44
+updated: 2023-05-04 11:30:59
 tags:
 - KDE
 - 工具

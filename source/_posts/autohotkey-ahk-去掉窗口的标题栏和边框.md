@@ -1,6 +1,7 @@
 ---
 title: autohotkey(ahk) 去掉窗口的标题栏和边框
 date: 2023-08-28 22:31:24
+updated: 2023-12-28 22:05:21
 tags:
 - ahk
 - windows

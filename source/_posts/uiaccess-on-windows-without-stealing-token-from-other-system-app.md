@@ -1,6 +1,7 @@
 ---
 title: uiaccess on windows without stealing token from other system app
 date: 2024-03-24 20:43:11
+updated: 2024-08-18 17:47:52
 tags:
 - Windows
 categories:

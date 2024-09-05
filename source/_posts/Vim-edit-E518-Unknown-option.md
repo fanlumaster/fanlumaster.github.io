@@ -1,6 +1,7 @@
 ---
 title: 'Vim(edit):E518: Unknown option'
 date: 2023-11-27 23:06:49
+updated: 2023-11-30 22:13:56
 tags:
 - Neovim
 categories:

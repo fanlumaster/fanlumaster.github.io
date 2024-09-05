@@ -1,6 +1,7 @@
 ---
 title: neovim、neovide、astronvim 漫游
 date: 2023-11-05 15:48:49
+updated: 2024-02-03 17:58:30
 tags:
 - Neovim
 - 未竟

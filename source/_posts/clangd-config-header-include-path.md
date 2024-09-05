@@ -1,6 +1,7 @@
 ---
 title: clangd 配置头文件的路径
 date: 2024-04-03 13:02:06
+updated: 2024-04-04 18:43:30
 tags:
 - clangd
 - arch

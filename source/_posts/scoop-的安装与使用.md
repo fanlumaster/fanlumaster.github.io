@@ -1,6 +1,7 @@
 ---
 title: scoop 的安装与使用
 date: 2022-08-20 15:58:10
+updated: 2022-08-20 16:11:22
 tags:
 - Windows
 categories:

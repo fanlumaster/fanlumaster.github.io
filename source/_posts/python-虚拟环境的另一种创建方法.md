@@ -1,6 +1,7 @@
 ---
 title: python 虚拟环境的另一种创建方法
 date: 2022-09-14 23:10:28
+updated: 2022-09-14 23:24:39
 tags:
 categories:
 index_img: https://i.imgur.com/Iz7e2OO.png

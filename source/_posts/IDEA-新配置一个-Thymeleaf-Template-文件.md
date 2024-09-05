@@ -1,6 +1,7 @@
 ---
 title: IDEA 新配置一个 Thymeleaf Template 文件
 date: 2021-07-14 14:30:45
+updated: 2021-07-14 16:45:26
 tags:
 - IDEA
 - Spring

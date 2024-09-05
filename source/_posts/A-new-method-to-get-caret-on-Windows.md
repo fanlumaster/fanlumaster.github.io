@@ -1,6 +1,7 @@
 ---
 title: 一种新的获取 Windows 窗口的文本光标的方式
 date: 2024-02-18 22:06:40
+updated: 2024-02-22 00:16:56
 tags:
 - Windows
 - C++

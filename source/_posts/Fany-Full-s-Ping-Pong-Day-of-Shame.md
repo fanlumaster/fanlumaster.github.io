@@ -1,6 +1,7 @@
 ---
 title: Fany Full's Ping Pong Day of Shame
 date: 2023-04-11 21:52:52
+updated: 2023-04-12 23:13:14
 tags:
 - 生活
 categories:

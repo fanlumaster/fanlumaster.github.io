@@ -1,6 +1,7 @@
 ---
 title: VSCode tricks for this Blog
 date: 2022-03-08 17:34:11
+updated: 2022-08-07 23:01:02
 tags:
 - 工具
 - VSCode

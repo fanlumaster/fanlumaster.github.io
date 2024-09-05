@@ -1,6 +1,7 @@
 ---
 title: Linux 中使用 AstroNvim 的体验和微调
 date: 2023-05-02 23:27:11
+updated: 2023-11-04 21:22:11
 tags:
 - Linux
 - Neovim

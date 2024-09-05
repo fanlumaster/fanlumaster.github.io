@@ -1,6 +1,7 @@
 ---
 title: Windows11 cmd 中文乱码问题
 date: 2023-05-06 15:23:06
+updated: 2023-05-06 16:04:35
 tags:
 - Windows
 - Cpp

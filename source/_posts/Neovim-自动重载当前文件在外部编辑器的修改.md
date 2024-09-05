@@ -1,6 +1,7 @@
 ---
 title: Neovim 自动重载当前文件在外部编辑器的修改
 date: 2023-11-05 23:07:21
+updated: 2023-11-06 13:02:29
 tags:
 - Neovim
 categories:

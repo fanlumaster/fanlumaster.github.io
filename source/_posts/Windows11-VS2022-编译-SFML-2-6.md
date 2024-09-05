@@ -1,6 +1,7 @@
 ---
 title: Windows11 VS2022 编译 SFML 2.6
 date: 2023-05-05 16:21:57
+updated: 2023-05-05 22:34:42
 tags:
 - Cpp
 categories:

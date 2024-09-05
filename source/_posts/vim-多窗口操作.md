@@ -1,6 +1,7 @@
 ---
 title: vim 多窗口操作
 date: 2022-09-12 15:57:52
+updated: 2022-09-12 16:06:06
 tags:
 - vim
 categories:

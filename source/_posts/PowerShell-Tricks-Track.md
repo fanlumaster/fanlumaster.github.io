@@ -1,6 +1,7 @@
 ---
 title: PowerShell Tricks Track
 date: 2022-02-20 19:41:39
+updated: 2024-03-25 23:12:10
 tags:
 - PowerShell
 - Windows

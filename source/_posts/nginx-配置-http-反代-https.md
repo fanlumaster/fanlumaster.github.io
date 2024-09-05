@@ -1,6 +1,7 @@
 ---
 title: nginx 配置 http 反代 https
 date: 2023-05-31 10:30:08
+updated: 2023-05-31 10:45:04
 tags:
 - nginx
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 浏览器控制台的一些 tricks
 date: 2022-06-25 22:18:54
+updated: 2022-06-25 22:22:48
 tags:
 - tricks
 categories:

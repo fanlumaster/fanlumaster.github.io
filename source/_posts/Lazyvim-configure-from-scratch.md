@@ -1,6 +1,7 @@
 ---
 title: Lazyvim 从零开始配置
 date: 2023-11-25 20:17:37
+updated: 2024-06-01 21:09:13
 tags:
 - Neovim
 - 未竟

@@ -1,6 +1,7 @@
 ---
 title: Manjaro zsh 设置代理的问题
 date: 2022-08-07 02:27:57
+updated: 2022-08-07 02:40:48
 tags:
 - Manjaro
 - zsh

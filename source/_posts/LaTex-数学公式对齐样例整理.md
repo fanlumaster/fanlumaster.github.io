@@ -1,6 +1,7 @@
 ---
 title: LaTex 数学公式对齐样例整理
 date: 2021-09-15 18:38:28
+updated: 2021-09-17 19:49:10
 tags:
 - LaTex
 categories:

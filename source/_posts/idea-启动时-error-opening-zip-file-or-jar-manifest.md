@@ -1,6 +1,7 @@
 ---
 title: idea 启动时 error opening zip file or jar manifest
 date: 2023-06-09 16:07:01
+updated: 2023-06-09 20:58:48
 tags:
 - Java
 - IDEA

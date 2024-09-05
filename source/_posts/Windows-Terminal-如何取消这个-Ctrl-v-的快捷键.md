@@ -1,6 +1,7 @@
 ---
 title: Windows Terminal 如何取消这个 Ctrl + v 的快捷键
 date: 2022-08-29 17:49:25
+updated: 2022-08-29 18:43:56
 tags:
 - Windows Terminal
 categories:

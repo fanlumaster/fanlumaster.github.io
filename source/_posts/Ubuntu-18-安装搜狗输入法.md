@@ -1,6 +1,7 @@
 ---
 title: Ubuntu 18 安装搜狗输入法
 date: 2021-03-31 22:39:49
+updated: 2023-06-01 03:08:28
 tags:
 - Linux
 - Ubuntu

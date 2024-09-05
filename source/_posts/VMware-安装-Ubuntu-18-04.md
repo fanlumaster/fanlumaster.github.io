@@ -2,6 +2,7 @@
 title: VMware 安装 Ubuntu 18.04
 description: ' '
 date: 2021-04-08 19:19:50
+updated: 2023-06-01 03:08:58
 tags:
 - Linux
 - 虚拟机

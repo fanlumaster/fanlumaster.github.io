@@ -1,6 +1,7 @@
 ---
 title: StringBuilder 和 StringBuffer 之间的区别
 date: 2022-09-08 14:23:36
+updated: 2022-09-08 14:51:01
 tags:
 - Java
 categories:

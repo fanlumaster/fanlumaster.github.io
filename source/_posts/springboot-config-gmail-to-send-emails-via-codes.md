@@ -1,6 +1,7 @@
 ---
 title: springboot config gmail to send emails via codes
 date: 2023-08-20 21:30:28
+updated: 2023-12-28 22:22:15
 tags:
 - springboot
 - Java

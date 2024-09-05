@@ -1,6 +1,7 @@
 ---
 title: vim 如何在多个 tab 标签页之间快速切换
 date: 2022-10-05 17:14:13
+updated: 2022-10-05 17:37:48
 tags:
 - vim
 categories:

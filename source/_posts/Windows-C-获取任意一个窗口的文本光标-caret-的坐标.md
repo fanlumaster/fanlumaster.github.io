@@ -1,6 +1,7 @@
 ---
 title: Windows C++ 获取任意一个窗口的文本光标 caret 的坐标
 date: 2023-04-12 18:44:50
+updated: 2023-04-12 23:20:30
 tags:
 - Windows
 - 输入法

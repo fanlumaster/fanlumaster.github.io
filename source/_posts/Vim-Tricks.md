@@ -1,6 +1,7 @@
 ---
 title: Vim/Nvim Tricks
 date: 2023-05-02 23:37:53
+updated: 2024-06-01 12:15:11
 tags:
 - Neovim
 - 未竟

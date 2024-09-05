@@ -1,6 +1,7 @@
 ---
 title: how to add gitignore file for c# project
 date: 2022-08-27 03:14:17
+updated: 2022-08-27 03:26:23
 tags:
 - Little Tips
 categories:

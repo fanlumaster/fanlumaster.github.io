@@ -1,6 +1,7 @@
 ---
 title: 'OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 问题解决'
 date: 2022-03-24 16:43:00
+updated: 2022-03-24 16:54:22
 tags:
 - Bugs
 categories:

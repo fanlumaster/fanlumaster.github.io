@@ -1,6 +1,7 @@
 ---
 title: 中了 Manjaro KDE 的毒，魔怔了
 date: 2022-08-07 02:02:35
+updated: 2022-08-07 02:26:52
 tags:
 - Linux
 - Manjaro

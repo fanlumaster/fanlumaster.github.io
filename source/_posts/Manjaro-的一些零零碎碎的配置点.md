@@ -1,6 +1,7 @@
 ---
 title: Manjaro 的一些零零碎碎的配置点
 date: 2022-08-07 17:37:43
+updated: 2022-09-09 22:03:22
 tags:
 - Manjaro
 categories:

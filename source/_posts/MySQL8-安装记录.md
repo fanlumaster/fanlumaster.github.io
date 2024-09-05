@@ -1,6 +1,7 @@
 ---
 title: MySQL8 安装记录
 date: 2021-07-12 23:37:51
+updated: 2021-07-13 01:39:44
 tags:
 - MySQL
 - 安装

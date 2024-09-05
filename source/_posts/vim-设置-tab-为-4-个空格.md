@@ -1,6 +1,7 @@
 ---
 title: vim 设置 tab 为 4 个空格
 date: 2022-08-30 23:19:35
+updated: 2022-08-30 23:27:20
 tags:
 - vim
 categories:
