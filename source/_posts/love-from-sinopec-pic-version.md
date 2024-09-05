@@ -9,6 +9,8 @@ banner_img: https://i.postimg.cc/vYJ0T69q/image.png
 description: '一些来自楚地的风景'
 ---
 
+update: 不知咋地，节点连到美丽国发现还是 imgur 的图片加载更快。看来往者不可弃呀。
+
 ![](https://i.postimg.cc/6WVN9w4v/20240819-143131.jpg)
 
 ![](https://i.postimg.cc/zDJYvMTP/20240819-145633.jpg)
