@@ -880,8 +880,13 @@ about:
       }
     - {
         class: "iconfont icon-bilibili",
+        link: "https://space.bilibili.com/3493138859559908",
+        tip: "bilibili-one",
+      }
+    - {
+        class: "iconfont icon-bilibili",
         link: "https://space.bilibili.com/82083647",
-        tip: "bilibili",
+        tip: "bilibili-two",
       }
     - {
         class: "iconfont icon-douban-fill",
