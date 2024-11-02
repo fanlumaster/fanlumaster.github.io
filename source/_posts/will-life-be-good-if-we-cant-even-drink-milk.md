@@ -29,6 +29,50 @@ banner_img: https://i.postimg.cc/7qzLLSP4/image.png
 
 喝不了牛奶的人生会好吗？I dont know, but what I know is, 喝牛奶的日子是值得珍惜的。
 
+---手动分割---多图预警---
+
+<div style="display: flex; justify-content: space-around;">
+    <img src="https://i.postimg.cc/KYK3V9V4/IMG-20241029-222306.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/gc38mT0Z/IMG-20241030-131141.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/xTYHC3kF/IMG-20241030-131152.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/VLRtb0ns/IMG-20241030-131156.jpg" alt="" width=300 />
+</div>
+
+<div style="display: flex; justify-content: space-around;">
+    <img src="https://i.postimg.cc/T3NWt8tZ/IMG-20241030-131210.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/PxwZL6z0/IMG-20241030-134742.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/PJnD1mSJ/IMG-20241030-140233.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/L5k1DnWT/IMG-20241030-154331.jpg" alt="" width=300 />
+</div>
+
+<div style="display: flex; justify-content: space-around;">
+    <img src="https://i.postimg.cc/q7Yyvfn8/IMG-20241030-161112.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/XvX9WNZj/IMG-20241030-161545.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/LsrgMtKD/IMG-20241030-161550.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/2Sk4H7rB/IMG-20241030-163152.jpg" alt="" width=300 />
+</div>
+
+<div style="display: flex; justify-content: space-around;">
+    <img src="https://i.postimg.cc/L8xjGg8Q/IMG-20241030-220843.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/pVjYydsy/IMG-20241031-113701.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/d1b24MVq/IMG-20241031-120255.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/yx0FGfD0/IMG-20241101-124252.jpg" alt="" width=300 />
+</div>
+
+<div style="display: flex; justify-content: space-around;">
+    <img src="https://i.postimg.cc/m2bzRZqv/IMG-20241101-200603.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/MKdcG2Jv/IMG-20241101-231116.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/L6MkPMWD/IMG-20241102-132501.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/vBfg84Gs/IMG-20241102-133214.jpg" alt="" width=300 />
+</div>
+
+<div style="display: flex; justify-content: space-around;">
+    <img src="https://i.postimg.cc/SRGn8HX1/IMG-20241102-133444.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/J73D9HT3/IMG-20241102-142831.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/Bb38jJv1/IMG-20241102-150549.jpg" alt="" width=300 />
+    <img src="https://i.postimg.cc/0NJrZzMw/IMG-20241029-122953.jpg" alt="" width=300 />
+</div>
+
 ----------
 
 [^1] 非我们大家理解的巨硬，只能意会。
