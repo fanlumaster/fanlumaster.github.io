@@ -29,7 +29,7 @@ banner_img: https://i.postimg.cc/7qzLLSP4/image.png
 
 喝不了牛奶的人生会好吗？I dont know, but what I know is, 喝牛奶的日子是值得珍惜的。
 
----手动分割---多图预警---
+---手动分割---多图预警---友情提示👻高清原图需要在新窗口打开🥴🍻---
 
 <div style="display: flex; justify-content: space-around;">
     <img src="https://i.postimg.cc/KYK3V9V4/IMG-20241029-222306.jpg" alt="" width=300 />
