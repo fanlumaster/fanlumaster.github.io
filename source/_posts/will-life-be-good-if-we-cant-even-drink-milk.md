@@ -39,10 +39,14 @@ banner_img: https://i.postimg.cc/7qzLLSP4/image.png
 </div>
 
 <div style="display: flex; justify-content: space-around;">
-    <img src="https://i.postimg.cc/T3NWt8tZ/IMG-20241030-131210.jpg" alt="" width=300 />
     <img src="https://i.postimg.cc/PxwZL6z0/IMG-20241030-134742.jpg" alt="" width=300 />
     <img src="https://i.postimg.cc/PJnD1mSJ/IMG-20241030-140233.jpg" alt="" width=300 />
     <img src="https://i.postimg.cc/L5k1DnWT/IMG-20241030-154331.jpg" alt="" width=300 />
+</div>
+
+<div style="display: flex; justify-content: space-around;">
+    <img src="https://i.postimg.cc/T3NWt8tZ/IMG-20241030-131210.jpg" alt="" width=600 />
+    <img src="https://i.postimg.cc/m2bzRZqv/IMG-20241101-200603.jpg" alt="" width=600 />
 </div>
 
 <div style="display: flex; justify-content: space-around;">
@@ -60,7 +64,6 @@ banner_img: https://i.postimg.cc/7qzLLSP4/image.png
 </div>
 
 <div style="display: flex; justify-content: space-around;">
-    <img src="https://i.postimg.cc/m2bzRZqv/IMG-20241101-200603.jpg" alt="" width=300 />
     <img src="https://i.postimg.cc/MKdcG2Jv/IMG-20241101-231116.jpg" alt="" width=300 />
     <img src="https://i.postimg.cc/L6MkPMWD/IMG-20241102-132501.jpg" alt="" width=300 />
     <img src="https://i.postimg.cc/vBfg84Gs/IMG-20241102-133214.jpg" alt="" width=300 />
