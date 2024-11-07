@@ -1,5 +1,5 @@
 ---
-title: 一个 tab stop 的问题(来自 K&R The C Programming Language 2nd edition 习题 1-21)
+title: 一个 tab stop 的问题(来自 K and R The C Programming Language 2nd edition 习题 1-21)
 date: 2024-11-08 05:20:24
 tags:
 - 思维的乐趣
