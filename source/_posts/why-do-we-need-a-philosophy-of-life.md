@@ -7,8 +7,8 @@ tags:
 - 思考
 - 哲学
 categories:
-index_img:
-banner_img:
+index_img: https://i.postimg.cc/wBt89qHP/image.png
+banner_img: https://i.postimg.cc/wBt89qHP/image.png
 ---
 
 凌晨发现了 vscode-neovim 的一个 bug。反复测试，反复检索，发现确实是一个 bug。但是别人没有提出来过。然后继续反复测试，反复尝试。
