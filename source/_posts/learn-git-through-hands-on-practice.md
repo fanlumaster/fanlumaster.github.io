@@ -1174,6 +1174,22 @@ GitHub 端远程仓库中的 feature-D 分支是最新状态，所以本地仓�
 
 如果两人同时修改了同一部分的源代码，push 时就很容易发生冲突。所以多名开发者在同一个分支中进行作业时，为减少冲突情况的发生，建议更频繁地进行 push 和 pull 操作。
 
+## 6. 帮助大家深入理解 Git 的资料
+
+至此为止，阅读并理解本书所必需的 Git 操作已经全部讲解完了。但是在实际的开发现场，往往要用到更加高级的 Git 操作。这里，我们向各位介绍一些参考资料，能够帮助各位深入理解 Git 的相关知识。
+
+### Pro Git
+
+[Pro Git](https://git-scm.com/book/en/v2) 由就职于 GitHub 公司的 Scott Chacon 执笔，是一部零基础的 Git 学习资料。基于知识共享的 CC BY-NC-SA 3.0 许可协议，各位可以免费阅读到包括简体中文在内的各国语言版本。
+
+### LearnGitBranching
+
+[LearnGitBranching](https://learngitbranching.js.org/) 是学习 Git 基本操作的网站。注重树形结构的学习方式非常适合初学者使用，还可切换各国语言进行学习。
+
+### tryGit
+
+通过 [tryGit](https://trygit.js.org/) 我们可以在 Web 上一边操作一边学习 Git 的基本功能。该教程只有英文版。
+
 ----------
 
 附言：精读以及整理这些东西，特么的还挺费神的。
