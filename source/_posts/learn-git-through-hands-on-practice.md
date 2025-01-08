@@ -273,6 +273,8 @@ git diff 命令可以查看工作树、暂存区、最新提交之间的差别�
 
 执行 git diff 命令，查看当前工作树与暂存区的差别。
 
+按：暂存区的内容初始的情况下是和最新的一次提交相同的。
+
 ```shell
 $ git diff
 diff --git a/README.md b/README.md
@@ -282,6 +284,7 @@ index e69de29..ec80c56 100644
 @@ -0,0 +1 @@
 +# Git 教程
 ```
+按：这里的 `@@ -0,0 +1` 是 `@@ -0,0 +1,1` 的省略，表示暂存区(旧文件)从第 0 行开始的 0 行有改动，即一开始是空文件，然后工作树(新文件)是从第 1 行开始的 1 行有改动，即新增了 1 行。
 
 由于我们尚未用 git add 命令向暂存区添加任何东西，所以程序只会显示工作树与最新提交状态之间的差别。
 
@@ -497,6 +500,8 @@ Merge made by the 'ort' strategy.
  1 file changed, 2 insertions(+)
 ```
 
+按：ort 是 Git 合并的默认策略，感兴趣可以查询相应的文档，目前我们不需要深究。
+
 这样一来，feature-A 分支的内容就合并到 master 分支中了。
 
 ### git log --graph——以图表形式查看分支
@@ -558,6 +563,432 @@ $ git log --graph
 为什么？因为 feature-A 有了新的提交，但是 master 在原地不动，所以，Git 默认就采取了快进合并(Fast-Forward Merge)。这里，Git 没有创建新的合并提交，因此，我们就不知道分支是什么时候被创建的，以及，是什么时候被合并的。(这里，我们通过 VSCode 的 git graph 插件来看一下会更加地清晰)
 
 git log --graph 命令可以用图表形式输出提交日志，非常直观，请大家务必记住。
+
+## 3. 更改提交的操作
+
+### git reset——回溯历史版本
+
+通过前面学习的操作，我们已经学会如何在实现功能后进行提交，累积提交日志作为历史记录，借此不断培育一款软件。
+
+Git 的另一特征便是可以灵活操作历史版本。借助分散仓库的优势，可以在不影响其他仓库的前提下对历史版本进行操作。
+
+在这里，为了让各位熟悉对历史版本的操作，我们先回溯历史版本，创建一个名为 fix-B 的特性分支（图4）。
+
+![图4 回溯历史，创建 fix-B 分支](https://i.postimg.cc/RFVWSrQq/image.png)
+
+#### 回溯到创建 feature-A 分支前
+
+让我们先回溯到上一节 feature-A 分支创建之前，创建一个名为 fix-B 的特性分支。
+
+要让仓库的 HEAD、暂存区、当前工作树回溯到指定状态，需要用到 git reset --hard命令。只要提供目标时间点的哈希值 1，就可以完全恢复至该时间点的状态。事不宜迟，让我们执行下面的命令。
+
+```shell
+$ git reset --hard 7b010619fcd72df06dc6e91df26d20d435099e44
+HEAD is now at 7b01061 Add index
+```
+
+按：这里的哈希值需要自己去查看自己仓库中的具体的值。
+
+
+我们已经成功回溯到特性分支（feature-A）创建之前的状态。由于所有文件都回溯到了指定哈希值对应的时间点上，README.md 文件的内容也恢复到了当时的状态。
+
+#### 创建 fix-B 分支
+
+现在我们来创建特性分支（fix-B）。
+
+```shell
+$ git checkout -b fix-B
+Switched to a new branch 'fix-B'
+```
+
+
+作为这个主题的作业内容，我们在 README.md 文件中添加一行文字。
+
+```md
+# Git 教程
+        　
+- fix-B
+```
+
+然后直接提交 README.md 文件。
+
+```shell
+$ git add README.md
+$ git commit -m "Fix B"
+[fix-B 4096d9e] Fix B
+ 1 file changed, 2 insertions(+)
+```
+
+
+现在的状态如图 4.5 所示。接下来我们的目标是图 6 中所示的状态，即主干分支合并 feature-A 分支的修改后，又合并了 fix-B 的修改。
+
+![图5 当前 fix-B 分支的状态](https://i.postimg.cc/MZnFHnGb/image.png)
+
+
+![图 6 fix-B 分支的下一步目标](https://i.postimg.cc/sfb0h3QF/image.png)
+
+#### 推进至 feature-A 分支合并后的状态
+
+首先恢复到 feature-A 分支合并后的状态。不妨称这一操作为“推进历史”。
+
+git log 命令只能查看以当前状态为终点的历史日志。所以这里要使用 git reflog 命令，查看当前仓库的操作日志。在日志中找出回溯历史之前的哈希值，通过 git reset --hard 命令恢复到回溯历史前的状态。
+
+首先执行 git reflog 命令，查看当前仓库执行过的操作的日志。
+
+```shell
+$ git reflog
+5138c2b (HEAD -> fix-B) HEAD@{0}: commit: Fix B
+7b01061 (master) HEAD@{1}: checkout: moving from master to fix-B
+7b01061 (master) HEAD@{2}: reset: moving to 7b010619fcd72df06dc6e91df26d20d435099e44
+ae1fcc3 HEAD@{3}: merge feature-A: Merge made by the 'ort' strategy.
+7b01061 (master) HEAD@{4}: checkout: moving from feature-A to master
+b6b12fd (feature-A) HEAD@{5}: checkout: moving from master to feature-A
+7b01061 (master) HEAD@{6}: checkout: moving from feature-A to master
+b6b12fd (feature-A) HEAD@{7}: commit: Add feature-A
+7b01061 (master) HEAD@{8}: checkout: moving from master to feature-A
+7b01061 (master) HEAD@{9}: commit: Add index
+df0031b HEAD@{10}: commit (initial): First commit
+```
+
+在日志中，我们可以看到 commit、checkout、reset、merge 等 Git 命令的执行记录。只要不进行 Git 的 GC（Garbage Collection，垃圾回收），就可以通过日志随意调取近期的历史状态，就像给时间机器指定一个时间点，在过去未来中自由穿梭一般。即便开发者错误执行了 Git 操作，基本也都可以利用 git reflog命令恢复到原先的状态，所以请各位读者务必牢记本部分。
+
+按：我们可以通过执行 `git gc` 来手动触发 GC。一般来说，我们的项目遇到 Git 会自动 GC 的时机是不多的，我们很少会触碰到默认的阈值。
+
+从上面数第四行表示 feature-A 特性分支合并后的状态，对应哈希值为 ae1fcc3。我们将 HEAD、暂存区、工作树恢复到这个时间点的状态。
+
+按：哈希值只要输入 4 位以上就可以执行。
+
+```shell
+$ git checkout master
+$ git reset --hard ae1fcc3
+HEAD is now at ae1fcc3 Merge branch 'feature-A'
+```
+
+之前我们使用 git reset --hard 命令回溯了历史，这里又再次通过它恢复到了回溯前的历史状态。当前的状态如图 7 所示。
+
+![图7 恢复历史后的状态](https://i.postimg.cc/W3GtwNN9/image.png)
+
+### 消除冲突
+
+现在只要合并 fix-B 分支，就可以得到我们想要的状态。让我们赶快进行合并操作。
+
+```shell
+$ git merge --no-ff fix-B
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+这时，系统告诉我们 README.md 文件发生了冲突（Conflict）。系统在合并 README.md 文件时，feature-A 分支更改的部分与本次想要合并的 fix-B 分支更改的部分发生了冲突。
+
+不解决冲突就无法完成合并，所以我们打开 README.md 文件，解决这个冲突。
+
+#### 查看冲突部分并将其解决
+
+用编辑器打开 README.md 文件，就会发现其内容变成了下面这个样子。
+
+```shell
+# Git 教程
+
+<<<<<<< HEAD
+- feature-A
+=======
+- fix-B
+>>>>>>> fix-B
+```
+
+`=======` 以上的部分是当前 HEAD 的内容，以下的部分是要合并的 fix-B 分支中的内容。我们在编辑器中将其改成想要的样子。
+
+```shell
+# Git 教程
+
+- feature-A
+- fix-B
+```
+
+如上所示，本次修正让 feature-A 与 fix-B 的内容并存于文件之中。但是在实际的软件开发中，往往需要删除其中之一，所以各位在处理冲突时，务必要仔细分析冲突部分的内容后再行修改。
+
+#### 提交解决后的结果
+
+冲突解决后，执行 git add 命令与 git commit 命令。
+
+```shell
+$ git add README.md
+$ git commit -m "Fix conflict"
+[master 4556b62] Fix conflict
+```
+
+由于本次更改解决了冲突，所以提交信息记为 "Fix conflict"。
+
+### git commit --amend——修改提交信息
+
+要修改上一条提交信息，可以使用 git commit --amend 命令。
+
+我们将上一条提交信息记为了 "Fix conflict"，但它其实是 fix-B 分支的合并，解决合并时发生的冲突只是过程之一，这样标记实在不妥。于是，我们要修改这条提交信息。
+
+```shell
+$ git commit --amend
+```
+
+执行上面的命令后，编辑器就会启动。
+
+```shell
+Fix conflict
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Wed Jan 8 17:09:37 2025 +0800
+#
+# On branch master
+# Changes to be committed:
+#       modified:   README.md
+#
+```
+
+编辑器中显示的内容如上所示，其中包含之前的提交信息。请将提交信息的部分修改为 Merge branch 'fix-B'，然后保存文件，关闭编辑器。
+
+
+```shell
+[master 8987c98] Merge branch 'fix-B'
+ Date: Wed Jan 8 17:09:37 2025 +0800
+```
+
+随后会显示上面这条结果。现在执行 git log --graph 命令，可以看到提交日志中的相应内容也已经被修改。
+
+```shell
+$ git log --graph
+*   commit 8987c986da5f39f0f2b3de509ce7806a70af9fa3 (HEAD -> master)
+|\  Merge: ae1fcc3 5138c2b
+| | Author: fanlumaster <1730976608@qq.com>
+| | Date:   Wed Jan 8 17:09:37 2025 +0800
+| | 
+| |     Merge branch 'fix-B'
+| | 
+| * commit 5138c2b7910ef4e0cff038b2e5c33a3458adbe6b (fix-B)
+| | Author: fanlumaster <1730976608@qq.com>
+| | Date:   Wed Jan 8 16:35:56 2025 +0800
+| | 
+| |     Fix B
+| |   
+* |   commit ae1fcc3cd7453f00818f62a6b1cbe3e139568cf0
+|\ \  Merge: 7b01061 b6b12fd
+| |/  Author: fanlumaster <1730976608@qq.com>
+|/|   Date:   Wed Jan 8 14:08:32 2025 +0800
+| |   
+| |       Merge branch 'feature-A'
+| | 
+| * commit b6b12fd3a8a756daf0154927e6c93bd1588745e4 (feature-A)
+|/  Author: fanlumaster <1730976608@qq.com>
+|   Date:   Wed Jan 8 14:02:31 2025 +0800
+|   
+|       Add feature-A
+| 
+* commit 7b010619fcd72df06dc6e91df26d20d435099e44
+| Author: fanlumaster <1730976608@qq.com>
+| Date:   Wed Jan 8 13:37:13 2025 +0800
+| 
+|     Add index
+| 
+* commit df0031bfdc76a15aa18a2490201439d92597b3d8
+  Author: fanlumaster <1730976608@qq.com>
+  Date:   Wed Jan 8 12:57:06 2025 +0800
+  
+      First commit
+```
+
+### git rebase -i——压缩历史
+
+在合并特性分支之前，如果发现已提交的内容中有些许拼写错误等，不妨提交一个修改，然后将这个修改包含到前一个提交之中，压缩成一个历史记录。这是个会经常用到的技巧，让我们来实际操作体会一下。
+
+#### 创建 feature-C 分支
+
+首先，新建一个 feature-C 特性分支。
+
+```shell
+$ git checkout -b feature-C
+Switched to a new branch 'feature-C'
+```
+
+作为 feature-C 的功能实现，我们在 README.md 文件中添加一行文字，并且故意留下拼写错误，以便之后修正。
+
+```shell
+# Git 教程
+
+- feature-A
+- fix-B
+- faeture-C
+```
+
+提交这部分内容。这个小小的变更就没必要先执行 git add 命令再执行 git commit 命令了，我们用 git commit -am 命令来一次完成这两步操作。
+
+```shell
+$ git commit -am "Add feature-C"
+[feature-C fe8033d] Add feature-C
+ 1 file changed, 1 insertion(+)
+```
+
+#### 修正拼写错误
+
+现在来修正刚才预留的拼写错误。请各位自行修正 README.md 文件的内容，修正后的差别如下所示。
+
+```shell
+$ git diff
+diff --git a/README.md b/README.md
+index 4d32145..1c9d4ee 100644
+--- a/README.md
++++ b/README.md
+@@ -2,4 +2,4 @@
+ 
+ - feature-A
+ - fix-B
+-- faeture-C
++- feature-C
+```
+
+按：这里的 `@@ -2,4 +2,4` 表示改动的是从第 2 行开始的 4 行内容。
+
+然后进行提交。
+
+```shell
+$ git commit -am "Fix typo"
+[feature-C 057f71a] Fix typo
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+```
+
+错字漏字等失误称作 typo，所以我们将提交信息记为 "Fix typo"。
+
+实际上，我们不希望在历史记录中看到这类提交，因为健全的历史记录并不需要它们。如果能在最初提交之前就发现并修正这些错误，也就不会出现这类提交了。
+
+#### 更改历史
+
+因此，我们来更改历史。将 "Fix typo" 修正的内容与之前一次的提交合并，在历史记录中合并为一次完美的提交。为此，我们要用到 git rebase 命令。
+
+```shell
+$ git rebase -i HEAD~2
+```
+
+用上述方式执行 git rebase 命令，可以选定当前分支中包含 HEAD（最新提交）在内的两个最新历史记录为对象，并在编辑器中打开。
+
+```shell
+pick fe8033d Add feature-C
+pick 057f71a Fix typo
+
+# Rebase 8987c98..057f71a onto 8987c98 (2 commands)
+#
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
+#                    commit's log message, unless -C is used, in which case
+#                    keep only this commit's message; -c is same as -C but
+#                    opens the editor
+# x, exec <command> = run command (the rest of the line) using shell
+# b, break = stop here (continue rebase later with 'git rebase --continue')
+# d, drop <commit> = remove commit
+# l, label <label> = label current HEAD with a name
+# t, reset <label> = reset HEAD to a label
+# m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
+#         create a merge commit using the original merge commit's
+#         message (or the oneline, if no original merge commit was
+#         specified); use -c <commit> to reword the commit message
+# u, update-ref <ref> = track a placeholder for the <ref> to be updated
+#                       to this position in the new commits. The <ref> is
+#                       updated at the end of the rebase
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+```
+
+我们将 057f71a 的 Fix typo 的历史记录压缩到 fe8033d 的 Add feature-C 里。按照下图所示，将 057f71a 左侧的 pick 部分删除，改写为 fixup。
+
+
+```shell
+pick fe8033d Add feature-C
+fixup 057f71a Fix typo
+```
+
+保存编辑器里的内容，关闭编辑器。
+
+```shell
+Successfully rebased and updated refs/heads/feature-C.
+```
+
+系统显示 rebase 成功。也就是以下面这两个提交作为对象，将 "Fix typo" 的内容合并到了上一个提交 "Add feature-C" 中，改写成了一个新的提交。
+
+- fe8033d Add feature-C
+- 057f71a Fix typo
+
+
+现在再查看提交日志时会发现 Add feature-C 的哈希值已经不是 fe8033d 了，这证明提交已经被更改。
+
+```shell
+$ git log --graph
+* commit e2f92412f01ffc4c3fd00cbdadbee36cc15366d7 (HEAD -> feature-C)
+| Author: fanlumaster <1730976608@qq.com>
+| Date:   Wed Jan 8 17:17:45 2025 +0800
+| 
+|     Add feature-C
+|   
+*   commit 8987c986da5f39f0f2b3de509ce7806a70af9fa3 (master)
+|\  Merge: ae1fcc3 5138c2b
+| | Author: fanlumaster <1730976608@qq.com>
+| | Date:   Wed Jan 8 17:09:37 2025 +0800
+| | 
+| |     Merge branch 'fix-B'
+| | 
+| * commit 5138c2b7910ef4e0cff038b2e5c33a3458adbe6b (fix-B)
+| | Author: fanlumaster <1730976608@qq.com>
+| | Date:   Wed Jan 8 16:35:56 2025 +0800
+| | 
+| |     Fix B
+| |   
+* |   commit ae1fcc3cd7453f00818f62a6b1cbe3e139568cf0
+|\ \  Merge: 7b01061 b6b12fd
+| |/  Author: fanlumaster <1730976608@qq.com>
+|/|   Date:   Wed Jan 8 14:08:32 2025 +0800
+| |   
+| |       Merge branch 'feature-A'
+| | 
+| * commit b6b12fd3a8a756daf0154927e6c93bd1588745e4 (feature-A)
+|/  Author: fanlumaster <1730976608@qq.com>
+|   Date:   Wed Jan 8 14:02:31 2025 +0800
+|   
+|       Add feature-A
+| 
+* commit 7b010619fcd72df06dc6e91df26d20d435099e44
+| Author: fanlumaster <1730976608@qq.com>
+| Date:   Wed Jan 8 13:37:13 2025 +0800
+| 
+|     Add index
+| 
+* commit df0031bfdc76a15aa18a2490201439d92597b3d8
+  Author: fanlumaster <1730976608@qq.com>
+  Date:   Wed Jan 8 12:57:06 2025 +0800
+  
+      First commit
+```
+
+这样一来，Fix typo 就从历史中被抹去，也就相当于 Add feature-C 中从来没有出现过拼写错误。这算是一种良性的历史改写。
+
+#### 合并至 master 分支
+
+```shell
+$ git checkout master
+Switched to branch 'master'
+$ git merge --no-ff feature-C
+Merge made by the 'ort' strategy.
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+master 分支整合了 feature-C 分支。开发进展顺利。
 
 ----------
 
