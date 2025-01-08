@@ -625,7 +625,7 @@ $ git commit -m "Fix B"
 ![图5 当前 fix-B 分支的状态](https://i.postimg.cc/MZnFHnGb/image.png)
 
 
-![图 6 fix-B 分支的下一步目标](https://i.postimg.cc/sfb0h3QF/image.png)
+![图6 fix-B 分支的下一步目标](https://i.postimg.cc/sfb0h3QF/image.png)
 
 #### 推进至 feature-A 分支合并后的状态
 
@@ -989,6 +989,73 @@ Merge made by the 'ort' strategy.
 ```
 
 master 分支整合了 feature-C 分支。开发进展顺利。
+
+## 4. 推送至远程仓库
+
+Git 是分散型版本管理系统，但我们前面所学习的，都是针对单一本地仓库的操作。下面，我们将开始接触远在网络另一头的远程仓库。远程仓库顾名思义，是与我们本地仓库相对独立的另一个仓库。让我们先在 GitHub 上创建一个仓库，并将其设置为本地仓库的远程仓库。
+
+为防止与其他仓库混淆，仓库名请与本地仓库保持一致，即 git-tutorial。创建时请不要勾选 Initialize this repository with a README 选项（图8）。因为一旦勾选该选项，GitHub 一侧的仓库就会自动生成 README 文件，从创建之初便与本地仓库失去了整合性。虽然到时也可以强制覆盖，但为防止这一情况发生还是建议不要勾选该选项，直接点击 Create repository 创建仓库。
+
+![图8 不要勾选该选项](https://i.postimg.cc/sxZBGYBh/image.png)
+
+### git remote add——添加远程仓库
+
+在 GitHub 上创建的仓库路径为“git@github.com:用户名/git-tutorial.git”。现在我们用 git remote add 命令将它设置成本地仓库的远程仓库。
+
+```shell
+$ git remote add origin git@github.com:fanlumaster/git-tutorial.git
+```
+
+按照上述格式执行 git remote add 命令之后，Git 会自动将 git@github.com:github-book/git-tutorial.git 远程仓库的名称设置为 origin（标识符）。
+
+### git push——推送至远程仓库
+
+#### 推送至 master 分支
+
+如果想将当前分支下本地仓库中的内容推送给远程仓库，需要用到 git push 命令。现在假定我们在 master 分支下进行操作。
+
+```shell
+$ git push -u origin master
+Enumerating objects: 20, done.
+Counting objects: 100% (20/20), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (20/20), 1.51 KiB | 1.51 MiB/s, done.
+Total 20 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), done.
+To github.com:fanlumaster/git-tutorials.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+```
+
+像这样执行 git push 命令，当前分支的内容就会被推送给远程仓库 origin 的 master 分支。-u 参数可以在推送的同时，将 origin 仓库的 master 分支设置为本地仓库当前分支的 upstream（上游）。添加了这个参数，将来运行 git pull 命令从远程仓库获取内容时，本地仓库的这个分支就可以直接从 origin 的 master 分支获取内容，省去了另外添加参数的麻烦。
+
+执行该操作后，当前本地仓库 master 分支的内容将会被推送到 GitHub 的远程仓库中。在 GitHub 上也可以确认远程 master 分支的内容和本地 master 分支相同。
+
+#### 推送至 master 以外的分支
+
+除了 master 分支之外，远程仓库也可以创建其他分支。举个例子，我们在本地仓库中创建 feature-D 分支，并将它以同名形式 push 至远程仓库。
+
+```shell
+$ git checkout -b feature-D
+Switched to a new branch 'feature-D'
+```
+
+我们在本地仓库中创建了 feature-D 分支，现在将它 push 给远程仓库并保持分支名称不变。
+
+```shell
+$ git push -u origin feature-D
+otal 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: Create a pull request for 'feature-D' on GitHub by visiting:
+remote:      https://github.com/fanlumaster/git-tutorials/pull/new/feature-D
+remote: 
+To github.com:fanlumaster/git-tutorials.git
+ * [new branch]      feature-D -> feature-D
+branch 'feature-D' set up to track 'origin/feature-D'.
+```
+
+现在，在远程仓库的 GitHub 页面就可以查看到 feature-D 分支了。
 
 ----------
 
