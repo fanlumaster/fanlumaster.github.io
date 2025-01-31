@@ -5,8 +5,8 @@ tags:
 - 生活
 - 随笔
 categories:
-index_img:
-banner_img:
+index_img: https://i.postimg.cc/pdDd2SZ2/image.png
+banner_img: https://i.postimg.cc/pdDd2SZ2/image.png
 description: '暨归途随笔，及苏北县城'
 ---
 

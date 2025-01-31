@@ -5,8 +5,8 @@ tags:
 - 生活
 - 随笔
 categories:
-index_img:
-banner_img:
+index_img: https://i.postimg.cc/dtPw06h3/image.png
+banner_img: https://i.postimg.cc/dtPw06h3/image.png
 ---
 
 也许更应该称为技术革命。

@@ -6,8 +6,8 @@ tags:
 - 随笔
 - 思考
 categories:
-index_img:
-banner_img:
+index_img: https://i.postimg.cc/bJc3nZkx/image.png
+banner_img: https://i.postimg.cc/bJc3nZkx/image.png
 ---
 
 在王菲之外发现的一首歌，歌词没有细看，单单是歌名就足够引起我的注意了：生活在别处。
