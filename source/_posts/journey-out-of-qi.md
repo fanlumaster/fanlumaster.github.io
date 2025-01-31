@@ -7,7 +7,7 @@ tags:
 categories:
 index_img: https://i.postimg.cc/pdDd2SZ2/image.png
 banner_img: https://i.postimg.cc/pdDd2SZ2/image.png
-description: '暨归途随笔，及苏北县城'
+description: '暨归途随笔，及归家苏北县城偶感'
 ---
 
 出齐国，去了楚国。
