@@ -931,6 +931,31 @@ links:
   # Member item of page
   items:
     - {
+        title: "Yukino256",
+        intro: "Yukino256のBlog",
+        link: "https://yukino256.github.io",
+        avatar: "https://i.imgur.com/BKX4NiJ.png",
+      }
+    - {
+        title: "SpecterLLL",
+        intro: "For Creativity",
+        link: "https://spectrumzero.github.io",
+        avatar: "https://i.imgur.com/8o3Glkc.png",
+      }
+      # https://blog.yllhwa.com/
+    - {
+        title: "yllhwa",
+        intro: "yllhwa's blog",
+        link: "https://blog.yllhwa.com",
+        avatar: "https://i.postimg.cc/Rhb4Jk1d/focus.png",
+      }
+    - {
+        title: "dogNew",
+        intro: "去做吧，反正都会后悔",
+        link: "https://dognew0126.github.io",
+        avatar: "https://i.imgur.com/CIlWtVm.png",
+      }
+    - {
         title: "PPLong",
         intro: "命数如织，当为磐石",
         link: "https://www.pplong.top",
@@ -941,24 +966,6 @@ links:
         intro: "三更有梦书当枕",
         link: "https://wleoo.gitee.io",
         avatar: "https://i.imgur.com/6wfomhf.png",
-      }
-    - {
-        title: "dogNew",
-        intro: "去做吧，反正都会后悔",
-        link: "https://dognew0126.github.io",
-        avatar: "https://i.imgur.com/CIlWtVm.png",
-      }
-    - {
-        title: "SpecterLLL",
-        intro: "For Creativity",
-        link: "https://spectrumzero.github.io",
-        avatar: "https://i.imgur.com/8o3Glkc.png",
-      }
-    - {
-        title: "Yukino256",
-        intro: "Yukino256のBlog",
-        link: "https://yukino256.github.io",
-        avatar: "https://i.imgur.com/BKX4NiJ.png",
       }
 
   # 当成员头像加载失败时，替换为指定图片
