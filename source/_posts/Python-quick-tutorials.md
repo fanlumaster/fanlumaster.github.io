@@ -7,7 +7,7 @@ tags:
 categories:
 index_img: https://i.postimg.cc/HWK4SQtk/image.png
 banner_img: https://i.postimg.cc/HWK4SQtk/image.png
-description: "从 Python 开始学编程"
+description: "从 Python 开始学编程。谨以此文祭奠我的编程老师 Vamei 前辈。"
 sticky: 100
 ---
 
@@ -57,7 +57,7 @@ $ python
 
 将直接进入 python。然后在命令行提示符 `>>>` 后面输入：
 
->>>print('Hello World!')
+> > > print('Hello World!')
 
 可以看到，随后在屏幕上输出:
 
@@ -98,6 +98,3 @@ Hello World!
 ### python 基础 02 基本数据类型
 
 简单的数据类型以及赋值。
-
-
-
