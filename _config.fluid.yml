@@ -932,6 +932,12 @@ links:
   # Member item of page
   items:
     - {
+        title: "AsyncX",
+        intro: "🌌 Per Aspera Ad Astra",
+        link: "https://blog.asyncx.top",
+        avatar: "https://blog.asyncx.top/favicon.svg",
+      }
+    - {
         title: "Yukino256",
         intro: "Yukino256のBlog",
         link: "https://yukino256.github.io",
