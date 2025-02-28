@@ -5,6 +5,8 @@ layout: about
 comment: true
 ---
 
+INTJ-A. (Now available, not for work, but for feelings, may you know?)
+
 如果你对我的胡言乱语感兴趣，欢迎来我的 [channel](https://t.me/fanychannel)。
 
 Huster 一枚。
