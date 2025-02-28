@@ -1,6 +1,6 @@
 {
   "accentColor": "",
-  "cssTheme": "AnuPpuccin",
+  "cssTheme": "Catppuccin",
   "interfaceFontFamily": "Microsoft YaHei",
   "textFontFamily": "Microsoft YaHei",
   "monospaceFontFamily": "CaskaydiaCove NF",
@@ -10,5 +10,6 @@
   "nativeMenus": false,
   "enabledCssSnippets": [
     "color"
-  ]
+  ],
+  "theme": "obsidian"
 }
