@@ -28,11 +28,11 @@ vamei 在原教程中写道，
 
 **小提醒**
 
-1. 教程基于 Python3.13，测试环境为 Windows。
+1. 教程基于 Python3.13，测试环境为 Windows11。
 2. 标准库的一些包不适用于 Windows 平台。如果文中的程序无法在你的平台上运行，欢迎讨论。
 3. 我将专注于 Python 的主干，以便读者（观众）能以最快时间对 Python 形成概念。
 4. 命令行将以 `$` 开始，比如 `ls`, `python`。
-5. Python 命令行将以 `>>>` 开始，比如 `>>>print 'Hello World!'`。
+5. Python 命令行将以 `>>>` 开始，比如 `>>>print('Hello World!')`。
 6. 注释会以 `#` 开始。
 
 **建议**
@@ -82,7 +82,7 @@ print('Hello World!')
 退出文本编辑器，然后在命令行输入：
 
 ```powershell
-$ python ./hello.py
+$ python .\hello.py
 ```
 
 来运行 hello.py。可以看到 Python 随后输出，
@@ -400,7 +400,7 @@ if i > 0:
     print('positive i')
     i = i + 1
 elif i == 0:
-    print 'i is 0'
+    print('i is 0')
     i = i * 10
 else:
     print('negative i')
@@ -510,6 +510,7 @@ while 会不停地循环执行隶属于它的语句，<span style="color: pink">
 举例
 
 ```python
+i = 0
 while i < 10:
     print(i)
     i = i + 1
@@ -752,7 +753,7 @@ print(summer.move(5,8))
 
 新定义的鸡（Chicken）类的，增加了两个属性：移动方式（way_of_move），可能在 KFC 找到（possible_in_KFC）
 
-在类定义时，括号里为了 Bird。这说明，Chicken 是属于鸟类（Bird）的一个 <span style="color: pink">子类</span>，即 Chicken 继承自 Bird。自然而然，Bird 就是 Chicken 的 <span style="color: pink">父类</span>。<span style="color: pink">Chicken 将享有 Bird 的所有属性</span>。尽管我只声明了 summer 是鸡类，它通过继承享有了父类的属性（无论是变量属性 have_feather 还是方法属性 move）
+在类定义时，括号里为 Bird。这说明，Chicken 是属于鸟类（Bird）的一个 <span style="color: pink">子类</span>，即 Chicken 继承自 Bird。自然而然，Bird 就是 Chicken 的 <span style="color: pink">父类</span>。<span style="color: pink">Chicken 将享有 Bird 的所有属性</span>。尽管我只声明了 summer 是鸡类，它通过继承享有了父类的属性（无论是变量属性 have_feather 还是方法属性 move）
 
 新定义的黄鹂(Oriole)类，同样继承自鸟类。在创建一个黄鹂对象时，该对象自动拥有鸟类的属性。
 
