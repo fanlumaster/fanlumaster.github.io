@@ -853,7 +853,7 @@ about:
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
-  avatar: https://i.postimg.cc/RVzbpHBK/avatar.jpg
+  avatar: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/4954349d-0aff-4cf6-9709-2243672b39b7/image.png?table=block&id=1ad72237-1a17-8066-a38e-f5e8b66eaeee&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741168800000&signature=S7tt8utIVORcy2OWfemmTqnQG32hdFeva7_eaAyJfyo&downloadName=image.png
   name: "Flyan Lu's Blog"
   intro: "以横扫一切的偏见斩草除根"
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码

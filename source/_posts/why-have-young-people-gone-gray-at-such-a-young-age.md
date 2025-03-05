@@ -3,8 +3,8 @@ title: 从白头发出发谈谈我们z世代的精神问题(浅谈)
 date: 2025-01-08 08:32:06
 tags:
 categories:
-index_img:
-banner_img:
+index_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/4832003d-8213-423b-922e-ef69dfab58b4/image.png?table=block&id=1ad72237-1a17-80f4-b053-fce6eb91897a&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741176000000&signature=ScSX1JXqP6c3M_vuwrp6EgOGXQF4jgIKKR-qO9ieOVI&downloadName=image.png
+banner_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/4832003d-8213-423b-922e-ef69dfab58b4/image.png?table=block&id=1ad72237-1a17-80f4-b053-fce6eb91897a&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741176000000&signature=ScSX1JXqP6c3M_vuwrp6EgOGXQF4jgIKKR-qO9ieOVI&downloadName=image.png
 ---
 
 年轻人是你，也是我。
@@ -18,5 +18,3 @@ banner_img:
 再谈懵懂。所谓的懵懂，就是知识面的问题。我们千禧一代得益于数字信息的发展，可以说在这方面有得天独厚的优势。然而，世界的本质是残酷的，这里就体现在好像是知识变得更容易获取了，事实也确实如此，但是，更重要的一个事实在于所谓的信息茧房的问题。互联网公司跑马圈地，不同地盘的用户说是这些公司的奴隶也不为过。在这种情况下，我们的个性受到极端地压缩，我们的能够看到的信息反而是变少了。我们可以拿一把枪指的自己的脑袋问自己，你有个性吗？思考这个问题的时候，不妨对着镜子观察一下自己白头发，也不妨抽出自己的体检单，或者看看自己的头发是否如初中的时候茂密。那么，在知识匮乏的这样一个情况下，我们感到未来似乎只有某些被别人制定好的路线可以去走了，我们就只能按照这些既定路线走完我们被别人利用的一生，没人注视着我们，因为这样的我们没人认为会值得注视。既定的路线、既定的工作、既定的压力、既定的教育、既定的生活轨迹、既定的两性关系、既定的报废时间。这样的我们不去承担这个社会的压力，还指望谁来承担呢？这样的我们不去承担白发、脱发、各种身体机能的病变，还指望谁来承担呢？
 
 年轻人，是我也是你。
-
-
