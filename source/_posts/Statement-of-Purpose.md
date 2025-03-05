@@ -5,9 +5,9 @@ updated: 2024-06-18 22:30:03
 tags:
   - 生活
 categories:
-index_img: https://i.imgur.com/RVlDR8Z.png
-banner_img: https://i.imgur.com/RVlDR8Z.png
-description: 'SOP or PS(Personal Statement)'
+index_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/bc0ff561-9ec2-4fb9-988c-52da867dccff/image.png?table=block&id=1ad72237-1a17-80ee-ac0e-d9a4657f84ca&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741219200000&signature=i70TKUcR4NA4h4q71G5gCyr6Soeqc1lop-HeZgUyBis&downloadName=image.png
+banner_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/bc0ff561-9ec2-4fb9-988c-52da867dccff/image.png?table=block&id=1ad72237-1a17-80ee-ac0e-d9a4657f84ca&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741219200000&signature=i70TKUcR4NA4h4q71G5gCyr6Soeqc1lop-HeZgUyBis&downloadName=image.png
+description: "SOP or PS(Personal Statement)"
 ---
 
 My former educational, professional, and personal experiences have deeply influenced my research and creative interests. They have instilled in me a unique passion for studying and exploring data science. Below, I will explain how my past educational, professional, and personal experiences have shaped my keen interest and enthusiasm for the field of computer science and the specific area of data science. Additionally, I will explain why, upon recognizing my passion for databases, I made the firm decision to pursue a PhD. degree in Data Science at XXX University.
