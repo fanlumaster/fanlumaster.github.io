@@ -5,8 +5,8 @@ tags:
   - Windows
   - Autohotkey
 categories:
-index_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/5390fcbe-7ccb-49f6-a9b9-f15c9d83f975/image.png?table=block&id=1ad72237-1a17-806d-83b4-d037eed06ba1&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741204800000&signature=gjMwHj1AYr-fiG1Zy-KRhmC6VPvTZ2p5FCmnIFVVwZs&downloadName=image.png
-banner_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/5390fcbe-7ccb-49f6-a9b9-f15c9d83f975/image.png?table=block&id=1ad72237-1a17-806d-83b4-d037eed06ba1&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741204800000&signature=gjMwHj1AYr-fiG1Zy-KRhmC6VPvTZ2p5FCmnIFVVwZs&downloadName=image.png
+index_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/5390fcbe-7ccb-49f6-a9b9-f15c9d83f975/image.png?table=block&id=1ad72237-1a17-806d-83b4-d037eed06ba1&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741269600000&signature=06e4MB21G6EQtpsZ4kM6qFbOAxTRbDk0sSYwRRD9jMc&downloadName=image.png
+banner_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/5390fcbe-7ccb-49f6-a9b9-f15c9d83f975/image.png?table=block&id=1ad72237-1a17-806d-83b4-d037eed06ba1&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741269600000&signature=06e4MB21G6EQtpsZ4kM6qFbOAxTRbDk0sSYwRRD9jMc&downloadName=image.png
 ---
 
 首先介绍一下使用 AHK 来模拟 KDE 的窗口拖动。在 KDE 中，我们知道，按下 Win(Super) 键之后，然后使用鼠标的左键就可以在窗口的任意地方拖动窗口，使用鼠标的右键就可以在任意地方 resize 窗口。
