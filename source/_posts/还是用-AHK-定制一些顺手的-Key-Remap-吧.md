@@ -7,8 +7,8 @@ tags:
   - Windows
   - Vim
 categories:
-index_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/65f2d7ac-2df4-459a-996d-105f72ff290e/image.png?table=block&id=1ad72237-1a17-80b6-9d56-e9b2161cf774&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741219200000&signature=TyfBF6jjItdpTw7oRSBtQ3K2OtFDuWavVXKwSsSPqsU&downloadName=image.png
-banner_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/65f2d7ac-2df4-459a-996d-105f72ff290e/image.png?table=block&id=1ad72237-1a17-80b6-9d56-e9b2161cf774&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741219200000&signature=TyfBF6jjItdpTw7oRSBtQ3K2OtFDuWavVXKwSsSPqsU&downloadName=image.png
+index_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/65f2d7ac-2df4-459a-996d-105f72ff290e/image.png?table=block&id=1ad72237-1a17-80b6-9d56-e9b2161cf774&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741269600000&signature=i2Qk1LFnZdQdEA0TTzemEkQAENThgxZX-HDiy9-WPPI&downloadName=image.png
+banner_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/65f2d7ac-2df4-459a-996d-105f72ff290e/image.png?table=block&id=1ad72237-1a17-80b6-9d56-e9b2161cf774&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741269600000&signature=i2Qk1LFnZdQdEA0TTzemEkQAENThgxZX-HDiy9-WPPI&downloadName=image.png
 ---
 
 起因是 Powertoys 的这个 [issue](https://github.com/microsoft/PowerToys/issues/3794)，其实就是一个简单的快捷键，这在 KDE 中是一个默认的键位，事实上，很多 Linux 系的软件都是默认有简单的 vim-like 的键位的，这并不是什么费事儿的开发需求，但是呢，在 Windows 中，微软就是不理，那还能怎么办呢？只好自己来动手了。

@@ -5,8 +5,8 @@ updated: 2024-06-18 22:30:03
 tags:
   - 生活
 categories:
-index_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/bc0ff561-9ec2-4fb9-988c-52da867dccff/image.png?table=block&id=1ad72237-1a17-80ee-ac0e-d9a4657f84ca&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741219200000&signature=i70TKUcR4NA4h4q71G5gCyr6Soeqc1lop-HeZgUyBis&downloadName=image.png
-banner_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/bc0ff561-9ec2-4fb9-988c-52da867dccff/image.png?table=block&id=1ad72237-1a17-80ee-ac0e-d9a4657f84ca&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741219200000&signature=i70TKUcR4NA4h4q71G5gCyr6Soeqc1lop-HeZgUyBis&downloadName=image.png
+index_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/bc0ff561-9ec2-4fb9-988c-52da867dccff/image.png?table=block&id=1ad72237-1a17-80ee-ac0e-d9a4657f84ca&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741269600000&signature=ibfcFYFxQ2m6rivQkWaIAzlk-zaENf-icEK9NyyfPb4&downloadName=image.png
+banner_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/bc0ff561-9ec2-4fb9-988c-52da867dccff/image.png?table=block&id=1ad72237-1a17-80ee-ac0e-d9a4657f84ca&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741269600000&signature=ibfcFYFxQ2m6rivQkWaIAzlk-zaENf-icEK9NyyfPb4&downloadName=image.png
 description: "SOP or PS(Personal Statement)"
 ---
 

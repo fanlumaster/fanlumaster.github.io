@@ -3,8 +3,8 @@ title: 从白头发出发谈谈我们z世代的精神问题(浅谈)
 date: 2025-01-08 08:32:06
 tags:
 categories:
-index_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/4832003d-8213-423b-922e-ef69dfab58b4/image.png?table=block&id=1ad72237-1a17-80f4-b053-fce6eb91897a&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741176000000&signature=ScSX1JXqP6c3M_vuwrp6EgOGXQF4jgIKKR-qO9ieOVI&downloadName=image.png
-banner_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/4832003d-8213-423b-922e-ef69dfab58b4/image.png?table=block&id=1ad72237-1a17-80f4-b053-fce6eb91897a&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741176000000&signature=ScSX1JXqP6c3M_vuwrp6EgOGXQF4jgIKKR-qO9ieOVI&downloadName=image.png
+index_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/4832003d-8213-423b-922e-ef69dfab58b4/image.png?table=block&id=1ad72237-1a17-80f4-b053-fce6eb91897a&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741269600000&signature=mKzH0onYpRQKUm5mwasyGxIQwBt_Oj8ATOkNbDz-r2M&downloadName=image.png
+banner_img: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/4832003d-8213-423b-922e-ef69dfab58b4/image.png?table=block&id=1ad72237-1a17-80f4-b053-fce6eb91897a&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741269600000&signature=mKzH0onYpRQKUm5mwasyGxIQwBt_Oj8ATOkNbDz-r2M&downloadName=image.png
 ---
 
 年轻人是你，也是我。
