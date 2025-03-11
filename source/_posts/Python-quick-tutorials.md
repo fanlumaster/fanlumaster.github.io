@@ -8,7 +8,6 @@ categories:
 index_img: https://i.postimg.cc/HWK4SQtk/image.png
 banner_img: https://i.postimg.cc/HWK4SQtk/image.png
 description: "从 Python 开始学编程。谨以此文祭奠我的编程老师 Vamei 前辈。"
-sticky: 100
 ---
 
 ## 前言
