@@ -853,7 +853,7 @@ about:
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
-  avatar: https://file.notion.so/f/f/9a846297-de6b-4494-b312-23f8e5db7b7e/4954349d-0aff-4cf6-9709-2243672b39b7/image.png?table=block&id=1ad72237-1a17-8066-a38e-f5e8b66eaeee&spaceId=9a846297-de6b-4494-b312-23f8e5db7b7e&expirationTimestamp=1741168800000&signature=S7tt8utIVORcy2OWfemmTqnQG32hdFeva7_eaAyJfyo&downloadName=image.png
+  avatar: https://s2.loli.net/2025/03/11/9YtLVPj8SQZ4cXW.webp
   name: "Flyan Lu's Blog"
   intro: "以横扫一切的偏见斩草除根"
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码
@@ -941,13 +941,13 @@ links:
         title: "Yukino256",
         intro: "Yukino256のBlog",
         link: "https://yukino256.github.io",
-        avatar: "https://i.imgur.com/BKX4NiJ.png",
+        avatar: "https://s2.loli.net/2025/03/11/nsEldXhm5GLKIQf.png",
       }
     - {
         title: "SpecterLLL",
         intro: "For Creativity",
         link: "https://spectrumzero.github.io",
-        avatar: "https://i.imgur.com/8o3Glkc.png",
+        avatar: "https://s2.loli.net/2025/03/11/3OFeovQm8fINw7U.png",
       }
       # https://blog.yllhwa.com/
     - {
@@ -960,19 +960,19 @@ links:
         title: "dogNew",
         intro: "去做吧，反正都会后悔",
         link: "https://dognew0126.github.io",
-        avatar: "https://i.imgur.com/CIlWtVm.png",
+        avatar: "https://s2.loli.net/2025/03/11/nMgf7bWrw59s1dy.png",
       }
     - {
         title: "PPLong",
         intro: "命数如织，当为磐石",
         link: "https://www.pplong.top",
-        avatar: "https://i.imgur.com/VfeaNyl.jpg",
+        avatar: "https://s2.loli.net/2025/03/11/K5bjZSrPf9WYVks.png",
       }
     - {
         title: "WLeoo",
         intro: "三更有梦书当枕",
         link: "https://wleoo.gitee.io",
-        avatar: "https://i.imgur.com/6wfomhf.png",
+        avatar: "https://s2.loli.net/2025/03/11/bWV2Jy3afnEm4v9.png",
       }
 
   # 当成员头像加载失败时，替换为指定图片
