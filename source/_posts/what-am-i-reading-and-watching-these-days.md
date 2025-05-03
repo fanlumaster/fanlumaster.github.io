@@ -5,8 +5,8 @@ tags:
   - 生活
   - 杂感
 categories:
-index_img:
-banner_img:
+index_img: https://i.postimg.cc/wjvMK3gF/image.png
+banner_img: https://i.postimg.cc/wjvMK3gF/image.png
 ---
 
 颓唐。点实体蚊香没有通风，我还自以为是地在室内工作，好了吧，嗓子出问题了，咳了两三天，今日总算好转。
