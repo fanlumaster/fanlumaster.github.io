@@ -5,8 +5,8 @@ tags:
   - 生活
   - 随笔
 categories:
-index_img:
-banner_img:
+index_img: https://s2.loli.net/2025/05/10/poe8rWD1PThLxfG.png
+banner_img: https://s2.loli.net/2025/05/10/poe8rWD1PThLxfG.png
 ---
 
 大脑在旋转，世界在旋转。
