@@ -867,7 +867,7 @@ about:
     - {
         class: "iconfont icon-mastodon",
         link: "https://m.cmx.im/@SordFan",
-        tip: "长毛象",
+        tip: "Mastodon",
       }
     - {
         class: "iconfont icon-twitter-fill",
@@ -888,6 +888,16 @@ about:
         class: "iconfont icon-bilibili",
         link: "https://space.bilibili.com/82083647",
         tip: "bilibili-two",
+      }
+    - {
+        class: "iconfont icon-book",
+        link: "https://www.xiaohongshu.com/user/profile/643903c7000000000e01d8d2",
+        tip: "RedNote",
+      }
+    - {
+        class: "iconfont icon-v2ex",
+        link: "https://www.v2ex.com/member/FanyFull",
+        tip: "V2EX",
       }
     - {
         class: "iconfont icon-douban-fill",
