@@ -4,8 +4,8 @@ date: 2025-10-06 12:21:36
 tags:
 - 生活
 categories:
-index_img: https://imgur.com/a/fQPcQrz.png
-banner_img: https://imgur.com/a/fQPcQrz.png
+index_img: https://i.imgur.com/1hPuyyE.png
+banner_img: https://i.imgur.com/1hPuyyE.png
 ---
 
 王靖雯的每一首歌，都无比应景地映照了少年不同阶段的心境。此时此刻，是“仍是旧句子”，苦涩的句子。
