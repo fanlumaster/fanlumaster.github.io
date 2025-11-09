@@ -121,3 +121,15 @@ banner_img: https://i.imgur.com/5y3b4Nb.png
 ![](https://i.imgur.com/ykNAXzm.jpeg)
 
 ![](https://i.imgur.com/ZbbiNfK.jpeg)
+
+补充一点当年的图片：
+
+![](https://i.imgur.com/NTXIbUQ.jpeg)
+
+![](https://i.imgur.com/HPaeDCd.jpeg)
+
+![](https://i.imgur.com/ba2iZYu.jpeg)
+
+![](https://i.imgur.com/rPw6NaV.jpeg)
+
+![](https://i.imgur.com/6IWlyw9.jpeg)
