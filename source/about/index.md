@@ -5,6 +5,8 @@ layout: about
 comment: true
 ---
 
+呃，朋友好，道上的人都称呼我黄庆龙，欢迎和我交朋友。
+
 INTJ-A. (Now not available, not only for work, but also for feelings, may you know.)
 
 如果你对我的胡言乱语感兴趣，欢迎来我的 [channel](https://t.me/fanychannel)。
