@@ -22,6 +22,10 @@ banner_img: https://i.imgur.com/FvDHQNq.png
 
 然后，就越来越懒，懒到连 git commit message 也 agy 来帮我想，嗯，比我自己花更多的时间想出来的还要更贴切一点。
 
+以及，在小区发现了一棵橘子树，费了一些气力，摘了一颗给贱荆。回家吃了，说不出来的味道，酸大于甜。
+
+以及，输入法的事情不能再拖了，就和 Ge 兄交代了当下的进展吧。
+
 ![](https://i.imgur.com/TbVbwYd.jpeg)
 
 ![](https://i.imgur.com/ZZJbwwz.jpeg)
